@@ -14,12 +14,12 @@ Add your own name (do not add the names for others!) to the section below.
 
 | 📸 | Name | Email |
 |---|---|---|
-| ![](https://eu.ui-avatars.com/api/?name=OOPP&length=4&size=50&color=DDD&background=777&font-size=0.325) | Ismaël Zaidi | I.Zaidi@student.tudelft.nl |
-| ![](https://eu.ui-avatars.com/api/?name=OOPP&length=4&size=50&color=DDD&background=777&font-size=0.325) | Ciprian Stanciu | G.C.Stanciu@student.tudelft.nl |
-| ![](https://eu.ui-avatars.com/api/?name=OOPP&length=4&size=50&color=DDD&background=777&font-size=0.325) | Jannick Weitzel | J.A.G.Weitzel@student.tudelft.nl |
-| ![](https://eu.ui-avatars.com/api/?name=OOPP&length=4&size=50&color=DDD&background=777&font-size=0.325) | Cristian Cutitei | c.cutitei@student.tudelft.nl |
-|![](https://eu.ui-avatars.com/api/?name=OOPP&length=4&size=50&color=DDD&background=777&font-size=0.325)| Maroje Luka Borsic |M.L.Borsic@student.tudelft.nl|
-|![](https://eu.ui-avatars.com/api/?name=OOPP&length=4&size=50&color=DDD&background=777&font-size=0.325)|Aben Rayev|A.Rayev@student.tudelft.nl|
+| ![](https://eu.ui-avatars.com/api/?name=IZ&length=4&size=50&color=DDD&background=777&font-size=0.325) | Ismaël Zaidi | I.Zaidi@student.tudelft.nl |
+| ![](https://eu.ui-avatars.com/api/?name=CS&length=4&size=50&color=DDD&background=777&font-size=0.325) | Ciprian Stanciu | G.C.Stanciu@student.tudelft.nl |
+| ![](https://eu.ui-avatars.com/api/?name=JW&length=4&size=50&color=DDD&background=777&font-size=0.325) | Jannick Weitzel | J.A.G.Weitzel@student.tudelft.nl |
+| ![](https://eu.ui-avatars.com/api/?name=CC&length=4&size=50&color=DDD&background=777&font-size=0.325) | Cristian Cutitei | c.cutitei@student.tudelft.nl |
+|![](https://eu.ui-avatars.com/api/?name=MLB&length=4&size=50&color=DDD&background=777&font-size=0.325)| Maroje Luka Borsic |M.L.Borsic@student.tudelft.nl|
+|![](https://eu.ui-avatars.com/api/?name=AR&length=4&size=50&color=DDD&background=777&font-size=0.325)|Aben Rayev|A.Rayev@student.tudelft.nl|
 <!-- Instructions (remove once assignment has been completed -->
 <!-- - Add (only!) your own name to the table above (use Markdown formatting) -->
 <!-- - Mention your *student* email address -->
