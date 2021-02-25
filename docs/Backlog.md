@@ -15,7 +15,6 @@ Here we will define the prioritized user stories in the following format (as a *
 *	As a student I want to create questions so that the question flow during the lecture will be optimal
 *	As a teacher I want to have the option to only see the most popular / relevant questions so that I don’t get spammed
 *	As a student I want to be able to upvote questions to show that I also have that question or would like it answered
-*	As a student I want to be able to indicate if the lecture goes to slow or to fast so that the teacher can adjust his pace
 *	As a student I don’t want an authentication to log in so that it is easier to join sessions
 *	As a teacher I don’t want students replying to each other so that the chat doesn’t become to cluttered
 *   As a teacher / moderator I want users to fill in a username so that I can distinguish between them
@@ -39,6 +38,7 @@ Here we will define the prioritized user stories in the following format (as a *
 *   As a teacher / moderator I want to be able to close a lecture so that questions can't asked anymore
 *   As a teacher / moderator I want to enter a closed lecture so that I can export the questions into a file
 *   As a teacher / moderator I want to enter a closed lecture so that I can answer remaining questions
+*	As a student I want to be able to indicate if the lecture goes to slow or to fast so that the teacher can adjust his pace
 
 **Could have:**
 *	As a teacher / moderator I want that students can only ask a certain amount of questions per time frame so that the teacher doesn’t get spammed.
