@@ -1,6 +1,6 @@
-package nl.tudelft.oopp.g72.Api;
+package nl.tudelft.oopp.g72.api;
 
-import nl.tudelft.oopp.g72.Services.UserService;
+import nl.tudelft.oopp.g72.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

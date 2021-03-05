@@ -1,13 +1,19 @@
-package nl.tudelft.oopp.g72.Models;
+package nl.tudelft.oopp.g72.models;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity(name = "User")
 @Table(name = "user")
 public class User {
     @Id
     @SequenceGenerator(
-        name="user_id_sequence",
+        name = "user_id_sequence",
         sequenceName = "user_id_sequence",
         allocationSize = 1
     )
@@ -67,17 +73,21 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", nick='" + nick + '\'' +
-                ", token='" + token + '\'' +
-                '}';
+        return "User{"
+                + "id=" + id
+                + ", nick='" + nick + '\''
+                + ", token='" + token + '\''
+                + '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         User user = (User) o;
 

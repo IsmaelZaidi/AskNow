@@ -2,8 +2,8 @@ package nl.tudelft.oopp.g72;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import nl.tudelft.oopp.g72.Models.User;
-import nl.tudelft.oopp.g72.Repositories.UserRepository;
+import nl.tudelft.oopp.g72.models.User;
+import nl.tudelft.oopp.g72.repositories.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
