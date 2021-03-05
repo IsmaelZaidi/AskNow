@@ -91,8 +91,12 @@ public class User {
 
         User user = (User) o;
 
-        if (id != user.id) return false;
-        if (!nick.equals(user.nick)) return false;
+        if (id != user.id) {
+            return false;
+        }
+        if (!nick.equals(user.nick)) {
+            return false;
+        }
         return token.equals(user.token);
     }
 
