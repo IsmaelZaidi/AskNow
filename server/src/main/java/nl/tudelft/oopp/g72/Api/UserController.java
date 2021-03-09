@@ -27,7 +27,7 @@ public class UserController {
     String getNick(@RequestHeader("Token") String token) {
         User user = userService.findByToken(token);
         if (user == null)
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("No such user exists");
         return user.getNick();
     }
 }
