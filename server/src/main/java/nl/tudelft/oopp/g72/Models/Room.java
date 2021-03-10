@@ -66,12 +66,7 @@ public class Room {
 
     }
 
-    /**
-     *
-     * @param name
-     * @param joincodeStudent
-     * @param joincodeMod
-     */
+
     public Room(String name, String joincodeStudent, String joincodeMod) {
         this.name = name;
         this.joincodeStudent = joincodeStudent;

@@ -42,11 +42,7 @@ public class User {
     public User() {
     }
 
-    /**
-     *
-     * @param nick
-     * @param token
-     */
+
     public User(String nick, String token) {
         this.nick = nick;
         this.token = token;

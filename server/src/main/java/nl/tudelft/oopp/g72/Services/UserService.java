@@ -1,8 +1,10 @@
 package nl.tudelft.oopp.g72.services;
 
 import nl.tudelft.oopp.g72.models.User;
-import nl.tudelft.oopp.g72.repositories.UserRepository;
 import java.util.Optional;
+import java.util.UUID;
+import nl.tudelft.oopp.g72.repositories.UserRepository;
+
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

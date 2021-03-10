@@ -4,13 +4,14 @@ import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
+import javax.persistence.CascadeType;
+import javax.persistence.Table;
 import javax.persistence.OneToOne;
 import javax.persistence.JoinColumn;
-import javax.persistence.CascadeType;
+
 
 
 
@@ -69,12 +70,7 @@ public class Question {
 
     }
 
-    /**
-     *
-     * @param timestamp
-     * @param upvotes
-     * @param answer
-     */
+
     public Question(String timestamp, int upvotes, String answer) {
         this.timestamp = timestamp;
         this.upvotes = upvotes;
