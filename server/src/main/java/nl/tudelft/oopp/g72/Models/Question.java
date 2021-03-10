@@ -1,14 +1,15 @@
 package nl.tudelft.oopp.g72.Models;
 
-import javax.persistence.*;
 import java.util.Objects;
+import javax.persistence.*;
+
 
 @Entity(name = "Question")
 @Table(name = "Question")
 public class Question {
     @Id
     @SequenceGenerator(
-            name="question_id_sequence",
+            name = "question_id_sequence",
             sequenceName = "question_id_sequence",
             allocationSize = 1
     )
@@ -64,47 +65,71 @@ public class Question {
         this.answer = answer;
     }
 
-    public long getId() { return id; }
+    public long getId() {
+        return id;
+    }
 
-    public void setId(long id) { this.id = id; }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-    public String getTimestamp() { return timestamp; }
+    public String getTimestamp() {
+        return timestamp;
+    }
 
-    public void setTimestamp(String timestamp) { this.timestamp = timestamp; }
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
 
-    public int getUpvotes() { return upvotes; }
+    public int getUpvotes() {
+        return upvotes;
+    }
 
-    public void setUpvotes(int upvotes) { this.upvotes = upvotes; }
+    public void setUpvotes(int upvotes) {
+        this.upvotes = upvotes;
+    }
 
-    public String getAnswer() { return answer; }
+    public String getAnswer() {
+        return answer;
+    }
 
-    public void setAnswer(String answer) { this.answer = answer; }
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 
-    public boolean isAnswered() { return answered; }
+    public boolean isAnswered() {
+        return answered;
+    }
 
-    public void setAnswered(boolean answered) { this.answered = answered; }
+    public void setAnswered(boolean answered) {
+        this.answered = answered;
+    }
 
     @Override
     public String toString() {
-        return "Question{" +
-                "id=" + id +
-                ", timestamp='" + timestamp + '\'' +
-                ", upvotes=" + upvotes +
-                ", answer='" + answer + '\'' +
-                ", answered=" + answered +
-                '}';
+        return "Question{"
+                + "id=" + id
+                + ", timestamp='" + timestamp + '\''
+                + ", upvotes=" + upvotes
+                + ", answer='" + answer + '\''
+                + ", answered=" + answered
+                + '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Question)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Question)) {
+            return false;
+        }
         Question question = (Question) o;
-        return id == question.id &&
-                upvotes == question.upvotes &&
-                answered == question.answered &&
-                Objects.equals(timestamp, question.timestamp) &&
-                Objects.equals(answer, question.answer);
+        return id == question.id
+                && upvotes == question.upvotes
+                && answered == question.answered
+                && Objects.equals(timestamp, question.timestamp)
+                && Objects.equals(answer, question.answer);
     }
 
 

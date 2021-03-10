@@ -1,8 +1,9 @@
 package nl.tudelft.oopp.g72.Models;
 
 
-import javax.persistence.*;
+
 import java.util.Objects;
+import javax.persistence.*;
 
 @Entity(name = "Room")
 @Table(name = "Room")
@@ -63,53 +64,81 @@ public class Room {
         this.joincodeMod = joincodeMod;
     }
 
-    public long getId() { return id; }
+    public long getId() {
+        return id;
+    }
 
-    public void setId(long id) { this.id = id; }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public boolean isOpened() { return opened; }
+    public boolean isOpened() {
+        return opened;
+    }
 
-    public void setOpened(boolean opened) { this.opened = opened; }
+    public void setOpened(boolean opened) {
+        this.opened = opened;
+    }
 
-    public String getScheduled_time() { return scheduled_time; }
+    public String getScheduled_time() {
+        return scheduled_time;
+    }
 
-    public void setScheduled_time(String scheduled_time) { this.scheduled_time = scheduled_time; }
+    public void setScheduled_time(String scheduled_time) {
+        this.scheduled_time = scheduled_time;
+    }
 
-    public String getJoincodeStudent() { return joincodeStudent; }
+    public String getJoincodeStudent() {
+        return joincodeStudent;
+    }
 
-    public void setJoincodeStudent(String joincodeStudent) { this.joincodeStudent = joincodeStudent; }
+    public void setJoincodeStudent(String joincodeStudent) {
+        this.joincodeStudent = joincodeStudent;
+    }
 
-    public String getJoincodeMod() { return joincodeMod; }
+    public String getJoincodeMod() {
+        return joincodeMod;
+    }
 
-    public void setJoincodeMod(String joincodeMod) { this.joincodeMod = joincodeMod; }
+    public void setJoincodeMod(String joincodeMod) {
+        this.joincodeMod = joincodeMod;
+    }
 
     @Override
     public String toString() {
-        return "Room{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", opened=" + opened +
-                ", scheduled_time='" + scheduled_time + '\'' +
-                ", joincodeStudent='" + joincodeStudent + '\'' +
-                ", joincodeMod='" + joincodeMod + '\'' +
-                '}';
+        return "Room{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", opened=" + opened
+                + ", scheduled_time='" + scheduled_time + '\''
+                + ", joincodeStudent='" + joincodeStudent + '\''
+                + ", joincodeMod='" + joincodeMod + '\''
+                + '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Room)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Room)) {
+            return false;
+        }
         Room room = (Room) o;
-        return id == room.id &&
-                opened == room.opened &&
-                name.equals(room.name) &&
-                Objects.equals(scheduled_time, room.scheduled_time) &&
-                joincodeStudent.equals(room.joincodeStudent) &&
-                joincodeMod.equals(room.joincodeMod);
+        return id == room.id
+                && opened == room.opened
+                && name.equals(room.name)
+                && Objects.equals(scheduled_time, room.scheduled_time)
+                && joincodeStudent.equals(room.joincodeStudent)
+                && joincodeMod.equals(room.joincodeMod);
     }
 
 }
