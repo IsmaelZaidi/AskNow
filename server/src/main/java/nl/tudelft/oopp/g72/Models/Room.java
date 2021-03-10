@@ -3,14 +3,22 @@ package nl.tudelft.oopp.g72.Models;
 
 
 import java.util.Objects;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+
 
 @Entity(name = "Room")
 @Table(name = "Room")
 public class Room {
     @Id
     @SequenceGenerator(
-            name="room_id_sequence",
+            name = "room_id_sequence",
             sequenceName = "room_id_sequence",
             allocationSize = 1
     )
@@ -58,6 +66,12 @@ public class Room {
 
     }
 
+    /**
+     *
+     * @param name
+     * @param joincodeStudent
+     * @param joincodeMod
+     */
     public Room(String name, String joincodeStudent, String joincodeMod) {
         this.name = name;
         this.joincodeStudent = joincodeStudent;
