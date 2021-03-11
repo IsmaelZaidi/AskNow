@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity(name = "User")
 @Table(name = "user")
-public class User {
+public class  User {
     @Id
     @SequenceGenerator(
         name = "user_id_sequence",
