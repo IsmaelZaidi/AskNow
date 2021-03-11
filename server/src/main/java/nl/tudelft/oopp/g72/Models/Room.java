@@ -1,13 +1,12 @@
-package nl.tudelft.oopp.g72.Models;
-
+package nl.tudelft.oopp.g72.models;
 
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -48,7 +47,7 @@ public class Room {
             name = "scheduled_time",
             updatable = false
     )
-    private String scheduled_time;
+    private String scheduledTime;
 
     @Column(
             name = "joincode_student",
@@ -98,11 +97,11 @@ public class Room {
     }
 
     public String getScheduled_time() {
-        return scheduled_time;
+        return scheduledTime;
     }
 
     public void setScheduled_time(String scheduled_time) {
-        this.scheduled_time = scheduled_time;
+        this.scheduledTime = scheduled_time;
     }
 
     public String getJoincodeStudent() {
@@ -127,7 +126,7 @@ public class Room {
                 + "id=" + id
                 + ", name='" + name + '\''
                 + ", opened=" + opened
-                + ", scheduled_time='" + scheduled_time + '\''
+                + ", scheduled_time='" + scheduledTime + '\''
                 + ", joincodeStudent='" + joincodeStudent + '\''
                 + ", joincodeMod='" + joincodeMod + '\''
                 + '}';
@@ -145,7 +144,7 @@ public class Room {
         return id == room.id
                 && opened == room.opened
                 && name.equals(room.name)
-                && Objects.equals(scheduled_time, room.scheduled_time)
+                && Objects.equals(scheduledTime, room.scheduledTime)
                 && joincodeStudent.equals(room.joincodeStudent)
                 && joincodeMod.equals(room.joincodeMod);
     }
