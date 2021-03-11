@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+
 @Entity(name = "User")
 @Table(name = "user")
 public class User {
@@ -41,6 +42,7 @@ public class User {
 
     public User() {
     }
+
 
     public User(String nick, String token) {
         this.nick = nick;
