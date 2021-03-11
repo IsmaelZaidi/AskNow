@@ -21,9 +21,9 @@ public class UserService {
     }
 
     /**
-     * adds user and returns token
-     * @param nick
-     * @return
+     * Adds user and returns token.
+     * @param nick when entering nickname should return token
+     * @return returning the token
      */
     public String add(String nick) {
         User user = new User(nick, UUID.randomUUID().toString());

@@ -71,10 +71,10 @@ public class Question {
     }
 
     /**
-     * creates question object
-     * @param timestamp
-     * @param upvotes
-     * @param answer
+     * Creates question object.
+     * @param timestamp indicates the time
+     * @param upvotes indicates the upvotes
+     * @param answer indicates the answer
      */
     public Question(String timestamp, int upvotes, String answer) {
         this.timestamp = timestamp;

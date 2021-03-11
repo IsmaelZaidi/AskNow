@@ -66,10 +66,10 @@ public class Room {
     }
 
     /**
-     * Creates a room object
-     * @param name
-     * @param joincodeStudent
-     * @param joincodeMod
+     * Creates a room object.
+     * @param name indicates the name
+     * @param joincodeStudent indicates the join code for the student
+     * @param joincodeMod indicates the join code for the moderator
      */
     public Room(String name, String joincodeStudent, String joincodeMod) {
         this.name = name;
@@ -101,11 +101,11 @@ public class Room {
         this.opened = opened;
     }
 
-    public String getScheduled_time() {
+    public String getScheduledTime() {
         return scheduledTime;
     }
 
-    public void setScheduled_time(String scheduled_time) {
+    public void setScheduledTime(String scheduled_time) {
         this.scheduledTime = scheduledTime;
     }
 
