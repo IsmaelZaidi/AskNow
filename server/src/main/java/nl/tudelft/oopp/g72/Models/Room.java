@@ -105,7 +105,7 @@ public class Room {
         return scheduledTime;
     }
 
-    public void setScheduledTime(String scheduled_time) {
+    public void setScheduledTime(String scheduledTime) {
         this.scheduledTime = scheduledTime;
     }
 
