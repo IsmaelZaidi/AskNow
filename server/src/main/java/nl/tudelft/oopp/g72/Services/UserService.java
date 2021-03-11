@@ -20,6 +20,11 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * adds user and returns token
+     * @param nick
+     * @return
+     */
     public String add(String nick) {
         User user = new User(nick, UUID.randomUUID().toString());
 

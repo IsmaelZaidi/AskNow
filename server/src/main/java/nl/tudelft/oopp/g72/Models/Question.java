@@ -70,7 +70,12 @@ public class Question {
 
     }
 
-
+    /**
+     * creates question object
+     * @param timestamp
+     * @param upvotes
+     * @param answer
+     */
     public Question(String timestamp, int upvotes, String answer) {
         this.timestamp = timestamp;
         this.upvotes = upvotes;

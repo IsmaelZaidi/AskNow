@@ -65,7 +65,12 @@ public class Room {
 
     }
 
-
+    /**
+     * Creates a room object
+     * @param name
+     * @param joincodeStudent
+     * @param joincodeMod
+     */
     public Room(String name, String joincodeStudent, String joincodeMod) {
         this.name = name;
         this.joincodeStudent = joincodeStudent;
@@ -101,7 +106,7 @@ public class Room {
     }
 
     public void setScheduled_time(String scheduled_time) {
-        this.scheduledTime = scheduled_time;
+        this.scheduledTime = scheduledTime;
     }
 
     public String getJoincodeStudent() {
