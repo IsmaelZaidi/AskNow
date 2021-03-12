@@ -24,7 +24,8 @@ public class MainApp extends Application implements EventHandler<ActionEvent> {
 
         button1 = new Button("Click me");
         // We should avoid using this, this takes up a lot of code.
-        button1.setOnAction(this); // This refers to the current class and looks for the handle event to find it's action.
+        // This refers to the current class and looks for the handle event to find it's action.
+        button1.setOnAction(this);
         button2 = new Button("Or me");
         // We should use lambda functions to make code more clean and efficient.
         button2.setOnAction(e -> System.out.println("This is button two."));
@@ -38,7 +39,7 @@ public class MainApp extends Application implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        if(event.getSource()==button1) {
+        if (event.getSource() == button1) {
             System.out.println("This is button one.");
         }
     }
