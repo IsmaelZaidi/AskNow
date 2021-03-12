@@ -34,9 +34,9 @@ public class RoomService {
         while (date >= base) {
             int k = r.nextInt(60)+1;
             if(k%2 == 0)
-                result = digits.charAt((int) ((date+k) % base)%2) + result;
+                result = digits.charAt((int) ((date+k) % base)) + result;
             else
-                result = digits.charAt((int) (~(date+k) % base)) + result;
+                result = digits.charAt((int) ((2730|(date+k)) % base)) + result;
             date = date / base;
         }
         

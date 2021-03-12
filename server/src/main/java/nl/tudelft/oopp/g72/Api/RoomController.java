@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "api/v1/room")
+@RequestMapping
 
 public class RoomController {
     private final RoomService roomService;
@@ -17,13 +17,13 @@ public class RoomController {
         this.roomService = roomService;
     }
 
-    @GetMapping
+    @GetMapping(value = "api/v1/room/student")
     public String getParticipantEntryCode(){
         return roomService.getParticipantEntryCode();
     }
 
-    /*@GetMapping
+    @GetMapping(value = "api/v1/room/moderator")
     public String getModeratorEntryCode(){
         return roomService.getModeratorEntryCode();
-    }*/
+    }
 }
