@@ -23,8 +23,10 @@ public class MainApp extends Application implements EventHandler<ActionEvent> {
         primaryStage.setTitle("Title placeholder");
 
         button1 = new Button("Click me");
-        button1.setOnAction(this);
+        // We should avoid using this, this takes up a lot of code.
+        button1.setOnAction(this); // This refers to the current class and looks for the handle event to find it's action.
         button2 = new Button("Or me");
+        // We should use lambda functions to make code more clean and efficient.
         button2.setOnAction(e -> System.out.println("This is button two."));
 
         VBox layout = new VBox(20);
