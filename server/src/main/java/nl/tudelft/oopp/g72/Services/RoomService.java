@@ -11,7 +11,6 @@ public class RoomService {
     public String getParticipantEntryCode() {
          String digits = "abcdefghijklmnopqrstuvwxyzABCEDFGHIJKLMNOPQRSTUVWXYZ0123456789";
          int base = digits.length();
-
          long date = System.currentTimeMillis();
          String result = new String();
          Random r = new Random();
@@ -20,14 +19,12 @@ public class RoomService {
              result = digits.charAt((int) ((date+k) % base)) + result;
              date = date / base;
          }
-
          return result;
     }
-
+    
     public String getModeratorEntryCode() {
         String digits = "abcdefghijklmnopqrstuvwxyzABCEDFGHIJKLMNOPQRSTUVWXYZ0123456789";
         int base = digits.length();
-
         long date = System.currentTimeMillis();
         String result = new String();
         Random r = new Random();
@@ -39,7 +36,6 @@ public class RoomService {
                 result = digits.charAt((int) ((2730|(date+k)) % base)) + result;
             date = date / base;
         }
-        
         return result;
     }
 }
