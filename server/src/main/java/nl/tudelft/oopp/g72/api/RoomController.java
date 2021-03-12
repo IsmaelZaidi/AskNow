@@ -1,6 +1,6 @@
-package nl.tudelft.oopp.g72.Api;
+package nl.tudelft.oopp.g72.api;
 
-import nl.tudelft.oopp.g72.Services.RoomService;
+import nl.tudelft.oopp.g72.services.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,12 +18,12 @@ public class RoomController {
     }
 
     @GetMapping(value = "api/v1/room/student")
-    public String getParticipantEntryCode(){
+    public String getParticipantEntryCode() {
         return roomService.getParticipantEntryCode();
     }
 
     @GetMapping(value = "api/v1/room/moderator")
-    public String getModeratorEntryCode(){
+    public String getModeratorEntryCode() {
         return roomService.getModeratorEntryCode();
     }
 }
