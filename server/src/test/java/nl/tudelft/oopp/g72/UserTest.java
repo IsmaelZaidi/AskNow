@@ -17,7 +17,9 @@ public class UserTest {
     public void saveAndRetrieveUser() {
         String userNick = "Christoph";
         String userToken = "securedb";
-        User user = new User(userNick, userToken);
+        User user = new User();
+        user.setNick(userNick);
+        user.setToken(userToken);
         userRepository.save(user);
 
         User user2 = userRepository.getOne((long) 1);
