@@ -1,12 +1,7 @@
 package nl.tudelft.oopp.g72.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import java.util.Objects;
+import javax.persistence.*;
 
 
 @Entity(name = "User")
@@ -24,29 +19,30 @@ public class  User {
     )
     @Column(
         name = "id",
-        updatable = false
+        nullable = false,
+        unique = true
     )
     private long id;
 
     @Column(
         name = "nick",
-        nullable = false
+        nullable = false,
+        unique = true
     )
     private String nick;
 
     @Column(
         name = "token",
-        nullable = false
+        nullable = false,
+        unique = true
     )
     private String token;
 
+    @ManyToOne
+    @JoinColumn(name = "room_id")
+    private Room room;
+
     public User() {
-    }
-
-
-    public User(String nick, String token) {
-        this.nick = nick;
-        this.token = token;
     }
 
     public long getId() {
@@ -73,12 +69,21 @@ public class  User {
         this.token = token;
     }
 
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
     @Override
     public String toString() {
         return "User{"
                 + "id=" + id
                 + ", nick='" + nick + '\''
                 + ", token='" + token + '\''
+                + ", room=" + room
                 + '}';
     }
 
@@ -87,7 +92,7 @@ public class  User {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (!(o instanceof User)) {
             return false;
         }
 
@@ -96,10 +101,12 @@ public class  User {
         if (id != user.id) {
             return false;
         }
-        if (!nick.equals(user.nick)) {
+        if (!Objects.equals(nick, user.nick)) {
             return false;
         }
-        return token.equals(user.token);
+        if (!Objects.equals(token, user.token)) {
+            return false;
+        }
+        return Objects.equals(room, user.room);
     }
-
 }

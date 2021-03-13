@@ -2,17 +2,15 @@ package nl.tudelft.oopp.g72.models;
 
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
 
 
 @Entity(name = "Question")
@@ -30,56 +28,44 @@ public class Question {
     )
     @Column(
             name = "id",
-            updatable = false
+            nullable = false,
+            unique = true
     )
     private long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private nl.tudelft.oopp.g72.models.User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "room_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "room_id")
     private Room room;
 
     @Column(
             name = "timestamp",
-            updatable = false
+            nullable = false
     )
     private String timestamp;
 
     @Column(
             name = "upvotes",
-            updatable = false
+            nullable = false
     )
     private int upvotes;
 
     @Column(
-            name = "answer",
-            updatable = false
+            name = "answer"
     )
     private String answer;
 
     @Column(
             name = "answered",
-            updatable = false
+            nullable = false
     )
     private boolean answered;
 
     public Question() {
 
-    }
-
-    /**
-     * Creates question object.
-     * @param timestamp indicates the time
-     * @param upvotes indicates the upvotes
-     * @param answer indicates the answer
-     */
-    public Question(String timestamp, int upvotes, String answer) {
-        this.timestamp = timestamp;
-        this.upvotes = upvotes;
-        this.answer = answer;
     }
 
     public long getId() {
@@ -88,6 +74,22 @@ public class Question {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     public String getTimestamp() {
@@ -126,6 +128,8 @@ public class Question {
     public String toString() {
         return "Question{"
                 + "id=" + id
+                + ", user=" + user
+                + ", room=" + room
                 + ", timestamp='" + timestamp + '\''
                 + ", upvotes=" + upvotes
                 + ", answer='" + answer + '\''
@@ -141,13 +145,28 @@ public class Question {
         if (!(o instanceof Question)) {
             return false;
         }
-        Question question = (Question) o;
-        return id == question.id
-                && upvotes == question.upvotes
-                && answered == question.answered
-                && Objects.equals(timestamp, question.timestamp)
-                && Objects.equals(answer, question.answer);
-    }
 
+        Question question = (Question) o;
+
+        if (id != question.id) {
+            return false;
+        }
+        if (upvotes != question.upvotes) {
+            return false;
+        }
+        if (answered != question.answered) {
+            return false;
+        }
+        if (!Objects.equals(user, question.user)) {
+            return false;
+        }
+        if (!Objects.equals(room, question.room)) {
+            return false;
+        }
+        if (!Objects.equals(timestamp, question.timestamp)) {
+            return false;
+        }
+        return Objects.equals(answer, question.answer);
+    }
 
 }
