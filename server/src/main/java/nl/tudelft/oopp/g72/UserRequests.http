@@ -5,4 +5,4 @@ Christoph Lofi
 ###
 
 GET localhost:8080/api/v1/info HTTP/1.1
-Token: a3c7026a-993e-4210-a7cb-f38b17798c0f
+Token: 43cc33e5-cb38-4889-9fa7-968062234ea6

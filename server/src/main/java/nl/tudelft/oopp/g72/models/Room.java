@@ -27,54 +27,43 @@ public class Room {
     )
     @Column(
             name = "id",
-            updatable = false
+            nullable = false,
+            unique = true
     )
     private long id;
 
     @Column(
             name = "name",
-            updatable = false
+            nullable = false
     )
     private String name;
 
     @Column(
-            name = "opened",
-            updatable = false
+            name = "open",
+            nullable = false
     )
-    private boolean opened;
+    private boolean open;
 
     @Column(
             name = "scheduled_time",
-            updatable = false
+            nullable = false
     )
     private String scheduledTime;
 
     @Column(
             name = "joincode_student",
-            updatable = false
+            nullable = false
     )
     private String joincodeStudent;
 
     @Column(
-            name = "joincode_mod",
-            updatable = false
+            name = "joincode_moderator",
+            nullable = false
     )
-    private String joincodeMod;
+    private String joincodeModerator;
 
     public Room() {
 
-    }
-
-    /**
-     * Creates a room object.
-     * @param name indicates the name
-     * @param joincodeStudent indicates the join code for the student
-     * @param joincodeMod indicates the join code for the moderator
-     */
-    public Room(String name, String joincodeStudent, String joincodeMod) {
-        this.name = name;
-        this.joincodeStudent = joincodeStudent;
-        this.joincodeMod = joincodeMod;
     }
 
     public long getId() {
@@ -93,12 +82,12 @@ public class Room {
         this.name = name;
     }
 
-    public boolean isOpened() {
-        return opened;
+    public boolean isOpen() {
+        return open;
     }
 
-    public void setOpened(boolean opened) {
-        this.opened = opened;
+    public void setOpen(boolean open) {
+        this.open = open;
     }
 
     public String getScheduledTime() {
@@ -117,12 +106,12 @@ public class Room {
         this.joincodeStudent = joincodeStudent;
     }
 
-    public String getJoincodeMod() {
-        return joincodeMod;
+    public String getJoincodeModerator() {
+        return joincodeModerator;
     }
 
-    public void setJoincodeMod(String joincodeMod) {
-        this.joincodeMod = joincodeMod;
+    public void setJoincodeModerator(String joincodeModerator) {
+        this.joincodeModerator = joincodeModerator;
     }
 
     @Override
@@ -130,10 +119,10 @@ public class Room {
         return "Room{"
                 + "id=" + id
                 + ", name='" + name + '\''
-                + ", opened=" + opened
-                + ", scheduled_time='" + scheduledTime + '\''
+                + ", open=" + open
+                + ", scheduledTime='" + scheduledTime + '\''
                 + ", joincodeStudent='" + joincodeStudent + '\''
-                + ", joincodeMod='" + joincodeMod + '\''
+                + ", joincodeModerator='" + joincodeModerator + '\''
                 + '}';
     }
 
@@ -145,15 +134,25 @@ public class Room {
         if (!(o instanceof Room)) {
             return false;
         }
-        Room room = (Room) o;
-        return id == room.id
-                && opened == room.opened
-                && name.equals(room.name)
-                && Objects.equals(scheduledTime, room.scheduledTime)
-                && joincodeStudent.equals(room.joincodeStudent)
-                && joincodeMod.equals(room.joincodeMod);
-    }
 
+        Room room = (Room) o;
+
+        if (id != room.id) {
+            return false;
+        }
+        if (open != room.open) {
+            return false;
+        }
+        if (!Objects.equals(name, room.name)) {
+            return false;
+        }
+        if (!Objects.equals(scheduledTime, room.scheduledTime)) {
+            return false;
+        }
+        if (!Objects.equals(joincodeStudent, room.joincodeStudent)) {
+            return false;
+        }
+        return Objects.equals(joincodeModerator, room.joincodeModerator);
+    }
 }
 
-//look again at forgein key constraints

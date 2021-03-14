@@ -26,7 +26,9 @@ public class UserService {
      * @return returning the token
      */
     public String add(String nick) {
-        User user = new User(nick, UUID.randomUUID().toString());
+        User user = new User();
+        user.setNick(nick);
+        user.setToken(UUID.randomUUID().toString());
 
         User search = userRepository.findByNick(nick);
         if (search != null) {
