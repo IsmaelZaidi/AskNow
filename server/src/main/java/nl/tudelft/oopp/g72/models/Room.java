@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
-
 @Entity(name = "Room")
 @Table(name = "Room")
 public class Room {

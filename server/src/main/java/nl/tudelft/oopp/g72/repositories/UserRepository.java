@@ -1,11 +1,10 @@
 package nl.tudelft.oopp.g72.repositories;
 
+import java.util.List;
 import nl.tudelft.oopp.g72.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository("UserRepository")
 public interface UserRepository extends JpaRepository<User, Long> {

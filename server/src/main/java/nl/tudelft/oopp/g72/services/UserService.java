@@ -9,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-
-
-
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -36,7 +33,7 @@ public class UserService {
     }
 
     /**
-     * Finds and returns the user with the specified token
+     * Finds and returns the user with the specified token.
      * @param token the user's token
      * @return a User entity with the specified token
      */
@@ -45,7 +42,7 @@ public class UserService {
     }
 
     /**
-     * Lists the users in a room
+     * Lists the users in a room.
      * @param roomId the room's id
      * @return a List of Users that are in the room
      */
