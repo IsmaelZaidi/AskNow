@@ -1,5 +1,6 @@
 package nl.tudelft.oopp.g72.services;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import nl.tudelft.oopp.g72.models.User;
@@ -22,24 +23,33 @@ public class UserService {
 
     /**
      * Adds user and returns token.
-     * @param nick when entering nickname should return token
-     * @return returning the token
+     * @param nick the nickname of the user
+     * @return the token associated with the user
      */
     public String add(String nick) {
         User user = new User();
         user.setNick(nick);
         user.setToken(UUID.randomUUID().toString());
 
-        User search = userRepository.findByNick(nick);
-        if (search != null) {
-            return null;
-        }
-
-        userRepository.save(user);
+        user = userRepository.save(user);
         return user.getToken();
     }
 
+    /**
+     * Finds and returns the user with the specified token
+     * @param token the user's token
+     * @return a User entity with the specified token
+     */
     public User findByToken(String token) {
         return userRepository.findByToken(token);
+    }
+
+    /**
+     * Lists the users in a room
+     * @param roomId the room's id
+     * @return a List of Users that are in the room
+     */
+    public List<User> usersInRoom(long roomId) {
+        return userRepository.usersInRoom(roomId);
     }
 }

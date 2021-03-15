@@ -34,8 +34,7 @@ public class  User {
 
     @Column(
         name = "nick",
-        nullable = false,
-        unique = true
+        nullable = false
     )
     private String nick;
 
