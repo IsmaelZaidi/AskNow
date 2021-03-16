@@ -44,7 +44,7 @@ public class Question {
             name = "timestamp",
             nullable = false
     )
-    private String timestamp;
+    private long timestamp;
 
     @Column(
             name = "upvotes",
@@ -91,11 +91,11 @@ public class Question {
         this.room = room;
     }
 
-    public String getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 
