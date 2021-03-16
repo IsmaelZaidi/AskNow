@@ -1,5 +1,6 @@
 package nl.tudelft.oopp.g72.api;
 
+import java.util.List;
 import nl.tudelft.oopp.g72.models.User;
 import nl.tudelft.oopp.g72.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-
 
 @RestController
 @RequestMapping("api/v1")
@@ -35,8 +34,18 @@ public class UserController {
     String getNick(@RequestHeader("Token") String token) {
         User user = userService.findByToken(token);
         if (user == null) {
-            throw new IllegalArgumentException("No such user exists");
+            throw new IllegalArgumentException("Bad token");
         }
         return user.getNick();
+    }
+
+    @GetMapping("/participants")
+    List<User> getParticipants(@RequestHeader("Token") String token,
+                               @RequestHeader("RoomId") long roomId) {
+        User user = userService.findByToken(token);
+        if (user == null) {
+            throw new IllegalArgumentException("Bad token");
+        }
+        return userService.usersInRoom(roomId);
     }
 }

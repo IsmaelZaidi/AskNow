@@ -11,7 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
 @Entity(name = "User")
 @Table(name = "user")
 public class  User {
@@ -34,8 +33,7 @@ public class  User {
 
     @Column(
         name = "nick",
-        nullable = false,
-        unique = true
+        nullable = false
     )
     private String nick;
 
