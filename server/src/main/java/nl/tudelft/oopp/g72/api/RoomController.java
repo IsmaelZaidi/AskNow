@@ -33,10 +33,18 @@ public class RoomController {
     }
 
     @GetMapping(value = "api/v1/join")
-    public Room joinRoom(@RequestHeader("Token") String token, @RequestHeader("Code") String code) throws Exception {
+    public Room joinRoom(@RequestHeader("Token") String token,
+                         @RequestHeader("Code") String code) throws Exception {
         return roomService.joinRoom(code, token);
     }
 
+    /**
+     * Creates the post method for creating a room.
+     * @param token token
+     * @param scheduledTime scheduledTime
+     * @param title title
+     * @return returns a room
+     */
     @PostMapping(value = "api/v1/create")
     public Room createRoom(@RequestHeader ("token") String token,
                            @RequestHeader ("scheduledTime") long scheduledTime,
