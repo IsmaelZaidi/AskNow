@@ -67,4 +67,19 @@ public class QuestionService {
 
         return question;
     }
+
+    public void upvoteQuestion(String questionID, String token) throws Exception {
+        User user = userRepository.findByToken(token);
+        Question question = questionRepository.findById(questionID);
+
+        if (user == null) {
+            throw new Exception("There are no users with that token!");
+        }
+
+        if(question == null){
+            throw new Exception("There are no questions with that ID!");
+        }
+        question.setUpvotes(question.getUpvotes()+1);
+        questionRepository.save(question);
+    }
 }

@@ -72,13 +72,13 @@ public class RoomService {
         User user = userRepository.findByToken(token);
         Room room = roomRepository.findByJoincodeStudent(code);
         if (user == null) {
-            throw new Exception("There are no rooms with that code!");
+            throw new Exception("There are no users with that token!");
         }
-
         if (room == null) {
             throw new Exception("There are no rooms with that code!");
         } else {
             user.setRoom(room);
+            userRepository.save(user);
             return room;
         }
     }
