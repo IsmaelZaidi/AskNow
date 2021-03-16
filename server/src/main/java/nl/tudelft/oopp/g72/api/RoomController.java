@@ -29,8 +29,8 @@ public class RoomController {
         return roomService.getModeratorEntryCode();
     }
 
-    @GetMapping(value = "api/v1/join/{code}")
-    public Room joinRoom(@PathVariable String code) throws Exception {
-       return roomService.joinRoom(code);
+    @GetMapping(value = "api/v1/join/{code}/{token}")
+    public Room joinRoom(@PathVariable String code, String token) throws Exception {
+       return roomService.joinRoom(code, token);
     }
 }
