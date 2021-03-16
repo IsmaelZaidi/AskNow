@@ -82,4 +82,37 @@ public class QuestionService {
         question.setUpvotes(question.getUpvotes()+1);
         questionRepository.save(question);
     }
+
+    public void setAsAnswered(String questionID, String token) throws Exception {
+        User user = userRepository.findByToken(token);
+        Question question = questionRepository.findById(questionID);
+
+        if (user == null) {
+            throw new Exception("There are no users with that token!");
+        }
+
+        if(question == null){
+            throw new Exception("There are no questions with that ID!");
+        }
+        question.setAnswered(true);
+        questionRepository.save(question);
+    }
+
+    public Question answerQuestion(String token, String questionID, String message) throws Exception {
+        User user = userRepository.findByToken(token);
+        Question question = questionRepository.findById(questionID);
+
+        if (user == null) {
+            throw new Exception("There are no users with that token!");
+        }
+
+        if(question == null){
+            throw new Exception("There are no questions with that ID!");
+        }
+        question.setAnswered(true);
+        question.setAnswer(message);
+        questionRepository.save(question);
+
+        return question;
+    }
 }
