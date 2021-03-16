@@ -32,8 +32,8 @@ public class RoomController {
         return roomService.getModeratorEntryCode();
     }
 
-    @GetMapping(value = "api/v1/join/{code}/{token}")
-    public Room joinRoom(@PathVariable String code, String token) throws Exception {
+    @GetMapping(value = "api/v1/join")
+    public Room joinRoom(@RequestHeader("Token") String token, @RequestHeader("Code") String code) throws Exception {
         return roomService.joinRoom(code, token);
     }
 
