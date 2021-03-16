@@ -1,6 +1,9 @@
 package nl.tudelft.oopp.g72.services;
 
+import java.util.Optional;
 import nl.tudelft.oopp.g72.models.Question;
+import nl.tudelft.oopp.g72.models.Room;
+import nl.tudelft.oopp.g72.models.User;
 import nl.tudelft.oopp.g72.repositories.QuestionRepository;
 import nl.tudelft.oopp.g72.repositories.RoomRepository;
 import nl.tudelft.oopp.g72.repositories.UserRepository;
@@ -14,6 +17,12 @@ public class QuestionService {
     private final UserRepository userRepository;
     private final RoomRepository roomRepository;
 
+    /**
+     * Constructor for QuestionService.
+     * @param questionRepository Autowired question repository
+     * @param userRepository Autowired user repository
+     * @param roomRepository Autowired room repository.
+     */
     @Autowired
     public QuestionService(@Qualifier("QuestionRepository") QuestionRepository questionRepository,
                            @Qualifier("UserRepository") UserRepository userRepository,
@@ -23,10 +32,31 @@ public class QuestionService {
         this.roomRepository = roomRepository;
     }
 
+    /**
+     * Method for adding a Question to the database.
+     * @param userToken String token of the one who asked the question
+     * @param roomId integer id of the room
+     * @param message String containing the question
+     * @return a Question entity that corresponds to the one inserted in the database
+     */
     public Question addQuestion(String userToken, long roomId, String message) {
         Question question = new Question();
-        question.setUser(userRepository.findByToken(userToken));
-        question.setRoom(roomRepository.getOne(roomId));
+
+        User user = userRepository.findByToken(userToken);
+        if (user == null) {
+            return null;
+        }
+
+        Optional<Room> roomOptional = roomRepository.findById(roomId);
+        Room room;
+        if (roomOptional.isPresent()) {
+            room = roomOptional.get();
+        } else {
+            return null;
+        }
+
+        question.setUser(user);
+        question.setRoom(room);
         question.setTimestamp(System.currentTimeMillis());
         question.setUpvotes(1);
         question.setAnswer(null);
