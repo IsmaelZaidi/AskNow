@@ -64,6 +64,24 @@ public class Room {
 
     }
 
+    /**
+     * Constructor.
+     * @param id long
+     * @param name String
+     * @param open boolean
+     * @param scheduledTime String
+     * @param joincodeStudent String
+     * @param joincodeModerator String
+     */
+    public Room(long id, String name, boolean open, String scheduledTime, String joincodeStudent, String joincodeModerator) {
+        this.id = id;
+        this.name = name;
+        this.open = open;
+        this.scheduledTime = scheduledTime;
+        this.joincodeStudent = joincodeStudent;
+        this.joincodeModerator = joincodeModerator;
+    }
+
     public long getId() {
         return id;
     }

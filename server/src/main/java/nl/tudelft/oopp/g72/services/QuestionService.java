@@ -57,6 +57,7 @@ public class QuestionService {
 
         question.setUser(user);
         question.setRoom(room);
+        question.setText(message);
         question.setTimestamp(System.currentTimeMillis());
         question.setUpvotes(1);
         question.setAnswer(null);

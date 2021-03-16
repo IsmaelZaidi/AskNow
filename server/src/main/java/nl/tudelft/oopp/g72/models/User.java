@@ -51,6 +51,20 @@ public class  User {
     public User() {
     }
 
+    /**
+     * Constructor.
+     * @param id long
+     * @param nick String
+     * @param token String
+     * @param room room
+     */
+    public User(long id, String nick, String token, Room room) {
+        this.id = id;
+        this.nick = nick;
+        this.token = token;
+        this.room = room;
+    }
+
     public long getId() {
         return id;
     }
