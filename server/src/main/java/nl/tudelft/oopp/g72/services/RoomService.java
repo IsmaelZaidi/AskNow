@@ -2,6 +2,8 @@ package nl.tudelft.oopp.g72.services;
 
 import java.util.Random;
 
+import nl.tudelft.oopp.g72.models.Room;
+import nl.tudelft.oopp.g72.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class RoomService {
 
+    private final RoomRepository roomRepository;
+
+    @Autowired
+    public RoomService(RoomRepository roomRepository){
+        this.roomRepository = roomRepository;
+    }
     /**
      * Returns a participant entry code.
      * @result String entry code
@@ -47,5 +55,12 @@ public class RoomService {
             date = date / base;
         }
         return result;
+    }
+
+    public Room joinRoom(String code) throws Exception {
+      if(roomRepository.findByJoincodeStudent(code) == null)
+          throw new Exception("There are no rooms with that code!");
+      else
+          return roomRepository.findByJoincodeStudent(code);
     }
 }
