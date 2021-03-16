@@ -82,4 +82,25 @@ public class RoomService {
             return room;
         }
     }
+
+    /**
+     * Creates a room.
+     * @param token token
+     * @param title title
+     * @param scheduledTime scheduledTime
+     * @return
+     */
+    public Room createRoom(String token, String title, long scheduledTime) {
+        User user = userRepository.findByToken(token);
+        if (user == null) {
+            return null;
+        }
+        Room room = new Room(0, title, true, scheduledTime,
+                getParticipantEntryCode(), getModeratorEntryCode());
+        room = roomRepository.save(room);
+
+        user.setRoom(room);
+        user = userRepository.save(user);
+        return room;
+    }
 }
