@@ -2,10 +2,24 @@ package nl.tudelft.oopp.g72.services;
 
 import java.util.Random;
 
+import nl.tudelft.oopp.g72.models.Room;
+import nl.tudelft.oopp.g72.models.User;
+import nl.tudelft.oopp.g72.repositories.RoomRepository;
+import nl.tudelft.oopp.g72.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RoomService {
+
+    private final RoomRepository roomRepository;
+    private final UserRepository userRepository;
+
+    @Autowired
+    public RoomService(RoomRepository roomRepository, UserRepository userRepository) {
+        this.roomRepository = roomRepository;
+        this.userRepository = userRepository;
+    }
 
     /**
      * Returns a participant entry code.
@@ -45,5 +59,27 @@ public class RoomService {
             date = date / base;
         }
         return result;
+    }
+
+    /**
+     * Joins room.
+     * @param code String
+     * @param token String
+     * @return joined Room
+     * @throws Exception for bad requests
+     */
+    public Room joinRoom(String code, String token) throws Exception {
+        User user = userRepository.findByToken(token);
+        Room room = roomRepository.findByJoincodeStudent(code);
+        if (user == null) {
+            throw new Exception("There are no rooms with that code!");
+        }
+
+        if (room == null) {
+            throw new Exception("There are no rooms with that code!");
+        } else {
+            user.setRoom(room);
+            return room;
+        }
     }
 }
