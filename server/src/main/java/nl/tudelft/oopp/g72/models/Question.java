@@ -41,10 +41,16 @@ public class Question {
     private Room room;
 
     @Column(
+            name = "text",
+            nullable = false
+    )
+    private String text;
+
+    @Column(
             name = "timestamp",
             nullable = false
     )
-    private String timestamp;
+    private long timestamp;
 
     @Column(
             name = "upvotes",
@@ -65,6 +71,29 @@ public class Question {
 
     public Question() {
 
+    }
+
+    /**
+     * Constructor.
+     * @param id long , autoset
+     * @param user User entity
+     * @param room Room entity
+     * @param text String
+     * @param timestamp long time in POSIX time
+     * @param upvotes integer
+     * @param answer String
+     * @param answered boolean
+     */
+    public Question(long id, User user, Room room, String text,
+                    long timestamp, int upvotes, String answer, boolean answered) {
+        this.id = id;
+        this.user = user;
+        this.room = room;
+        this.text = text;
+        this.timestamp = timestamp;
+        this.upvotes = upvotes;
+        this.answer = answer;
+        this.answered = answered;
     }
 
     public long getId() {
@@ -91,11 +120,19 @@ public class Question {
         this.room = room;
     }
 
-    public String getTimestamp() {
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -129,6 +166,7 @@ public class Question {
                 + "id=" + id
                 + ", user=" + user
                 + ", room=" + room
+                + ", text=" + text
                 + ", timestamp='" + timestamp + '\''
                 + ", upvotes=" + upvotes
                 + ", answer='" + answer + '\''
@@ -160,6 +198,9 @@ public class Question {
             return false;
         }
         if (!Objects.equals(room, question.room)) {
+            return false;
+        }
+        if (!Objects.equals(text, question.text)) {
             return false;
         }
         if (!Objects.equals(timestamp, question.timestamp)) {

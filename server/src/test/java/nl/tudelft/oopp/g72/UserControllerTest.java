@@ -21,7 +21,7 @@ public class UserControllerTest {
     @Test
     void testLogin() throws Exception {
         MvcResult result = mockMvc.perform(post("/api/v1/login")
-                .content("Cristoph"))
+                    .content("Cristoph"))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
     }
@@ -29,12 +29,12 @@ public class UserControllerTest {
     @Test
     void testInfo() throws Exception {
         MvcResult result = mockMvc.perform(post("/api/v1/login")
-                .content("Cristof"))
+                    .content("Cristof"))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
         String token = result.getResponse().getContentAsString();
         result = mockMvc.perform(get("/api/v1/info")
-                .header("Token", token))
+                    .header("Token", token))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
         String name = result.getResponse().getContentAsString();
