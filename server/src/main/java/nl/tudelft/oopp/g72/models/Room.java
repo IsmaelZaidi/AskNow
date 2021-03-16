@@ -73,7 +73,8 @@ public class Room {
      * @param joincodeStudent String
      * @param joincodeModerator String
      */
-    public Room(long id, String name, boolean open, String scheduledTime, String joincodeStudent, String joincodeModerator) {
+    public Room(long id, String name, boolean open, String scheduledTime,
+                String joincodeStudent, String joincodeModerator) {
         this.id = id;
         this.name = name;
         this.open = open;

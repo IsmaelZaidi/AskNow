@@ -1,5 +1,10 @@
 package nl.tudelft.oopp.g72;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+
+import java.util.Optional;
 import nl.tudelft.oopp.g72.models.Question;
 import nl.tudelft.oopp.g72.models.Room;
 import nl.tudelft.oopp.g72.models.User;
@@ -12,12 +17,6 @@ import org.mockito.AdditionalAnswers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class QuestionServiceTest {

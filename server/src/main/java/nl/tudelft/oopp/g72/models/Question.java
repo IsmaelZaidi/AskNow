@@ -84,7 +84,8 @@ public class Question {
      * @param answer String
      * @param answered boolean
      */
-    public Question(long id, User user, Room room, String text, long timestamp, int upvotes, String answer, boolean answered) {
+    public Question(long id, User user, Room room, String text,
+                    long timestamp, int upvotes, String answer, boolean answered) {
         this.id = id;
         this.user = user;
         this.room = room;
