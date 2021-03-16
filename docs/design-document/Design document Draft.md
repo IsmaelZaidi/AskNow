@@ -24,15 +24,15 @@ For the procedure we will provide all the evaluators with a working prototype. I
 
 Once they finish their evaluation and went over all the steps they will be asked to when needed elaborate on additional (non-critical) issues of our application which don&#39;t fit with the 10 heuristics provided.
 
-##### Measures
+#### Measures
 
 The evaluators write down the issues they find and also additional comments. Once we have collected all the evaluations, the issues will be put inside a table together with the frequency. Additionally, we will also provide a severity of the issue ourselves. Meaning we can categorize the issues not only for their frequency but also for their severity. This gives a good indication on how critical an issue is. On top of that it&#39;s also a good indicator on what we need to work on first and improve. In a nutshell all the issues will be put inside a table together with their frequency and severity.
 
-##### Results
+#### Results
 
 Here we will provide the results
 
-##### Conclusion
+#### Conclusion
 
 Inside the conclusion we plan on showing our design before the evaluation and after the evaluation. This will give a good idea on how we improved our results from the improvement points we got.
 
