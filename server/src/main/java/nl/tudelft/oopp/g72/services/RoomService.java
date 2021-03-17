@@ -72,14 +72,36 @@ public class RoomService {
         User user = userRepository.findByToken(token);
         Room room = roomRepository.findByJoincodeStudent(code);
         if (user == null) {
-            throw new Exception("There are no rooms with that code!");
+            throw new Exception("Bad token!");
         }
 
         if (room == null) {
             throw new Exception("There are no rooms with that code!");
         } else {
             user.setRoom(room);
+            userRepository.save(user);
             return room;
         }
+    }
+
+    /**
+     * Creates a room.
+     * @param token token
+     * @param title title
+     * @param scheduledTime scheduledTime
+     * @return
+     */
+    public Room createRoom(String token, String title, long scheduledTime) {
+        User user = userRepository.findByToken(token);
+        if (user == null) {
+            return null;
+        }
+        Room room = new Room(0, title, true, scheduledTime,
+                getParticipantEntryCode(), getModeratorEntryCode());
+        room = roomRepository.save(room);
+
+        user.setRoom(room);
+        user = userRepository.save(user);
+        return room;
     }
 }
