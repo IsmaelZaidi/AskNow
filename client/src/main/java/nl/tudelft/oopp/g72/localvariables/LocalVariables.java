@@ -1,4 +1,4 @@
-package nl.tudelft.oopp.g72.local_variables;
+package nl.tudelft.oopp.g72.localvariables;
 
 import java.util.ArrayList;
 import java.util.List;

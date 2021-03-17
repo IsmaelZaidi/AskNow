@@ -7,6 +7,14 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class QuestionController {
+    /**
+     * DESCRIPTION TO BE ADDED AND IMPROVED HERE.
+     *
+     * @param questionID ID to identify question being upvoted
+     * @param token token to be used in request
+     * @throws IOException input output exception
+     * @throws InterruptedException interruption exception
+     */
     public static void upvoteQuestion(String questionID, String token)
             throws IOException, InterruptedException {
         var client = HttpClient.newHttpClient();
