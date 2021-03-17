@@ -8,7 +8,7 @@ import java.net.http.HttpResponse;
 
 public class QuestionController {
     /**
-     * DESCRIPTION TO BE ADDED AND IMPROVED HERE
+     * DESCRIPTION TO BE ADDED AND IMPROVED HERE.
      *
      * @param questionID ID to identify question being upvoted
      * @param token token to be used in request
