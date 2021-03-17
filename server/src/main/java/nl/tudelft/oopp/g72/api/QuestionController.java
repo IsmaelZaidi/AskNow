@@ -32,8 +32,8 @@ public class QuestionController {
     }
 
     @GetMapping(value = "answer/{questionID}/{userToken}")
-    public void answerQuestion(@PathVariable String questionID, String userToken) throws Exception {
-        this.questionService.setAsAnswered(questionID, userToken);
+    public Question answerQuestion(@PathVariable String questionID, String userToken) throws Exception {
+       return this.questionService.setAsAnswered(questionID, userToken);
     }
 
     @PostMapping("/answer")

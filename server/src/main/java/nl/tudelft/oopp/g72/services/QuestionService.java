@@ -83,7 +83,7 @@ public class QuestionService {
         questionRepository.save(question);
     }
 
-    public void setAsAnswered(String questionID, String token) throws Exception {
+    public Question setAsAnswered(String questionID, String token) throws Exception {
         User user = userRepository.findByToken(token);
         Question question = questionRepository.findById(questionID);
 
@@ -95,7 +95,7 @@ public class QuestionService {
             throw new Exception("There are no questions with that ID!");
         }
         question.setAnswered(true);
-        questionRepository.save(question);
+        return questionRepository.save(question);
     }
 
     public Question answerQuestion(String token, String questionID, String message) throws Exception {
