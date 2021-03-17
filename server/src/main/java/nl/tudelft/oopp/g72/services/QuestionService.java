@@ -1,5 +1,6 @@
 package nl.tudelft.oopp.g72.services;
 
+import java.util.List;
 import java.util.Optional;
 import nl.tudelft.oopp.g72.models.Question;
 import nl.tudelft.oopp.g72.models.Room;
@@ -66,5 +67,21 @@ public class QuestionService {
         question = questionRepository.save(question);
 
         return question;
+    }
+
+    /**
+     * Retrieves a List of Questions asked in a user's room after a certain time.
+     * @param userToken the User's token
+     * @param time the last question asked
+     * @return a List of Questions sent after time
+     */
+    public List<Question> retrieveQuestions(String userToken, long time) {
+        User user = userRepository.findByToken(userToken);
+        if (user == null) {
+            return null;
+        }
+
+        Room room = user.getRoom();
+        return questionRepository.findQuestionsAfter(time, room);
     }
 }
