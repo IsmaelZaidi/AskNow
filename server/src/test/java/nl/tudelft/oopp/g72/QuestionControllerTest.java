@@ -2,6 +2,7 @@ package nl.tudelft.oopp.g72;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -46,5 +47,14 @@ public class QuestionControllerTest {
         Question parsedQuestion = mapper.readValue(json, Question.class);
 
         assertEquals(question, parsedQuestion);
+    }
+
+    @Test
+    void testDelete() throws Exception {
+        when(questionService.deleteQuestion("GoodToken", 1)).thenReturn(true);
+
+        mockMvc.perform(delete("/api/v1/question/1")
+                    .header("Token", "GoodToken"))
+                .andExpect(status().is2xxSuccessful());
     }
 }

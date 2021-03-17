@@ -1,6 +1,8 @@
 package nl.tudelft.oopp.g72;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -47,5 +49,22 @@ public class QuestionServiceTest {
         assertEquals(user, returnedQuestion.getUser());
         assertEquals(room, returnedQuestion.getRoom());
         assertEquals("asdasdasd", returnedQuestion.getText());
+    }
+
+    @Test
+    void testDeleteQuestion() {
+        User user = new User();
+        Room room = new Room();
+        user.setRoom(room);
+        when(userRepository.findByToken("GoodToken")).thenReturn(user);
+
+        Question question = new Question();
+        question.setRoom(room);
+        question.setUser(user);
+        when(questionRepository.findById(1L)).thenReturn(Optional.of(question));
+
+        assertTrue(questionService.deleteQuestion("GoodToken", 1));
+        assertFalse(questionService.deleteQuestion("BadToken", 1));
+        assertFalse(questionService.deleteQuestion("GoodToken", 2));
     }
 }
