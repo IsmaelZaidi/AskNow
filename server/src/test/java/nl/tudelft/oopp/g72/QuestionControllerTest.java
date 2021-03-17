@@ -2,12 +2,14 @@ package nl.tudelft.oopp.g72;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.ArrayList;
+import java.util.List;
 import nl.tudelft.oopp.g72.models.Question;
 import nl.tudelft.oopp.g72.services.QuestionService;
 import org.junit.jupiter.api.Test;
@@ -18,8 +20,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -70,7 +70,8 @@ public class QuestionControllerTest {
         String json = result.getResponse().getContentAsString();
 
         ObjectMapper mapper = new ObjectMapper();
-        List<Question> parsedQuestions = mapper.readValue(json, new TypeReference<List<Question>>() {});
+        List<Question> parsedQuestions
+                = mapper.readValue(json, new TypeReference<List<Question>>(){});
 
         assertEquals(questions, parsedQuestions);
         System.out.println(questions);
