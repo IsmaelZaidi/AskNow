@@ -33,7 +33,7 @@ public class RoomController {
     }
 
     @GetMapping(value = "api/v1/join")
-    public Room joinRoom(@RequestHeader("Token") String token,
+    public long joinRoom(@RequestHeader("Token") String token,
                          @RequestHeader("Code") String code) throws Exception {
         return roomService.joinRoom(code, token);
     }
