@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import nl.tudelft.oopp.g72.models.Question;
 import nl.tudelft.oopp.g72.models.Room;
@@ -47,5 +49,18 @@ public class QuestionServiceTest {
         assertEquals(user, returnedQuestion.getUser());
         assertEquals(room, returnedQuestion.getRoom());
         assertEquals("asdasdasd", returnedQuestion.getText());
+    }
+
+    @Test
+    void testRetrieve() {
+        User user = new User();
+        Room room = new Room();
+        user.setRoom(room);
+        when(userRepository.findByToken("GoodToken")).thenReturn(user);
+
+        List<Question> questions = new ArrayList<>();
+        when(questionRepository.findQuestionsAfter(1, room)).thenReturn(questions);
+
+        assertEquals(questions, questionService.retrieveQuestions("GoodToken", 1));
     }
 }
