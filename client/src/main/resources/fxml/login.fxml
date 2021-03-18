@@ -11,7 +11,8 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0"
-            prefWidth="512.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+            prefWidth="512.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="nl.tudelft.oopp.g72.controllers.LoginController">
    <top>
       <AnchorPane prefHeight="259.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
