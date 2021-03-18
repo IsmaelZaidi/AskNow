@@ -35,12 +35,13 @@ public class QuestionController {
     @GetMapping(value = "upvote/{questionID}/{userToken}")
     public void upvoteQuestion(@PathVariable String questionID, String userToken)
           throws Exception {
-          this.questionService.upvoteQuestion(questionID,userToken);
+        this.questionService.upvoteQuestion(questionID,userToken);
     }
 
     @GetMapping(value = "answer/{questionID}/{userToken}")
-    public Question answerQuestion(@PathVariable String questionID, String userToken) throws Exception {
-       return this.questionService.setAsAnswered(questionID, userToken);
+    public Question answerQuestion(@PathVariable String questionID, String userToken)
+           throws Exception {
+        return this.questionService.setAsAnswered(questionID, userToken);
     }
 
     @PostMapping("/answer")

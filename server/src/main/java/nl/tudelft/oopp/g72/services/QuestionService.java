@@ -68,11 +68,17 @@ public class QuestionService {
         return question;
     }
 
+    /**
+     * Upvoting a question
+     * @param questionID
+     * @param token
+     * @throws Exception
+     */
     public void upvoteQuestion(String questionID, String token) throws Exception {
         User user = userRepository.findByToken(token);
         Question question = questionRepository.findById(questionID);
 
-        if (user == null) {
+        if (user == null){
             throw new Exception("There are no users with that token!");
         }
 
