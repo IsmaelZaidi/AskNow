@@ -43,9 +43,9 @@ public class QuestionService {
         Question question = new Question();
 
         User user = userRepository.findByToken(userToken);
-        if(user == null)
+        if(user == null) {
             return null;
-
+        }
 
         Optional<Room> roomOptional = roomRepository.findById(roomId);
         Room room;
