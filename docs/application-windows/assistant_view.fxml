@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Pane prefHeight="64.0" prefWidth="512.0" style="-fx-background-color: deepskyblue;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="429.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: red;" text="End" />
+            <Button layoutX="358.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: green;" text="0" />
+            <TextField layoutX="14.0" layoutY="20.0" prefHeight="26.0" prefWidth="80.0" text=":Insert logo:">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="126.0" layoutY="18.0" prefHeight="32.0" prefWidth="153.0" style="-fx-font-size: 18;" text="CSE 1950 Lecture 7">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollBar layoutX="309.0" layoutY="1.0" orientation="VERTICAL" prefHeight="446.0" prefWidth="8.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="64.0" layoutX="29.0" layoutY="28.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
+            <TextField layoutX="100.0" layoutY="32.0" prefHeight="55.0" prefWidth="180.0" text="Comment #1" />
+            <TextFlow layoutX="30.899999618530273" layoutY="40.900001525878906" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="64.0" layoutX="29.0" layoutY="107.0" stroke="RED" strokeType="INSIDE" width="256.0" />
+            <TextField layoutX="100.0" layoutY="112.0" prefHeight="55.0" prefWidth="180.0" text="Comment #2" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="64.0" layoutX="29.0" layoutY="348.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
+            <TextField layoutX="100.0" layoutY="352.0" prefHeight="55.0" prefWidth="180.0" text="Comment #5" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="64.0" layoutX="29.0" layoutY="268.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
+            <TextField layoutX="100.0" layoutY="272.0" prefHeight="55.0" prefWidth="180.0" text="Comment #4" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="64.0" layoutX="29.0" layoutY="188.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
+            <TextField layoutX="100.0" layoutY="192.0" prefHeight="55.0" prefWidth="180.0" text="Comment #3" />
+            <ToggleButtonGroup layoutX="410.0" layoutY="188.0" selectionType="SINGLE">
+                <toggles>
+                    <ToggleButton />
+                    <ToggleButton />
+                </toggles>
+            </ToggleButtonGroup>
+            <TextField layoutX="346.0" layoutY="48.0" prefHeight="24.0" prefWidth="72.0" text="foo" />
+            <TextField layoutX="346.0" layoutY="87.0" prefHeight="24.0" prefWidth="72.0" text="bar" />
+            <TextField layoutX="346.0" layoutY="128.0" prefHeight="26.0" prefWidth="52.0" text="foobar" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="24.0" layoutX="86.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
+            <TextField layoutX="88.0" layoutY="19.0" prefHeight="26.0" prefWidth="35.0" text="Info" />
+            <TextField layoutX="48.0" layoutY="48.0" prefHeight="26.0" prefWidth="40.0" text="9001" />
+            <TextField layoutX="48.0" layoutY="368.0" prefHeight="26.0" prefWidth="40.0" text="2" />
+            <TextField layoutX="48.0" layoutY="208.0" prefHeight="26.0" prefWidth="40.0" text="41" />
+            <TextField layoutX="48.0" layoutY="128.0" prefHeight="26.0" prefWidth="40.0" text="68" />
+            <TextField layoutX="48.0" layoutY="288.0" prefHeight="26.0" prefWidth="40.0" text="13" />
+            <Text layoutX="346.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Participants:" wrappingWidth="127.98307037353516">
+               <font>
+                  <Font name="Calibri" size="24.0" />
+               </font>
+            </Text>
+            <TextField layoutX="346.0" layoutY="221.0" prefHeight="24.0" prefWidth="72.0" text="spammer1" />
+            <TextField layoutX="346.0" layoutY="175.0" prefHeight="24.0" prefWidth="72.0" text="spammer" />
+            <TextField layoutX="346.0" layoutY="268.0" prefHeight="24.0" prefWidth="72.0" text="..." />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="24.0" layoutX="123.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="51.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="24.0" layoutX="174.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="51.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="24.0" layoutX="225.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
+            <TextField layoutX="123.0" layoutY="19.0" prefHeight="26.0" prefWidth="55.0" text="Merge" />
+            <TextField layoutX="169.0" layoutY="19.0" prefHeight="26.0" prefWidth="61.0" text="Remove" />
+            <TextField layoutX="227.0" layoutY="19.0" prefHeight="26.0" prefWidth="35.0" text="Edit" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
