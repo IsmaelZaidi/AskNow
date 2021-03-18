@@ -16,10 +16,10 @@
    <top>
       <AnchorPane prefHeight="259.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="259.0" fitWidth="300.0" layoutX="71.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="" />
-               </image></ImageView>
+<!--            <ImageView fitHeight="259.0" fitWidth="300.0" layoutX="71.0" pickOnBounds="true" preserveRatio="true">-->
+<!--               <image>-->
+<!--                  <Image url="" />-->
+<!--               </image></ImageView>-->
             <Label layoutX="331.0" layoutY="109.0" prefHeight="50.0" prefWidth="56.0" text="72">
                <font>
                   <Font name="Arial" size="50.0" />
