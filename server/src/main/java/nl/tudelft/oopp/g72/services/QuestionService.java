@@ -43,13 +43,13 @@ public class QuestionService {
         Question question = new Question();
 
         User user = userRepository.findByToken(userToken);
-        if (user == null){
+        if(user == null){
             return null;
         }
 
         Optional<Room> roomOptional = roomRepository.findById(roomId);
         Room room;
-        if (roomOptional.isPresent()){
+        if(roomOptional.isPresent()){
             room = roomOptional.get();
         } else {
             return null;
@@ -69,26 +69,33 @@ public class QuestionService {
     }
 
     /**
-     * Upvoting a question
-     * @param questionID
-     * @param token
-     * @throws Exception
+     * Upvoting a question.
+     * @param questionID question
+     * @param token user token
+     * @throws Exception throws excetion
      */
     public void upvoteQuestion(String questionID, String token) throws Exception {
         User user = userRepository.findByToken(token);
         Question question = questionRepository.findById(questionID);
 
-        if (user == null){
+        if(user == null) {
             throw new Exception("There are no users with that token!");
         }
 
-        if(question == null){
+        if(question == null) {
             throw new Exception("There are no questions with that ID!");
         }
         question.setUpvotes(question.getUpvotes() + 1);
         questionRepository.save(question);
     }
 
+    /**
+     * It sets boolean value.
+     * @param questionID question ID
+     * @param token user token
+     * @return Question object returned
+     * @throws Exception
+     */
     public Question setAsAnswered(String questionID, String token) throws Exception {
         User user = userRepository.findByToken(token);
         Question question = questionRepository.findById(questionID);
@@ -97,7 +104,7 @@ public class QuestionService {
             throw new Exception("There are no users with that token!");
         }
 
-        if(question == null){
+        if (question == null){
             throw new Exception("There are no questions with that ID!");
         }
         question.setAnswered(true);
@@ -112,7 +119,7 @@ public class QuestionService {
             throw new Exception("There are no users with that token!");
         }
 
-        if(question == null){
+        if (question == null){
             throw new Exception("There are no questions with that ID!");
         }
         question.setAnswered(true);
