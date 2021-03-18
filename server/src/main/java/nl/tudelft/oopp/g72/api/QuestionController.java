@@ -34,7 +34,7 @@ public class QuestionController {
 
     @GetMapping(value = "upvote/{questionID}/{userToken}")
     public void upvoteQuestion(@PathVariable String questionID, String userToken)
-            throws Exception {
+          throws Exception {
           this.questionService.upvoteQuestion(questionID,userToken);
     }
 
