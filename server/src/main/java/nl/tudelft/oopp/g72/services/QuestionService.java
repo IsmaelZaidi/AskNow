@@ -43,13 +43,13 @@ public class QuestionService {
         Question question = new Question();
 
         User user = userRepository.findByToken(userToken);
-        if(user == null) {
+        if (user == null) {
             return null;
         }
 
         Optional<Room> roomOptional = roomRepository.findById(roomId);
         Room room;
-        if(roomOptional.isPresent()) {
+        if (roomOptional.isPresent()) {
             room = roomOptional.get();
         } else {
             return null;
@@ -78,11 +78,11 @@ public class QuestionService {
         User user = userRepository.findByToken(token);
         Question question = questionRepository.findById(questionID);
 
-        if(user == null) {
+        if (user == null) {
             throw new Exception("There are no users with that token!");
         }
 
-        if(question == null) {
+        if (question == null) {
             throw new Exception("There are no questions with that ID!");
         }
         question.setUpvotes(question.getUpvotes() + 1);
@@ -94,7 +94,7 @@ public class QuestionService {
      * @param questionID question ID
      * @param token user token
      * @return Question object returned
-     * @throws Exception
+     * @throws Exception ma ta
      */
     public Question setAsAnswered(String questionID, String token) throws Exception {
         User user = userRepository.findByToken(token);
@@ -111,7 +111,16 @@ public class QuestionService {
         return questionRepository.save(question);
     }
 
-    public Question answerQuestion(String token, String questionID, String message) throws Exception {
+    /**
+     * Answer question.
+     * @param token user token
+     * @param questionID question ID
+     * @param message message
+     * @return Returns Question object.
+     * @throws Exception Throws exception
+     */
+    public Question answerQuestion(String token, String questionID, String message)
+        throws Exception {
         User user = userRepository.findByToken(token);
         Question question = questionRepository.findById(questionID);
 
