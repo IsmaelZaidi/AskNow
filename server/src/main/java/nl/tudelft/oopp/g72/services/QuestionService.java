@@ -43,13 +43,13 @@ public class QuestionService {
         Question question = new Question();
 
         User user = userRepository.findByToken(userToken);
-        if(user == null){
+        if(user == null) {
             return null;
         }
 
         Optional<Room> roomOptional = roomRepository.findById(roomId);
         Room room;
-        if(roomOptional.isPresent()){
+        if(roomOptional.isPresent()) {
             room = roomOptional.get();
         } else {
             return null;
@@ -100,11 +100,11 @@ public class QuestionService {
         User user = userRepository.findByToken(token);
         Question question = questionRepository.findById(questionID);
 
-        if (user == null){
+        if (user == null) {
             throw new Exception("There are no users with that token!");
         }
 
-        if (question == null){
+        if (question == null) {
             throw new Exception("There are no questions with that ID!");
         }
         question.setAnswered(true);
@@ -115,11 +115,11 @@ public class QuestionService {
         User user = userRepository.findByToken(token);
         Question question = questionRepository.findById(questionID);
 
-        if (user == null){
+        if (user == null) {
             throw new Exception("There are no users with that token!");
         }
 
-        if (question == null){
+        if (question == null) {
             throw new Exception("There are no questions with that ID!");
         }
         question.setAnswered(true);
