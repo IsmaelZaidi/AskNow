@@ -1,5 +1,7 @@
 package nl.tudelft.oopp.g72.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +16,7 @@ import javax.persistence.Table;
 @Entity(name = "User")
 @Table(name = "user")
 public class  User {
+    @JsonIgnore
     @Id
     @SequenceGenerator(
         name = "user_id_sequence",
@@ -37,6 +40,7 @@ public class  User {
     )
     private String nick;
 
+    @JsonIgnore
     @Column(
         name = "token",
         nullable = false,
@@ -44,6 +48,7 @@ public class  User {
     )
     private String token;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;

@@ -1,5 +1,7 @@
 package nl.tudelft.oopp.g72.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -46,7 +48,7 @@ public class Room {
             name = "scheduled_time",
             nullable = false
     )
-    private String scheduledTime;
+    private long scheduledTime;
 
     @Column(
             name = "joincode_student",
@@ -73,7 +75,7 @@ public class Room {
      * @param joincodeStudent String
      * @param joincodeModerator String
      */
-    public Room(long id, String name, boolean open, String scheduledTime,
+    public Room(long id, String name, boolean open, long scheduledTime,
                 String joincodeStudent, String joincodeModerator) {
         this.id = id;
         this.name = name;
@@ -107,11 +109,11 @@ public class Room {
         this.open = open;
     }
 
-    public String getScheduledTime() {
+    public long getScheduledTime() {
         return scheduledTime;
     }
 
-    public void setScheduledTime(String scheduledTime) {
+    public void setScheduledTime(long scheduledTime) {
         this.scheduledTime = scheduledTime;
     }
 
