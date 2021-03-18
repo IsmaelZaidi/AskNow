@@ -23,9 +23,11 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/login.fxml"));
+        Parent content = loader.load();
         primaryStage.setTitle("Placeholder title");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(content));
         primaryStage.show();
     }
 }
