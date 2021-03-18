@@ -26,7 +26,7 @@ public class QuestionService {
     @Autowired
     public QuestionService(@Qualifier("QuestionRepository") QuestionRepository questionRepository,
                            @Qualifier("UserRepository") UserRepository userRepository,
-                           @Qualifier("RoomRepository") RoomRepository roomRepository) {
+                           @Qualifier("RoomRepository") RoomRepository roomRepository){
         this.questionRepository = questionRepository;
         this.userRepository = userRepository;
         this.roomRepository = roomRepository;
@@ -39,17 +39,17 @@ public class QuestionService {
      * @param message String containing the question
      * @return a Question entity that corresponds to the one inserted in the database
      */
-    public Question addQuestion(String userToken, long roomId, String message) {
+    public Question addQuestion(String userToken, long roomId, String message){
         Question question = new Question();
 
         User user = userRepository.findByToken(userToken);
-        if (user == null) {
+        if (user == null){
             return null;
         }
 
         Optional<Room> roomOptional = roomRepository.findById(roomId);
         Room room;
-        if (roomOptional.isPresent()) {
+        if (roomOptional.isPresent()){
             room = roomOptional.get();
         } else {
             return null;
@@ -74,7 +74,7 @@ public class QuestionService {
      * @param token
      * @throws Exception
      */
-    public void upvoteQuestion(String questionID, String token) throws Exception {
+    public void upvoteQuestion(String questionID, String token) throws Exception{
         User user = userRepository.findByToken(token);
         Question question = questionRepository.findById(questionID);
 
@@ -85,15 +85,15 @@ public class QuestionService {
         if(question == null){
             throw new Exception("There are no questions with that ID!");
         }
-        question.setUpvotes(question.getUpvotes()+1);
+        question.setUpvotes(question.getUpvotes() + 1);
         questionRepository.save(question);
     }
 
-    public Question setAsAnswered(String questionID, String token) throws Exception {
+    public Question setAsAnswered(String questionID, String token) throws Exception{
         User user = userRepository.findByToken(token);
         Question question = questionRepository.findById(questionID);
 
-        if (user == null) {
+        if (user == null){
             throw new Exception("There are no users with that token!");
         }
 
@@ -104,11 +104,11 @@ public class QuestionService {
         return questionRepository.save(question);
     }
 
-    public Question answerQuestion(String token, String questionID, String message) throws Exception {
+    public Question answerQuestion(String token, String questionID, String message) throws Exception{
         User user = userRepository.findByToken(token);
         Question question = questionRepository.findById(questionID);
 
-        if (user == null) {
+        if (user == null){
             throw new Exception("There are no users with that token!");
         }
 
