@@ -65,10 +65,10 @@ public class RoomService {
      * Joins room.
      * @param code String
      * @param token String
-     * @return joined Room
+     * @return joined Room ID
      * @throws Exception for bad requests
      */
-    public Room joinRoom(String code, String token) throws Exception {
+    public long joinRoom(String code, String token) throws Exception {
         User user = userRepository.findByToken(token);
         Room room = roomRepository.findByJoincodeStudent(code);
         if (user == null) {
@@ -80,7 +80,7 @@ public class RoomService {
         } else {
             user.setRoom(room);
             userRepository.save(user);
-            return room;
+            return room.getId();
         }
     }
 

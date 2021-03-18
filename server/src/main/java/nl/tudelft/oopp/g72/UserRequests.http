@@ -46,8 +46,13 @@ RoomId: 3
 
 question.
 
-
 ###
 
 DELETE localhost:8080/api/v1/question/1 HTTP/1.1
 Token: 0765e3c1-4eef-466a-a713-de27e3f87b28
+
+###
+
+GET localhost:8080/api/v1/retrieve HTTP/1.1
+Token: a33b96cd-31c5-488d-b29f-947167877e4c
+Time: 1615911741930

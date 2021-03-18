@@ -1,5 +1,7 @@
 package nl.tudelft.oopp.g72.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Objects;
 
 import javax.persistence.Column;
