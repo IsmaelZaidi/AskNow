@@ -138,12 +138,13 @@ public class QuestionService {
 
         return question;
     }
-     /**
-     * Deletes a question asked by the user.
-     * @param token user's token
-     * @param questionId id of the question
-     * @return true if the deletion succeeded, false otherwise
-     */
+    
+    /**
+    *  Deletes a question asked by the user.
+    * @param token user's token
+    * @param questionId id of the question
+    * @return true if the deletion succeeded, false otherwise
+    */
     public boolean deleteQuestion(String token, long questionId) {
         User user = userRepository.findByToken(token);
         if (user == null) {
