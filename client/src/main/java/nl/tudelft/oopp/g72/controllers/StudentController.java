@@ -26,12 +26,12 @@ public class StudentController {
     }
 
     /**
-     * Executed every time a key is pressed. Checks if the key is 'enter', if so it consumes the enter and calls
-     * the 'sendMessage' method.
+     * Executed every time a key is pressed. Checks if the key is 'enter',
+     * if so it consumes the enter and calls the 'sendMessage' method.
      * @param event holds the key that's pressed.
      */
     public void enterPressed(KeyEvent event) {
-        if(event.getCode() == KeyCode.ENTER) {
+        if (event.getCode() == KeyCode.ENTER) {
             event.consume();
             sendMessage();
         }
