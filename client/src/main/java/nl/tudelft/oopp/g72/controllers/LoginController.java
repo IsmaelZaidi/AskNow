@@ -95,7 +95,8 @@ public class LoginController {
         LocalVariables.roomId = Long.parseLong(response.body());
         System.out.println(LocalVariables.roomId);
 
-        MainApp.window.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
+        MainApp.window.setScene(new Scene(
+                FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
     }
 
     /**
