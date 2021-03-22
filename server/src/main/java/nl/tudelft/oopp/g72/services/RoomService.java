@@ -79,7 +79,6 @@ public class RoomService {
         } else {
             user.setRoom(room);
             userRepository.save(user);
-            return room;
             return room.getId();
         }
     }
