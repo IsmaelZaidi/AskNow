@@ -5,9 +5,9 @@ import javafx.scene.control.TextField;
 
 public class LoginController {
 
-    @FXML // Value in display name input field.
+    @FXML // Display name input field.
     private TextField displayName;
-    @FXML // Value in room code input field.
+    @FXML // Room code input field.
     private TextField roomCode;
 
 
