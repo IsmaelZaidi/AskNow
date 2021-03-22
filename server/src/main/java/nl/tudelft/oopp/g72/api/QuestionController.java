@@ -3,8 +3,12 @@ package nl.tudelft.oopp.g72.api;
 import nl.tudelft.oopp.g72.models.Question;
 import nl.tudelft.oopp.g72.services.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -25,6 +29,13 @@ public class QuestionController {
         if (question == null) {
             throw new IllegalArgumentException("Token or Room ID is wrong");
         }
+        return question;
+    }
+
+    @MessageMapping("/question/{roomID}")
+    @SendTo("/topic/question/{roomID}")
+    public Question send(Question question) throws Exception {
+        String time = new SimpleDateFormat("HH:mm").format(new Date());
         return question;
     }
 
