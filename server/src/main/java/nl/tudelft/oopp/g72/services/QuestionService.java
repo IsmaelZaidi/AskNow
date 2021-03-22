@@ -137,7 +137,8 @@ public class QuestionService {
         questionRepository.save(question);
 
         return question;
-
+    }
+     /**
      * Deletes a question asked by the user.
      * @param token user's token
      * @param questionId id of the question

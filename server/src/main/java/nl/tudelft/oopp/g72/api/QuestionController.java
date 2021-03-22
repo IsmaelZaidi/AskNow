@@ -53,6 +53,7 @@ public class QuestionController {
         Question question = questionService.answerQuestion(token, questionID, message);
 
         return question;
+    }
 
     @DeleteMapping("/question/{id}")
     void delete(@RequestHeader("Token") String token, @PathVariable long id) {
