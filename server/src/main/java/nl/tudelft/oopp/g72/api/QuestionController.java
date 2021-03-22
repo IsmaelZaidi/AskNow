@@ -34,6 +34,27 @@ public class QuestionController {
         return question;
     }
 
+    @GetMapping(value = "upvote/{questionID}/{userToken}")
+    public void upvoteQuestion(@PathVariable String questionID, String userToken)
+        throws Exception {
+        this.questionService.upvoteQuestion(questionID,userToken);
+    }
+
+    @GetMapping(value = "answer/{questionID}/{userToken}")
+    public Question answerQuestion(@PathVariable String questionID, String userToken)
+        throws Exception {
+        return this.questionService.setAsAnswered(questionID, userToken);
+    }
+
+    @PostMapping("/answer")
+    Question answer(@RequestHeader("Token") String token,
+                 @RequestHeader("QuestionId") String questionID,
+                 @RequestBody String message) throws Exception {
+        Question question = questionService.answerQuestion(token, questionID, message);
+
+        return question;
+    }
+
     @DeleteMapping("/question/{id}")
     void delete(@RequestHeader("Token") String token, @PathVariable long id) {
         boolean success = questionService.deleteQuestion(token, id);
