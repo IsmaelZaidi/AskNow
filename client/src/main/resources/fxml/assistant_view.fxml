@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<!--<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>-->
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TextField?>
@@ -13,7 +13,9 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0"
+            prefWidth="512.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="nl.tudelft.oopp.g72.controllers.AssistantController">
    <top>
       <Pane prefHeight="64.0" prefWidth="512.0" style="-fx-background-color: deepskyblue;" BorderPane.alignment="CENTER">
          <children>
@@ -47,12 +49,12 @@
             <TextField layoutX="100.0" layoutY="272.0" prefHeight="55.0" prefWidth="180.0" text="Comment #4" />
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="64.0" layoutX="29.0" layoutY="188.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
             <TextField layoutX="100.0" layoutY="192.0" prefHeight="55.0" prefWidth="180.0" text="Comment #3" />
-            <ToggleButtonGroup layoutX="410.0" layoutY="188.0" selectionType="SINGLE">
-                <toggles>
-                    <ToggleButton />
-                    <ToggleButton />
-                </toggles>
-            </ToggleButtonGroup>
+<!--            <ToggleButtonGroup layoutX="410.0" layoutY="188.0" selectionType="SINGLE">-->
+<!--                <toggles>-->
+<!--                    <ToggleButton />-->
+<!--                    <ToggleButton />-->
+<!--                </toggles>-->
+<!--            </ToggleButtonGroup>-->
             <TextField layoutX="346.0" layoutY="48.0" prefHeight="24.0" prefWidth="72.0" text="foo" />
             <TextField layoutX="346.0" layoutY="87.0" prefHeight="24.0" prefWidth="72.0" text="bar" />
             <TextField layoutX="346.0" layoutY="128.0" prefHeight="26.0" prefWidth="52.0" text="foobar" />
