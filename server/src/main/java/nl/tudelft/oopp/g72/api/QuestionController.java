@@ -1,8 +1,10 @@
 package nl.tudelft.oopp.g72.api;
 
+import java.util.List;
 import nl.tudelft.oopp.g72.models.Question;
 import nl.tudelft.oopp.g72.services.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,5 +53,22 @@ public class QuestionController {
         Question question = questionService.answerQuestion(token, questionID, message);
 
         return question;
+
+    @DeleteMapping("/question/{id}")
+    void delete(@RequestHeader("Token") String token, @PathVariable long id) {
+        boolean success = questionService.deleteQuestion(token, id);
+        if (!success) {
+            throw new IllegalArgumentException("Bad token or question doesn't exist");
+        }
+    }
+
+    @GetMapping("/retrieve")
+    List<Question> retrieve(@RequestHeader("Token") String token,
+                            @RequestHeader("Time") long time) {
+        List<Question> questions = questionService.retrieveQuestions(token, time);
+        if (questions == null) {
+            throw new IllegalArgumentException("Bad token");
+        }
+        return questions;
     }
 }

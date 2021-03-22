@@ -10,14 +10,12 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0"
+            prefWidth="512.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="nl.tudelft.oopp.g72.controllers.LoginController">
    <top>
       <AnchorPane prefHeight="259.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="259.0" fitWidth="300.0" layoutX="71.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../TUDelft-logo-1-1-300x259.png" />
-               </image></ImageView>
             <Label layoutX="331.0" layoutY="109.0" prefHeight="50.0" prefWidth="56.0" text="72">
                <font>
                   <Font name="Arial" size="50.0" />
@@ -35,12 +33,14 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="331.0" layoutY="58.0" minWidth="49.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="49.0" text="Join">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="331.0" layoutY="58.0" minWidth="49.0"
+                    mnemonicParsing="false" prefHeight="32.0" prefWidth="49.0" text="Join">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="155.0" layoutY="149.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="203.0" text="Create lecture">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="155.0" layoutY="149.0" mnemonicParsing="false"
+                    prefHeight="32.0" prefWidth="203.0" text="Create lecture">
                <font>
                   <Font size="18.0" />
                </font>

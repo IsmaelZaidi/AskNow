@@ -5,4 +5,54 @@ Christoph Lofi
 ###
 
 GET localhost:8080/api/v1/info HTTP/1.1
-Token: 43cc33e5-cb38-4889-9fa7-968062234ea6
+Token: e090c14a-b0a0-4e5c-b697-f5c0de69eafe
+
+###
+
+POST localhost:8080/api/v1/create HTTP/1.1
+token: e090c14a-b0a0-4e5c-b697-f5c0de69eafe
+scheduledTime: 0
+
+OOPP
+
+###
+
+POST localhost:8080/api/v1/login HTTP/1.1
+
+Stephan
+
+###
+
+GET localhost:8080/api/v1/info HTTP/1.1
+Token: 0765e3c1-4eef-466a-a713-de27e3f87b28
+
+###
+
+GET localhost:8080/api/v1/join HTTP/1.1
+Token: 0765e3c1-4eef-466a-a713-de27e3f87b28
+Code: 1mb02J
+
+###
+
+GET localhost:8080/api/v1/participants HTTP/1.1
+Token: 0765e3c1-4eef-466a-a713-de27e3f87b28
+RoomId: 3
+
+###
+
+POST localhost:8080/api/v1/ask HTTP/1.1
+Token: 0765e3c1-4eef-466a-a713-de27e3f87b28
+RoomId: 3
+
+question.
+
+###
+
+DELETE localhost:8080/api/v1/question/1 HTTP/1.1
+Token: 0765e3c1-4eef-466a-a713-de27e3f87b28
+
+###
+
+GET localhost:8080/api/v1/retrieve HTTP/1.1
+Token: a33b96cd-31c5-488d-b29f-947167877e4c
+Time: 1615911741930
