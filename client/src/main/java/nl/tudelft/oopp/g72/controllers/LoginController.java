@@ -1,25 +1,20 @@
 package nl.tudelft.oopp.g72.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Map;
-import java.util.Optional;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Pair;
 import nl.tudelft.oopp.g72.MainApp;
-import nl.tudelft.oopp.g72.TimeSpinner;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
 public class LoginController {
