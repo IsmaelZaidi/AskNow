@@ -53,6 +53,12 @@ public class  User {
     @JoinColumn(name = "room_id")
     private Room room;
 
+    @Column(
+        name = "moderator",
+        nullable = false
+    )
+    private boolean moderator;
+
     public User() {
     }
 
@@ -62,12 +68,14 @@ public class  User {
      * @param nick String
      * @param token String
      * @param room room
+     * @param moderator moderator
      */
-    public User(long id, String nick, String token, Room room) {
+    public User(long id, String nick, String token, Room room, boolean moderator) {
         this.id = id;
         this.nick = nick;
         this.token = token;
         this.room = room;
+        this.moderator = moderator;
     }
 
     public long getId() {
@@ -102,6 +110,14 @@ public class  User {
         this.room = room;
     }
 
+    public void setModerator(boolean moderator) {
+        this.moderator = moderator;
+    }
+
+    public boolean getModerator() {
+        return moderator;
+    }
+
     @Override
     public String toString() {
         return "User{"
@@ -109,6 +125,7 @@ public class  User {
                 + ", nick='" + nick + '\''
                 + ", token='" + token + '\''
                 + ", room=" + room
+                + ", moderator=" + moderator
                 + '}';
     }
 
@@ -130,6 +147,9 @@ public class  User {
             return false;
         }
         if (!Objects.equals(token, user.token)) {
+            return false;
+        }
+        if (moderator != user.moderator) {
             return false;
         }
         return Objects.equals(room, user.room);

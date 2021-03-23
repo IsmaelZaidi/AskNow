@@ -23,10 +23,11 @@ public class UserService {
      * @param nick the nickname of the user
      * @return the token associated with the user
      */
-    public String add(String nick) {
+    public String add(String nick, boolean moderator) {
         User user = new User();
         user.setNick(nick);
         user.setToken(UUID.randomUUID().toString());
+        user.setModerator(moderator);
 
         user = userRepository.save(user);
         return user.getToken();

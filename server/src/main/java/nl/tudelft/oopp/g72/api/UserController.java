@@ -23,7 +23,7 @@ public class UserController {
 
     @PostMapping("/login")
     String login(@RequestBody String nick) {
-        String token = userService.add(nick);
+        String token = userService.add(nick, false);
         if (token == null) {
             throw new IllegalArgumentException("Nickname already taken");
         }
