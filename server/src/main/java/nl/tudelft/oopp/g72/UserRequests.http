@@ -5,7 +5,7 @@ Christoph Lofi
 ###
 
 POST localhost:8080/api/v1/create HTTP/1.1
-token: a1758197-68d1-4a0e-814c-ac9540ecc8eb
+token: 2c162942-2f8a-4a21-ac75-98ed16c8b0f2
 scheduledTime: 0
 
 OOPP
@@ -19,8 +19,8 @@ Stephan
 ###
 
 GET localhost:8080/api/v1/join HTTP/1.1
-Token: 10fba5a7-2b18-4474-bb48-72ca7cc67a37
-Code: 7tUl8v
+Token: 71ac6437-2fe6-4025-966f-3ed343429df0
+Code: 4nSvcc
 
 ###
 

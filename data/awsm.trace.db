@@ -1,3 +1,0 @@
-2021-03-23 20:01:50 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ROOM[*]"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE"; SQL statement:
-ROOM [42001-200]
