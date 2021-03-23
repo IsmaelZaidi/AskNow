@@ -1,9 +1,13 @@
 package nl.tudelft.oopp.g72.api;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import nl.tudelft.oopp.g72.models.Question;
 import nl.tudelft.oopp.g72.services.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+
 
 @RestController
 @RequestMapping("api/v1")
@@ -31,6 +37,34 @@ public class QuestionController {
         if (question == null) {
             throw new IllegalArgumentException("Token or Room ID is wrong");
         }
+        return question;
+    }
+
+    @MessageMapping("/question/{roomID}")
+    @SendTo("/topic/question/{roomID}")
+    public Question send(Question question) throws Exception {
+        String time = new SimpleDateFormat("HH:mm").format(new Date());
+        return question;
+    }
+
+    @GetMapping(value = "upvote/{questionID}/{userToken}")
+    public void upvoteQuestion(@PathVariable String questionID, String userToken)
+        throws Exception {
+        this.questionService.upvoteQuestion(questionID,userToken);
+    }
+
+    @GetMapping(value = "answer/{questionID}/{userToken}")
+    public Question answerQuestion(@PathVariable String questionID, String userToken)
+        throws Exception {
+        return this.questionService.setAsAnswered(questionID, userToken);
+    }
+
+    @PostMapping("/answer")
+    Question answer(@RequestHeader("Token") String token,
+                 @RequestHeader("QuestionId") String questionID,
+                 @RequestBody String message) throws Exception {
+        Question question = questionService.answerQuestion(token, questionID, message);
+
         return question;
     }
 
