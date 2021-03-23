@@ -22,6 +22,7 @@ public class LoginController {
     @FXML // Room code input field.
     private TextField roomCode;
 
+
     private boolean login() throws IOException, InterruptedException {
         if (displayName.getText().equals("")) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "You haven't filled in a display name!");
@@ -104,11 +105,21 @@ public class LoginController {
      */
     public void createRoom() throws IOException, InterruptedException {
         // Will be executed when 'create room' button is clicked.
-        // This url will show moderator code http://localhost:8080/api/v1/room/moderator
-        // This url will show student code http://localhost:8080/api/v1/room/student
+        if (LocalVariables.token == null) {
+            boolean loggedin = login();
+            if (!loggedin) {
+                return;
+            }
+        }
+
         HttpClient client = HttpClient.newHttpClient();
-        //use create room mapping instead of current
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:8080/api/v1/room/student)")).build();
+        HttpRequest request = HttpRequest.newBuilder(
+                URI.create("http://localhost:8080/api/v1/create/"))
+                .POST(HttpRequest.BodyPublishers.ofString(LocalVariables.token))
+                .POST(HttpRequest.BodyPublishers.ofString(String.valueOf(0)))
+                .header("Token", LocalVariables.token)
+                .header("scheduledTime", String.valueOf(1))
+                .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
 
