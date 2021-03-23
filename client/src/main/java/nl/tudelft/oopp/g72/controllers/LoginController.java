@@ -102,7 +102,17 @@ public class LoginController {
     /**
      * Executed when the 'create room' button is clicked.
      */
-    public void createRoom() {
+    public void createRoom() throws IOException, InterruptedException {
         // Will be executed when 'create room' button is clicked.
+        // This url will show moderator code http://localhost:8080/api/v1/room/moderator
+        // This url will show student code http://localhost:8080/api/v1/room/student
+        HttpClient client = HttpClient.newHttpClient();
+        //use create room mapping instead of current
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:8080/api/v1/room/student)")).build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+
+
+
     }
 }
