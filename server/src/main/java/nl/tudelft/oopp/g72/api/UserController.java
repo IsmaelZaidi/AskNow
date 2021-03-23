@@ -30,15 +30,6 @@ public class UserController {
         return token;
     }
 
-    @GetMapping("/info")
-    String getNick(@RequestHeader("Token") String token) {
-        User user = userService.findByToken(token);
-        if (user == null) {
-            throw new IllegalArgumentException("Bad token");
-        }
-        return user.getNick();
-    }
-
     @GetMapping("/participants")
     List<User> getParticipants(@RequestHeader("Token") String token,
                                @RequestHeader("RoomId") long roomId) {
