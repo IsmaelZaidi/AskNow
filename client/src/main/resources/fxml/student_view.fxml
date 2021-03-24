@@ -16,11 +16,13 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0"
+            prefWidth="1024.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="nl.tudelft.oopp.g72.controllers.StudentController">
    <top>
       <Pane prefHeight="64.0" prefWidth="512.0" style="-fx-background-color: deepskyblue;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="954.0" layoutY="16.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="56.0" style="-fx-background-color: red;" text="Quit" />
+            <Button layoutX="954.0" layoutY="16.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="56.0" style="-fx-background-color: red;" text="Quit" onAction="#quit" />
             <Label layoutX="48.0" layoutY="24.0" text=":Insert logo:" />
             <Label layoutX="256.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7">
                <font>
@@ -28,7 +30,7 @@
                </font>
             </Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3dae49" height="32.0" layoutX="870.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="56.0" />
-            <Label layoutX="894.0" layoutY="22.0" prefHeight="18.0" prefWidth="18.0" text="0" textFill="WHITE" />
+            <Label layoutX="894.0" layoutY="22.0" prefHeight="18.0" prefWidth="18.0" text="0" textFill="WHITE" fx:id="studentCount" />
          </children>
       </Pane>
    </top>
@@ -39,7 +41,7 @@
             <ScrollBar layoutX="753.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="512.0" prefWidth="12.0" />
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="164.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
             <TextFlow layoutX="30.899999618530273" layoutY="40.900001525878906" />
-            <TextField layoutX="127.0" layoutY="414.0" prefHeight="55.0" prefWidth="590.0" text="Enter your message..." />
+            <TextField layoutX="127.0" layoutY="414.0" prefHeight="55.0" prefWidth="590.0" promptText="Enter your message..." fx:id="messageBar"  onKeyPressed="#enterPressed"/>
             <Line endX="162.0" endY="19.0" layoutX="863.0" layoutY="145.0" startX="-98.0" startY="19.0" />
             <ToggleButtonGroup layoutX="410.0" layoutY="188.0" selectionType="SINGLE">
                 <toggles>
@@ -47,8 +49,8 @@
                     <ToggleButton />
                 </toggles>
             </ToggleButtonGroup>
-            <Button layoutX="944.0" layoutY="65.0" mnemonicParsing="false" prefHeight="32.0" text="x12" />
-            <Button layoutX="944.0" layoutY="113.0" mnemonicParsing="false" prefHeight="32.0" text="x4" />
+            <Button layoutX="944.0" layoutY="65.0" mnemonicParsing="false" prefHeight="32.0" text="0" fx:id="hurryUpButton" onAction="#hurryUp" />
+            <Button layoutX="944.0" layoutY="113.0" mnemonicParsing="false" prefHeight="32.0" text="0" fx:id="slowDownButton" onAction="#slowDown" />
             <Text layoutX="803.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecture pace:" wrappingWidth="184.98307037353516">
                <font>
                   <Font name="Calibri" size="32.0" />
@@ -78,22 +80,22 @@
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="164.0" layoutY="212.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="164.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="164.0" layoutY="306.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
-            <Button layoutX="514.0" layoutY="204.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="54.0" style="-fx-font-size: 10;" text="Edit" />
-            <Button layoutX="568.0" layoutY="204.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="64.0" style="-fx-font-size: 10;" text="Remove" />
+            <Button layoutX="514.0" layoutY="204.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="54.0" style="-fx-font-size: 10;" text="Edit" onAction="#edit" />
+            <Button layoutX="568.0" layoutY="204.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="64.0" style="-fx-font-size: 10;" text="Remove" onAction="#remove" />
             <Label layoutX="42.0" layoutY="136.0" prefHeight="18.0" prefWidth="65.0" text="Posted by:" />
             <Label layoutX="42.0" layoutY="232.0" prefHeight="18.0" prefWidth="65.0" text="Posted by:" />
             <Label layoutX="42.0" layoutY="322.0" prefHeight="18.0" prefWidth="65.0" text="Posted by:" />
-            <ToggleButton layoutX="190.0" layoutY="160.0" mnemonicParsing="false" style="-fx-font-size: 8;" text="Upvote">
+            <ToggleButton layoutX="190.0" layoutY="160.0" mnemonicParsing="false" style="-fx-font-size: 8;" text="Upvote" onAction="#upvote">
                <effect>
                   <ColorInput />
                </effect>
             </ToggleButton>
-            <ToggleButton layoutX="190.0" layoutY="256.0" mnemonicParsing="false" style="-fx-font-size: 8;" text="Upvote">
+            <ToggleButton layoutX="190.0" layoutY="256.0" mnemonicParsing="false" style="-fx-font-size: 8;" text="Upvote" onAction="#upvote">
                <effect>
                   <ColorInput />
                </effect>
             </ToggleButton>
-            <ToggleButton layoutX="190.0" layoutY="346.0" mnemonicParsing="false" style="-fx-font-size: 8;" text="Upvote">
+            <ToggleButton layoutX="190.0" layoutY="346.0" mnemonicParsing="false" style="-fx-font-size: 8;" text="Upvote" onAction="#upvote">
                <effect>
                   <ColorInput />
                </effect>
