@@ -12,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
@@ -102,7 +104,12 @@ public class LoginController {
     /**
      * Executed when the 'create room' button is clicked.
      */
-    public void createRoom() {
+    public void createRoom() throws IOException {
         // Will be executed when 'create room' button is clicked.
+        Stage dia = new Stage();
+        dia.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/room_creator.fxml"))));
+        dia.initModality(Modality.APPLICATION_MODAL);
+        dia.requestFocus();
+        dia.showAndWait();
     }
 }
