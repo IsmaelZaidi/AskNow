@@ -29,6 +29,12 @@ public class Question {
         this.upvotes = upvotes;
     }
 
+    /**
+     * Constructor.
+     * @param user user who asked the q
+     * @param text text of the q
+     * @param upvotes upvotes of the q
+     */
     public Question(User user, String text, int upvotes) {
         this.user = user;
         this.text = text;
