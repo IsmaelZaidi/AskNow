@@ -9,7 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import nl.tudelft.oopp.g72.TimeSpinner;
+import nl.tudelft.oopp.g72.entities.TimeSpinner;
 
 public class RoomCreatorController {
     @FXML
