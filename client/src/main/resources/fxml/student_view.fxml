@@ -36,7 +36,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="31.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="700.0" />
-            <ScrollBar layoutX="753.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="512.0" prefWidth="12.0" />
+            <ScrollBar layoutX="753.0" orientation="VERTICAL" prefHeight="511.0" prefWidth="12.0" />
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="164.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
             <TextFlow layoutX="30.899999618530273" layoutY="40.900001525878906" />
             <TextField layoutX="127.0" layoutY="414.0" prefHeight="55.0" prefWidth="590.0" text="Enter your message..." />
