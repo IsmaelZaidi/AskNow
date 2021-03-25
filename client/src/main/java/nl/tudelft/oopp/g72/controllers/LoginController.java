@@ -110,7 +110,8 @@ public class LoginController {
                 URI.create("http://localhost:8080/api/v1/isMod"))
                 .header("Token", LocalVariables.token)
                 .build();
-        HttpResponse<String> response2 = client2.send(request2, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response2 = client2.send(
+                request2, HttpResponse.BodyHandlers.ofString());
         System.out.println(response2.body());
 
         if (response2.body().equals("false")) {
