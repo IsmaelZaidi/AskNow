@@ -105,8 +105,22 @@ public class LoginController {
         LocalVariables.roomId = Long.parseLong(response.body());
         System.out.println(LocalVariables.roomId);
 
-        MainApp.window.setScene(new Scene(
-                FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
+        HttpClient client2 = HttpClient.newHttpClient();
+        HttpRequest request2 = HttpRequest.newBuilder(
+                URI.create("http://localhost:8080/api/v1/isMod"))
+                .header("Token", LocalVariables.token)
+                .build();
+        HttpResponse<String> response2 = client2.send(request2, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response2.body());
+
+        if (response2.body().equals("false")) {
+            MainApp.window.setScene(new Scene(
+                    FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
+        } else {
+            MainApp.window.setScene(new Scene(
+                    FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
+        }
+
     }
 
     /**
