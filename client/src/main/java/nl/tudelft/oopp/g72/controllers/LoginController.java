@@ -27,9 +27,9 @@ import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
 public class LoginController {
 
-    @FXML // Display name input field.
+    @FXML
     private TextField displayName;
-    @FXML // Room code input field.
+    @FXML
     private TextField roomCode;
 
 
@@ -64,7 +64,6 @@ public class LoginController {
      * Executed when the 'join room' button is clicked.
      */
     public void joinRoom() throws IOException, InterruptedException {
-        // Will be executed when 'join' button is clicked.
         if (LocalVariables.token == null) {
             boolean loggedin = login();
             if (!loggedin) {
@@ -114,7 +113,6 @@ public class LoginController {
      * Executed when the 'create room' button is clicked.
      */
     public void createRoom() throws IOException, InterruptedException {
-        // Will be executed when 'create room' button is clicked.
         if (LocalVariables.token == null) {
             boolean loggedin = login();
             if (!loggedin) {
