@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>-->
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
@@ -13,72 +14,89 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0"
-            prefWidth="512.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="nl.tudelft.oopp.g72.controllers.AssistantController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <Pane prefHeight="64.0" prefWidth="512.0" style="-fx-background-color: deepskyblue;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="429.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: red;" text="End" />
-            <Button layoutX="358.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: green;" text="0" />
-            <TextField layoutX="14.0" layoutY="20.0" prefHeight="26.0" prefWidth="80.0" text=":Insert logo:">
+            <Button layoutX="956.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Quit" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3dae49" height="32.0" layoutX="870.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="56.0" />
+            <Label layoutX="894.0" layoutY="22.0" prefHeight="18.0" prefWidth="0.0" text="0" textFill="WHITE" />
+            <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Teacher's view" />
+            <Label layoutX="256.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7">
                <font>
-                  <Font name="Calibri" size="18.0" />
+                  <Font size="24.0" />
                </font>
-            </TextField>
-            <TextField layoutX="126.0" layoutY="18.0" prefHeight="32.0" prefWidth="153.0" style="-fx-font-size: 18;" text="CSE 1950 Lecture 7">
-               <font>
-                  <Font name="Calibri" size="18.0" />
-               </font>
-            </TextField>
+            </Label>
+            <Label layoutX="48.0" layoutY="24.0" text=":Insert logo:" />
          </children>
       </Pane>
    </top>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollBar layoutX="309.0" layoutY="1.0" orientation="VERTICAL" prefHeight="446.0" prefWidth="8.0" />
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="64.0" layoutX="29.0" layoutY="28.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
-            <TextField layoutX="100.0" layoutY="32.0" prefHeight="55.0" prefWidth="180.0" text="Comment #1" />
+            <ScrollBar layoutX="753.0" orientation="VERTICAL" prefHeight="512.0" prefWidth="12.0" />
             <TextFlow layoutX="30.899999618530273" layoutY="40.900001525878906" />
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="64.0" layoutX="29.0" layoutY="107.0" stroke="RED" strokeType="INSIDE" width="256.0" />
-            <TextField layoutX="100.0" layoutY="112.0" prefHeight="55.0" prefWidth="180.0" text="Comment #2" />
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="64.0" layoutX="29.0" layoutY="348.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
-            <TextField layoutX="100.0" layoutY="352.0" prefHeight="55.0" prefWidth="180.0" text="Comment #5" />
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="64.0" layoutX="29.0" layoutY="268.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
-            <TextField layoutX="100.0" layoutY="272.0" prefHeight="55.0" prefWidth="180.0" text="Comment #4" />
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="64.0" layoutX="29.0" layoutY="188.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
-            <TextField layoutX="100.0" layoutY="192.0" prefHeight="55.0" prefWidth="180.0" text="Comment #3" />
-<!--            <ToggleButtonGroup layoutX="410.0" layoutY="188.0" selectionType="SINGLE">-->
-<!--                <toggles>-->
-<!--                    <ToggleButton />-->
-<!--                    <ToggleButton />-->
-<!--                </toggles>-->
-<!--            </ToggleButtonGroup>-->
-            <TextField layoutX="346.0" layoutY="48.0" prefHeight="24.0" prefWidth="72.0" text="foo" />
-            <TextField layoutX="346.0" layoutY="87.0" prefHeight="24.0" prefWidth="72.0" text="bar" />
-            <TextField layoutX="346.0" layoutY="128.0" prefHeight="26.0" prefWidth="52.0" text="foobar" />
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="24.0" layoutX="86.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
-            <TextField layoutX="88.0" layoutY="19.0" prefHeight="26.0" prefWidth="35.0" text="Info" />
-            <TextField layoutX="48.0" layoutY="48.0" prefHeight="26.0" prefWidth="40.0" text="9001" />
-            <TextField layoutX="48.0" layoutY="368.0" prefHeight="26.0" prefWidth="40.0" text="2" />
-            <TextField layoutX="48.0" layoutY="208.0" prefHeight="26.0" prefWidth="40.0" text="41" />
-            <TextField layoutX="48.0" layoutY="128.0" prefHeight="26.0" prefWidth="40.0" text="68" />
-            <TextField layoutX="48.0" layoutY="288.0" prefHeight="26.0" prefWidth="40.0" text="13" />
-            <Text layoutX="346.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Participants:" wrappingWidth="127.98307037353516">
+            <ToggleButtonGroup layoutX="410.0" layoutY="188.0" selectionType="SINGLE">
+                <toggles>
+                    <ToggleButton />
+                    <ToggleButton />
+                </toggles>
+            </ToggleButtonGroup>
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="164.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
+            <TextField layoutX="252.0" layoutY="20.0" prefHeight="72.0" prefWidth="380.0" text="Comment #1" />
+            <Label layoutX="42.0" layoutY="32.0" prefHeight="18.0" prefWidth="65.0" text="Posted by:" />
+            <Button layoutX="512.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" text="Remove" />
+            <Label layoutX="42.0" layoutY="54.0" prefHeight="18.0" prefWidth="72.0" text="Username" />
+            <Label layoutX="204.0" layoutY="48.0" text="901" />
+            <Button layoutX="458.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" text="Merge" />
+            <Button layoutX="576.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" text="Edit" />
+            <Button layoutX="404.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" text="Info" />
+            <Label layoutX="42.0" layoutY="136.0" prefHeight="18.0" prefWidth="65.0" text="Posted by:" />
+            <Label layoutX="42.0" layoutY="158.0" prefHeight="18.0" prefWidth="72.0" text="Username" />
+            <Label layoutX="42.0" layoutY="232.0" prefHeight="18.0" prefWidth="65.0" text="Posted by:" />
+            <Label layoutX="42.0" layoutY="254.0" prefHeight="18.0" prefWidth="72.0" text="Username" />
+            <Label layoutX="42.0" layoutY="322.0" prefHeight="18.0" prefWidth="65.0" text="Posted by:" />
+            <Label layoutX="42.0" layoutY="344.0" prefHeight="18.0" prefWidth="72.0" text="Username" />
+            <Label layoutX="42.0" layoutY="415.0" prefHeight="18.0" prefWidth="65.0" text="Posted by:" />
+            <Label layoutX="42.0" layoutY="438.0" prefHeight="18.0" prefWidth="72.0" text="Username" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="165.0" layoutY="116.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
+            <TextField layoutX="253.0" layoutY="120.0" prefHeight="72.0" prefWidth="380.0" text="Comment #1" />
+            <Button layoutX="513.0" layoutY="108.0" mnemonicParsing="false" prefHeight="32.0" text="Remove" />
+            <Label layoutX="205.0" layoutY="148.0" text="901" />
+            <Button layoutX="459.0" layoutY="108.0" mnemonicParsing="false" prefHeight="32.0" text="Merge" />
+            <Button layoutX="577.0" layoutY="108.0" mnemonicParsing="false" prefHeight="32.0" text="Edit" />
+            <Button layoutX="405.0" layoutY="108.0" mnemonicParsing="false" prefHeight="32.0" text="Info" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="164.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
+            <TextField layoutX="252.0" layoutY="217.0" prefHeight="72.0" prefWidth="380.0" text="Comment #1" />
+            <Button layoutX="512.0" layoutY="207.0" mnemonicParsing="false" prefHeight="32.0" text="Remove" />
+            <Label layoutX="204.0" layoutY="245.0" text="901" />
+            <Button layoutX="458.0" layoutY="207.0" mnemonicParsing="false" prefHeight="32.0" text="Merge" />
+            <Button layoutX="576.0" layoutY="207.0" mnemonicParsing="false" prefHeight="32.0" text="Edit" />
+            <Button layoutX="404.0" layoutY="207.0" mnemonicParsing="false" prefHeight="32.0" text="Info" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="164.0" layoutY="308.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
+            <TextField layoutX="252.0" layoutY="312.0" prefHeight="72.0" prefWidth="380.0" text="Comment #1" />
+            <Button layoutX="512.0" layoutY="301.0" mnemonicParsing="false" prefHeight="32.0" text="Remove" />
+            <Label layoutX="204.0" layoutY="340.0" text="901" />
+            <Button layoutX="458.0" layoutY="301.0" mnemonicParsing="false" prefHeight="32.0" text="Merge" />
+            <Button layoutX="576.0" layoutY="301.0" mnemonicParsing="false" prefHeight="32.0" text="Edit" />
+            <Button layoutX="404.0" layoutY="301.0" mnemonicParsing="false" prefHeight="32.0" text="Info" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="164.0" layoutY="402.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
+            <TextField layoutX="252.0" layoutY="406.0" prefHeight="72.0" prefWidth="380.0" text="Comment #1" />
+            <Button layoutX="512.0" layoutY="394.0" mnemonicParsing="false" prefHeight="32.0" text="Remove" />
+            <Label layoutX="204.0" layoutY="434.0" text="901" />
+            <Button layoutX="458.0" layoutY="394.0" mnemonicParsing="false" prefHeight="32.0" text="Merge" />
+            <Button layoutX="576.0" layoutY="394.0" mnemonicParsing="false" prefHeight="32.0" text="Edit" />
+            <Button layoutX="404.0" layoutY="394.0" mnemonicParsing="false" prefHeight="32.0" text="Info" />
+            <Text layoutX="803.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Participants:" wrappingWidth="184.98307037353516">
                <font>
-                  <Font name="Calibri" size="24.0" />
+                  <Font name="Calibri" size="32.0" />
                </font>
             </Text>
-            <TextField layoutX="346.0" layoutY="221.0" prefHeight="24.0" prefWidth="72.0" text="spammer1" />
-            <TextField layoutX="346.0" layoutY="175.0" prefHeight="24.0" prefWidth="72.0" text="spammer" />
-            <TextField layoutX="346.0" layoutY="268.0" prefHeight="24.0" prefWidth="72.0" text="..." />
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="24.0" layoutX="123.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="51.0" />
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="24.0" layoutX="174.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="51.0" />
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="24.0" layoutX="225.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
-            <TextField layoutX="123.0" layoutY="19.0" prefHeight="26.0" prefWidth="55.0" text="Merge" />
-            <TextField layoutX="169.0" layoutY="19.0" prefHeight="26.0" prefWidth="61.0" text="Remove" />
-            <TextField layoutX="227.0" layoutY="19.0" prefHeight="26.0" prefWidth="35.0" text="Edit" />
+            <Label layoutX="867.0" layoutY="72.0" prefHeight="18.0" prefWidth="64.0" text="foobar" />
+            <Label layoutX="867.0" layoutY="240.0" prefHeight="18.0" prefWidth="64.0" text="person16" />
+            <Label layoutX="867.0" layoutY="198.0" prefHeight="18.0" prefWidth="64.0" text="person4" />
+            <Label layoutX="867.0" layoutY="156.0" prefHeight="18.0" prefWidth="64.0" text="bar" />
+            <Label layoutX="867.0" layoutY="114.0" prefHeight="18.0" prefWidth="64.0" text="foo" />
          </children>
       </AnchorPane>
    </center>

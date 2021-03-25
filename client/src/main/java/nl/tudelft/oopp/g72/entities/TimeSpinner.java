@@ -1,4 +1,4 @@
-package nl.tudelft.oopp.g72;
+package nl.tudelft.oopp.g72.entities;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;

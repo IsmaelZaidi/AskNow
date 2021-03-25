@@ -7,14 +7,22 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Map;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
+import nl.tudelft.oopp.g72.entities.Question;
+import nl.tudelft.oopp.g72.entities.QuestionListCell;
+import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
+import nl.tudelft.oopp.g72.entities.User;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
 public class LoginController {
@@ -23,6 +31,7 @@ public class LoginController {
     private TextField displayName;
     @FXML // Room code input field.
     private TextField roomCode;
+
 
     private boolean login() throws IOException, InterruptedException {
         if (displayName.getText().equals("")) {
@@ -104,12 +113,22 @@ public class LoginController {
     /**
      * Executed when the 'create room' button is clicked.
      */
-    public void createRoom() throws IOException {
+    public void createRoom() throws IOException, InterruptedException {
         // Will be executed when 'create room' button is clicked.
+        if (LocalVariables.token == null) {
+            boolean loggedin = login();
+            if (!loggedin) {
+                return;
+            }
+        }
+
         Stage dia = new Stage();
         dia.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/room_creator.fxml"))));
         dia.initModality(Modality.APPLICATION_MODAL);
         dia.requestFocus();
         dia.showAndWait();
+
+        MainApp.window.setScene(new Scene(
+                FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
     }
 }
