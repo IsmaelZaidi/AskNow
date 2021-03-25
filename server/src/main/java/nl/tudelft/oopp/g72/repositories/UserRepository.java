@@ -13,4 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE u.room.id = ?1")
     List<User> usersInRoom(long roomId);
+
+    @Query("SELECT u FROM User u WHERE u.moderator = true AND u.token = ?1")
+    User isModerator(String token);
 }
