@@ -2,14 +2,15 @@ package nl.tudelft.oopp.g72.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class StudentController {
 
-    @FXML // THIS SHOULD NOT BE A BUTTON BUT PLAIN TEXT
-    private Button studentCount;
+    @FXML
+    private Label studentCount;
     @FXML
     private Button hurryUpButton;
     @FXML
@@ -42,7 +43,6 @@ public class StudentController {
      */
     public void hurryUp() {
         hurryUpButton.setText(String.valueOf(Integer.parseInt(hurryUpButton.getText()) + 1));
-
     }
 
     /**
@@ -53,9 +53,30 @@ public class StudentController {
     }
 
     /**
+     * Executed when 'upvote' button is clicked.
+     */
+    public void upvote() {
+
+    }
+
+    /**
+     * Executed when 'edit' button is clicked.
+     */
+    public void edit() {
+
+    }
+
+    /**
+     * Executed when 'remove' button is clicked.
+     */
+    public void remove() {
+
+    }
+
+    /**
      * Executed when 'quit' button is clicked.
      */
     public void quit() {
-        System.out.println(studentCount.getText());
+
     }
 }
