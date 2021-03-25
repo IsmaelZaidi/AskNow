@@ -32,6 +32,7 @@ public class LoginController {
     @FXML // Room code input field.
     private TextField roomCode;
 
+
     private boolean login() throws IOException, InterruptedException {
         if (displayName.getText().equals("")) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "You haven't filled in a display name!");
@@ -112,12 +113,22 @@ public class LoginController {
     /**
      * Executed when the 'create room' button is clicked.
      */
-    public void createRoom() throws IOException {
+    public void createRoom() throws IOException, InterruptedException {
         // Will be executed when 'create room' button is clicked.
+        if (LocalVariables.token == null) {
+            boolean loggedin = login();
+            if (!loggedin) {
+                return;
+            }
+        }
+
         Stage dia = new Stage();
         dia.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/room_creator.fxml"))));
         dia.initModality(Modality.APPLICATION_MODAL);
         dia.requestFocus();
         dia.showAndWait();
+
+        MainApp.window.setScene(new Scene(
+                FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
     }
 }

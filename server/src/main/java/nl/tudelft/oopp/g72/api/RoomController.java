@@ -46,8 +46,8 @@ public class RoomController {
      * @return returns a room
      */
     @PostMapping(value = "api/v1/create")
-    public Room createRoom(@RequestHeader ("token") String token,
-                           @RequestHeader ("scheduledTime") long scheduledTime,
+    public Room createRoom(@RequestHeader ("Token") String token,
+                           @RequestHeader ("ScheduledTime") long scheduledTime,
                            @RequestBody String title) {
         Room room = roomService.createRoom(token, title, scheduledTime);
         if (room == null) {
