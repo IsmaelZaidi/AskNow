@@ -58,8 +58,8 @@ public class RoomCreatorController {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
 
-        Object roomm = new JSONParser().parse(response.body());
-        JSONObject obj = (JSONObject) roomm;
+        Object room = new JSONParser().parse(response.body());
+        JSONObject obj = (JSONObject) room;
         String studentCode = (String) obj.get("joincodeStudent");
         String modCode = (String) obj.get("joincodeModerator");
         System.out.println(studentCode + "\r\n" + modCode);

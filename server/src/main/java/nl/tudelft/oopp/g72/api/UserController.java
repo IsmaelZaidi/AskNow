@@ -40,10 +40,4 @@ public class UserController {
         return userService.usersInRoom(roomId);
     }
 
-    @GetMapping("/isMod")
-    public boolean isModerator(@RequestHeader ("Token") String token) {
-        Boolean isMod = userService.isModerator(token);
-        return isMod;
-    }
-
 }

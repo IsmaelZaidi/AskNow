@@ -39,13 +39,6 @@ public class UserService {
      * @return a User entity with the specified token
      */
 
-    public boolean isModerator(String token) {
-        User user = userRepository.isModerator(token);
-        if (user == null) {
-            return false;
-        }
-        return true;
-    }
 
     public User findByToken(String token) {
         return userRepository.findByToken(token);
