@@ -2,8 +2,14 @@ package nl.tudelft.oopp.g72.entities;
 
 public class Question {
     private User user;
+
     private String text;
+
     private int upvotes;
+
+    private boolean answered;
+
+    private String answer;
 
     public User getUser() {
         return user;
@@ -27,6 +33,22 @@ public class Question {
 
     public void setUpvotes(int upvotes) {
         this.upvotes = upvotes;
+    }
+
+    public boolean isAnswered() {
+        return answered;
+    }
+
+    public void setAnswered(boolean answered) {
+        this.answered = answered;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     /**

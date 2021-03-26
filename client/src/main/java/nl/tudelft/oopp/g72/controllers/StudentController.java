@@ -3,9 +3,17 @@ package nl.tudelft.oopp.g72.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import nl.tudelft.oopp.g72.entities.Question;
+import nl.tudelft.oopp.g72.entities.QuestionListCell;
+import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
+import nl.tudelft.oopp.g72.entities.User;
+
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.questions;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.sortedQuestions;
 
 public class StudentController {
 
@@ -17,6 +25,22 @@ public class StudentController {
     private Button slowDownButton;
     @FXML
     private TextField messageBar;
+    @FXML
+    ListView<Question> listView;
+
+    @FXML
+    void initialize() {
+        User user1 = new User(1, "john");
+        User user2 = new User(2, "cena");
+        questions.addAll(new Question(user1, "What is going on here?", 12),
+                new Question(user2, "Do you have a 3080 at MSRP?", -999),
+                new Question(user2, "Do you have asdasdasdasdsa 3080 at MSRP?", -999));
+
+        listView.setItems(sortedQuestions);
+        listView.setCellFactory(lw -> new QuestionListCell());
+        listView.setSelectionModel(new QuestionListSelectionModel<>());
+        listView.setFocusTraversable(false);
+    }
 
     /**
      * Executed when 'send' button is clicked. Prints text in message bar.
