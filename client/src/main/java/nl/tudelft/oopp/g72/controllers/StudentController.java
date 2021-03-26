@@ -1,5 +1,8 @@
 package nl.tudelft.oopp.g72.controllers;
 
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.questions;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.sortedQuestions;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,9 +14,6 @@ import nl.tudelft.oopp.g72.entities.Question;
 import nl.tudelft.oopp.g72.entities.QuestionListCell;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.entities.User;
-
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.questions;
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.sortedQuestions;
 
 public class StudentController {
 
