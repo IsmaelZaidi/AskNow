@@ -136,6 +136,7 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROOM" already exists; SQL statem
 2021-03-24 15:41:02 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ROOM[*]"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE"; SQL statement:
 ROOM [42001-200]
+<<<<<<< HEAD
 =======
 2021-03-16 18:23:41 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM *[*]"; expected "identifier"; SQL statement:
@@ -1197,6 +1198,31 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:155)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96)
 	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184)
+=======
+2021-03-25 14:02:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ROOM" because "FKR7PFJAQKUJ79IP1VHTFU0YPA5" depends on it; SQL statement:
+
+    drop table room if exists [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:241)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+>>>>>>> adding-functionality-joining-correctView
 	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
 	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:320)
 	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
@@ -1229,6 +1255,7 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+<<<<<<< HEAD
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Ismael/Documents/Showing/data/awsm.mv.db [1.4.200/7]" [50000-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
@@ -1240,6 +1267,21 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Ism
 	... 65 more
 >>>>>>> giving-createLecture-Functionality
 2021-03-25 15:01:35 jdbc[3]: exception
+=======
+2021-03-25 14:02:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROOM" already exists; SQL statement:
+
+    create table room (
+       id bigint not null,
+        joincode_moderator varchar(255) not null,
+        joincode_student varchar(255) not null,
+        name varchar(255) not null,
+        open boolean not null,
+        scheduled_time bigint not null,
+        primary key (id)
+    ) [42101-200]
+2021-03-25 14:30:06 jdbc[3]: exception
+>>>>>>> adding-functionality-joining-correctView
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ROOM" because "FKR7PFJAQKUJ79IP1VHTFU0YPA5" depends on it; SQL statement:
 
     drop table room if exists [90107-200]
@@ -1290,11 +1332,19 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ROOM" because "FKR7PFJAQKU
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
 	at nl.tudelft.oopp.g72.ServerApplication.main(ServerApplication.java:9)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<<<<<<< HEAD
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
 2021-03-25 15:01:35 jdbc[3]: exception
+=======
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2021-03-25 14:30:06 jdbc[3]: exception
+>>>>>>> adding-functionality-joining-correctView
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROOM" already exists; SQL statement:
 
     create table room (

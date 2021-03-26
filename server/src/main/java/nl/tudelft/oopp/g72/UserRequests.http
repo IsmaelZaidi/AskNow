@@ -5,7 +5,7 @@ Christoph Lofi
 ###
 
 POST localhost:8080/api/v1/create HTTP/1.1
-token: 2c162942-2f8a-4a21-ac75-98ed16c8b0f2
+token: 36eac819-62ea-42fb-b0fb-420bf5543bf1
 scheduledTime: 0
 
 OOPP
@@ -19,14 +19,14 @@ Stephan
 ###
 
 GET localhost:8080/api/v1/join HTTP/1.1
-Token: 71ac6437-2fe6-4025-966f-3ed343429df0
-Code: 4nSvcc
+Token: 9ecad434-b811-4de7-868d-1e5f6c3f7553
+Code: G4ZVm9
 
 ###
 
 GET localhost:8080/api/v1/participants HTTP/1.1
-Token: 10fba5a7-2b18-4474-bb48-72ca7cc67a37
-RoomId: 1
+Token: 9ecad434-b811-4de7-868d-1e5f6c3f7553
+RoomId: 2
 
 ###
 
@@ -50,5 +50,10 @@ Stefan
 ###
 
 GET localhost:8080/api/v1/join HTTP/1.1
-Token: cb257ed6-bfcf-4c0c-9724-8e72647adff4
-Code: miSzbd
+Token: a962ccc3-0b7d-4a62-acae-1f2f940f897f
+Code: V1zKrg
+
+###
+
+GET localhost:8080/api/v1/isMod HTTP/1.1
+Token: a962ccc3-0b7d-4a62-acae-1f2f940f897f

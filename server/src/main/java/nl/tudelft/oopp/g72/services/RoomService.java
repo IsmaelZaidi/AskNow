@@ -90,7 +90,7 @@ public class RoomService {
      * @return joined Room ID
      * @throws Exception for bad requests
      */
-    public Room joinRoomModerator(String code, String token) throws Exception {
+    public long joinRoomModerator(String code, String token) throws Exception {
         User user = userRepository.findByToken(token);
         Room room = roomRepository.findByJoincodeModerator(code);
         if (user == null) {
@@ -102,7 +102,7 @@ public class RoomService {
             user.setRoom(room);
             user.setModerator(true);
             userRepository.save(user);
-            return room;
+            return room.getId();
         }
     }
 
