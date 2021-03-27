@@ -3,8 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.effect.ColorInput?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -63,16 +61,6 @@
                   <Font name="Calibri" size="20.0" />
                </font>
             </Text>
-            <ToggleButton layoutX="48.0" layoutY="428.0" mnemonicParsing="false" style="-fx-font-size: 8;" text="Send">
-               <effect>
-                  <ColorInput />
-               </effect>
-            </ToggleButton>
-            <ToggleButton layoutX="190.0" layoutY="64.0" mnemonicParsing="false" style="-fx-font-size: 8;" text="Upvote">
-               <effect>
-                  <ColorInput />
-               </effect>
-            </ToggleButton>
             <Label layoutX="42.0" layoutY="32.0" prefHeight="18.0" prefWidth="65.0" text="Posted by:" />
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="164.0" layoutY="212.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="164.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
@@ -81,21 +69,6 @@
             <Label layoutX="42.0" layoutY="136.0" prefHeight="18.0" prefWidth="65.0" text="Posted by:" />
             <Label layoutX="42.0" layoutY="232.0" prefHeight="18.0" prefWidth="65.0" text="Posted by:" />
             <Label layoutX="42.0" layoutY="322.0" prefHeight="18.0" prefWidth="65.0" text="Posted by:" />
-            <ToggleButton layoutX="190.0" layoutY="160.0" mnemonicParsing="false" onAction="#upvote" style="-fx-font-size: 8;" text="Upvote">
-               <effect>
-                  <ColorInput />
-               </effect>
-            </ToggleButton>
-            <ToggleButton layoutX="190.0" layoutY="256.0" mnemonicParsing="false" onAction="#upvote" style="-fx-font-size: 8;" text="Upvote">
-               <effect>
-                  <ColorInput />
-               </effect>
-            </ToggleButton>
-            <ToggleButton layoutX="190.0" layoutY="346.0" mnemonicParsing="false" onAction="#upvote" style="-fx-font-size: 8;" text="Upvote">
-               <effect>
-                  <ColorInput />
-               </effect>
-            </ToggleButton>
             <Label layoutX="260.0" layoutY="321.0" prefHeight="54.0" prefWidth="365.0" text="Comment #4" />
             <Label layoutX="260.0" layoutY="226.0" prefHeight="54.0" prefWidth="365.0" text="Comment #3" />
             <Label layoutX="260.0" layoutY="131.0" prefHeight="54.0" prefWidth="365.0" text="Comment #2" />
@@ -108,6 +81,11 @@
             <Label layoutX="42.0" layoutY="344.0" prefHeight="18.0" prefWidth="72.0" text="Username" />
             <Label layoutX="42.0" layoutY="158.0" prefHeight="18.0" prefWidth="72.0" text="Username" />
             <Label layoutX="42.0" layoutY="254.0" prefHeight="18.0" prefWidth="72.0" text="Username" />
+            <Button layoutX="188.0" layoutY="64.0" mnemonicParsing="false" text="Upvote" />
+            <Button layoutX="188.0" layoutY="156.0" mnemonicParsing="false" text="Upvote" />
+            <Button layoutX="188.0" layoutY="254.0" mnemonicParsing="false" text="Upvote" />
+            <Button layoutX="188.0" layoutY="346.0" mnemonicParsing="false" text="Upvote" />
+            <Button layoutX="48.0" layoutY="428.0" mnemonicParsing="false" text="Send" />
          </children>
       </AnchorPane>
    </center>
