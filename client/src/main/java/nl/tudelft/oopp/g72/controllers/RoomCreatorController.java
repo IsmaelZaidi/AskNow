@@ -16,6 +16,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.entities.TimeSpinner;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class RoomCreatorController {
     @FXML
@@ -35,7 +38,7 @@ public class RoomCreatorController {
      * @param e action event
      */
     @FXML
-    public void create(ActionEvent e) throws IOException, InterruptedException {
+    public void create(ActionEvent e) throws IOException, InterruptedException, ParseException {
         if (roomName.getText().equals("")) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "You haven't filled in a room name!");
             alert.show();
@@ -55,6 +58,11 @@ public class RoomCreatorController {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
 
+        Object room = new JSONParser().parse(response.body());
+        JSONObject obj = (JSONObject) room;
+        String studentCode = (String) obj.get("joincodeStudent");
+        String modCode = (String) obj.get("joincodeModerator");
+        System.out.println(studentCode + "\r\n" + modCode);
         Stage s = (Stage) ((Node) e.getSource()).getScene().getWindow();
         s.close();
     }
