@@ -10,6 +10,8 @@ import javafx.scene.input.KeyEvent;
 public class StudentController {
 
     @FXML
+    private Label lectureName;
+    @FXML
     private Label studentCount;
     @FXML
     private Button hurryUpButton;

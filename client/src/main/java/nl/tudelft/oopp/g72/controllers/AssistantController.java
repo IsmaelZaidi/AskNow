@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 public class AssistantController {
 
     @FXML
+    private Label lectureName;
+    @FXML
     private Label studentCount;
 
     /**

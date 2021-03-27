@@ -24,7 +24,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3dae49" height="32.0" layoutX="870.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="56.0" />
             <Label layoutX="894.0" layoutY="22.0" prefHeight="18.0" prefWidth="0.0" text="0" textFill="WHITE" fx:id="studentCount" />
             <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Teacher's view" onAction="#teacherView" />
-            <Label layoutX="256.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7">
+            <Label layoutX="256.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7" fx:id="lectureName" >
                <font>
                   <Font size="24.0" />
                </font>

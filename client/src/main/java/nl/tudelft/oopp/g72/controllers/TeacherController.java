@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 public class TeacherController {
 
     @FXML
+    private Label lectureName;
+    @FXML
     private Label studentCount;
     @FXML
     private Button hurryUpButton;
