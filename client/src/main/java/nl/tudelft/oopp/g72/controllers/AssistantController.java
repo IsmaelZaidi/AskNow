@@ -1,5 +1,8 @@
 package nl.tudelft.oopp.g72.controllers;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,11 +14,6 @@ import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-
 public class AssistantController implements Initializable {
 
     @FXML
@@ -26,6 +24,11 @@ public class AssistantController implements Initializable {
         studentCode.setText(LocalVariables.studentCode);
     }
 
+    /**
+     * Will go to the modcode window and display the mod code.
+     * @throws IOException
+     *
+     */
     public void moderatorCode() throws IOException {
         System.out.println(LocalVariables.moderatorCode);
         Stage dia = new Stage();

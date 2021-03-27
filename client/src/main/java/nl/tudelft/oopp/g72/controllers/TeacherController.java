@@ -1,5 +1,8 @@
 package nl.tudelft.oopp.g72.controllers;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +15,7 @@ import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 
 public class TeacherController implements Initializable {
 
@@ -27,11 +28,15 @@ public class TeacherController implements Initializable {
     @FXML
     private Label stuCode;
 
-
     public void initialize(URL location, ResourceBundle arg1) {
         stuCode.setText(LocalVariables.studentCode);
     }
 
+    /**
+     * Will open the modcode window and display the mod Code.
+     * @throws IOException
+     *
+     */
     public void modCode() throws IOException {
         System.out.println(LocalVariables.moderatorCode);
         Stage dia = new Stage();

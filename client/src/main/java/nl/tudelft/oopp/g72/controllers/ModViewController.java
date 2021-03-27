@@ -1,5 +1,10 @@
 package nl.tudelft.oopp.g72.controllers;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,22 +13,13 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-
-public class modViewController implements Initializable {
 
 
 
+public class ModViewController implements Initializable {
 
     @FXML
     private Label modCode;
-
-    @FXML
 
     public void initialize(URL location, ResourceBundle arg1) {
         modCode.setText(LocalVariables.moderatorCode);
@@ -34,6 +30,11 @@ public class modViewController implements Initializable {
         s.close();
     }
 
+    /**
+     * Method to save the mod code to clipboard.
+     * @param e
+     *
+     */
     public void saveToClip(ActionEvent e) {
         String moderatorCode = LocalVariables.moderatorCode;
         StringSelection selection = new StringSelection(moderatorCode);
