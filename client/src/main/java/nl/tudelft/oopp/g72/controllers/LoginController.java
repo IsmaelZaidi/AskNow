@@ -24,6 +24,9 @@ import nl.tudelft.oopp.g72.entities.QuestionListCell;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.entities.User;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class LoginController {
 
@@ -63,7 +66,7 @@ public class LoginController {
     /**
      * Executed when the 'join room' button is clicked.
      */
-    public void joinRoom() throws IOException, InterruptedException {
+    public void joinRoom() throws IOException, InterruptedException, ParseException {
         // Will be executed when 'join' button is clicked.
         if (LocalVariables.token == null) {
             boolean loggedin = login();
@@ -103,27 +106,17 @@ public class LoginController {
             }
         }
 
-        LocalVariables.roomId = Long.parseLong(response.body());
-        System.out.println(LocalVariables.roomId);
-
-        HttpClient client2 = HttpClient.newHttpClient();
-        HttpRequest request2 = HttpRequest.newBuilder(
-                URI.create("http://localhost:8080/api/v1/isMod"))
-                .header("Token", LocalVariables.token)
-                .build();
-        HttpResponse<String> response2 = client2.send(
-                request2, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response2.body());
-
-        if (response2.body().equals("false")) {
+        char first = '{';
+        if (response.body().charAt(0) == first) {
             MainApp.window.setScene(new Scene(
-                    FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
+                       FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
         } else {
             MainApp.window.setScene(new Scene(
-                    FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
+                    FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
         }
 
     }
+
 
     /**
      * Executed when the 'create room' button is clicked.

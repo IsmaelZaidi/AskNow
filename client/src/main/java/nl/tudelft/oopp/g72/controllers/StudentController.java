@@ -32,9 +32,9 @@ public class StudentController {
     void initialize() {
         User user1 = new User(1, "john");
         User user2 = new User(2, "cena");
-        questions.addAll(new Question(user1, "What is going on here?", 12),
-                new Question(user2, "Do you have a 3080 at MSRP?", -999),
-                new Question(user2, "Do you have asdasdasdasdsa 3080 at MSRP?", -999));
+        questions.addAll(new Question(user1, "What is going on here?", 12, 5),
+                new Question(user2, "Do you have a 3080 at MSRP?", -999, 0),
+                new Question(user2, "Do you have asdasdasdasdsa 3080 at MSRP?", -999, 10));
 
         listView.setItems(sortedQuestions);
         listView.setCellFactory(lw -> new QuestionListCell());
