@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.entities.TimeSpinner;
@@ -26,6 +27,9 @@ public class RoomCreatorController {
 
     @FXML
     TimeSpinner scheduledTime;
+
+    @FXML
+    Label studentCode;
 
     @FXML
     public void cancel(ActionEvent e) {
@@ -60,9 +64,9 @@ public class RoomCreatorController {
 
         Object room = new JSONParser().parse(response.body());
         JSONObject obj = (JSONObject) room;
-        String studentCode = (String) obj.get("joincodeStudent");
-        String modCode = (String) obj.get("joincodeModerator");
-        System.out.println(studentCode + "\r\n" + modCode);
+        LocalVariables.studentCode = (String) obj.get("joincodeStudent");
+        LocalVariables.moderatorCode = (String) obj.get("joincodeModerator");
+
         Stage s = (Stage) ((Node) e.getSource()).getScene().getWindow();
         s.close();
     }

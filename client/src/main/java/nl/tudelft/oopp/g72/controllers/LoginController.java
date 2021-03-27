@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
@@ -34,6 +35,9 @@ public class LoginController {
     private TextField displayName;
     @FXML // Room code input field.
     private TextField roomCode;
+    @FXML
+    private Label studentCode;
+
 
 
     private boolean login() throws IOException, InterruptedException {
@@ -109,7 +113,8 @@ public class LoginController {
         char first = '{';
         if (response.body().charAt(0) == first) {
             MainApp.window.setScene(new Scene(
-                       FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
+                       FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
+
         } else {
             MainApp.window.setScene(new Scene(
                     FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
@@ -137,6 +142,7 @@ public class LoginController {
         dia.showAndWait();
 
         MainApp.window.setScene(new Scene(
-                FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
+                FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
+
     }
 }

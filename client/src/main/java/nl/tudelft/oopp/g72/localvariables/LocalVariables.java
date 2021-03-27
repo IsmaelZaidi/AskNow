@@ -7,4 +7,6 @@ public class LocalVariables {
     public static List<String> answeredQuestions = new ArrayList<String>();
     public static String token;
     public static Long roomId;
+    public static String studentCode;
+    public static String moderatorCode;
 }
