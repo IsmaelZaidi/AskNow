@@ -39,7 +39,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="620.0" layoutY="4.0" text="123XYZ">
+            <Label fx:id="stuCode" layoutX="620.0" layoutY="4.0" text="123XYZ">
                <font>
                   <Font size="18.0" />
                </font>
@@ -49,7 +49,7 @@
       </Pane>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="studentCode" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#c3c3c3" height="80.0" layoutX="164.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
             <TextField layoutX="252.0" layoutY="28.0" prefHeight="72.0" prefWidth="380.0" text="Comment #1" />

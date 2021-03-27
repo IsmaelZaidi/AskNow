@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TeacherController {
+public class TeacherController implements Initializable {
 
     @FXML
     private Label studentCount;
@@ -25,8 +25,22 @@ public class TeacherController {
     @FXML
     private Button slowDownButton;
     @FXML
-    private Label studentCode;
+    private Label stuCode;
 
+
+    public void initialize(URL location, ResourceBundle arg1) {
+        stuCode.setText(LocalVariables.studentCode);
+    }
+
+    public void modCode() throws IOException {
+        System.out.println(LocalVariables.moderatorCode);
+        Stage dia = new Stage();
+        dia.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/modCode_view.fxml"))));
+
+        dia.initModality(Modality.APPLICATION_MODAL);
+        dia.requestFocus();
+        dia.showAndWait();
+    }
 
     /**
      * Executed when 'hurry up' button is clicked. Increments value by one.
@@ -66,6 +80,4 @@ public class TeacherController {
 
     }
 
-    public void modCode() {
-    }
 }
