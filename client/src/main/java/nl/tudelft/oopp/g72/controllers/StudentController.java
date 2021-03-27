@@ -60,13 +60,6 @@ public class StudentController {
     }
 
     /**
-     * Executed when 'edit' button is clicked.
-     */
-    public void edit() {
-
-    }
-
-    /**
      * Executed when 'remove' button is clicked.
      */
     public void remove() {
