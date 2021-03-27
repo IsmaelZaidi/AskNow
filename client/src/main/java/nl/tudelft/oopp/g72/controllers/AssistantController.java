@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class AssistantController implements Initializable {
 
 
     public void initialize(URL location, ResourceBundle arg1) {
-        studentCode.setText(LocalVariables.moderatorCode);
+        studentCode.setText(LocalVariables.studentCode);
     }
 
     public void moderatorCode() throws IOException {
@@ -36,4 +37,8 @@ public class AssistantController implements Initializable {
     }
 
 
+    public void teacherView() throws IOException {
+        MainApp.window.setScene(new Scene(
+                FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
+    }
 }

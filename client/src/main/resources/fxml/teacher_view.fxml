@@ -44,7 +44,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button layoutX="530.0" layoutY="28.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="116.0" text="Moderator code" />
+            <Button layoutX="530.0" layoutY="28.0" mnemonicParsing="false" onAction="#modCode" prefHeight="32.0" prefWidth="116.0" text="Moderator code" />
          </children>
       </Pane>
    </top>
