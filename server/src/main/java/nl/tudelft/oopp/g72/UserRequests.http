@@ -19,8 +19,8 @@ Stephan
 ###
 
 GET localhost:8080/api/v1/join HTTP/1.1
-Token: 9ecad434-b811-4de7-868d-1e5f6c3f7553
-Code: G4ZVm9
+Token: a0cbd498-9f27-4f4f-8219-c02afe9a89f5
+Code: X5oluH
 
 ###
 
@@ -31,7 +31,7 @@ RoomId: 2
 ###
 
 POST localhost:8080/api/v1/ask HTTP/1.1
-Token: 10fba5a7-2b18-4474-bb48-72ca7cc67a37
+Token: a0cbd498-9f27-4f4f-8219-c02afe9a89f5
 RoomId: 1
 
 ok.

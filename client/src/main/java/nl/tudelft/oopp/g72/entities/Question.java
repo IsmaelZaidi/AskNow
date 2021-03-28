@@ -1,17 +1,27 @@
 package nl.tudelft.oopp.g72.entities;
 
 public class Question {
+    private long id;
+
     private User user;
 
     private String text;
 
-    private int upvotes;
+    private long timestamp;
 
-    private boolean answered;
+    private int upvotes;
 
     private String answer;
 
-    private long time;
+    private boolean answered;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public User getUser() {
         return user;
@@ -29,20 +39,20 @@ public class Question {
         this.text = text;
     }
 
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
     public int getUpvotes() {
         return upvotes;
     }
 
     public void setUpvotes(int upvotes) {
         this.upvotes = upvotes;
-    }
-
-    public boolean isAnswered() {
-        return answered;
-    }
-
-    public void setAnswered(boolean answered) {
-        this.answered = answered;
     }
 
     public String getAnswer() {
@@ -53,25 +63,36 @@ public class Question {
         this.answer = answer;
     }
 
-    public long getTime() {
-        return time;
+    public boolean isAnswered() {
+        return answered;
     }
 
-    public void setTime(long time) {
-        this.time = time;
+    public void setAnswered(boolean answered) {
+        this.answered = answered;
+    }
+
+    public Question() {
+
     }
 
     /**
-     * Constructor.
-     * @param user user who asked the q
-     * @param text text of the q
-     * @param upvotes upvotes of the q
-     * @param time when was the question asked
+     * Question constructor.
+     * @param id question id
+     * @param user user who asked
+     * @param text text of question
+     * @param timestamp time question was asked
+     * @param upvotes how many upvoted
+     * @param answer text of the answer
+     * @param answered if it was answered
      */
-    public Question(User user, String text, int upvotes, long time) {
+    public Question(long id, User user, String text, long timestamp,
+                    int upvotes, String answer, boolean answered) {
+        this.id = id;
         this.user = user;
         this.text = text;
+        this.timestamp = timestamp;
         this.upvotes = upvotes;
-        this.time = time;
+        this.answer = answer;
+        this.answered = answered;
     }
 }
