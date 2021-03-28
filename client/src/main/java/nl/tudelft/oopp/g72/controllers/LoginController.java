@@ -1,5 +1,15 @@
 package nl.tudelft.oopp.g72.controllers;
 
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.joinModerator;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.joinStudent;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.lectureName;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.open;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.roomId;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.scheduledTime;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.stompSession;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.webSocketMadness;
+
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.net.URI;
@@ -7,25 +17,15 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Map;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
-import nl.tudelft.oopp.g72.entities.Question;
-import nl.tudelft.oopp.g72.entities.QuestionListCell;
-import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
-import nl.tudelft.oopp.g72.entities.User;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class LoginController {
@@ -106,11 +106,28 @@ public class LoginController {
             }
         }
 
+        System.out.println(response.body());
+
         char first = '{';
         if (response.body().charAt(0) == first) {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode node = mapper.readTree(response.body());
+            roomId = node.get("id").asLong();
+            lectureName = node.get("name").asText();
+            open = node.get("open").asBoolean();
+            scheduledTime = node.get("scheduledTime").asLong();
+            joinStudent = node.get("joincodeStudent").asText();
+            joinModerator = node.get("joincodeModerator").asText();
+
+            webSocketMadness.subscribe(stompSession);
+
             MainApp.window.setScene(new Scene(
                        FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
         } else {
+            roomId = Long.valueOf(response.body());
+
+            webSocketMadness.subscribe(stompSession);
+
             MainApp.window.setScene(new Scene(
                     FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
         }
@@ -136,7 +153,11 @@ public class LoginController {
         dia.requestFocus();
         dia.showAndWait();
 
-        MainApp.window.setScene(new Scene(
-                FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
+        if (lectureName != null) {
+            webSocketMadness.subscribe(stompSession);
+
+            MainApp.window.setScene(new Scene(
+                    FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
+        }
     }
 }
