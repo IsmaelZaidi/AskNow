@@ -1,24 +1,15 @@
 package nl.tudelft.oopp.g72;
 
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.stompSession;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.webSocketMadness;
+
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-import nl.tudelft.oopp.g72.entities.Question;
-import nl.tudelft.oopp.g72.entities.QuestionListCell;
-import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
-import nl.tudelft.oopp.g72.entities.User;
+import org.springframework.messaging.simp.stomp.StompSession;
+import org.springframework.util.concurrent.ListenableFuture;
 
 public class MainApp extends Application {
     public static Stage window;
@@ -29,6 +20,11 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        webSocketMadness = new WebSocketMadness();
+
+        ListenableFuture<StompSession> f = webSocketMadness.connect();
+        stompSession = f.get();
+
         window = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         primaryStage.setTitle("Proto");
