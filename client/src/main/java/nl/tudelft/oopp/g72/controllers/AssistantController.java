@@ -1,5 +1,8 @@
 package nl.tudelft.oopp.g72.controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
@@ -8,8 +11,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ResourceBundle;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +29,12 @@ public class AssistantController implements Initializable {
     @FXML
     Label studentCount;
 
-
+    /**
+     * When starting up it will show the student code and the studentCount.
+     * @param location url location
+     * @param arg1 arg 1
+     *
+     */
     public void initialize(URL location, ResourceBundle arg1) {
         studentCode.setText(LocalVariables.joinStudent);
         try {
