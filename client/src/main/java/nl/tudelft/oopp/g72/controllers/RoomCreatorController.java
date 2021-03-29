@@ -16,6 +16,8 @@ import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
+
+import com.sun.jdi.LocalVariable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -32,9 +34,6 @@ public class RoomCreatorController {
 
     @FXML
     TimeSpinner scheduledTime;
-
-    @FXML
-    Label studentCode;
 
     @FXML
     public void cancel(ActionEvent e) {
