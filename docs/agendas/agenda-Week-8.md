@@ -29,6 +29,11 @@ In italics you will find some additional explanations of the agenda points. You 
 # Action points for next week (Scrum board)
 *Every week you fill the Scrum board with new action points for that week. See the to do list for the items you should implement.*
 
+- Finish all the must haves
+- Create prototype + questionaire for the heuristics evaluation
+- Finish all the functionality on the current views
+- start on finishing the should haves 
+
 # Any other business
 *If anybody has something that should be discussed but came up with that after the agenda was finalized (in point 2), he/she should bring that up now so that it can be discussed after all.*
 
