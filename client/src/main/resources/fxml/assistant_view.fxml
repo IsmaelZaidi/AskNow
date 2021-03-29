@@ -20,50 +20,23 @@
             <Button layoutX="956.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Quit" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3dae49" height="32.0" layoutX="870.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="56.0" />
             <Label layoutX="894.0" layoutY="22.0" prefHeight="18.0" prefWidth="0.0" text="0" textFill="WHITE" />
-<<<<<<< HEAD
-<<<<<<< HEAD
             <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" onAction="#teacherView" style="-fx-background-color: orange;" text="Teacher's view" />
-            <Label layoutX="200.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7">
-=======
-            <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Teacher's view" />
-            <Label layoutX="150.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7">
->>>>>>> e0801494095140c2fe4c2bb87fd043b33da930df
-=======
+            <Label layoutX="200.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7" />
+
             <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" onAction="#teacherView" style="-fx-background-color: orange;" text="Teacher's view" />
-            <Label layoutX="200.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7">
->>>>>>> addFeature-displayingCodes
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="48.0" layoutY="24.0" text=":Insert logo:" />
-            <Label layoutX="400.0" layoutY="20.0" prefHeight="24.0" prefWidth="100.0" text="Your code:">
+            <Label fx:id="studentCode" layoutX="519.0" layoutY="22.0" text="123XYZ">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <Label fx:id="studentCode" layoutX="600.0" layoutY="4.0" text="123XYZ">
-=======
-            <Label layoutX="480.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" text="123XYZ">
->>>>>>> e0801494095140c2fe4c2bb87fd043b33da930df
-=======
-            <Label fx:id="studentCode" layoutX="600.0" layoutY="4.0" text="123XYZ">
->>>>>>> addFeature-displayingCodes
+
+            <Button layoutX="590.0" layoutY="16.0" mnemonicParsing="false" onAction="#moderatorCode" prefHeight="32.0" prefWidth="116.0" text="Moderator code" />
+            <Label fx:id="studentCode1" layoutX="436.0" layoutY="22.0" text="Your code:">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <Button layoutX="500.0" layoutY="28.0" mnemonicParsing="false" onAction="#moderatorCode" prefHeight="32.0" prefWidth="116.0" text="Moderator code" />
-=======
-            <Button layoutX="590.0" layoutY="16.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="116.0" text="Moderator code" />
->>>>>>> e0801494095140c2fe4c2bb87fd043b33da930df
-=======
-            <Button layoutX="500.0" layoutY="28.0" mnemonicParsing="false" onAction="#moderatorCode" prefHeight="32.0" prefWidth="116.0" text="Moderator code" />
->>>>>>> addFeature-displayingCodes
+
          </children>
       </Pane>
    </top>
