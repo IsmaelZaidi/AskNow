@@ -29,7 +29,7 @@ public class TeacherController implements Initializable {
     private Label stuCode;
 
     public void initialize(URL location, ResourceBundle arg1) {
-        stuCode.setText(LocalVariables.studentCode);
+        stuCode.setText(LocalVariables.joinStudent);
     }
 
     /**
@@ -38,7 +38,7 @@ public class TeacherController implements Initializable {
      *
      */
     public void modCode() throws IOException {
-        System.out.println(LocalVariables.moderatorCode);
+        System.out.println(LocalVariables.joinModerator);
         Stage dia = new Stage();
         dia.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/modCode_view.fxml"))));
 

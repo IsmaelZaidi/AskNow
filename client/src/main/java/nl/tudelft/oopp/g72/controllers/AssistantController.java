@@ -21,7 +21,7 @@ public class AssistantController implements Initializable {
 
 
     public void initialize(URL location, ResourceBundle arg1) {
-        studentCode.setText(LocalVariables.studentCode);
+        studentCode.setText(LocalVariables.joinStudent);
     }
 
     /**
@@ -30,7 +30,7 @@ public class AssistantController implements Initializable {
      *
      */
     public void moderatorCode() throws IOException {
-        System.out.println(LocalVariables.moderatorCode);
+        System.out.println(LocalVariables.joinModerator);
         Stage dia = new Stage();
         dia.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/modCode_view.fxml"))));
 

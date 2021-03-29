@@ -22,7 +22,7 @@ public class ModViewController implements Initializable {
     private Label modCode;
 
     public void initialize(URL location, ResourceBundle arg1) {
-        modCode.setText(LocalVariables.moderatorCode);
+        modCode.setText(LocalVariables.joinModerator);
     }
 
     public void close(ActionEvent e) {
@@ -36,7 +36,7 @@ public class ModViewController implements Initializable {
      *
      */
     public void saveToClip(ActionEvent e) {
-        String moderatorCode = LocalVariables.moderatorCode;
+        String moderatorCode = LocalVariables.joinModerator;
         StringSelection selection = new StringSelection(moderatorCode);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(selection, selection);

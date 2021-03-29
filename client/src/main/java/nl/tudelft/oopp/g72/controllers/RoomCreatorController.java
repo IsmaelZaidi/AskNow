@@ -67,13 +67,6 @@ public class RoomCreatorController {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
 
-<<<<<<< HEAD
-        Object room = new JSONParser().parse(response.body());
-        JSONObject obj = (JSONObject) room;
-        LocalVariables.studentCode = (String) obj.get("joincodeStudent");
-        LocalVariables.moderatorCode = (String) obj.get("joincodeModerator");
-
-=======
         ObjectMapper mapper = new ObjectMapper();
         JsonNode node = mapper.readTree(response.body());
         roomId = node.get("id").asLong();
@@ -82,7 +75,6 @@ public class RoomCreatorController {
         LocalVariables.scheduledTime = node.get("scheduledTime").asLong();
         joinStudent = node.get("joincodeStudent").asText();
         joinModerator = node.get("joincodeModerator").asText();
->>>>>>> e0801494095140c2fe4c2bb87fd043b33da930df
         Stage s = (Stage) ((Node) e.getSource()).getScene().getWindow();
         s.close();
     }

@@ -21,11 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-<<<<<<< HEAD
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-=======
->>>>>>> e0801494095140c2fe4c2bb87fd043b33da930df
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -162,17 +158,11 @@ public class LoginController {
         dia.requestFocus();
         dia.showAndWait();
 
-<<<<<<< HEAD
-        MainApp.window.setScene(new Scene(
-                FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
-
-=======
         if (lectureName != null) {
             webSocketMadness.subscribe(stompSession);
 
             MainApp.window.setScene(new Scene(
                     FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
         }
->>>>>>> e0801494095140c2fe4c2bb87fd043b33da930df
     }
 }
