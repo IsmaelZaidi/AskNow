@@ -60,7 +60,7 @@ public class TeacherController {
     /**
      * Executed when 'quit' button is clicked.
      */
-    public void quit() {
+    public void end() {
 
     }
 }
