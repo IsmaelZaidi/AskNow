@@ -1,8 +1,15 @@
 package nl.tudelft.oopp.g72.controllers;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.ResourceBundle;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +21,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
-
+import org.apache.tomcat.jni.Local;
 
 
 public class TeacherController implements Initializable {
@@ -30,6 +37,13 @@ public class TeacherController implements Initializable {
 
     public void initialize(URL location, ResourceBundle arg1) {
         stuCode.setText(LocalVariables.joinStudent);
+        try {
+            studentCount.setText(String.valueOf(amountParticipants()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -68,6 +82,20 @@ public class TeacherController implements Initializable {
         MainApp.window.setScene(new Scene(
                 FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
 
+    }
+
+    public long amountParticipants() throws IOException, InterruptedException {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder(
+                URI.create("http://localhost:8080/api/v1/participants"))
+                .header("Token", LocalVariables.token)
+                .header("RoomId", String.valueOf(LocalVariables.roomId))
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode node = mapper.readTree(response.body());
+        LocalVariables.participantsAmount = node.size();
+        return LocalVariables.participantsAmount;
     }
 
     /**
