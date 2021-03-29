@@ -18,6 +18,8 @@ public class AssistantController implements Initializable {
 
     @FXML
     Label studentCode;
+    @FXML
+    Label studentCount;
 
 
     public void initialize(URL location, ResourceBundle arg1) {
@@ -43,5 +45,10 @@ public class AssistantController implements Initializable {
     public void teacherView() throws IOException {
         MainApp.window.setScene(new Scene(
                 FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
+    }
+
+    public void quit() throws IOException {
+        MainApp.window.setScene(new Scene(
+                FXMLLoader.load(getClass().getResource("/fxml/login.fxml"))));
     }
 }
