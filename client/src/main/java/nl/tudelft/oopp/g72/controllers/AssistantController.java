@@ -92,9 +92,18 @@ public class AssistantController implements Initializable {
         return LocalVariables.participantsAmount;
     }
 
-    public void quit() throws IOException {
+    public void quit() throws IOException, InterruptedException {
         MainApp.window.setScene(new Scene(
                 FXMLLoader.load(getClass().getResource("/fxml/login.fxml"))));
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder(
+                URI.create("http://localhost:8080/api/v1/participants/delete"))
+                .header("Token", LocalVariables.token)
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println("test");
+        System.out.println(response.body());
     }
 
     /**

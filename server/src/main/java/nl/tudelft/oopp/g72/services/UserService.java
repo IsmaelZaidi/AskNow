@@ -52,4 +52,9 @@ public class UserService {
     public List<User> usersInRoom(long roomId) {
         return userRepository.usersInRoom(roomId);
     }
+
+    public void removeUser(String token) {
+        User user = userRepository.findByToken(token);
+        userRepository.delete(user);
+    }
 }

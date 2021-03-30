@@ -37,7 +37,7 @@ public class LoginController {
     private TextField roomCode;
     @FXML
     private Label studentCode;
-    
+
     private boolean login() throws IOException, InterruptedException {
         if (displayName.getText().equals("")) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "You haven't filled in a display name!");

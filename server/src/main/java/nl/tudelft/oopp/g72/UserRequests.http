@@ -57,3 +57,9 @@ Code: V1zKrg
 
 GET localhost:8080/api/v1/isMod HTTP/1.1
 Token: a962ccc3-0b7d-4a62-acae-1f2f940f897f
+
+###
+
+GET localhost:8080/api/v1/participants/delete
+Token: be9c8cf0-9428-48c9-bc5b-366f7a3265d9
+
