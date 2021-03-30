@@ -18,6 +18,7 @@ public class LocalVariables {
     public static long scheduledTime;
     public static String joinStudent;
     public static String joinModerator;
+    public static long participantsAmount;
 
     public static ObservableList<Question> questions = FXCollections.observableArrayList();
     public static FilteredList<Question> filteredQuestions = new FilteredList<>(questions);
