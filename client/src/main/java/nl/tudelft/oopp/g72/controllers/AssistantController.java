@@ -42,6 +42,8 @@ public class AssistantController implements Initializable {
     private ListView<Question> listView;
     @FXML
     TextField messageBar;
+    @FXML
+    Label studentCode;
 
     /**
      * When starting up it will show the student code and the studentCount.
@@ -50,6 +52,7 @@ public class AssistantController implements Initializable {
      *
      */
     public void initialize(URL location, ResourceBundle arg1) {
+        studentCode.setText(LocalVariables.joinStudent);
         listView.setItems(sortedQuestions);
         listView.setCellFactory(lw -> new QuestionListCell());
         listView.setSelectionModel(new QuestionListSelectionModel<>());
