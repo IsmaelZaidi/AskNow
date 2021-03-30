@@ -1,5 +1,6 @@
 package nl.tudelft.oopp.g72.controllers;
 
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.roomId;
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.sortedQuestions;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -11,12 +12,19 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.entities.Question;
 import nl.tudelft.oopp.g72.entities.QuestionListCell;
@@ -32,6 +40,8 @@ public class AssistantController implements Initializable {
     Label studentCount;
     @FXML
     private ListView<Question> listView;
+    @FXML
+    TextField messageBar;
 
     /**
      * When starting up it will show the student code and the studentCount.
@@ -110,6 +120,49 @@ public class AssistantController implements Initializable {
      */
     public void remove() {
 
+    }
+
+    /**
+     * Will open the modcode window and display the mod Code.
+     * @throws IOException exception
+     */
+    public void moderatorCode() throws IOException {
+        System.out.println(LocalVariables.joinModerator);
+        Stage dia = new Stage();
+        dia.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/modCode_view.fxml"))));
+
+        dia.initModality(Modality.APPLICATION_MODAL);
+        dia.requestFocus();
+        dia.showAndWait();
+    }
+
+    /**
+     * Executed when 'send' button is clicked. Prints text in message bar.
+     */
+    public void sendMessage() throws IOException, InterruptedException {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder(
+                URI.create("http://localhost:8080/api/v1/ask/"))
+                .header("Token", LocalVariables.token)
+                .header("RoomId", String.valueOf(roomId))
+                .POST(HttpRequest.BodyPublishers.ofString(messageBar.getText()))
+                .build();
+        client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(messageBar.getText());
+        messageBar.clear();
+    }
+
+    /**
+     * Executed every time a key is pressed. Checks if the key is 'enter',
+     * if so it consumes the enter and calls the 'sendMessage' method.
+     * @param event holds the key that's pressed.
+     */
+    public void enterPressed(KeyEvent event) throws IOException, InterruptedException {
+        if (event.getCode() == KeyCode.ENTER) {
+            event.consume();
+            sendMessage();
+        }
     }
 
 }
