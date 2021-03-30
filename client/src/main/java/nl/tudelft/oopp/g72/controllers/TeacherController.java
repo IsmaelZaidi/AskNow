@@ -1,5 +1,9 @@
 package nl.tudelft.oopp.g72.controllers;
 
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.sortedQuestions;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
@@ -7,8 +11,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ResourceBundle;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,7 +26,6 @@ import nl.tudelft.oopp.g72.entities.QuestionListCell;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.sortedQuestions;
 
 public class TeacherController implements Initializable {
 
