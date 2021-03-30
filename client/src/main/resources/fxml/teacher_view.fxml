@@ -50,7 +50,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView id="ListView" prefHeight="515.0" prefWidth="1024.0" />
+            <ListView fx:id="listView" prefHeight="515.0" prefWidth="1024.0" />
          </children>
       </AnchorPane>
    </center>

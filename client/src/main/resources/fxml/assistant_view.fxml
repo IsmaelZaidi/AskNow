@@ -9,25 +9,17 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.tudelft.oopp.g72.controllers.AssistantController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0"
+            prefWidth="1024.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="nl.tudelft.oopp.g72.controllers.AssistantController">
    <top>
       <Pane prefHeight="64.0" prefWidth="512.0" style="-fx-background-color: deepskyblue;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="956.0" layoutY="16.0" mnemonicParsing="false" onAction="#quit" style="-fx-background-color: red;" text="Quit" />
+            <Button layoutX="956.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Quit" onAction="#quit" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3dae49" height="32.0" layoutX="870.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="56.0" />
-            <Label fx:id="studentCount" layoutX="894.0" layoutY="22.0" prefHeight="18.0" prefWidth="0.0" text="0" textFill="WHITE" />
-            <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" onAction="#teacherView" style="-fx-background-color: orange;" text="Teacher's view" />
-            <Label layoutX="200.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7" />
-
-            <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" onAction="#teacherView" style="-fx-background-color: orange;" text="Teacher's view" />
-            <Label fx:id="studentCode" layoutX="519.0" layoutY="22.0" text="123XYZ">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-
-            <Button layoutX="590.0" layoutY="16.0" mnemonicParsing="false" onAction="#moderatorCode" prefHeight="32.0" prefWidth="116.0" text="Moderator code" />
-            <Label fx:id="studentCode1" layoutX="436.0" layoutY="22.0" text="Your code:">
+            <Label layoutX="894.0" layoutY="22.0" prefHeight="18.0" prefWidth="0.0" text="0" textFill="WHITE" fx:id="studentCount" />
+            <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Teacher's view" onAction="#teacherView" />
+            <Label layoutX="256.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7" fx:id="lectureName" >
                <font>
                   <Font size="16.0" />
                </font>
@@ -39,7 +31,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView id="ListView" prefHeight="514.0" prefWidth="1024.0" />
+            <ListView fx:id="listView" prefHeight="514.0" prefWidth="1024.0" />
          </children>
       </AnchorPane>
    </center>

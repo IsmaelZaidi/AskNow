@@ -2,6 +2,17 @@ package nl.tudelft.oopp.g72.controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import nl.tudelft.oopp.g72.MainApp;
+import nl.tudelft.oopp.g72.entities.Question;
+import nl.tudelft.oopp.g72.entities.QuestionListCell;
+import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
+import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
 import java.io.IOException;
 import java.net.URI;
@@ -11,23 +22,16 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import nl.tudelft.oopp.g72.MainApp;
-import nl.tudelft.oopp.g72.localvariables.LocalVariables;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.sortedQuestions;
 
 public class AssistantController implements Initializable {
 
     @FXML
-    Label studentCode;
+    private Label lectureName;
     @FXML
     Label studentCount;
+    @FXML
+    private ListView<Question> listView;
 
     /**
      * When starting up it will show the student code and the studentCount.
@@ -36,7 +40,10 @@ public class AssistantController implements Initializable {
      *
      */
     public void initialize(URL location, ResourceBundle arg1) {
-        studentCode.setText(LocalVariables.joinStudent);
+        listView.setItems(sortedQuestions);
+        listView.setCellFactory(lw -> new QuestionListCell());
+        listView.setSelectionModel(new QuestionListSelectionModel<>());
+        listView.setFocusTraversable(false);
         try {
             studentCount.setText(String.valueOf(amountParticipants()));
         } catch (IOException e) {
@@ -45,22 +52,6 @@ public class AssistantController implements Initializable {
             e.printStackTrace();
         }
     }
-
-    /**
-     * Will go to the modcode window and display the mod code.
-     * @throws IOException
-     *
-     */
-    public void moderatorCode() throws IOException {
-        System.out.println(LocalVariables.joinModerator);
-        Stage dia = new Stage();
-        dia.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/modCode_view.fxml"))));
-
-        dia.initModality(Modality.APPLICATION_MODAL);
-        dia.requestFocus();
-        dia.showAndWait();
-    }
-
 
     public void teacherView() throws IOException {
         MainApp.window.setScene(new Scene(
@@ -92,4 +83,33 @@ public class AssistantController implements Initializable {
         MainApp.window.setScene(new Scene(
                 FXMLLoader.load(getClass().getResource("/fxml/login.fxml"))));
     }
+
+    /**
+     * Executed when 'info' button is clicked.
+     */
+    public void info() {
+
+    }
+
+    /**
+     * Executed when 'merge' button is clicked.
+     */
+    public void merge() {
+
+    }
+
+    /**
+     * Executed when 'edit' button is clicked.
+     */
+    public void edit() {
+
+    }
+
+    /**
+     * Executed when 'remove' button is clicked.
+     */
+    public void remove() {
+
+    }
+
 }

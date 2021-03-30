@@ -23,6 +23,8 @@ import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 public class StudentController {
 
     @FXML
+    private Label lectureName;
+    @FXML
     private Label studentCount;
     @FXML
     private Button hurryUpButton;
@@ -88,13 +90,6 @@ public class StudentController {
      * Executed when 'upvote' button is clicked.
      */
     public void upvote() {
-
-    }
-
-    /**
-     * Executed when 'edit' button is clicked.
-     */
-    public void edit() {
 
     }
 

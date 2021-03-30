@@ -1,8 +1,5 @@
 package nl.tudelft.oopp.g72.controllers;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
@@ -10,23 +7,29 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ResourceBundle;
-
-import javafx.event.ActionEvent;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
+import nl.tudelft.oopp.g72.entities.Question;
+import nl.tudelft.oopp.g72.entities.QuestionListCell;
+import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
-import org.apache.tomcat.jni.Local;
 
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.sortedQuestions;
 
 public class TeacherController implements Initializable {
 
+    @FXML
+    private Label lectureName;
     @FXML
     private Label studentCount;
     @FXML
@@ -35,6 +38,8 @@ public class TeacherController implements Initializable {
     private Button slowDownButton;
     @FXML
     private Label stuCode;
+    @FXML
+    private ListView<Question> listView;
 
     /**
      * When starting up it will show the student code and the studentCount.
@@ -43,20 +48,21 @@ public class TeacherController implements Initializable {
      *
      */
     public void initialize(URL location, ResourceBundle arg1) {
+        listView.setItems(sortedQuestions);
+        listView.setCellFactory(lw -> new QuestionListCell());
+        listView.setSelectionModel(new QuestionListSelectionModel<>());
+        listView.setFocusTraversable(false);
         stuCode.setText(LocalVariables.joinStudent);
         try {
             studentCount.setText(String.valueOf(amountParticipants()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     /**
      * Will open the modcode window and display the mod Code.
-     * @throws IOException
-     *
+     * @throws IOException exception
      */
     public void modCode() throws IOException {
         System.out.println(LocalVariables.joinModerator);
