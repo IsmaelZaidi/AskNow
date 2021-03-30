@@ -43,7 +43,7 @@ public class AssistantController implements Initializable {
     @FXML
     TextField messageBar;
     @FXML
-    Label studentCode;
+    private Label studentCode;
 
     /**
      * When starting up it will show the student code and the studentCount.
