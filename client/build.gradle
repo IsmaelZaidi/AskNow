@@ -8,6 +8,17 @@ dependencies {
     testCompile("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:5.6.0")
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+    implementation group: 'com.gluonhq', name: 'charm-glisten', version: '6.0.6'
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    implementation group: 'org.springframework', name: 'spring-websocket', version: '5.3.5'
+    implementation group: 'org.springframework', name: 'spring-messaging', version: '5.3.5'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-websocket', version: '2.4.4'
+}
+
+repositories {
+    maven {
+        url "http://nexus.gluonhq.com/nexus/content/repositories/releases/"
+    }
 }
 
 javafx {

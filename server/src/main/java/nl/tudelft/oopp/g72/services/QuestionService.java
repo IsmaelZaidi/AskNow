@@ -75,19 +75,20 @@ public class QuestionService {
      * @param token user token
      * @throws Exception throws excetion
      */
-    public void upvoteQuestion(String questionID, String token) throws Exception {
+    public Question upvoteQuestion(long questionID, String token) throws Exception {
         User user = userRepository.findByToken(token);
-        Question question = questionRepository.findById(questionID);
-
         if (user == null) {
             throw new Exception("There are no users with that token!");
         }
 
-        if (question == null) {
+        Optional<Question> optionalQuestion = questionRepository.findById(questionID);
+        if (optionalQuestion.isEmpty()) {
             throw new Exception("There are no questions with that ID!");
         }
+
+        Question question = optionalQuestion.get();
         question.setUpvotes(question.getUpvotes() + 1);
-        questionRepository.save(question);
+        return questionRepository.save(question);
     }
 
     /**
@@ -97,17 +98,21 @@ public class QuestionService {
      * @return Question object returned
      * @throws Exception ma ta
      */
-    public Question setAsAnswered(String questionID, String token) throws Exception {
+    public Question setAsAnswered(long questionID, String token) throws Exception {
         User user = userRepository.findByToken(token);
-        Question question = questionRepository.findById(questionID);
-
         if (user == null) {
             throw new Exception("There are no users with that token!");
         }
+        if (!user.getModerator()) {
+            throw new Exception("You are not a moderator!");
+        }
 
-        if (question == null) {
+        Optional<Question> optionalQuestion = questionRepository.findById(questionID);
+        if (optionalQuestion.isEmpty()) {
             throw new Exception("There are no questions with that ID!");
         }
+
+        Question question = optionalQuestion.get();
         question.setAnswered(true);
         return questionRepository.save(question);
     }
@@ -120,23 +125,25 @@ public class QuestionService {
      * @return Returns Question object.
      * @throws Exception Throws exception
      */
-    public Question answerQuestion(String token, String questionID, String message)
+    public Question answerQuestion(String token, long questionID, String message)
         throws Exception {
         User user = userRepository.findByToken(token);
-        Question question = questionRepository.findById(questionID);
-
         if (user == null) {
             throw new Exception("There are no users with that token!");
         }
+        if (!user.getModerator()) {
+            throw new Exception("You are not a moderator!");
+        }
 
-        if (question == null) {
+        Optional<Question> optionalQuestion = questionRepository.findById(questionID);
+        if (optionalQuestion.isEmpty()) {
             throw new Exception("There are no questions with that ID!");
         }
-        question.setAnswered(true);
-        question.setAnswer(message);
-        questionRepository.save(question);
 
-        return question;
+        Question question = optionalQuestion.get();
+        question.setAnswered(true);
+        question.setText(message);
+        return questionRepository.save(question);
     }
     
     /**

@@ -4,13 +4,8 @@ Christoph Lofi
 
 ###
 
-GET localhost:8080/api/v1/info HTTP/1.1
-Token: e090c14a-b0a0-4e5c-b697-f5c0de69eafe
-
-###
-
 POST localhost:8080/api/v1/create HTTP/1.1
-token: e090c14a-b0a0-4e5c-b697-f5c0de69eafe
+token: 3f264c31-c016-4037-adaf-96cdc20982e6
 scheduledTime: 0
 
 OOPP
@@ -23,36 +18,42 @@ Stephan
 
 ###
 
-GET localhost:8080/api/v1/info HTTP/1.1
-Token: 0765e3c1-4eef-466a-a713-de27e3f87b28
-
-###
-
 GET localhost:8080/api/v1/join HTTP/1.1
-Token: 0765e3c1-4eef-466a-a713-de27e3f87b28
-Code: 1mb02J
+Token: a0cbd498-9f27-4f4f-8219-c02afe9a89f5
+Code: X5oluH
 
 ###
 
 GET localhost:8080/api/v1/participants HTTP/1.1
-Token: 0765e3c1-4eef-466a-a713-de27e3f87b28
-RoomId: 3
+Token: 9ecad434-b811-4de7-868d-1e5f6c3f7553
+RoomId: 2
 
 ###
 
 POST localhost:8080/api/v1/ask HTTP/1.1
-Token: 0765e3c1-4eef-466a-a713-de27e3f87b28
-RoomId: 3
+Token: a0cbd498-9f27-4f4f-8219-c02afe9a89f5
+RoomId: 1
 
-question.
-
-###
-
-DELETE localhost:8080/api/v1/question/1 HTTP/1.1
-Token: 0765e3c1-4eef-466a-a713-de27e3f87b28
+ok.
 
 ###
 
-GET localhost:8080/api/v1/retrieve HTTP/1.1
-Token: a33b96cd-31c5-488d-b29f-947167877e4c
-Time: 1615911741930
+DELETE localhost:8080/api/v1/question/2 HTTP/1.1
+Token: 10fba5a7-2b18-4474-bb48-72ca7cc67a37
+
+###
+
+POST localhost:8080/api/v1/login HTTP/1.1
+
+Stefan
+
+###
+
+GET localhost:8080/api/v1/join HTTP/1.1
+Token: a962ccc3-0b7d-4a62-acae-1f2f940f897f
+Code: V1zKrg
+
+###
+
+GET localhost:8080/api/v1/isMod HTTP/1.1
+Token: a962ccc3-0b7d-4a62-acae-1f2f940f897f

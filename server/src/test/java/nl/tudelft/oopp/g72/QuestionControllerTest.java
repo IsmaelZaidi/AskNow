@@ -38,19 +38,12 @@ public class QuestionControllerTest {
         when(questionService.addQuestion("GoodToken", 1, "What is the meaning of life?"))
                 .thenReturn(question);
 
-        MvcResult result = mockMvc.perform(post("/api/v1/ask")
+        mockMvc.perform(post("/api/v1/ask")
                     .header("Token", "GoodToken")
                     .header("RoomId", 1)
                     .content("What is the meaning of life?"))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
-
-        String json = result.getResponse().getContentAsString();
-
-        ObjectMapper mapper = new ObjectMapper();
-        Question parsedQuestion = mapper.readValue(json, Question.class);
-
-        assertEquals(question, parsedQuestion);
     }
 
     @Test
