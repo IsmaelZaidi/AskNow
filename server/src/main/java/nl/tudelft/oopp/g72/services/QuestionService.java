@@ -70,11 +70,81 @@ public class QuestionService {
     }
 
     /**
-     * Deletes a question asked by the user.
-     * @param token user's token
-     * @param questionId id of the question
-     * @return true if the deletion succeeded, false otherwise
+     * Upvoting a question.
+     * @param questionID question
+     * @param token user token
+     * @throws Exception throws excetion
      */
+    public void upvoteQuestion(String questionID, String token) throws Exception {
+        User user = userRepository.findByToken(token);
+        Question question = questionRepository.findById(questionID);
+
+        if (user == null) {
+            throw new Exception("There are no users with that token!");
+        }
+
+        if (question == null) {
+            throw new Exception("There are no questions with that ID!");
+        }
+        question.setUpvotes(question.getUpvotes() + 1);
+        questionRepository.save(question);
+    }
+
+    /**
+     * It sets boolean value.
+     * @param questionID question ID
+     * @param token user token
+     * @return Question object returned
+     * @throws Exception ma ta
+     */
+    public Question setAsAnswered(String questionID, String token) throws Exception {
+        User user = userRepository.findByToken(token);
+        Question question = questionRepository.findById(questionID);
+
+        if (user == null) {
+            throw new Exception("There are no users with that token!");
+        }
+
+        if (question == null) {
+            throw new Exception("There are no questions with that ID!");
+        }
+        question.setAnswered(true);
+        return questionRepository.save(question);
+    }
+
+    /**
+     * Answer question.
+     * @param token user token
+     * @param questionID question ID
+     * @param message message
+     * @return Returns Question object.
+     * @throws Exception Throws exception
+     */
+    public Question answerQuestion(String token, String questionID, String message)
+        throws Exception {
+        User user = userRepository.findByToken(token);
+        Question question = questionRepository.findById(questionID);
+
+        if (user == null) {
+            throw new Exception("There are no users with that token!");
+        }
+
+        if (question == null) {
+            throw new Exception("There are no questions with that ID!");
+        }
+        question.setAnswered(true);
+        question.setAnswer(message);
+        questionRepository.save(question);
+
+        return question;
+    }
+    
+    /**
+    *  Deletes a question asked by the user.
+    * @param token user's token
+    * @param questionId id of the question
+    * @return true if the deletion succeeded, false otherwise
+    */
     public boolean deleteQuestion(String token, long questionId) {
         User user = userRepository.findByToken(token);
         if (user == null) {

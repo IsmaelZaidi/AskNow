@@ -23,20 +23,11 @@ public class UserController {
 
     @PostMapping("/login")
     String login(@RequestBody String nick) {
-        String token = userService.add(nick);
+        String token = userService.add(nick, false);
         if (token == null) {
             throw new IllegalArgumentException("Nickname already taken");
         }
         return token;
-    }
-
-    @GetMapping("/info")
-    String getNick(@RequestHeader("Token") String token) {
-        User user = userService.findByToken(token);
-        if (user == null) {
-            throw new IllegalArgumentException("Bad token");
-        }
-        return user.getNick();
     }
 
     @GetMapping("/participants")
@@ -48,4 +39,5 @@ public class UserController {
         }
         return userService.usersInRoom(roomId);
     }
+
 }

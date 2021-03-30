@@ -29,7 +29,7 @@ public class UserServiceTest {
 
         when(userRepository.save(any())).thenReturn(user);
 
-        String token = userService.add("foo");
+        String token = userService.add("foo", false);
         assertEquals("test", token);
     }
 

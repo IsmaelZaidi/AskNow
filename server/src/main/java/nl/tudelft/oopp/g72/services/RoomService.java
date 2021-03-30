@@ -62,25 +62,47 @@ public class RoomService {
     }
 
     /**
-     * Joins room.
+     * Joins room as student.
      * @param code String
      * @param token String
      * @return joined Room ID
      * @throws Exception for bad requests
      */
-    public long joinRoom(String code, String token) throws Exception {
+    public long joinRoomStudent(String code, String token) throws Exception {
         User user = userRepository.findByToken(token);
         Room room = roomRepository.findByJoincodeStudent(code);
         if (user == null) {
-            throw new Exception("Bad token!");
+            throw new Exception("There are no users with that token!");
         }
-
         if (room == null) {
             throw new Exception("There are no rooms with that code!");
         } else {
             user.setRoom(room);
             userRepository.save(user);
             return room.getId();
+        }
+    }
+
+    /**
+     * Joins room as moderator.
+     * @param code String
+     * @param token String
+     * @return joined Room ID
+     * @throws Exception for bad requests
+     */
+    public Object joinRoomModerator(String code, String token) throws Exception {
+        User user = userRepository.findByToken(token);
+        Room room = roomRepository.findByJoincodeModerator(code);
+        if (user == null) {
+            throw new Exception("There are no users with that token!");
+        }
+        if (room == null) {
+            throw new Exception("There are no rooms with that code!");
+        } else {
+            user.setRoom(room);
+            user.setModerator(true);
+            userRepository.save(user);
+            return room;
         }
     }
 
@@ -101,7 +123,8 @@ public class RoomService {
         room = roomRepository.save(room);
 
         user.setRoom(room);
-        user = userRepository.save(user);
+        user.setModerator(true);
+        userRepository.save(user);
         return room;
     }
 }
