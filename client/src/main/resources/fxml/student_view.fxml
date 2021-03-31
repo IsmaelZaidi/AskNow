@@ -60,9 +60,25 @@
                </font>
             </Text>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="40.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="730.0" />
-            <Button layoutX="682.0" layoutY="412.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="68.0" text="Send" onAction="#sendMessage" />
-            <TextField layoutX="54.0" layoutY="412.0" prefHeight="56.0" prefWidth="596.0" promptText="Enter your comment here..." fx:id="messageBar" onKeyPressed="#enterPressed" />
-            <ListView fx:id="listView" layoutX="40.0" layoutY="13.0" prefHeight="370.0" prefWidth="730.0" />
+            <Button layoutX="682.0" layoutY="412.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="56.0" prefWidth="68.0" text="Send" />
+            <TextField fx:id="messageBar" layoutX="54.0" layoutY="412.0" onKeyPressed="#enterPressed" prefHeight="56.0" prefWidth="596.0" promptText="Enter your comment here..." />
+            <ListView fx:id="listView" layoutX="40.0" layoutY="32.0" prefHeight="351.0" prefWidth="730.0" />
+            <Label layoutX="40.0" layoutY="6.0" text="Order questions:" />
+            <Label layoutX="147.0" layoutY="6.0" text="new">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="182.0" layoutY="6.0" text="upvoted" />
+            <Label layoutX="240.0" layoutY="6.0" text="popular" />
+            <Label layoutX="416.0" layoutY="7.0" text="Filter:" />
+            <Label layoutX="462.0" layoutY="7.0" text="all">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="489.0" layoutY="7.0" text="answered" />
+            <Label layoutX="569.0" layoutY="7.0" text="unanswered" />
          </children>
       </AnchorPane>
    </center>
