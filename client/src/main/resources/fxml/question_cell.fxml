@@ -2,20 +2,27 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" prefHeight="72.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+
+<?import javafx.scene.control.TextArea?>
+<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
+            <Label text="Posted by:" />
             <Label text="Username" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="36.0" text="0" />
+            <Label prefHeight="50.0" text="1">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" text="+1" />
          </children>
       </VBox>
-      <TextArea editable="false" prefHeight="0.0" prefWidth="558.0" text="Comment text">
+      <TextArea text="Comment text" editable="false">
          <font>
             <Font size="14.0" />
          </font>
