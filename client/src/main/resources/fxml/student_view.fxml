@@ -70,7 +70,6 @@
                </font>
             </Label>
             <Label layoutX="182.0" layoutY="6.0" text="upvoted" />
-            <Label layoutX="240.0" layoutY="6.0" text="popular" />
             <Label layoutX="416.0" layoutY="7.0" text="Filter:" />
             <Label layoutX="462.0" layoutY="7.0" text="all">
                <font>

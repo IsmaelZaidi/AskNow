@@ -47,21 +47,20 @@
             <TextField fx:id="messageBar" layoutX="155.0" layoutY="410.0" onKeyPressed="#enterPressed" prefHeight="60.0" prefWidth="600.0" promptText="Enter your comment here..." />
             <ListView fx:id="listView" layoutX="145.0" layoutY="31.0" prefHeight="344.0" prefWidth="750.0" />
             <Label layoutX="155.0" layoutY="5.0" text="Order questions:" />
-            <Label layoutX="262.0" layoutY="5.0" text="new">
+            <Label layoutX="262.0" layoutY="5.0" text="new" fx:id="newest" onMouseClicked="#sortNew">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="297.0" layoutY="5.0" text="upvoted" />
-            <Label layoutX="355.0" layoutY="5.0" text="popular" />
+            <Label layoutX="297.0" layoutY="5.0" text="upvoted" fx:id="upvoted" onMouseClicked="#sortUpvotes"/>
             <Label layoutX="531.0" layoutY="6.0" text="Filter:" />
-            <Label layoutX="577.0" layoutY="6.0" text="all">
+            <Label layoutX="577.0" layoutY="6.0" text="all" fx:id="all" onMouseClicked="#filterAll">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="604.0" layoutY="6.0" text="answered" />
-            <Label layoutX="675.0" layoutY="5.0" text="unanswered" />
+            <Label layoutX="604.0" layoutY="6.0" text="answered" fx:id="answered" onMouseClicked="#filterAnswered"/>
+            <Label layoutX="675.0" layoutY="5.0" text="unanswered" fx:id="unanswered" onMouseClicked="#filterUnanswered"/>
          </children>
       </AnchorPane>
    </center>
