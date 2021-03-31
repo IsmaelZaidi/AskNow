@@ -27,7 +27,7 @@ public class MainApp extends Application {
 
         window = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
-        primaryStage.setTitle("Proto");
+        primaryStage.setTitle("AskNow");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
