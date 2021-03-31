@@ -1,5 +1,6 @@
 package nl.tudelft.oopp.g72.controllers;
 
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.filteredQuestions;
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.roomId;
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.sortedQuestions;
 
@@ -15,6 +16,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 import nl.tudelft.oopp.g72.entities.Question;
 import nl.tudelft.oopp.g72.entities.QuestionListCell;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
@@ -34,6 +37,19 @@ public class StudentController {
     private TextField messageBar;
     @FXML
     ListView<Question> listView;
+    @FXML
+    Label newest;
+    @FXML
+    Label upvoted;
+    @FXML
+    Label all;
+    @FXML
+    Label answered;
+    @FXML
+    Label unanswered;
+
+    int sort = 0;
+    int filter = 0;
 
     @FXML
     void initialize() {
@@ -105,5 +121,82 @@ public class StudentController {
      */
     public void quit() {
 
+    }
+
+    void sort(Label newLabel) {
+        Label oldLabel;
+        if (sort == 0) {
+            oldLabel = newest;
+        } else {
+            oldLabel = upvoted;
+        }
+
+        if (oldLabel.equals(newLabel)) {
+            return;
+        }
+
+        Font aux = oldLabel.getFont();
+        oldLabel.setFont(newLabel.getFont());
+        newLabel.setFont(aux);
+
+        sortedQuestions.setComparator((o2, o1) -> {
+            if (newLabel.getText().equals("new")) {
+                sort = 0;
+                return Long.compare(o1.getTimestamp(), o2.getTimestamp());
+            } else {
+                sort = 1;
+                return Long.compare(o1.getUpvotes(), o2.getUpvotes());
+            }
+        });
+    }
+
+    public void sortNew(MouseEvent mouseEvent) {
+        sort(newest);
+    }
+
+    public void sortUpvotes(MouseEvent mouseEvent) {
+        sort(upvoted);
+    }
+
+    void filter(Label newLabel) {
+        Label oldLabel;
+        switch (filter) {
+            case 0: oldLabel = all;
+                break;
+            case 1: oldLabel = answered;
+                break;
+            default: oldLabel = unanswered;
+        }
+
+        if (oldLabel.equals(newLabel)) {
+            return;
+        }
+
+        Font aux = oldLabel.getFont();
+        oldLabel.setFont(newLabel.getFont());
+        newLabel.setFont(aux);
+
+        if (newLabel.getText().equals("all")) {
+            filter = 0;
+            filteredQuestions.setPredicate(question -> true);
+        } else if (newLabel.getText().equals("answered")) {
+            filter = 1;
+            filteredQuestions.setPredicate(Question::isAnswered);
+        } else {
+            filter = 2;
+            filteredQuestions.setPredicate(question -> !question.isAnswered());
+        }
+    }
+
+    public void filterAll(MouseEvent mouseEvent) {
+        filter(all);
+    }
+
+    public void filterAnswered(MouseEvent mouseEvent) {
+        filter(answered);
+    }
+
+    public void filterUnanswered(MouseEvent mouseEvent) {
+        filter(unanswered);
     }
 }
