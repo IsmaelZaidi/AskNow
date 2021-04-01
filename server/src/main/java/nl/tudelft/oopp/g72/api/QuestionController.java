@@ -1,6 +1,7 @@
 package nl.tudelft.oopp.g72.api;
 
 import nl.tudelft.oopp.g72.models.MessageAnswer;
+import nl.tudelft.oopp.g72.models.MessageDelete;
 import nl.tudelft.oopp.g72.models.MessageUpvote;
 import nl.tudelft.oopp.g72.models.Question;
 import nl.tudelft.oopp.g72.services.QuestionService;
@@ -60,12 +61,16 @@ public class QuestionController {
         webSocket.convertAndSend("/room" + roomId, ans);
     }
 
-    @DeleteMapping("/question/{id}")
-    void delete(@RequestHeader("Token") String token, @PathVariable long id) {
+    @DeleteMapping("/question/{id}/{roomId}")
+    void delete(@RequestHeader("Token") String token, @PathVariable long id,
+        Long roomId) {
         boolean success = questionService.deleteQuestion(token, id);
         if (!success) {
             throw new IllegalArgumentException("Bad token or question doesn't exist");
         }
+
+        MessageDelete del = new MessageDelete(id);
+        webSocket.convertAndSend("/room" + roomId, del);
     }
 
     @GetMapping("/retrieve")
