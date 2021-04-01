@@ -39,10 +39,12 @@ public class QuestionController {
         webSocket.convertAndSend("/room" + roomId, question);
     }
 
-    @GetMapping(value = "upvote/{questionID}/{userToken}")
-    public void upvoteQuestion(@PathVariable long questionID, @PathVariable String userToken)
+    @GetMapping(value = "upvote/{questionID}/{userToken}/{roomId}")
+    public void upvoteQuestion(@PathVariable long questionID, @PathVariable String userToken,
+        Long roomId)
         throws Exception {
         questionService.upvoteQuestion(questionID,userToken);
+        webSocket.convertAndSend("/room" + roomId, question);
     }
 
     @GetMapping(value = "answer/{questionID}/{userToken}")
