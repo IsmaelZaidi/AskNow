@@ -43,7 +43,7 @@ public class UserController {
     @GetMapping("/participants/delete")
     String deleteParticipant(@RequestHeader("Token") String token) {
         userService.removeUser(token);
-        return "idk what to put here";
+        return "removed";
     }
 
 }
