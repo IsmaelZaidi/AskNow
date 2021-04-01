@@ -14,12 +14,12 @@
    <top>
       <AnchorPane prefHeight="259.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="164.0" layoutY="231.0" text="Display name:">
+            <Label layoutX="184.0" layoutY="235.0" text="Display name:">
                <font>
-                  <Font name="System Bold" size="28.0" />
+                  <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <ImageView fitHeight="259.0" fitWidth="256.0" layoutX="128.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="253.0" fitWidth="281.0" layoutX="128.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../AskNow.png" />
                </image>
@@ -46,7 +46,7 @@
                <font>
                   <Font size="17.0" />
                </font></Label>
-            <TextField fx:id="displayName" layoutX="144.0" prefHeight="37.0" prefWidth="225.0" promptText="Enter your display name..." />
+            <TextField fx:id="displayName" layoutX="157.0" layoutY="8.0" prefHeight="32.0" prefWidth="199.0" promptText="Enter your display name..." />
          </children>
       </AnchorPane>
    </center>
