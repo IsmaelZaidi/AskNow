@@ -53,8 +53,17 @@ public class UserService {
         return userRepository.usersInRoom(roomId);
     }
 
-    public void removeUser(String token) {
+    /**
+     * Removes a user from a joined room
+     * @param token user's token
+     * @throws Exception e
+     */
+    public void leaveRoom(String token) throws Exception {
         User user = userRepository.findByToken(token);
-        userRepository.delete(user);
+        if (user == null) {
+            throw new Exception("Bad token");
+        }
+        user.setRoom(null);
+        userRepository.save(user);
     }
 }

@@ -40,10 +40,13 @@ public class UserController {
         return userService.usersInRoom(roomId);
     }
 
-    @GetMapping("/participants/delete")
-    String deleteParticipant(@RequestHeader("Token") String token) {
-        userService.removeUser(token);
-        return "removed";
+    @GetMapping("/participants/leave")
+    void leaveRoom(@RequestHeader("Token") String token) {
+        try {
+            userService.leaveRoom(token);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Bad token");
+        }
     }
 
 }
