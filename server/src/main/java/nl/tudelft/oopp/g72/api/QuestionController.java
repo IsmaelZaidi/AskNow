@@ -37,6 +37,13 @@ public class QuestionController {
         webSocket.convertAndSend("/room" + roomId, question);
     }
 
+    /**
+     * Method for upvoting question.
+     * @param questionID Id of a question
+     * @param userToken Token of the user
+     * @param roomId Id of a room
+     * @throws Exception If method fails
+     */
     @GetMapping(value = "upvote/{questionID}/{userToken}/{roomId}")
     public void upvoteQuestion(@PathVariable long questionID, @PathVariable String userToken,
         Long roomId)
@@ -46,6 +53,13 @@ public class QuestionController {
         webSocket.convertAndSend("/room" + roomId, up);
     }
 
+    /**
+     * Method for answering a question.
+     * @param questionID Id of a question
+     * @param userToken Token of an user
+     * @param roomId Id of a room
+     * @throws Exception If the method fails
+     */
     @GetMapping(value = "answer/{questionID}/{userToken}/{roomId}")
     public void answerQuestion(@PathVariable long questionID, @PathVariable String userToken,
         Long roomId)
