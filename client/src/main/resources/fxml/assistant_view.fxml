@@ -15,7 +15,7 @@
    <top>
       <Pane prefHeight="64.0" prefWidth="512.0" style="-fx-background-color: deepskyblue;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="956.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Quit" />
+            <Button layoutX="956.0" layoutY="16.0" mnemonicParsing="false" onAction="#quit" style="-fx-background-color: red;" text="Quit" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3dae49" height="32.0" layoutX="870.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="56.0" />
             <Label fx:id="studentCount" layoutX="894.0" layoutY="22.0" prefHeight="18.0" prefWidth="0.0" text="0" textFill="WHITE" />
             <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" onAction="#teacherView" style="-fx-background-color: orange;" text="Teacher's view" />

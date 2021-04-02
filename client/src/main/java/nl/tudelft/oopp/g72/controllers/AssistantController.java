@@ -35,6 +35,8 @@ import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 public class AssistantController implements Initializable {
 
     @FXML
+    private Label studentCode;
+    @FXML
     private Label lectureName;
     @FXML
     Label studentCount;
@@ -63,6 +65,7 @@ public class AssistantController implements Initializable {
      *
      */
     public void initialize(URL location, ResourceBundle arg1) {
+        studentCode.setText(LocalVariables.joinStudent);
         listView.setItems(sortedQuestions);
         listView.setCellFactory(lw -> new QuestionListCell());
         listView.setSelectionModel(new QuestionListSelectionModel<>());

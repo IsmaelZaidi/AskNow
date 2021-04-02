@@ -40,4 +40,10 @@ public class UserController {
         return userService.usersInRoom(roomId);
     }
 
+    @GetMapping("/participants/delete")
+    String deleteParticipant(@RequestHeader("Token") String token) {
+        userService.removeUser(token);
+        return "removed";
+    }
+
 }

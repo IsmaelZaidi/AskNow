@@ -4,12 +4,18 @@ import static nl.tudelft.oopp.g72.localvariables.LocalVariables.filteredQuestion
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.roomId;
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.sortedQuestions;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -18,6 +24,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
+import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.entities.Question;
 import nl.tudelft.oopp.g72.entities.QuestionListCell;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
@@ -27,6 +34,8 @@ public class StudentController {
 
     @FXML
     private Label lectureName;
+    @FXML
+    private Label studentCode;
     @FXML
     private Label studentCount;
     @FXML
@@ -53,10 +62,37 @@ public class StudentController {
 
     @FXML
     void initialize() {
+        studentCode.setText(LocalVariables.joinStudent);
         listView.setItems(sortedQuestions);
         listView.setCellFactory(lw -> new QuestionListCell());
         listView.setSelectionModel(new QuestionListSelectionModel<>());
         listView.setFocusTraversable(false);
+        try {
+            studentCount.setText(String.valueOf(amountParticipants()));
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Method that will return the amount of participants in a room.
+     * @return returns long of participants
+     * @throws IOException exception
+     * @throws InterruptedException exception
+     *
+     */
+    public long amountParticipants() throws IOException, InterruptedException {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder(
+                URI.create("http://localhost:8080/api/v1/participants"))
+                .header("Token", LocalVariables.token)
+                .header("RoomId", String.valueOf(LocalVariables.roomId))
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode node = mapper.readTree(response.body());
+        LocalVariables.participantsAmount = node.size();
+        return LocalVariables.participantsAmount;
     }
 
     /**
@@ -119,8 +155,9 @@ public class StudentController {
     /**
      * Executed when 'quit' button is clicked.
      */
-    public void quit() {
-
+    public void quit() throws IOException {
+        MainApp.window.setScene(new Scene(
+                FXMLLoader.load(getClass().getResource("/fxml/login.fxml"))));
     }
 
     void sort(Label newLabel) {
