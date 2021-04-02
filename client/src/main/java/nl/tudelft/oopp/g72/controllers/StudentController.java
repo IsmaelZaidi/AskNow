@@ -19,7 +19,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import nl.tudelft.oopp.g72.entities.Question;
-import nl.tudelft.oopp.g72.entities.QuestionListCell;
+import nl.tudelft.oopp.g72.entities.QuestionListCellStudent;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
@@ -54,7 +54,7 @@ public class StudentController {
     @FXML
     void initialize() {
         listView.setItems(sortedQuestions);
-        listView.setCellFactory(lw -> new QuestionListCell());
+        listView.setCellFactory(lw -> new QuestionListCellStudent());
         listView.setSelectionModel(new QuestionListSelectionModel<>());
         listView.setFocusTraversable(false);
     }

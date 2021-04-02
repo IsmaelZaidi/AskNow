@@ -29,6 +29,7 @@ import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.entities.Question;
 import nl.tudelft.oopp.g72.entities.QuestionListCell;
+import nl.tudelft.oopp.g72.entities.QuestionListCellAssistant;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
@@ -64,7 +65,7 @@ public class AssistantController implements Initializable {
      */
     public void initialize(URL location, ResourceBundle arg1) {
         listView.setItems(sortedQuestions);
-        listView.setCellFactory(lw -> new QuestionListCell());
+        listView.setCellFactory(lw -> new QuestionListCellAssistant());
         listView.setSelectionModel(new QuestionListSelectionModel<>());
         listView.setFocusTraversable(false);
         try {
