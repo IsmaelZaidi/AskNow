@@ -54,7 +54,7 @@ public class UserService {
     }
 
     /**
-     * Removes a user from a joined room
+     * Removes a user from a joined room.
      * @param token user's token
      * @throws Exception e
      */
