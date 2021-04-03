@@ -1,19 +1,17 @@
 package nl.tudelft.oopp.g72.api;
 
-import java.util.List;
+import nl.tudelft.oopp.g72.models.MessageAnswer;
+import nl.tudelft.oopp.g72.models.MessageDelete;
+import nl.tudelft.oopp.g72.models.MessageUpvote;
 import nl.tudelft.oopp.g72.models.Question;
 import nl.tudelft.oopp.g72.services.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.messaging.simp.annotation.SubscribeMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+
 
 @RestController
 @RequestMapping("api/v1")
@@ -39,30 +37,56 @@ public class QuestionController {
         webSocket.convertAndSend("/room" + roomId, question);
     }
 
-    @GetMapping(value = "upvote/{questionID}/{userToken}")
-    public void upvoteQuestion(@PathVariable long questionID, @PathVariable String userToken)
+    /**
+     * Method for upvoting question.
+     * @param questionID Id of a question
+     * @param userToken Token of the user
+     * @param roomId Id of a room
+     * @throws Exception If method fails
+     */
+    @GetMapping(value = "upvote/{questionID}/{userToken}/{roomId}")
+    public void upvoteQuestion(@PathVariable long questionID, @PathVariable String userToken,
+        Long roomId)
         throws Exception {
-        questionService.upvoteQuestion(questionID,userToken);
+        Question question = questionService.upvoteQuestion(questionID,userToken);
+        MessageUpvote up = new MessageUpvote(questionID,question.getUpvotes());
+        webSocket.convertAndSend("/room" + roomId, up);
     }
 
-    @GetMapping(value = "answer/{questionID}/{userToken}")
-    public void answerQuestion(@PathVariable long questionID, @PathVariable String userToken)
+    /**
+     * Method for answering a question.
+     * @param questionID Id of a question
+     * @param userToken Token of an user
+     * @param roomId Id of a room
+     * @throws Exception If the method fails
+     */
+    @GetMapping(value = "answer/{questionID}/{userToken}/{roomId}")
+    public void answerQuestion(@PathVariable long questionID, @PathVariable String userToken,
+        Long roomId)
         throws Exception {
-        questionService.setAsAnswered(questionID, userToken);
+        Question question = questionService.setAsAnswered(questionID, userToken);
+        MessageAnswer ans = new MessageAnswer(questionID,true,null);
+        webSocket.convertAndSend("/room" + roomId, ans);
     }
 
-    @PostMapping("/answer/{questionID}/{userToken}")
+    @PostMapping("/answer/{questionID}/{userToken}/{roomId}")
     void answer(@PathVariable long questionID, @PathVariable String userToken,
-                 @RequestBody String message) throws Exception {
+                Long roomId, @RequestBody String message) throws Exception {
         questionService.answerQuestion(userToken, questionID, message);
+        MessageAnswer ans = new MessageAnswer(questionID,true,message);
+        webSocket.convertAndSend("/room" + roomId, ans);
     }
 
-    @DeleteMapping("/question/{id}")
-    void delete(@RequestHeader("Token") String token, @PathVariable long id) {
+    @DeleteMapping("/question/{id}/{roomId}")
+    void delete(@RequestHeader("Token") String token, @PathVariable long id,
+        Long roomId) {
         boolean success = questionService.deleteQuestion(token, id);
         if (!success) {
             throw new IllegalArgumentException("Bad token or question doesn't exist");
         }
+
+        MessageDelete del = new MessageDelete(id);
+        webSocket.convertAndSend("/room" + roomId, del);
     }
 
     @GetMapping("/retrieve")
