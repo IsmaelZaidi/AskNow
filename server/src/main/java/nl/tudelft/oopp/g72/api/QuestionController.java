@@ -38,7 +38,7 @@ public class QuestionController {
         if (question == null) {
             throw new IllegalArgumentException("Token or Room ID is wrong");
         }
-        webSocket.convertAndSend("/room" + roomId, question);
+        webSocket.convertAndSend("/room" + roomId + "question", question);
     }
 
     /**
@@ -48,13 +48,13 @@ public class QuestionController {
      * @param roomId Id of a room
      * @throws Exception If method fails
      */
-    @GetMapping(value = "upvote/{questionID}/{userToken}/{roomId}")
+    @GetMapping(value = "/upvote/{questionID}/{userToken}/{roomId}")
     public void upvoteQuestion(@PathVariable long questionID, @PathVariable String userToken,
-        Long roomId)
+        @PathVariable long roomId)
         throws Exception {
         Question question = questionService.upvoteQuestion(questionID,userToken);
         MessageUpvote up = new MessageUpvote(questionID,question.getUpvotes());
-        webSocket.convertAndSend("/room" + roomId, up);
+        webSocket.convertAndSend("/room" + roomId + "upvote", up);
     }
 
     /**
@@ -64,33 +64,33 @@ public class QuestionController {
      * @param roomId Id of a room
      * @throws Exception If the method fails
      */
-    @GetMapping(value = "answer/{questionID}/{userToken}/{roomId}")
+    @GetMapping(value = "/answer/{questionID}/{userToken}/{roomId}")
     public void answerQuestion(@PathVariable long questionID, @PathVariable String userToken,
-        Long roomId)
+        @PathVariable long roomId)
         throws Exception {
         questionService.setAsAnswered(questionID, userToken);
         MessageAnswer ans = new MessageAnswer(questionID,true,null);
-        webSocket.convertAndSend("/room" + roomId, ans);
+        webSocket.convertAndSend("/room" + roomId + "answer", ans);
     }
 
     @PostMapping("/answer/{questionID}/{userToken}/{roomId}")
     void answer(@PathVariable long questionID, @PathVariable String userToken,
-                Long roomId, @RequestBody String message) throws Exception {
+                @PathVariable long roomId, @RequestBody String message) throws Exception {
         questionService.answerQuestion(userToken, questionID, message);
         MessageAnswer ans = new MessageAnswer(questionID,true,message);
-        webSocket.convertAndSend("/room" + roomId, ans);
+        webSocket.convertAndSend("/room" + roomId + "answer", ans);
     }
 
     @DeleteMapping("/question/{id}/{roomId}")
     void delete(@RequestHeader("Token") String token, @PathVariable long id,
-        Long roomId) {
+        @PathVariable long roomId) {
         boolean success = questionService.deleteQuestion(token, id);
         if (!success) {
             throw new IllegalArgumentException("Bad token or question doesn't exist");
         }
 
         MessageDelete del = new MessageDelete(id);
-        webSocket.convertAndSend("/room" + roomId, del);
+        webSocket.convertAndSend("/room" + roomId + "delete", del);
     }
 
     @GetMapping("/retrieve")
