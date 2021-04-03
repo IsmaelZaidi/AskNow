@@ -18,7 +18,6 @@ import java.util.Collections;
 import java.util.List;
 import nl.tudelft.oopp.g72.entities.Question;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
-import org.apache.tomcat.jni.Local;
 import org.springframework.messaging.simp.stomp.StompFrameHandler;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
