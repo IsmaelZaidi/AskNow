@@ -1,5 +1,7 @@
 package nl.tudelft.oopp.g72.services;
 
+import java.util.List;
+import java.util.Optional;
 import nl.tudelft.oopp.g72.models.Question;
 import nl.tudelft.oopp.g72.models.Room;
 import nl.tudelft.oopp.g72.models.User;
@@ -9,9 +11,6 @@ import nl.tudelft.oopp.g72.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class QuestionService {
