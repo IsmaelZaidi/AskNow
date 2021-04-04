@@ -139,9 +139,9 @@ public class LoginController {
 
         } else {
             if (!open) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "The lecture has already been closed");
+                Alert alert = new Alert(
+                        Alert.AlertType.ERROR, "The lecture has already been closed");
                 alert.show();
-                return;
             } else {
                 roomId = Long.valueOf(response.body());
 

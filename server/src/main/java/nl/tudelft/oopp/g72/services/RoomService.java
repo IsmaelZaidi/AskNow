@@ -9,7 +9,6 @@ import nl.tudelft.oopp.g72.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 
 @Service
 public class RoomService {
@@ -130,12 +129,12 @@ public class RoomService {
         return room;
     }
 
-    public boolean isRoomOpen (String code) {
+    public boolean isRoomOpen(String code) {
         boolean value = roomRepository.isOpen(code);
         return value;
     }
 
-    public void closeRoom (String code) {
+    public void closeRoom(String code) {
         roomRepository.setRoomClosed(code);
     }
 }
