@@ -111,6 +111,15 @@ public class LoginController {
 
         System.out.println(response.body());
 
+        HttpClient client2 = HttpClient.newHttpClient();
+        HttpRequest request2 = HttpRequest.newBuilder(
+                URI.create("http://localhost:8080/api/v1/open"))
+                .header("Code", roomCode.getText())
+                .build();
+        HttpResponse<String> response2 = client2.send(
+                request2, HttpResponse.BodyHandlers.ofString());
+        boolean open = Boolean.parseBoolean(response2.body());
+
         char first = '{';
         if (response.body().charAt(0) == first) {
             ObjectMapper mapper = new ObjectMapper();
@@ -128,12 +137,18 @@ public class LoginController {
                        FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
 
         } else {
-            roomId = Long.valueOf(response.body());
+            if (open = false) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "The lecture has already been closed");
+                alert.show();
+                return;
+            } else {
+                roomId = Long.valueOf(response.body());
 
-            webSocketMadness.subscribe(stompSession);
+                webSocketMadness.subscribe(stompSession);
 
-            MainApp.window.setScene(new Scene(
-                    FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
+                MainApp.window.setScene(new Scene(
+                        FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
+            }
         }
 
     }
