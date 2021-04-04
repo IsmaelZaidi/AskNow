@@ -119,6 +119,7 @@ public class LoginController {
         HttpResponse<String> response2 = client2.send(
                 request2, HttpResponse.BodyHandlers.ofString());
         boolean open = Boolean.parseBoolean(response2.body());
+        System.out.println(open);
 
         char first = '{';
         if (response.body().charAt(0) == first) {
@@ -137,7 +138,7 @@ public class LoginController {
                        FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
 
         } else {
-            if (open = false) {
+            if (!open) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "The lecture has already been closed");
                 alert.show();
                 return;

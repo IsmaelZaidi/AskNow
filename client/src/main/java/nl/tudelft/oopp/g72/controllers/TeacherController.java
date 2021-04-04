@@ -146,8 +146,16 @@ public class TeacherController implements Initializable {
     /**
      * Executed when 'quit' button is clicked.
      */
-    public void quit() throws IOException {
-        // here needs to be come the code which will make the lecture open false
+    public void quit() throws IOException, InterruptedException {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder(
+                URI.create("http://localhost:8080/api/v1/close"))
+                .header("Code", LocalVariables.joinStudent)
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response);
+
+
         MainApp.window.setScene(new Scene(
                 FXMLLoader.load(getClass().getResource("/fxml/login.fxml"))));
     }
