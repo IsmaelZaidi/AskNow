@@ -147,6 +147,7 @@ public class TeacherController implements Initializable {
      * Executed when 'quit' button is clicked.
      */
     public void quit() throws IOException {
+        // here needs to be come the code which will make the lecture open false
         MainApp.window.setScene(new Scene(
                 FXMLLoader.load(getClass().getResource("/fxml/login.fxml"))));
     }
