@@ -127,4 +127,9 @@ public class RoomService {
         userRepository.save(user);
         return room;
     }
+
+    public boolean isRoomOpen (String code) {
+        boolean value = roomRepository.isOpen(code);
+        return value;
+    }
 }

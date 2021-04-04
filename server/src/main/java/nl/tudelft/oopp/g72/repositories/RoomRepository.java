@@ -12,4 +12,7 @@ public interface RoomRepository extends JpaRepository<Room,Long> {
 
     @Query("SELECT r FROM Room r WHERE r.joincodeStudent = ?1")
     Room findByJoincodeStudent(String joincodeStudent);
+
+    @Query("SELECT r.open FROM Room r WHERE r.joincodeStudent = ?1")
+    boolean isOpen(String joincodeStudent);
 }
