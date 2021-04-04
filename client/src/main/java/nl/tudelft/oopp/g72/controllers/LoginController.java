@@ -176,7 +176,7 @@ public class LoginController {
             webSocketMadness.subscribe(stompSession);
 
             MainApp.window.setScene(new Scene(
-                    FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
+                    FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
         }
     }
 }
