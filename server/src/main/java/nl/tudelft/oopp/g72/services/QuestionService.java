@@ -170,8 +170,8 @@ public class QuestionService {
         Question question = optionalQuestion.get();
 
         Room room = user.getRoom();
-        if (!question.getRoom().equals(room) || !question.getUser().equals(user)
-                || !user.getModerator()) {
+        if (!question.getRoom().equals(room) || (!question.getUser().equals(user)
+                && !user.getModerator())) {
             return false;
         }
 
