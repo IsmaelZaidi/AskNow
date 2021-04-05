@@ -1,4 +1,4 @@
-package nl.tudelft.oopp.g72.models;
+package nl.tudelft.oopp.g72.entities;
 
 public class MessageUpvote {
     private long questionId;

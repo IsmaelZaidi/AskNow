@@ -87,6 +87,11 @@ public class QuestionService {
         }
 
         Question question = optionalQuestion.get();
+
+        if (!question.getRoom().equals(user.getRoom())) {
+            throw new Exception("You are not in the same room as the question!");
+        }
+
         question.setUpvotes(question.getUpvotes() + 1);
         return questionRepository.save(question);
     }
@@ -165,7 +170,8 @@ public class QuestionService {
         Question question = optionalQuestion.get();
 
         Room room = user.getRoom();
-        if (!question.getRoom().equals(room) || !question.getUser().equals(user)) {
+        if (!question.getRoom().equals(room) || (!question.getUser().equals(user)
+                && !user.getModerator())) {
             return false;
         }
 
