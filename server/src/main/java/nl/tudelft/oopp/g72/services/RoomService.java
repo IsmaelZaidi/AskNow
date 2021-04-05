@@ -134,6 +134,11 @@ public class RoomService {
         return value;
     }
 
+    public boolean isOpen(long id) {
+        boolean value = roomRepository.isOpenLong(id);
+        return value;
+    }
+
     public void closeRoom(String code) {
         roomRepository.setRoomClosed(code);
     }

@@ -6,6 +6,7 @@ import nl.tudelft.oopp.g72.models.MessageDelete;
 import nl.tudelft.oopp.g72.models.MessageUpvote;
 import nl.tudelft.oopp.g72.models.Question;
 import nl.tudelft.oopp.g72.services.QuestionService;
+import nl.tudelft.oopp.g72.services.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,10 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/v1")
 public class QuestionController {
     private final QuestionService questionService;
+    private RoomService roomService;
 
     @Autowired
-    public QuestionController(QuestionService questionService) {
+    public QuestionController(QuestionService questionService, RoomService roomService) {
         this.questionService = questionService;
+        this.roomService = roomService;
     }
 
     @Autowired
@@ -35,10 +38,13 @@ public class QuestionController {
                  @RequestHeader("RoomId") long roomId,
                  @RequestBody String message) {
         Question question = questionService.addQuestion(token, roomId, message);
+        boolean value = roomService.isOpen(roomId);
         if (question == null) {
             throw new IllegalArgumentException("Token or Room ID is wrong");
         }
-        webSocket.convertAndSend("/room" + roomId + "question", question);
+        if(value) {
+            webSocket.convertAndSend("/room" + roomId + "question", question);
+        }
     }
 
     /**

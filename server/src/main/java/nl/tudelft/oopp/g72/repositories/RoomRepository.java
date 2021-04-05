@@ -19,6 +19,9 @@ public interface RoomRepository extends JpaRepository<Room,Long> {
     @Query("SELECT r.open FROM Room r WHERE r.joincodeStudent = ?1")
     boolean isOpen(String joincodeStudent);
 
+    @Query("SELECT r.open FROM Room r WHERE r.id = ?1")
+    boolean isOpenLong(long id);
+
     @Transactional
     @Modifying
     @Query("UPDATE Room SET open = false WHERE joincodeStudent = ?1")

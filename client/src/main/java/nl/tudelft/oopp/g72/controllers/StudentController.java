@@ -99,17 +99,16 @@ public class StudentController {
      * Executed when 'send' button is clicked. Prints text in message bar.
      */
     public void sendMessage() throws IOException, InterruptedException {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder(
-                URI.create("http://localhost:8080/api/v1/ask/"))
-                .header("Token", LocalVariables.token)
-                .header("RoomId", String.valueOf(roomId))
-                .POST(HttpRequest.BodyPublishers.ofString(messageBar.getText()))
-                .build();
-        client.send(request, HttpResponse.BodyHandlers.ofString());
-
-        System.out.println(messageBar.getText());
-        messageBar.clear();
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder(
+                    URI.create("http://localhost:8080/api/v1/ask/"))
+                    .header("Token", LocalVariables.token)
+                    .header("RoomId", String.valueOf(roomId))
+                    .POST(HttpRequest.BodyPublishers.ofString(messageBar.getText()))
+                    .build();
+            client.send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println(messageBar.getText());
+            messageBar.clear();
     }
 
     /**
