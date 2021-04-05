@@ -14,8 +14,14 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import javafx.application.Platform;
+import nl.tudelft.oopp.g72.entities.MessageAnswer;
+import nl.tudelft.oopp.g72.entities.MessageDelete;
+import nl.tudelft.oopp.g72.entities.MessageUpvote;
 import nl.tudelft.oopp.g72.entities.Question;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 import org.apache.tomcat.jni.Local;
@@ -75,7 +81,7 @@ public class WebSocketMadness {
                 new TypeReference<List<Question>>(){});
         LocalVariables.questions.addAll(questions);
 
-        stompSession.subscribe("/room" + roomId, new StompFrameHandler() {
+        stompSession.subscribe("/room" + roomId + "question", new StompFrameHandler() {
 
             public Type getPayloadType(StompHeaders stompHeaders) {
                 return byte[].class;
@@ -83,12 +89,82 @@ public class WebSocketMadness {
 
             public void handleFrame(StompHeaders stompHeaders, Object o) {
                 ObjectMapper mapper = new ObjectMapper();
-                Question q;
                 try {
+                    Question q;
                     q = mapper.readValue(new String((byte[]) o), Question.class);
-                    LocalVariables.questions.add(q);
-                } catch (JsonProcessingException e) {
-                    e.printStackTrace();
+                    Platform.runLater(() -> LocalVariables.questions.add(q));
+                } catch (JsonProcessingException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+
+        stompSession.subscribe("/room" + roomId + "answer", new StompFrameHandler() {
+
+            public Type getPayloadType(StompHeaders stompHeaders) {
+                return byte[].class;
+            }
+
+            public void handleFrame(StompHeaders stompHeaders, Object o) {
+                ObjectMapper mapper = new ObjectMapper();
+                try {
+                    MessageAnswer m;
+                    m = mapper.readValue(new String((byte[]) o), MessageAnswer.class);
+                    Platform.runLater(() -> {
+                        for (Question q : LocalVariables.questions) {
+                            if (q.getId() == m.getQuestionId()) {
+                                q.setAnswered(true);
+                                q.setAnswer(m.getAnswer());
+                            }
+                        }
+                    });
+                } catch (JsonProcessingException e2) {
+                    e2.printStackTrace();
+                }
+            }
+        });
+
+        stompSession.subscribe("/room" + roomId + "delete", new StompFrameHandler() {
+
+            public Type getPayloadType(StompHeaders stompHeaders) {
+                return byte[].class;
+            }
+
+            public void handleFrame(StompHeaders stompHeaders, Object o) {
+                ObjectMapper mapper = new ObjectMapper();
+                try {
+                    MessageDelete m;
+                    m = mapper.readValue(new String((byte[]) o), MessageDelete.class);
+                    Platform.runLater(() -> {
+                        LocalVariables.questions
+                                .removeIf(q -> q.getId() == m.getQuestionId());
+                    });
+                } catch (JsonProcessingException e3) {
+                    e3.printStackTrace();
+                }
+            }
+        });
+
+        stompSession.subscribe("/room" + roomId + "upvote", new StompFrameHandler() {
+
+            public Type getPayloadType(StompHeaders stompHeaders) {
+                return byte[].class;
+            }
+
+            public void handleFrame(StompHeaders stompHeaders, Object o) {
+                ObjectMapper mapper = new ObjectMapper();
+                try {
+                    MessageUpvote m;
+                    m = mapper.readValue(new String((byte[]) o), MessageUpvote.class);
+                    Platform.runLater(() -> {
+                        for (Question q: LocalVariables.questions) {
+                            if (q.getId() == m.getQuestionId()) {
+                                q.setUpvotes(m.getUpvotes());
+                            }
+                        }
+                    });
+                } catch (JsonProcessingException e4) {
+                    e4.printStackTrace();
                 }
             }
         });
