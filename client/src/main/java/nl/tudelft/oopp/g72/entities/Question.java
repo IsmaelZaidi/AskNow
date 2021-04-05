@@ -79,21 +79,21 @@ public class Question {
         this.answered = answered;
     }
 
-    public String getMerge() { return merge; }
+    public String getEdit() {
+        return edit;
+    }
 
-    public void setMerge(String merge) { this.merge = merge; }
+    public void setEdit(String edit) {
+        this.edit = edit;
+    }
 
-    public String getEdit() { return edit; }
+    public String getRemove() {
+        return remove;
+    }
 
-    public void setEdit(String edit) { this.edit = edit; }
-
-    public String getRemove() { return remove; }
-
-    public void setRemove(String remove) { this.remove = remove; }
-
-    public String getAnswered() { return answered1; }
-
-    public void setAnswered(String answered1) { this.answered1 = answered1; }
+    public void setRemove(String remove) {
+        this.remove = remove;
+    }
 
     public Question() {
 
@@ -118,7 +118,6 @@ public class Question {
         this.upvotes = upvotes;
         this.answer = answer;
         this.answered = answered;
-        this.merge = merge;
         this.edit = edit;
         this.remove = remove;
     }
