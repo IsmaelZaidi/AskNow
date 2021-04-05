@@ -42,7 +42,7 @@ public class QuestionController {
         if (question == null) {
             throw new IllegalArgumentException("Token or Room ID is wrong");
         }
-        if(value) {
+        if (value) {
             webSocket.convertAndSend("/room" + roomId + "question", question);
         }
     }
