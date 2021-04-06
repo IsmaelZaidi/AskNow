@@ -1,11 +1,14 @@
 package nl.tudelft.oopp.g72.services;
 
+import java.time.*;
 import java.util.Random;
 
+import com.fasterxml.jackson.datatype.jsr310.deser.key.ZoneOffsetKeyDeserializer;
 import nl.tudelft.oopp.g72.models.Room;
 import nl.tudelft.oopp.g72.models.User;
 import nl.tudelft.oopp.g72.repositories.RoomRepository;
 import nl.tudelft.oopp.g72.repositories.UserRepository;
+import org.apache.tomcat.jni.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -121,6 +124,9 @@ public class RoomService {
         }
         Room room = new Room(0, title, true, scheduledTime,
                 getParticipantEntryCode(), getModeratorEntryCode());
+        if (LocalTime.now().toEpochSecond(LocalDate.now(), OffsetDateTime.now().getOffset()) < scheduledTime) {
+            room.setOpen(false);
+        }
         room = roomRepository.save(room);
 
         user.setRoom(room);
@@ -130,13 +136,21 @@ public class RoomService {
     }
 
     public boolean isRoomOpen(String code) {
-        boolean value = roomRepository.isOpen(code);
-        return value;
+        Room room = roomRepository.findByJoincodeStudent(code);
+        if (room.getScheduledTime() <= LocalTime.now().toEpochSecond(LocalDate.now(), OffsetDateTime.now().getOffset()) && room.getScheduledTime() != 0) {
+            room.setOpen(true);
+            room = roomRepository.save(room);
+        }
+        return room.isOpen();
     }
 
     public boolean isOpen(long id) {
-        boolean value = roomRepository.isOpenLong(id);
-        return value;
+        Room room = roomRepository.getOne(id);
+        if (room.getScheduledTime() <= LocalTime.now().toEpochSecond(LocalDate.now(), OffsetDateTime.now().getOffset()) && room.getScheduledTime() != 0) {
+            room.setOpen(true);
+            room = roomRepository.save(room);
+        }
+        return room.isOpen();
     }
 
     public void closeRoom(String code) {

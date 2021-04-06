@@ -37,13 +37,15 @@ public class QuestionController {
     void ask(@RequestHeader("Token") String token,
                  @RequestHeader("RoomId") long roomId,
                  @RequestBody String message) {
-        Question question = questionService.addQuestion(token, roomId, message);
         boolean value = roomService.isOpen(roomId);
-        if (question == null) {
-            throw new IllegalArgumentException("Token or Room ID is wrong");
-        }
         if (value) {
+            Question question = questionService.addQuestion(token, roomId, message);
+            if (question == null) {
+                throw new IllegalArgumentException("Token or Room ID is wrong");
+            }
             webSocket.convertAndSend("/room" + roomId + "question", question);
+        } else {
+            throw new IllegalArgumentException("Room is closed");
         }
     }
 
@@ -58,9 +60,14 @@ public class QuestionController {
     public void upvoteQuestion(@PathVariable long questionID, @PathVariable String userToken,
         @PathVariable long roomId)
         throws Exception {
-        Question question = questionService.upvoteQuestion(questionID,userToken);
-        MessageUpvote up = new MessageUpvote(questionID,question.getUpvotes());
-        webSocket.convertAndSend("/room" + roomId + "upvote", up);
+        boolean value = roomService.isOpen(roomId);
+        if (value) {
+            Question question = questionService.upvoteQuestion(questionID, userToken);
+            MessageUpvote up = new MessageUpvote(questionID, question.getUpvotes());
+            webSocket.convertAndSend("/room" + roomId + "upvote", up);
+        } else {
+            throw new IllegalArgumentException("Room is closed");
+        }
     }
 
     /**

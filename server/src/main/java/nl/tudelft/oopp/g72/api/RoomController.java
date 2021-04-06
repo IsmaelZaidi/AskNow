@@ -66,6 +66,4 @@ public class RoomController {
         roomService.closeRoom(code);
     }
 
-
-
 }
