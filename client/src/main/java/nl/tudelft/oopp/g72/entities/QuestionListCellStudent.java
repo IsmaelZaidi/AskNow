@@ -19,6 +19,7 @@ public class QuestionListCellStudent extends ListCell<Question> {
     private HBox content;
     private Label name;
     private Label upvotes;
+    private Button addUpvote;
     private TextArea text;
     private Button edit;
     private Button remove;
@@ -35,6 +36,7 @@ public class QuestionListCellStudent extends ListCell<Question> {
             anchorPane = (AnchorPane) content.getChildren().get(1);
             name = (Label) vb.getChildren().get(1);
             upvotes = (Label) vb.getChildren().get(2);
+            addUpvote = (Button) vb.getChildren().get(3);
             text = (TextArea) anchorPane.getChildren().get(0);
             remove = (Button) anchorPane.getChildren().get(1);
             remove.setOnMouseClicked(e -> {

@@ -157,9 +157,11 @@ public class WebSocketMadness {
                     MessageUpvote m;
                     m = mapper.readValue(new String((byte[]) o), MessageUpvote.class);
                     Platform.runLater(() -> {
-                        for (Question q: LocalVariables.questions) {
-                            if (q.getId() == m.getQuestionId()) {
-                                q.setUpvotes(m.getUpvotes());
+                        for (int i = 0; i < LocalVariables.questions.size(); i++) {
+                            if (LocalVariables.questions.get(i).getId() == m.getQuestionId()) {
+                                Question question = LocalVariables.questions.get(i);
+                                question.setUpvotes(m.getUpvotes());
+                                LocalVariables.questions.set(i, question);
                             }
                         }
                     });
