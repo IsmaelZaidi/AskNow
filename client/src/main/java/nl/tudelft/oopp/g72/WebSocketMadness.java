@@ -168,6 +168,30 @@ public class WebSocketMadness {
                 }
             }
         });
+
+        stompSession.subscribe("/room" + roomId + "edit", new StompFrameHandler() {
+
+            public Type getPayloadType(StompHeaders stompHeaders) {
+                return byte[].class;
+            }
+
+            public void handleFrame(StompHeaders stompHeaders, Object o) {
+                ObjectMapper mapper = new ObjectMapper();
+                try {
+                    Question q;
+                    q = mapper.readValue(new String((byte[]) o), Question.class);
+                    Platform.runLater(() -> {
+                        for (int i = 0; i < LocalVariables.questions.size(); i++) {
+                            if (LocalVariables.questions.get(i).getId() == q.getId()) {
+                                LocalVariables.questions.set(i, q);
+                            }
+                        }
+                    });
+                } catch (JsonProcessingException e5) {
+                    e5.printStackTrace();
+                }
+            }
+        });
     }
 
     private static class MyHandler extends StompSessionHandlerAdapter {

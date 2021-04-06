@@ -27,6 +27,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
+import org.apache.tomcat.jni.Local;
 import org.json.simple.parser.ParseException;
 
 public class LoginController {
@@ -62,6 +63,14 @@ public class LoginController {
 
         LocalVariables.token = response.body();
         System.out.println(LocalVariables.token);
+
+        request = HttpRequest.newBuilder(
+                URI.create("http://localhost:8080/api/v1/getId/"))
+                .header("Token", LocalVariables.token)
+                .build();
+        response = client.send(request,
+                HttpResponse.BodyHandlers.ofString());
+        LocalVariables.userId = Long.parseLong(response.body());
 
         return true;
     }

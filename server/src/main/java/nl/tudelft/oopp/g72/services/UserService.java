@@ -66,4 +66,12 @@ public class UserService {
         user.setRoom(null);
         userRepository.save(user);
     }
+
+    public long getId(String token) throws Exception {
+        User user = userRepository.findByToken(token);
+        if (user == null) {
+            throw new Exception("Bad token");
+        }
+        return user.getId();
+    }
 }

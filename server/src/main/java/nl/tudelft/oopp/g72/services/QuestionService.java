@@ -194,4 +194,25 @@ public class QuestionService {
         Room room = user.getRoom();
         return questionRepository.findQuestionsAfter(time, room);
     }
+
+    public Question editQuestion(String token, long id, String messsage) throws Exception {
+        User user = userRepository.findByToken(token);
+        if (user == null) {
+            throw new Exception("Bad token");
+        }
+
+        Optional<Question> optionalQuestion = questionRepository.findById(id);
+        if (optionalQuestion.isEmpty()) {
+            throw new Exception("Question does not exist");
+        }
+        Question question = optionalQuestion.get();
+
+        Room room = user.getRoom();
+        if (!question.getRoom().equals(room) || !user.getModerator()) {
+            throw new Exception("You don't have the permissions to edit this question");
+        }
+
+        question.setText(messsage);
+        return questionRepository.save(question);
+    }
 }

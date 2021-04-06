@@ -28,7 +28,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.entities.Question;
-import nl.tudelft.oopp.g72.entities.QuestionListCell;
+import nl.tudelft.oopp.g72.entities.QuestionListCellAssistant;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
@@ -67,7 +67,7 @@ public class AssistantController implements Initializable {
     public void initialize(URL location, ResourceBundle arg1) {
         studentCode.setText(LocalVariables.joinStudent);
         listView.setItems(sortedQuestions);
-        listView.setCellFactory(lw -> new QuestionListCell());
+        listView.setCellFactory(lw -> new QuestionListCellAssistant());
         listView.setSelectionModel(new QuestionListSelectionModel<>());
         listView.setFocusTraversable(false);
         try {
@@ -106,20 +106,6 @@ public class AssistantController implements Initializable {
     public void quit() throws IOException {
         MainApp.window.setScene(new Scene(
                 FXMLLoader.load(getClass().getResource("/fxml/login.fxml"))));
-    }
-
-    /**
-     * Executed when 'info' button is clicked.
-     */
-    public void info() {
-
-    }
-
-    /**
-     * Executed when 'merge' button is clicked.
-     */
-    public void merge() {
-
     }
 
     /**

@@ -10,6 +10,7 @@ import org.springframework.messaging.simp.stomp.StompSession;
 
 public class LocalVariables {
     public static String token;
+    public static long userId;
 
     public static Long roomId;
     public static String lectureName;

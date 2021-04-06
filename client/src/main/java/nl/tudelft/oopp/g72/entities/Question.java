@@ -15,6 +15,14 @@ public class Question {
 
     private boolean answered;
 
+    private String merge;
+
+    private String edit;
+
+    private String remove;
+
+    private String answered1;
+
     public long getId() {
         return id;
     }
@@ -71,6 +79,22 @@ public class Question {
         this.answered = answered;
     }
 
+    public String getEdit() {
+        return edit;
+    }
+
+    public void setEdit(String edit) {
+        this.edit = edit;
+    }
+
+    public String getRemove() {
+        return remove;
+    }
+
+    public void setRemove(String remove) {
+        this.remove = remove;
+    }
+
     public Question() {
 
     }
@@ -86,7 +110,7 @@ public class Question {
      * @param answered if it was answered
      */
     public Question(long id, User user, String text, long timestamp,
-                    int upvotes, String answer, boolean answered) {
+                    int upvotes, String answer, boolean answered, String merge, String edit, String remove) {
         this.id = id;
         this.user = user;
         this.text = text;
@@ -94,5 +118,7 @@ public class Question {
         this.upvotes = upvotes;
         this.answer = answer;
         this.answered = answered;
+        this.edit = edit;
+        this.remove = remove;
     }
 }
