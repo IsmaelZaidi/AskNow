@@ -1,6 +1,6 @@
-Chairman: 
+Chairman: Aben Rayev
 
-Note taker: 
+Note taker: Ismael Zaidi
 
 # TA Meeting - Week 7
 
