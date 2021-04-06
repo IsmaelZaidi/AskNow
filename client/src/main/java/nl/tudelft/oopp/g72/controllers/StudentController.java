@@ -107,7 +107,6 @@ public class StudentController {
                 .POST(HttpRequest.BodyPublishers.ofString(messageBar.getText()))
                 .build();
         client.send(request, HttpResponse.BodyHandlers.ofString());
-
         System.out.println(messageBar.getText());
         messageBar.clear();
     }

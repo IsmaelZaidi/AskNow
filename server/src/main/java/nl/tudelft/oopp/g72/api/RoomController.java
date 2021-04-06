@@ -56,6 +56,16 @@ public class RoomController {
         return room;
     }
 
+    @GetMapping(value = "api/v1/open")
+    public boolean isRoomOpen(@RequestHeader("Code") String code) {
+        return roomService.isRoomOpen(code);
+    }
+
+    @GetMapping(value = "api/v1/close")
+    public void closeRoom(@RequestHeader("Code") String code) {
+        roomService.closeRoom(code);
+    }
+
 
 
 }
