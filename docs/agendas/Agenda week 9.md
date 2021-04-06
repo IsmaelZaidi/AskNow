@@ -22,6 +22,7 @@ Everyone is here
 - Get in touch with the evaluation team
 - Get master up to date
 - Start work on the outstanding bugs of the app
+- Fix duplicate upvotes
 
 # Action points for next week (Scrum board)
 
