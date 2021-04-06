@@ -57,7 +57,7 @@ public class RoomController {
     }
 
     @GetMapping(value = "api/v1/open")
-    public boolean isRoomOpen(@RequestHeader("Code") String code) {
+    public long isRoomOpen(@RequestHeader("Code") String code) {
         return roomService.isRoomOpen(code);
     }
 

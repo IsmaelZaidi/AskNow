@@ -81,6 +81,9 @@ public class RoomService {
         if (room == null) {
             throw new Exception("There are no rooms with that code!");
         } else {
+            if (!isOpen(room.getId())) {
+                return 0;
+            }
             user.setRoom(room);
             userRepository.save(user);
             return room.getId();
@@ -135,13 +138,20 @@ public class RoomService {
         return room;
     }
 
-    public boolean isRoomOpen(String code) {
+    public long isRoomOpen(String code) {
         Room room = roomRepository.findByJoincodeStudent(code);
         if (room.getScheduledTime() <= LocalTime.now().toEpochSecond(LocalDate.now(), OffsetDateTime.now().getOffset()) && room.getScheduledTime() != 0) {
             room.setOpen(true);
             room = roomRepository.save(room);
         }
-        return room.isOpen();
+        if (!room.isOpen()) {
+            if (room.getScheduledTime() == 0) {
+                return -1;
+            } else {
+                return room.getScheduledTime();
+            }
+        }
+        return 0;
     }
 
     public boolean isOpen(long id) {
