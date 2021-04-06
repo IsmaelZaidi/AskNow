@@ -1,18 +1,19 @@
 package nl.tudelft.oopp.g72.entities;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.AnchorPane;
-import nl.tudelft.oopp.g72.localvariables.LocalVariables;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
 public class QuestionListCellStudent extends ListCell<Question> {
     private HBox content;

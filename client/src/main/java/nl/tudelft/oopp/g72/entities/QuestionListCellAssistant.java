@@ -1,30 +1,21 @@
 package nl.tudelft.oopp.g72.entities;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.AnchorPane;
-import nl.tudelft.oopp.g72.localvariables.LocalVariables;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.layout.*;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.*;
-import javafx.stage.Stage;
-import javafx.scene.control.Alert.AlertType;
-import org.apache.tomcat.jni.Local;
-import org.springframework.web.context.request.AsyncWebRequestInterceptor;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import nl.tudelft.oopp.g72.localvariables.LocalVariables;
+
 
 public class QuestionListCellAssistant extends ListCell<Question> {
     private HBox content;

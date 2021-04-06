@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import nl.tudelft.oopp.g72.models.Question;
 import nl.tudelft.oopp.g72.services.QuestionService;
+import nl.tudelft.oopp.g72.services.RoomService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -29,22 +30,25 @@ public class QuestionControllerTest {
     @MockBean
     private QuestionService questionService;
 
-    ///!!!!!!!! This test has to be rewritten because now in order for the ask method to be
-    ///!!!!!!!! returning the message the room should first be open then the message will created
-//    @Test
-//    void testAsk() throws Exception {
-//        Question question = new Question();
-//
-//        when(questionService.addQuestion("GoodToken", 1, "What is the meaning of life?"))
-//                .thenReturn(question);
-//
-//        mockMvc.perform(post("/api/v1/ask")
-//                    .header("Token", "GoodToken")
-//                    .header("RoomId", 1)
-//                    .content("What is the meaning of life?"))
-//                .andExpect(status().is2xxSuccessful())
-//                .andReturn();
-//    }
+    @MockBean
+    private RoomService roomService;
+
+    @Test
+    void testAsk() throws Exception {
+        Question question = new Question();
+
+        when(questionService.addQuestion("GoodToken", 1, "What is the meaning of life?"))
+                .thenReturn(question);
+
+        when(roomService.isOpen(1)).thenReturn(true);
+
+        mockMvc.perform(post("/api/v1/ask")
+                    .header("Token", "GoodToken")
+                    .header("RoomId", 1)
+                    .content("What is the meaning of life?"))
+                .andExpect(status().is2xxSuccessful())
+                .andReturn();
+    }
 
     @Test
     void testDelete() throws Exception {

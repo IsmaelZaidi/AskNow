@@ -110,7 +110,8 @@ public class QuestionController {
     }
 
     @PostMapping("/edit/{token}/{id}")
-    void edit(@PathVariable String token, @PathVariable long id, @RequestBody String newText) throws Exception {
+    void edit(@PathVariable String token, @PathVariable long id,
+              @RequestBody String newText) throws Exception {
         Question question = questionService.editQuestion(token, id, newText);
         webSocket.convertAndSend("/room" + question.getRoom().getId() + "edit", question);
     }

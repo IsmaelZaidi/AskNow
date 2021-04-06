@@ -110,7 +110,8 @@ public class Question {
      * @param answered if it was answered
      */
     public Question(long id, User user, String text, long timestamp,
-                    int upvotes, String answer, boolean answered, String merge, String edit, String remove) {
+                    int upvotes, String answer, boolean answered, String merge,
+                    String edit, String remove) {
         this.id = id;
         this.user = user;
         this.text = text;

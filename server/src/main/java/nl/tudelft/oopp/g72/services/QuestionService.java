@@ -195,6 +195,14 @@ public class QuestionService {
         return questionRepository.findQuestionsAfter(time, room);
     }
 
+    /**
+     * change later.
+     * @param token q
+     * @param id a
+     * @param messsage a
+     * @return a
+     * @throws Exception a
+     */
     public Question editQuestion(String token, long id, String messsage) throws Exception {
         User user = userRepository.findByToken(token);
         if (user == null) {

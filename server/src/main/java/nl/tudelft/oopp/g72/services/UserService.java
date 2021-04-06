@@ -67,6 +67,12 @@ public class UserService {
         userRepository.save(user);
     }
 
+    /**
+     * Edit later.
+     * @param token a
+     * @return a
+     * @throws Exception a
+     */
     public long getId(String token) throws Exception {
         User user = userRepository.findByToken(token);
         if (user == null) {
