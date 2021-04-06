@@ -29,10 +29,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
-import org.apache.tomcat.jni.Local;
-import org.json.simple.parser.ParseException;
-
-import javax.lang.model.util.SimpleElementVisitor6;
 
 public class LoginController {
 
