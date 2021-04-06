@@ -12,7 +12,6 @@ public class QuestionListCellTeacher extends ListCell<Question> {
     private HBox content;
     private Label name;
     private Label upvotes;
-    private Button addUpvote;
     private TextArea text;
 
     /**
@@ -25,7 +24,6 @@ public class QuestionListCellTeacher extends ListCell<Question> {
             VBox vb = (VBox) content.getChildren().get(0);
             name = (Label) vb.getChildren().get(1);
             upvotes = (Label) vb.getChildren().get(2);
-            addUpvote = (Button) vb.getChildren().get(3);
             text = (TextArea) content.getChildren().get(1);
         } catch (Exception e) {
             content = new HBox();
