@@ -15,7 +15,7 @@
          <children>
             <Button layoutX="956.0" layoutY="16.0" mnemonicParsing="false" onAction="#quit" style="-fx-background-color: red;" text="End" />
             <Label layoutX="12.0" layoutY="24.0" text=":Insert logo:" />
-            <Label layoutX="100.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7">
+            <Label layoutX="100.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" fx:id="lectureName">
                <font>
                   <Font size="24.0" />
                </font>

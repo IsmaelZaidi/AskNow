@@ -66,6 +66,7 @@ public class TeacherController implements Initializable {
      */
     public void initialize(URL location, ResourceBundle arg1) {
         listView.setItems(sortedQuestions);
+        lectureName.setText(LocalVariables.lectureName);
         listView.setCellFactory(lw -> new QuestionListCell());
         listView.setSelectionModel(new QuestionListSelectionModel<>());
         listView.setFocusTraversable(false);

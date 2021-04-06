@@ -63,6 +63,7 @@ public class StudentController {
     @FXML
     void initialize() {
         studentCode.setText(LocalVariables.joinStudent);
+        lectureName.setText(LocalVariables.lectureName);
         listView.setItems(sortedQuestions);
         listView.setCellFactory(lw -> new QuestionListCellStudent());
         listView.setSelectionModel(new QuestionListSelectionModel<>());
