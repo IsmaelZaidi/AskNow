@@ -1,4 +1,4 @@
-Chairman: Cristian Cuţitei
+Chairman: Ciprian Stanciu
 
 Note taker: Jannick Weitzel
 
