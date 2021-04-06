@@ -4,7 +4,7 @@ Note taker:
 
 # TA Meeting - Week 7
 
-Date: March 21th, 2021
+Date: March 23th, 2021
 
 # TA meeting Notes
 

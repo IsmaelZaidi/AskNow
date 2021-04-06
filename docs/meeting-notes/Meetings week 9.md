@@ -2,7 +2,7 @@ Chairman: Cristian Cuţitei
 
 Note taker: Jannick Weitzel
 
-# TA Meeting - Week 6
+# TA Meeting - Week 9
 
 Date: April 6th, 2021
 
