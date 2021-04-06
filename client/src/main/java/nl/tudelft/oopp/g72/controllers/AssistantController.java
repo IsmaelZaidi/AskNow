@@ -66,6 +66,7 @@ public class AssistantController implements Initializable {
      */
     public void initialize(URL location, ResourceBundle arg1) {
         studentCode.setText(LocalVariables.joinStudent);
+        lectureName.setText(LocalVariables.lectureName);
         listView.setItems(sortedQuestions);
         listView.setCellFactory(lw -> new QuestionListCellAssistant());
         listView.setSelectionModel(new QuestionListSelectionModel<>());

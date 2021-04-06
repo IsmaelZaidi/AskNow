@@ -1,6 +1,7 @@
 package nl.tudelft.oopp.g72.entities;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextArea;
