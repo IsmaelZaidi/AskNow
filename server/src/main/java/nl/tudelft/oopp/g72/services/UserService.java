@@ -52,4 +52,32 @@ public class UserService {
     public List<User> usersInRoom(long roomId) {
         return userRepository.usersInRoom(roomId);
     }
+
+    /**
+     * Removes a user from a joined room.
+     * @param token user's token
+     * @throws Exception e
+     */
+    public void leaveRoom(String token) throws Exception {
+        User user = userRepository.findByToken(token);
+        if (user == null) {
+            throw new Exception("Bad token");
+        }
+        user.setRoom(null);
+        userRepository.save(user);
+    }
+
+    /**
+     * Edit later.
+     * @param token a
+     * @return a
+     * @throws Exception a
+     */
+    public long getId(String token) throws Exception {
+        User user = userRepository.findByToken(token);
+        if (user == null) {
+            throw new Exception("Bad token");
+        }
+        return user.getId();
+    }
 }

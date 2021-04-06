@@ -9,6 +9,7 @@ import nl.tudelft.oopp.g72.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class RoomService {
 
@@ -126,5 +127,19 @@ public class RoomService {
         user.setModerator(true);
         userRepository.save(user);
         return room;
+    }
+
+    public boolean isRoomOpen(String code) {
+        boolean value = roomRepository.isOpen(code);
+        return value;
+    }
+
+    public boolean isOpen(long id) {
+        boolean value = roomRepository.isOpenLong(id);
+        return value;
+    }
+
+    public void closeRoom(String code) {
+        roomRepository.setRoomClosed(code);
     }
 }

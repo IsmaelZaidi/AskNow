@@ -15,11 +15,11 @@
    <top>
       <Pane prefHeight="64.0" prefWidth="512.0" style="-fx-background-color: deepskyblue;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="956.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Quit" />
+            <Button layoutX="956.0" layoutY="16.0" mnemonicParsing="false" onAction="#quit" style="-fx-background-color: red;" text="Quit" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3dae49" height="32.0" layoutX="870.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="56.0" />
             <Label fx:id="studentCount" layoutX="894.0" layoutY="22.0" prefHeight="18.0" prefWidth="0.0" text="0" textFill="WHITE" />
             <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" onAction="#teacherView" style="-fx-background-color: orange;" text="Teacher's view" />
-            <Label fx:id="lectureName" layoutX="200.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7" />
+            <Label fx:id="lectureName" layoutX="200.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" />
 
             <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" onAction="#teacherView" style="-fx-background-color: orange;" text="Teacher's view" />
             <Label fx:id="studentCode" layoutX="519.0" layoutY="22.0" text="123XYZ">
@@ -45,7 +45,22 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="145.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="750.0" />
             <Button layoutX="795.0" layoutY="410.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="60.0" prefWidth="70.0" text="Send" />
             <TextField fx:id="messageBar" layoutX="155.0" layoutY="410.0" onKeyPressed="#enterPressed" prefHeight="60.0" prefWidth="600.0" promptText="Enter your comment here..." />
-            <ListView fx:id="listView" layoutX="145.0" layoutY="25.0" prefHeight="350.0" prefWidth="750.0" />
+            <ListView fx:id="listView" layoutX="145.0" layoutY="31.0" prefHeight="344.0" prefWidth="750.0" />
+            <Label layoutX="155.0" layoutY="5.0" text="Order questions:" />
+            <Label layoutX="262.0" layoutY="5.0" text="new" fx:id="newest" onMouseClicked="#sortNew">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="297.0" layoutY="5.0" text="upvoted" fx:id="upvoted" onMouseClicked="#sortUpvotes"/>
+            <Label layoutX="531.0" layoutY="6.0" text="Filter:" />
+            <Label layoutX="577.0" layoutY="6.0" text="all" fx:id="all" onMouseClicked="#filterAll">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="604.0" layoutY="6.0" text="answered" fx:id="answered" onMouseClicked="#filterAnswered"/>
+            <Label layoutX="675.0" layoutY="5.0" text="unanswered" fx:id="unanswered" onMouseClicked="#filterUnanswered"/>
          </children>
       </AnchorPane>
    </center>

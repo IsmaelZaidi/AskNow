@@ -87,6 +87,11 @@ public class QuestionService {
         }
 
         Question question = optionalQuestion.get();
+
+        if (!question.getRoom().equals(user.getRoom())) {
+            throw new Exception("You are not in the same room as the question!");
+        }
+
         question.setUpvotes(question.getUpvotes() + 1);
         return questionRepository.save(question);
     }
@@ -165,7 +170,8 @@ public class QuestionService {
         Question question = optionalQuestion.get();
 
         Room room = user.getRoom();
-        if (!question.getRoom().equals(room) || !question.getUser().equals(user)) {
+        if (!question.getRoom().equals(room) || (!question.getUser().equals(user)
+                && !user.getModerator())) {
             return false;
         }
 
@@ -187,5 +193,34 @@ public class QuestionService {
 
         Room room = user.getRoom();
         return questionRepository.findQuestionsAfter(time, room);
+    }
+
+    /**
+     * change later.
+     * @param token q
+     * @param id a
+     * @param messsage a
+     * @return a
+     * @throws Exception a
+     */
+    public Question editQuestion(String token, long id, String messsage) throws Exception {
+        User user = userRepository.findByToken(token);
+        if (user == null) {
+            throw new Exception("Bad token");
+        }
+
+        Optional<Question> optionalQuestion = questionRepository.findById(id);
+        if (optionalQuestion.isEmpty()) {
+            throw new Exception("Question does not exist");
+        }
+        Question question = optionalQuestion.get();
+
+        Room room = user.getRoom();
+        if (!question.getRoom().equals(room) || !user.getModerator()) {
+            throw new Exception("You don't have the permissions to edit this question");
+        }
+
+        question.setText(messsage);
+        return questionRepository.save(question);
     }
 }

@@ -15,7 +15,7 @@
          <children>
             <Button layoutX="956.0" layoutY="16.0" mnemonicParsing="false" onAction="#quit" style="-fx-background-color: red;" text="End" />
             <Label layoutX="12.0" layoutY="24.0" text=":Insert logo:" />
-            <Label layoutX="100.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" text="CSE 1950 Lecture 7">
+            <Label layoutX="100.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" fx:id="lectureName">
                <font>
                   <Font size="24.0" />
                </font>
@@ -50,7 +50,22 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView fx:id="listView" prefHeight="515.0" prefWidth="1024.0" />
+            <ListView fx:id="listView" layoutY="28.0" prefHeight="487.0" prefWidth="1024.0" />
+            <Label layoutX="14.0" layoutY="5.0" text="Order questions:" />
+            <Label fx:id="newest" layoutX="121.0" layoutY="5.0" onMouseClicked="#sortNew" text="new">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="upvoted" layoutX="156.0" layoutY="5.0" onMouseClicked="#sortUpvotes" text="upvoted" />
+            <Label layoutX="390.0" layoutY="6.0" text="Filter:" />
+            <Label fx:id="all" layoutX="436.0" layoutY="6.0" onMouseClicked="#filterAll" text="all">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="answered" layoutX="463.0" layoutY="6.0" onMouseClicked="#filterAnswered" text="answered" />
+            <Label fx:id="unanswered" layoutX="543.0" layoutY="6.0" onMouseClicked="#filterUnanswered" text="unanswered" />
          </children>
       </AnchorPane>
    </center>

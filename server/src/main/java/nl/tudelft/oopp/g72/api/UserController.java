@@ -30,6 +30,11 @@ public class UserController {
         return token;
     }
 
+    @GetMapping("/getId")
+    long getId(@RequestHeader("Token") String token) throws Exception {
+        return userService.getId(token);
+    }
+
     @GetMapping("/participants")
     List<User> getParticipants(@RequestHeader("Token") String token,
                                @RequestHeader("RoomId") long roomId) {
@@ -38,6 +43,15 @@ public class UserController {
             throw new IllegalArgumentException("Bad token");
         }
         return userService.usersInRoom(roomId);
+    }
+
+    @GetMapping("/participants/leave")
+    void leaveRoom(@RequestHeader("Token") String token) {
+        try {
+            userService.leaveRoom(token);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Bad token");
+        }
     }
 
 }

@@ -57,3 +57,17 @@ Code: V1zKrg
 
 GET localhost:8080/api/v1/isMod HTTP/1.1
 Token: a962ccc3-0b7d-4a62-acae-1f2f940f897f
+
+###
+
+GET localhost:8080/api/v1/upvote/1/5bd1c58c-db69-4f54-94b1-dca38061ca4f HTTP/1.1
+
+###
+
+GET localhost:8080/api/v1/open
+Code: znlbEA
+
+###
+
+GET localhost:8080/api/v1/close
+Code: hWnKVt
