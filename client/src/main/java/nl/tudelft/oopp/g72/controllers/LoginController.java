@@ -27,8 +27,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
-import org.apache.tomcat.jni.Local;
-import org.json.simple.parser.ParseException;
 
 public class LoginController {
 
@@ -143,6 +141,7 @@ public class LoginController {
 
             webSocketMadness.subscribe(stompSession);
 
+            MainApp.window.setResizable(true);
             MainApp.window.setScene(new Scene(
                        FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
 
@@ -156,6 +155,7 @@ public class LoginController {
 
                 webSocketMadness.subscribe(stompSession);
 
+                MainApp.window.setResizable(false);
                 MainApp.window.setScene(new Scene(
                         FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
             }
