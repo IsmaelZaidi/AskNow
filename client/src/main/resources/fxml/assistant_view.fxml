@@ -27,9 +27,9 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" onAction="#moderatorCode" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: orange;" text="Join codes" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="10.0" />
-            <Button mnemonicParsing="false" onAction="#teacherView" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: orange;" text="Teacher's view" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="10.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3dae49" height="32.0" stroke="BLACK" strokeType="INSIDE" width="56.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="10.0" />
+            <Button mnemonicParsing="false" onAction="#moderatorCode" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: #007188;" text="Join codes" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="10.0" />
+            <Button mnemonicParsing="false" onAction="#teacherView" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: #eb7245;" text="Teacher's view" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="10.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0066a2" height="32.0" stroke="BLACK" strokeType="INSIDE" width="56.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="10.0" />
             <Label fx:id="studentCount" prefHeight="18.0" prefWidth="0.0" text="0" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
