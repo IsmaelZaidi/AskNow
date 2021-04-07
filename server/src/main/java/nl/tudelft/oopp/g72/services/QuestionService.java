@@ -88,7 +88,7 @@ public class QuestionService {
 
         Question question = optionalQuestion.get();
 
-        if (!question.getRoom().equals(user.getRoom())) {
+        if (question.getRoom().getId() != user.getRoom().getId()) {
             throw new Exception("You are not in the same room as the question!");
         }
 

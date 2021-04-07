@@ -1,14 +1,15 @@
 package nl.tudelft.oopp.g72.services;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.OffsetDateTime;
 import java.util.Random;
-
 import nl.tudelft.oopp.g72.models.Room;
 import nl.tudelft.oopp.g72.models.User;
 import nl.tudelft.oopp.g72.repositories.RoomRepository;
 import nl.tudelft.oopp.g72.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 @Service
 public class RoomService {
@@ -78,6 +79,9 @@ public class RoomService {
         if (room == null) {
             throw new Exception("There are no rooms with that code!");
         } else {
+            if (!isOpen(room.getId())) {
+                return 0;
+            }
             user.setRoom(room);
             userRepository.save(user);
             return room.getId();
@@ -121,6 +125,10 @@ public class RoomService {
         }
         Room room = new Room(0, title, true, scheduledTime,
                 getParticipantEntryCode(), getModeratorEntryCode());
+        if (LocalTime.now().toEpochSecond(LocalDate.now(),
+                OffsetDateTime.now().getOffset()) < scheduledTime) {
+            room.setOpen(false);
+        }
         room = roomRepository.save(room);
 
         user.setRoom(room);
@@ -129,14 +137,41 @@ public class RoomService {
         return room;
     }
 
-    public boolean isRoomOpen(String code) {
-        boolean value = roomRepository.isOpen(code);
-        return value;
+    /**
+     * Checks if the room is open for students, updating the status if needed.
+     * @param code student join code
+     * @return -1 if the room is closed, 0 if it is open and the open time if it is scheduled
+     */
+    public long isRoomOpen(String code) {
+        Room room = roomRepository.findByJoincodeStudent(code);
+        if (room.getScheduledTime() <= LocalTime.now().toEpochSecond(LocalDate.now(),
+                OffsetDateTime.now().getOffset()) && room.getScheduledTime() != 0) {
+            room.setOpen(true);
+            room = roomRepository.save(room);
+        }
+        if (!room.isOpen()) {
+            if (room.getScheduledTime() == 0) {
+                return -1;
+            } else {
+                return room.getScheduledTime();
+            }
+        }
+        return 0;
     }
 
+    /**
+     * Checks if room is open, updating if needed.
+     * @param id the room's id
+     * @return true if the room is open, false otherwise
+     */
     public boolean isOpen(long id) {
-        boolean value = roomRepository.isOpenLong(id);
-        return value;
+        Room room = roomRepository.getOne(id);
+        if (room.getScheduledTime() <= LocalTime.now().toEpochSecond(LocalDate.now(),
+                OffsetDateTime.now().getOffset()) && room.getScheduledTime() != 0) {
+            room.setOpen(true);
+            room = roomRepository.save(room);
+        }
+        return room.isOpen();
     }
 
     public void closeRoom(String code) {

@@ -16,6 +16,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,8 +29,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
-import org.apache.tomcat.jni.Local;
-import org.json.simple.parser.ParseException;
 
 public class LoginController {
 
@@ -127,7 +127,7 @@ public class LoginController {
                 .build();
         HttpResponse<String> response2 = client2.send(
                 request2, HttpResponse.BodyHandlers.ofString());
-        boolean open = Boolean.parseBoolean(response2.body());
+        long open = Integer.parseInt(response2.body());
         System.out.println(open);
 
         char first = '{';
@@ -136,7 +136,6 @@ public class LoginController {
             JsonNode node = mapper.readTree(response.body());
             roomId = node.get("id").asLong();
             lectureName = node.get("name").asText();
-            open = node.get("open").asBoolean();
             scheduledTime = node.get("scheduledTime").asLong();
             joinStudent = node.get("joincodeStudent").asText();
             joinModerator = node.get("joincodeModerator").asText();
@@ -147,17 +146,30 @@ public class LoginController {
                        FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
 
         } else {
-            if (!open) {
+            if (open == -1) {
                 Alert alert = new Alert(
                         Alert.AlertType.ERROR, "The lecture has already been closed");
                 alert.show();
-            } else {
+            } else if (open == 0) {
                 roomId = Long.valueOf(response.body());
 
                 webSocketMadness.subscribe(stompSession);
 
                 MainApp.window.setScene(new Scene(
                         FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
+            } else {
+                String text = "The lecture starts at ";
+
+                Date date = new java.util.Date(open * 1000L);
+                SimpleDateFormat sdf = new java.text.SimpleDateFormat("HH:mm");
+                String formattedDate = sdf.format(date);
+
+                text += formattedDate;
+                text += "!";
+
+                Alert alert = new Alert(
+                        Alert.AlertType.ERROR, text);
+                alert.show();
             }
         }
 
