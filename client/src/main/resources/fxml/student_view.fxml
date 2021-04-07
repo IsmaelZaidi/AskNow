@@ -5,80 +5,83 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.tudelft.oopp.g72.controllers.StudentController">
-   <top>
-      <Pane prefHeight="64.0" prefWidth="512.0" style="-fx-background-color: deepskyblue;" BorderPane.alignment="CENTER">
+
+<AnchorPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.tudelft.oopp.g72.controllers.StudentController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="50.0" style="-fx-background-color: #00A6D6;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button layoutX="954.0" layoutY="16.0" mnemonicParsing="false" onAction="#quit" prefHeight="32.0" prefWidth="56.0" style="-fx-background-color: red;" text="Quit" />
-            <Label layoutX="48.0" layoutY="24.0" text=":Insert logo:" />
-            <Label layoutX="256.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" fx:id="lectureName">
+            <Label fx:id="lectureName" prefWidth="150.0" text="Lecture" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3dae49" height="32.0" layoutX="870.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="56.0" />
-            <Label fx:id="studentCount" layoutX="894.0" layoutY="22.0" prefHeight="18.0" prefWidth="18.0" text="0" textFill="WHITE" />
-            <Label layoutX="550.0" layoutY="24.0" prefHeight="27.0" prefWidth="100.0" text="Your code:">
+            <Label text="Your code:" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="10.0">
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="studentCode" layoutX="650.0" layoutY="24.0" text="123XYZ">
+            <Label fx:id="studentCode" text="WWWWWW" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="10.0">
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3dae49" height="32.0" stroke="BLACK" strokeType="INSIDE" width="56.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="10.0" />
+            <Label fx:id="studentCount" prefHeight="18.0" prefWidth="0.0" text="0" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="10.0" />
+            <Button mnemonicParsing="false" onAction="#quit" style="-fx-background-color: red;" text="Quit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
-      </Pane>
-   </top>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="260.0" AnchorPane.topAnchor="50.0">
          <children>
-            <Line endX="162.0" endY="19.0" layoutX="863.0" layoutY="145.0" startX="-98.0" startY="19.0" />
-            <Button fx:id="hurryUpButton" layoutX="944.0" layoutY="65.0" mnemonicParsing="false" onAction="#hurryUp" prefHeight="32.0" text="0" />
-            <Button fx:id="slowDownButton" layoutX="944.0" layoutY="113.0" mnemonicParsing="false" onAction="#slowDown" prefHeight="32.0" text="0" />
-            <Text layoutX="803.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecture pace:" wrappingWidth="184.98307037353516">
+            <AnchorPane prefHeight="80.0" style="-fx-border-color: #000; -fx-border-radius: 5;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+               <children>
+                  <TextField fx:id="messageBar" onKeyPressed="#enterPressed" prefHeight="60.0" prefWidth="600.0" promptText="Enter your comment here..." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
+                  <Button mnemonicParsing="false" onAction="#sendMessage" prefHeight="60.0" prefWidth="70.0" text="Send" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+               </children>
+            </AnchorPane>
+            <ListView fx:id="listView" layoutX="145.0" layoutY="31.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0" />
+            <Label layoutX="70.0" layoutY="7.0" text="Order questions:" />
+            <Label fx:id="newest" layoutX="175.0" layoutY="7.0" onMouseClicked="#sortNew" text="new">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="upvoted" layoutX="210.0" layoutY="7.0" onMouseClicked="#sortUpvotes" text="upvoted" />
+            <Label layoutX="300.0" layoutY="7.0" text="Filter:" />
+            <Label fx:id="all" layoutX="340.0" layoutY="7.0" onMouseClicked="#filterAll" text="all">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="answered" layoutX="360.0" layoutY="7.0" onMouseClicked="#filterAnswered" text="answered" />
+            <Label fx:id="unanswered" layoutX="425.0" layoutY="7.0" onMouseClicked="#filterUnanswered" text="unanswered" />
+         </children>
+      </AnchorPane>
+      <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <Text layoutX="38.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecture pace:" wrappingWidth="184.98307037353516">
                <font>
                   <Font name="Calibri" size="32.0" />
                </font>
             </Text>
-            <Text layoutX="792.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hurry up:">
+            <Text layoutX="23.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hurry up:">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="792.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Slow down:">
+            <Button fx:id="hurryUpButton" layoutX="169.0" layoutY="57.0" mnemonicParsing="false" onAction="#hurryUp" prefHeight="32.0" text="0" />
+            <Text layoutX="14.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Slow down:">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="40.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="730.0" />
-            <Button layoutX="682.0" layoutY="412.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="56.0" prefWidth="68.0" text="Send" />
-            <TextField fx:id="messageBar" layoutX="54.0" layoutY="412.0" onKeyPressed="#enterPressed" prefHeight="56.0" prefWidth="596.0" promptText="Enter your comment here..." />
-            <ListView fx:id="listView" layoutX="40.0" layoutY="32.0" prefHeight="351.0" prefWidth="730.0" />
-            <Label layoutX="40.0" layoutY="6.0" text="Order questions:" />
-            <Label layoutX="147.0" layoutY="6.0" text="new" fx:id="newest" onMouseClicked="#sortNew">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="182.0" layoutY="6.0" text="upvoted" fx:id="upvoted" onMouseClicked="#sortUpvotes"/>
-            <Label layoutX="416.0" layoutY="7.0" text="Filter:" />
-            <Label layoutX="462.0" layoutY="7.0" text="all" fx:id="all" onMouseClicked="#filterAll">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="489.0" layoutY="7.0" text="answered"  fx:id="answered" onMouseClicked="#filterAnswered"/>
-            <Label layoutX="569.0" layoutY="7.0" text="unanswered" fx:id="unanswered" onMouseClicked="#filterUnanswered"/>
+            <Button fx:id="slowDownButton" layoutX="169.0" layoutY="121.0" mnemonicParsing="false" onAction="#slowDown" prefHeight="32.0" text="0" />
+            <Line endX="162.0" endY="19.0" layoutX="97.5" layoutY="158.0" startX="-97.0" startY="19.0" AnchorPane.rightAnchor="0.0" />
          </children>
       </AnchorPane>
-   </center>
-</BorderPane>
+   </children>
+</AnchorPane>
