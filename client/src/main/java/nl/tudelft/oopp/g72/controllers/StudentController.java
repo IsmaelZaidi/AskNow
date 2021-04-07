@@ -138,28 +138,6 @@ public class StudentController {
         slowDownButton.setText(String.valueOf(Integer.parseInt(slowDownButton.getText()) + 1));
     }
 
-    /**
-     * Executed when 'upvote' button is clicked.
-     */
-    public void upvote() {
-
-    }
-
-    /**
-     * Executed when 'remove' button is clicked.
-     */
-    public void remove() {
-
-    }
-
-    /**
-     * Executed when 'quit' button is clicked.
-     */
-    public void quit() throws IOException {
-        MainApp.window.setScene(new Scene(
-                FXMLLoader.load(getClass().getResource("/fxml/login.fxml"))));
-    }
-
     void sort(Label newLabel) {
         Label oldLabel;
         if (sort == 0) {

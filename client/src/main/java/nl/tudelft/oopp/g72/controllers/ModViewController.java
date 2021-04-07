@@ -12,16 +12,18 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
-
-
+import org.apache.tomcat.jni.Local;
 
 
 public class ModViewController implements Initializable {
 
     @FXML
+    private Label studCode;
+    @FXML
     private Label modCode;
 
     public void initialize(URL location, ResourceBundle arg1) {
+        studCode.setText(LocalVariables.joinStudent);
         modCode.setText(LocalVariables.joinModerator);
     }
 
@@ -31,11 +33,21 @@ public class ModViewController implements Initializable {
     }
 
     /**
-     * Method to save the mod code to clipboard.
-     * @param e
-     *
+     * Method to save the student code to clipboard.
+     * @param e Event
      */
-    public void saveToClip(ActionEvent e) {
+    public void saveToClipStudent(ActionEvent e) {
+        String studentCode = LocalVariables.joinStudent;
+        StringSelection selection = new StringSelection(studentCode);
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(selection, selection);
+    }
+
+    /**
+     * Method to save the moderator code to clipboard.
+     * @param e Event
+     */
+    public void saveToClipModerator(ActionEvent e) {
         String moderatorCode = LocalVariables.joinModerator;
         StringSelection selection = new StringSelection(moderatorCode);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();

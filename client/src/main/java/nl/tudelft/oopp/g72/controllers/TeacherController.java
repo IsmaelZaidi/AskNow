@@ -33,6 +33,8 @@ import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 public class TeacherController implements Initializable {
 
     @FXML
+    private Button end;
+    @FXML
     private Label lectureName;
     @FXML
     private Label studentCount;
@@ -137,28 +139,21 @@ public class TeacherController implements Initializable {
     }
 
     /**
-     * Executed when 'remove' button is clicked.
-     */
-    public void remove() {
-
-    }
-
-
-    /**
      * Executed when 'quit' button is clicked.
      */
     public void quit() throws IOException, InterruptedException {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder(
-                URI.create("http://localhost:8080/api/v1/close"))
-                .header("Code", LocalVariables.joinStudent)
-                .build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response);
+        if (end.getText().equals("End")) {
+            end.setText("Closed");
 
-
-        MainApp.window.setScene(new Scene(
-                FXMLLoader.load(getClass().getResource("/fxml/login.fxml"))));
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder(
+                    URI.create("http://localhost:8080/api/v1/close"))
+                    .header("Code", LocalVariables.joinStudent)
+                    .build();
+            HttpResponse<String> response = client.send(request,
+                    HttpResponse.BodyHandlers.ofString());
+            System.out.println(response);
+        }
     }
 
     void sort(Label newLabel) {

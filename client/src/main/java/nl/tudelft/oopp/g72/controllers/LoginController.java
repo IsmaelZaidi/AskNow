@@ -142,6 +142,7 @@ public class LoginController {
 
             webSocketMadness.subscribe(stompSession);
 
+            MainApp.window.setResizable(true);
             MainApp.window.setScene(new Scene(
                        FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
 
@@ -155,6 +156,7 @@ public class LoginController {
 
                 webSocketMadness.subscribe(stompSession);
 
+                MainApp.window.setResizable(false);
                 MainApp.window.setScene(new Scene(
                         FXMLLoader.load(getClass().getResource("/fxml/student_view.fxml"))));
             } else {

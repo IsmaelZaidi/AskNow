@@ -104,25 +104,6 @@ public class AssistantController implements Initializable {
         return LocalVariables.participantsAmount;
     }
 
-    public void quit() throws IOException {
-        MainApp.window.setScene(new Scene(
-                FXMLLoader.load(getClass().getResource("/fxml/login.fxml"))));
-    }
-
-    /**
-     * Executed when 'edit' button is clicked.
-     */
-    public void edit() {
-
-    }
-
-    /**
-     * Executed when 'remove' button is clicked.
-     */
-    public void remove() {
-
-    }
-
     /**
      * Will open the modcode window and display the mod Code.
      * @throws IOException exception
