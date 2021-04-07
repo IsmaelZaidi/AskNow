@@ -34,7 +34,7 @@ public class ModViewController implements Initializable {
 
     /**
      * Method to save the student code to clipboard.
-     * @param e
+     * @param e Event
      */
     public void saveToClipStudent(ActionEvent e) {
         String studentCode = LocalVariables.joinStudent;
@@ -45,7 +45,7 @@ public class ModViewController implements Initializable {
 
     /**
      * Method to save the moderator code to clipboard.
-     * @param e
+     * @param e Event
      */
     public void saveToClipModerator(ActionEvent e) {
         String moderatorCode = LocalVariables.joinModerator;
