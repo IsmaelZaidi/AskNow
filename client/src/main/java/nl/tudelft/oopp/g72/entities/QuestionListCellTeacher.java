@@ -25,7 +25,7 @@ public class QuestionListCellTeacher extends ListCell<Question> {
         try {
             content = FXMLLoader.load(getClass().getResource("/fxml/question_cell_teacher.fxml"));
             VBox vb = (VBox) content.getChildren().get(0);
-            anchorPane = (AnchorPane) content.getChildren().get(1) ;
+            anchorPane = (AnchorPane) content.getChildren().get(1);
             name = (Label) vb.getChildren().get(1);
             upvotes = (Label) vb.getChildren().get(2);
             text = (TextArea) anchorPane.getChildren().get(0);
