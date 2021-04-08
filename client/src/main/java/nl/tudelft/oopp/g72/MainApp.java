@@ -35,7 +35,6 @@ public class MainApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         primaryStage.setTitle("AskNow");
         primaryStage.setScene(new Scene(root));
-        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
