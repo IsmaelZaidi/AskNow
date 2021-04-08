@@ -30,6 +30,9 @@ import nl.tudelft.oopp.g72.entities.QuestionListCellStudent;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
+/**
+ * Holds the functionality of the student view template.
+ */
 public class StudentController {
 
     @FXML
@@ -60,6 +63,9 @@ public class StudentController {
     int sort = 0;
     int filter = 0;
 
+    /**
+     * Initializes the student code, lecture name and sets the default sorting. Also sets up the comment field.
+     */
     @FXML
     void initialize() {
         studentCode.setText(LocalVariables.joinStudent);
@@ -77,6 +83,7 @@ public class StudentController {
 
     /**
      * Method that will return the amount of participants in a room.
+     *
      * @return returns long of participants
      * @throws IOException exception
      * @throws InterruptedException exception
@@ -97,7 +104,8 @@ public class StudentController {
     }
 
     /**
-     * Executed when 'send' button is clicked. Prints text in message bar.
+     * Executed when 'send' button is clicked. The contents of the message bar are sent to the server and displayed in
+     * the comment field. Then the message bar is cleared again.
      */
     public void sendMessage() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
@@ -112,6 +120,8 @@ public class StudentController {
         messageBar.clear();
     }
 
+
+    //JAVADOC DONE TILL HERE.
     /**
      * Executed every time a key is pressed. Checks if the key is 'enter',
      * if so it consumes the enter and calls the 'sendMessage' method.

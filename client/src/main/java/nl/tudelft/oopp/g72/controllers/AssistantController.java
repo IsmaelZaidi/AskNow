@@ -32,6 +32,9 @@ import nl.tudelft.oopp.g72.entities.QuestionListCellAssistant;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
+/**
+ * Holds the functionality of the assistant template.
+ */
 public class AssistantController implements Initializable {
 
     @FXML
@@ -60,6 +63,7 @@ public class AssistantController implements Initializable {
 
     /**
      * When starting up it will show the student code and the studentCount.
+     *
      * @param location url location
      * @param arg1 arg 1
      *
@@ -78,6 +82,11 @@ public class AssistantController implements Initializable {
         }
     }
 
+    /**
+     * When 'teacherview' button is clicked the stage will switch to the teacherview template.
+     *
+     * @throws IOException exception
+     */
     public void teacherView() throws IOException {
         MainApp.window.setScene(new Scene(
                 FXMLLoader.load(getClass().getResource("/fxml/teacher_view.fxml"))));
@@ -85,6 +94,7 @@ public class AssistantController implements Initializable {
 
     /**
      * Method that will return the amount of participants in a room.
+     *
      * @return returns long of participants
      * @throws IOException exception
      * @throws InterruptedException exception
@@ -106,6 +116,7 @@ public class AssistantController implements Initializable {
 
     /**
      * Will open the modcode window and display the mod Code.
+     *
      * @throws IOException exception
      */
     public void moderatorCode() throws IOException {
@@ -119,7 +130,8 @@ public class AssistantController implements Initializable {
     }
 
     /**
-     * Executed when 'send' button is clicked. Prints text in message bar.
+     * Executed when 'send' button is clicked. The contents of the message bar are sent to the server and displayed in
+     * the comment field. Then the message bar is cleared again.
      */
     public void sendMessage() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
@@ -136,8 +148,9 @@ public class AssistantController implements Initializable {
     }
 
     /**
-     * Executed every time a key is pressed. Checks if the key is 'enter',
-     * if so it consumes the enter and calls the 'sendMessage' method.
+     * Executed every time a key is pressed. Checks if the key is 'enter', if so it consumes the enter and calls the
+     * 'sendMessage' method.
+     *
      * @param event holds the key that's pressed.
      */
     public void enterPressed(KeyEvent event) throws IOException, InterruptedException {
@@ -147,6 +160,12 @@ public class AssistantController implements Initializable {
         }
     }
 
+    /**
+     * Sorting buttons. When 'newest' is clicked it sorts based on how old the message is. When 'upvotes' is clicked it
+     * sorts based on the amount of upvotes.
+     *
+     * @param newLabel Holds the new label which we're going to sort by.
+     */
     void sort(Label newLabel) {
         Label oldLabel;
         if (sort == 0) {
@@ -174,14 +193,30 @@ public class AssistantController implements Initializable {
         });
     }
 
+    /**
+     * When 'newest' clicked it calls method sort with 'newest' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'newest'.
+     */
     public void sortNew(MouseEvent mouseEvent) {
         sort(newest);
     }
 
+    /**
+     * When 'upvoted' clicked it calls method sort with 'upvoted' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'upvoted'.
+     */
     public void sortUpvotes(MouseEvent mouseEvent) {
         sort(upvoted);
     }
 
+    /**
+     * Filtering buttons. When 'all' is clicked there's no filter. When 'answered' is clicked only answered questions
+     * are shown. And when 'unanswered' is clicked only unanswered questions are shown.
+     *
+     * @param newLabel Holds the new label which we're going to sort by.
+     */
     void filter(Label newLabel) {
         Label oldLabel;
         switch (filter) {
@@ -212,14 +247,29 @@ public class AssistantController implements Initializable {
         }
     }
 
+    /**
+     * When 'all' clicked it calls method filter with 'all' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'all'.
+     */
     public void filterAll(MouseEvent mouseEvent) {
         filter(all);
     }
 
+    /**
+     * When 'answered' clicked it calls method filter with 'answered' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'answered'.
+     */
     public void filterAnswered(MouseEvent mouseEvent) {
         filter(answered);
     }
 
+    /**
+     * When 'unanswered' clicked it calls method filter with 'unanswered' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'unanswered'.
+     */
     public void filterUnanswered(MouseEvent mouseEvent) {
         filter(unanswered);
     }

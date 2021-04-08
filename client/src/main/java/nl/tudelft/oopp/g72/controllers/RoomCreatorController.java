@@ -28,6 +28,9 @@ import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.entities.TimeSpinner;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
+/**
+ * Holds the functionality of the room creator template.
+ */
 public class RoomCreatorController {
     @FXML
     TextField roomName;
@@ -35,6 +38,11 @@ public class RoomCreatorController {
     @FXML
     TimeSpinner scheduledTime;
 
+    /**
+     * Executes when clicking the 'cancel' button and closes the stage.
+     *
+     * @param e
+     */
     @FXML
     public void cancel(ActionEvent e) {
         Stage s = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -42,7 +50,9 @@ public class RoomCreatorController {
     }
 
     /**
-     * Executes upon clicking the create button on the dialogue box.
+     * Executes when clicking the 'create' button. Checks if a room name has been filled and if so, it creates a new
+     * room. After it's done it closes the window and enters the new room.
+     *
      * @param e action event
      */
     @FXML
