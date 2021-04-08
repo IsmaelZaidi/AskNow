@@ -25,7 +25,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.entities.Question;
-import nl.tudelft.oopp.g72.entities.QuestionListCell;
+import nl.tudelft.oopp.g72.entities.QuestionListCellTeacher;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
@@ -69,7 +69,7 @@ public class TeacherController implements Initializable {
     public void initialize(URL location, ResourceBundle arg1) {
         listView.setItems(sortedQuestions);
         lectureName.setText(LocalVariables.lectureName);
-        listView.setCellFactory(lw -> new QuestionListCell());
+        listView.setCellFactory(lw -> new QuestionListCellTeacher());
         listView.setSelectionModel(new QuestionListSelectionModel<>());
         listView.setFocusTraversable(false);
         stuCode.setText(LocalVariables.joinStudent);
