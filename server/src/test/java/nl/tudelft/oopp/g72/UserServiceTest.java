@@ -59,11 +59,13 @@ public class UserServiceTest {
     }
 
     @Test
-    void getIdTest() {
+    void getIdTest() throws Exception {
         User user = new User();
         user.setToken("bar");
+        user.setId(1);
         when(userRepository.findByToken("bar")).thenReturn(user);
-        assertEquals(0, user.getId());
+        long value = userService.getId("bar");
+        assertEquals(1, value);
     }
 
 }

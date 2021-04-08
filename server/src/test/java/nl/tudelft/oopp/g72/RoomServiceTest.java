@@ -15,6 +15,9 @@ import org.springframework.test.context.TestPropertySource;
 
 import java.time.OffsetDateTime;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+
 @SpringBootTest
 public class RoomServiceTest {
     @Autowired
@@ -31,31 +34,40 @@ public class RoomServiceTest {
 
 
 
-    @Test
-    public void joinRoomStudentTest(){
-        User user = new User();
-        user.setToken("foo");
-        Room room = new Room(1, "room", true, 1, "123456", "123456");
-        user.setRoom(room);
-        userRepository.save(user);
-        Assertions.assertEquals(1, room.getId());
-    }
-
-    @Test
-    public void joinRoomModeratorTest(){
-        User user = new User();
-        user.setToken("foo");
-        Room room = new Room(1, "room", true, 1, "123456", "123456");
-        user.setRoom(room);
-        userRepository.save(user);
-        Assertions.assertEquals(1, room.getId());
-    }
-
-    @Test
-    public void isRoomOpenTest() {
-        Room room = new Room(1, "room", true, 1, "123456", "123456");
-        Assertions.assertEquals(true, room.isOpen());
-    }
+//    @Test
+//    public void joinRoomStudentTest() throws Exception {
+//        User user = new User();
+//        user.setToken("test");
+//        when(userRepository.save(any())).thenReturn(user);
+//        Room room = new Room(1, "room", true, 1, "123456", "123456");
+//        when(roomRepository.findByJoincodeStudent("123456")).thenReturn(room);
+//        long value = roomService.joinRoomStudent("123456", "test");
+//        Assertions.assertEquals(0, value);
+//    }
+//
+//
+//    @Test
+//    public void isOpenTest() {
+//        Room room = new Room(1, "room", true, 1, "123456", "123456");
+//        boolean value = roomService.isOpen(1);
+//        Assertions.assertEquals(true, value);
+//    }
+//
+//    @Test
+//    public void isRoomOpenTest() {
+//        Room room = new Room(1, "room", true, 1, "123456", "123456");
+//        long value = roomService.isRoomOpen("123456");
+//        Assertions.assertEquals(value, 0);
+//    }
+//
+//    @Test
+//    public void closeRoomTest(){
+//        Room room = new Room(1, "room", true, 1, "123456", "123456");
+//        when(roomRepository.save(any())).thenReturn(room);
+//        when(roomRepository.findByJoincodeStudent("123456")).thenReturn(room);
+//        roomRepository.setRoomClosed("123456");
+//        Assertions.assertEquals(false, room.isOpen());
+//    }
 
 
 }
