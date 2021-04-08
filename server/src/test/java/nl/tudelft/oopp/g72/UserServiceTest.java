@@ -57,4 +57,13 @@ public class UserServiceTest {
 
         assertEquals(p, r);
     }
+
+    @Test
+    void getIdTest() {
+        User user = new User();
+        user.setToken("bar");
+        when(userRepository.findByToken("bar")).thenReturn(user);
+        assertEquals(0, user.getId());
+    }
+
 }
