@@ -11,11 +11,19 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Class handling users on the server side
+ */
 @RestController
 @RequestMapping("api/v1")
 public class UserController {
     private final UserService userService;
 
+    /**
+     * UserController constructor.
+     *
+     * @param userService userService
+     */
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
@@ -30,6 +38,13 @@ public class UserController {
         return token;
     }
 
+    /**
+     * Getter to get user id from user token.
+     *
+     * @param token user token
+     * @return long holding user id
+     * @throws Exception if method fails
+     */
     @GetMapping("/getId")
     long getId(@RequestHeader("Token") String token) throws Exception {
         return userService.getId(token);
@@ -45,6 +60,11 @@ public class UserController {
         return userService.usersInRoom(roomId);
     }
 
+    /**
+     * Make user leave room.
+     *
+     * @param token user token
+     */
     @GetMapping("/participants/leave")
     void leaveRoom(@RequestHeader("Token") String token) {
         try {

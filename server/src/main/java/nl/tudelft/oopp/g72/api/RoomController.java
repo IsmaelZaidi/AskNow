@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Class handling rooms on the server side.
+ */
 @RestController
 @RequestMapping
 
@@ -23,7 +26,8 @@ public class RoomController {
 
     /**
      * Endpoint for joining a room.
-     * @param token user's token
+     *
+     * @param token token of user
      * @param code room join code
      * @return a long with the room id if joined as student, or a Room entity if joined as moderator
      * @throws Exception if token or code are invalid
@@ -40,7 +44,8 @@ public class RoomController {
 
     /**
      * Creates the post method for creating a room.
-     * @param token token
+     *
+     * @param token token of user
      * @param scheduledTime scheduledTime
      * @param title title
      * @return returns a room
@@ -56,6 +61,12 @@ public class RoomController {
         return room;
     }
 
+    /**
+     * Checks whether a room is open or not. Returns code.
+     *
+     * @param code room code
+     * @return long with code
+     */
     @GetMapping(value = "api/v1/open")
     public long isRoomOpen(@RequestHeader("Code") String code) {
         return roomService.isRoomOpen(code);
