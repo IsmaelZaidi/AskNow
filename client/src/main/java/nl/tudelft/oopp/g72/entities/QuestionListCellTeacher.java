@@ -8,6 +8,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import nl.tudelft.oopp.g72.localvariables.LocalVariables;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 /**
  * Class holding functionality regarding QuestionListCellTeacher.
@@ -35,7 +42,21 @@ public class QuestionListCellTeacher extends ListCell<Question> {
             text = (TextArea) anchorPane.getChildren().get(0);
             unanswered = (Button) anchorPane.getChildren().get(1);
             unanswered.setOnMouseClicked(e -> {
-                unanswered.setText("Answered");
+                if(unanswered.getText().equals("Unanswered")) {
+                    unanswered.setText("Answered");
+                    HttpClient client = HttpClient.newHttpClient();
+                    HttpRequest request = HttpRequest.newBuilder(
+                            URI.create("http://localhost:8080/api/v1/answer/" +
+                                    LocalVariables.sortedQuestions.get(getIndex()).getId() + "/" +
+                                    LocalVariables.token + "/" +
+                                    LocalVariables.roomId))
+                            .build();
+                    try {
+                        client.send(request, HttpResponse.BodyHandlers.ofString());
+                    } catch (IOException | InterruptedException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
             });
         } catch (Exception e) {
             content = new HBox();
@@ -55,7 +76,11 @@ public class QuestionListCellTeacher extends ListCell<Question> {
             name.setText(item.getUser().getNick());
             upvotes.setText(Long.toString(item.getUpvotes()));
             text.setText(item.getText());
-            unanswered.setText("Unanswered");
+            if(item.isAnswered()) {
+                unanswered.setText("Answered");
+            } else {
+                unanswered.setText("Unanswered");
+            }
             setGraphic(content);
         } else {
             setGraphic(null);

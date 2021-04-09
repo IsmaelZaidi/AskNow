@@ -6,10 +6,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -24,7 +21,7 @@ public class QuestionListCellStudent extends ListCell<Question> {
     private Label upvotes;
     private Button addUpvote;
     private TextArea text;
-    private Button edit;
+    private Button answer;
     private Button remove;
     private AnchorPane anchorPane;
 
@@ -61,6 +58,7 @@ public class QuestionListCellStudent extends ListCell<Question> {
             });
             text = (TextArea) anchorPane.getChildren().get(0);
             remove = (Button) anchorPane.getChildren().get(1);
+            answer = (Button) anchorPane.getChildren().get(2);
             remove.setOnMouseClicked(e -> {
                 Question question = LocalVariables.sortedQuestions.get(getIndex());
                 if (question.getUser().getId() != LocalVariables.userId) {
@@ -86,6 +84,15 @@ public class QuestionListCellStudent extends ListCell<Question> {
                     }
                 }
             });
+            answer.setOnMouseClicked(e -> {
+                if (answer.getText().equals("Answered")) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Answer");
+                    alert.setHeaderText(null);
+                    alert.setContentText(LocalVariables.sortedQuestions.get(getIndex()).getAnswer());
+                    alert.showAndWait();
+                }
+            });
         } catch (Exception e) {
             content = new HBox();
         }
@@ -108,6 +115,11 @@ public class QuestionListCellStudent extends ListCell<Question> {
                 remove.setText("Remove");
             } else {
                 remove.setText("");
+            }
+            if (item.isAnswered()) {
+                answer.setText("Answered");
+            } else {
+                answer.setText("Unanswered");
             }
             setGraphic(content);
         } else {
