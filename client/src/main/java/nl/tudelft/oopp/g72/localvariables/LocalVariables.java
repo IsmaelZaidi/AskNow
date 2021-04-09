@@ -8,6 +8,9 @@ import nl.tudelft.oopp.g72.WebSocketMadness;
 import nl.tudelft.oopp.g72.entities.Question;
 import org.springframework.messaging.simp.stomp.StompSession;
 
+/**
+ * Class holding the local variables.
+ */
 public class LocalVariables {
     public static String token;
     public static long userId;

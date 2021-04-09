@@ -196,7 +196,16 @@ public class WebSocketMadness {
         });
     }
 
+    /**
+     * Handler class
+     */
     private static class MyHandler extends StompSessionHandlerAdapter {
+        /**
+         * Executes after connection is done. Prints 'connected' to notify connection was successful.
+         *
+         * @param stompSession stompSession
+         * @param stompHeaders stompHeaders
+         */
         public void afterConnected(StompSession stompSession, StompHeaders stompHeaders) {
             System.out.println("Connected");
         }
