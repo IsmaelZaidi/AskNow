@@ -26,7 +26,7 @@ For the procedure, we will provide all the evaluators with a working application
 The evaluators will have filled in a questionnaire with the issues they found, additional feedback and how well we follow the heuristic values. Therefore, for every evaluator we have a pdf file containing their scaling of agreement for the heuristic values and their feedback in text format. Next, once we have collected all the evaluations, the issues that they found will be put inside a table together with the frequency in which these issues would occur. Additionally, we will also provide a severity of the issue ourselves. Meaning we can categorize the issues not only for their frequency but also for their severity. This gives a good indication on how critical an issue is. In addition, we will also provide a bar graph, which visually shows how well the heuristic values are implemented. Overall, the issues will be put inside a table together with their frequency and severity and the heuristic values will be shown as a bar graph.
 #### Results
 
-We gave the evaluators the following questionnaire **add questionnaire**. All the evaluators filled this questionnaire and gave additional feedback. The results of the questionnaire will be displayed as a bar graph and the feedback will be put inside a frequency / severity table.
+We gave the evaluators the following questionnaire **look inside files**. All the evaluators filled this questionnaire and gave additional feedback. The results of the questionnaire will be displayed as a bar graph and the feedback will be put inside a frequency / severity table.
 
 **questionnaire results**
 
