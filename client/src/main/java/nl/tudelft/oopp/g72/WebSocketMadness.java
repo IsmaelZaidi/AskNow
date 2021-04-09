@@ -38,6 +38,9 @@ import org.springframework.web.socket.sockjs.client.Transport;
 import org.springframework.web.socket.sockjs.client.WebSocketTransport;
 import org.springframework.web.socket.sockjs.frame.Jackson2SockJsMessageCodec;
 
+/**
+ * Class handling the websockets.
+ */
 public class WebSocketMadness {
 
     private static final WebSocketHttpHeaders headers = new WebSocketHttpHeaders();
@@ -197,11 +200,12 @@ public class WebSocketMadness {
     }
 
     /**
-     * Handler class
+     * Handler class.
      */
     private static class MyHandler extends StompSessionHandlerAdapter {
         /**
-         * Executes after connection is done. Prints 'connected' to notify connection was successful.
+         * Executes after connection is done. Prints 'connected' to notify connection was
+         * successful.
          *
          * @param stompSession stompSession
          * @param stompHeaders stompHeaders

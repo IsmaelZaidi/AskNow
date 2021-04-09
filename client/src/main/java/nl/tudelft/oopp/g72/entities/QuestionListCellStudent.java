@@ -29,8 +29,8 @@ public class QuestionListCellStudent extends ListCell<Question> {
     private AnchorPane anchorPane;
 
     /**
-     * Creates a question cell. It loads the question cell assistant template and adds it as a child to the comment
-     * field. It is also sent to the server and spread across users.
+     * Creates a question cell. It loads the question cell assistant template and adds it
+     * as a child to the comment field. It is also sent to the server and spread across users.
      */
     public QuestionListCellStudent() {
         super();

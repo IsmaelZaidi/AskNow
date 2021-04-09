@@ -94,7 +94,8 @@ public class TeacherController implements Initializable {
     }
 
     /**
-     * When 'assistantview' button is clicked the stage will switch to the assistantview template.
+     * When 'assistantview' button is clicked the stage will switch to the
+     * assistantview template.
      *
      * @throws IOException exception
      */
@@ -126,7 +127,8 @@ public class TeacherController implements Initializable {
     }
 
     /**
-     * Executed when 'end' button is clicked. It leaves the room and sets the status of the room to closed.
+     * Executed when 'end' button is clicked. It leaves the room and sets the status of
+     * the room to closed.
      */
     public void quit() throws IOException, InterruptedException {
         if (end.getText().equals("End")) {
@@ -144,8 +146,8 @@ public class TeacherController implements Initializable {
     }
 
     /**
-     * Sorting buttons. When 'newest' is clicked it sorts based on how old the message is. When 'upvotes' is clicked it
-     * sorts based on the amount of upvotes.
+     * Sorting buttons. When 'newest' is clicked it sorts based on how old the message is.
+     * When 'upvotes' is clicked it sorts based on the amount of upvotes.
      *
      * @param newLabel Holds the new label which we're going to sort by.
      */
@@ -195,8 +197,9 @@ public class TeacherController implements Initializable {
     }
 
     /**
-     * Filtering buttons. When 'all' is clicked there's no filter. When 'answered' is clicked only answered questions
-     * are shown. And when 'unanswered' is clicked only unanswered questions are shown.
+     * Filtering buttons. When 'all' is clicked there's no filter. When 'answered' is
+     * clicked only answered questions are shown. And when 'unanswered' is clicked only
+     * unanswered questions are shown.
      *
      * @param newLabel Holds the new label which we're going to sort by.
      */

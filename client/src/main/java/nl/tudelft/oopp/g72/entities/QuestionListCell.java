@@ -17,7 +17,8 @@ public class QuestionListCell extends ListCell<Question> {
     private TextArea text;
 
     /**
-     * Creates a question cell. It loads the question cell template and adds it as a child to the comment field.
+     * Creates a question cell. It loads the question cell template and adds it as a child
+     * to the comment field.
      */
     public QuestionListCell() {
         super();

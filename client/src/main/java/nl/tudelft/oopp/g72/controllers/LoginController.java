@@ -44,10 +44,11 @@ public class LoginController {
 
 
     /**
-     * Checks the contents of all fields when attempting to login. When there's no username or when the server doesn't
-     * respond accordingly, the login gets blocked.
+     * Checks the contents of all fields when attempting to login. When there's no
+     * username or when the server doesn't respond accordingly, the login gets blocked.
      *
-     * @return Returns boolean value allowing the user to login when true and not when false.
+     * @return Returns boolean value allowing the user to login when true and not
+     * when false.
      * @throws IOException IOException
      * @throws InterruptedException InterruptedException
      */
@@ -87,10 +88,11 @@ public class LoginController {
     }
 
     /**
-     * Executed when the 'join room' button is clicked. Checks whether a join code has been filled. If not, it does
-     * nothing. If there is it checks whether there's a room matching the code. If there is the room is joined. If not
-     * the user is informed about this. When the lecture exists the status of the lecture is loaded. This can be open,
-     * closed or scheduled.
+     * Executed when the 'join room' button is clicked. Checks whether a join code
+     * has been filled. If not, it does nothing. If there is it checks whether there's
+     * a room matching the code. If there is the room is joined. If not the user is
+     * informed about this. When the lecture exists the status of the lecture is loaded.
+     * This can be open, closed or scheduled.
      */
     public void joinRoom() throws IOException, InterruptedException {
         if (LocalVariables.token == null) {
@@ -189,8 +191,9 @@ public class LoginController {
 
 
     /**
-     * Executed when the 'create room' button is clicked. Opens the room creator template and lets the user create a
-     * room. Once the room has been created the room is entered in assistant view.
+     * Executed when the 'create room' button is clicked. Opens the room creator template
+     * and lets the user create a room. Once the room has been created the room is entered
+     * in assistant view.
      */
     public void createRoom() throws IOException, InterruptedException {
         if (LocalVariables.token == null) {

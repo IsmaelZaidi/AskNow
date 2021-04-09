@@ -41,7 +41,7 @@ public class RoomCreatorController {
     /**
      * Executes when clicking the 'cancel' button and closes the stage.
      *
-     * @param e
+     * @param e event
      */
     @FXML
     public void cancel(ActionEvent e) {
@@ -50,8 +50,9 @@ public class RoomCreatorController {
     }
 
     /**
-     * Executes when clicking the 'create' button. Checks if a room name has been filled and if so, it creates a new
-     * room. After it's done it closes the window and enters the new room.
+     * Executes when clicking the 'create' button. Checks if a room name has been
+     * filled and if so, it creates a new room. After it's done it closes the window
+     * and enters the new room.
      *
      * @param e action event
      */

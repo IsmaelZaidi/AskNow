@@ -64,7 +64,8 @@ public class StudentController {
     int filter = 0;
 
     /**
-     * Initializes the student code, lecture name and sets the default sorting. Also sets up the comment field.
+     * Initializes the student code, lecture name and sets the default sorting. Also
+     * sets up the comment field.
      */
     @FXML
     void initialize() {
@@ -104,8 +105,8 @@ public class StudentController {
     }
 
     /**
-     * Executed when 'send' button is clicked. The contents of the message bar are sent to the server and displayed in
-     * the comment field. Then the message bar is cleared again.
+     * Executed when 'send' button is clicked. The contents of the message bar are sent to
+     * the server and displayed in the comment field. Then the message bar is cleared again.
      */
     public void sendMessage() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
@@ -147,8 +148,8 @@ public class StudentController {
     }
 
     /**
-     * Sorting buttons. When 'newest' is clicked it sorts based on how old the message is. When 'upvotes' is clicked it
-     * sorts based on the amount of upvotes.
+     * Sorting buttons. When 'newest' is clicked it sorts based on how old the message is.
+     * When 'upvotes' is clicked it sorts based on the amount of upvotes.
      *
      * @param newLabel Holds the new label which we're going to sort by.
      */
@@ -198,8 +199,9 @@ public class StudentController {
     }
 
     /**
-     * Filtering buttons. When 'all' is clicked there's no filter. When 'answered' is clicked only answered questions
-     * are shown. And when 'unanswered' is clicked only unanswered questions are shown.
+     * Filtering buttons. When 'all' is clicked there's no filter. When 'answered' is
+     * clicked only answered questions are shown. And when 'unanswered' is clicked
+     * only unanswered questions are shown.
      *
      * @param newLabel Holds the new label which we're going to sort by.
      */

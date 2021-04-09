@@ -83,7 +83,8 @@ public class AssistantController implements Initializable {
     }
 
     /**
-     * When 'teacherview' button is clicked the stage will switch to the teacherview template.
+     * When 'teacherview' button is clicked the stage will switch to the teacherview
+     * template.
      *
      * @throws IOException exception
      */
@@ -130,8 +131,8 @@ public class AssistantController implements Initializable {
     }
 
     /**
-     * Executed when 'send' button is clicked. The contents of the message bar are sent to the server and displayed in
-     * the comment field. Then the message bar is cleared again.
+     * Executed when 'send' button is clicked. The contents of the message bar are sent to
+     * the server and displayed in the comment field. Then the message bar is cleared again.
      */
     public void sendMessage() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
@@ -148,8 +149,8 @@ public class AssistantController implements Initializable {
     }
 
     /**
-     * Executed every time a key is pressed. Checks if the key is 'enter', if so it consumes the enter and calls the
-     * 'sendMessage' method.
+     * Executed every time a key is pressed. Checks if the key is 'enter', if so it
+     * consumes the enter and calls the 'sendMessage' method.
      *
      * @param event holds the key that's pressed.
      */
@@ -161,8 +162,8 @@ public class AssistantController implements Initializable {
     }
 
     /**
-     * Sorting buttons. When 'newest' is clicked it sorts based on how old the message is. When 'upvotes' is clicked it
-     * sorts based on the amount of upvotes.
+     * Sorting buttons. When 'newest' is clicked it sorts based on how old the message
+     * is. When 'upvotes' is clicked it sorts based on the amount of upvotes.
      *
      * @param newLabel Holds the new label which we're going to sort by.
      */
@@ -212,8 +213,9 @@ public class AssistantController implements Initializable {
     }
 
     /**
-     * Filtering buttons. When 'all' is clicked there's no filter. When 'answered' is clicked only answered questions
-     * are shown. And when 'unanswered' is clicked only unanswered questions are shown.
+     * Filtering buttons. When 'all' is clicked there's no filter. When 'answered' is
+     * clicked only answered questions are shown. And when 'unanswered' is clicked only
+     * unanswered questions are shown.
      *
      * @param newLabel Holds the new label which we're going to sort by.
      */

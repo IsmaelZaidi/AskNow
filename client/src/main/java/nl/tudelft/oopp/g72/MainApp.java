@@ -18,7 +18,8 @@ import org.springframework.messaging.simp.stomp.StompSession;
 import org.springframework.util.concurrent.ListenableFuture;
 
 /**
- * The main class of the client side. From here the window is launched and the connection with the server side is made.
+ * The main class of the client side. From here the window is launched and the connection with
+ * the server side is made.
  */
 public class MainApp extends Application {
     /**
@@ -36,9 +37,9 @@ public class MainApp extends Application {
     }
 
     /**
-     * The JavaFX start method. Called by the previous launch method found in the main method. Here the websockets get
-     * started, the JavaFX login template gets loaded onto the scene and the scene gets set onto the stage (and the
-     * stage is shown).
+     * The JavaFX start method. Called by the previous launch method found in the main method.
+     * Here the websockets get started, the JavaFX login template gets loaded onto the scene
+     * and the scene gets set onto the stage (and thestage is shown).
      *
      * @param primaryStage The main stage which is opened when the class is run.
      * @throws Exception exception
