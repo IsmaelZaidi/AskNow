@@ -34,40 +34,45 @@ public class RoomServiceTest {
 
 
 
-//    @Test
-//    public void joinRoomStudentTest() throws Exception {
-//        User user = new User();
-//        user.setToken("test");
-//        when(userRepository.save(any())).thenReturn(user);
-//        Room room = new Room(1, "room", true, 1, "123456", "123456");
-//        when(roomRepository.findByJoincodeStudent("123456")).thenReturn(room);
-//        long value = roomService.joinRoomStudent("123456", "test");
-//        Assertions.assertEquals(0, value);
-//    }
-//
-//
-//    @Test
-//    public void isOpenTest() {
-//        Room room = new Room(1, "room", true, 1, "123456", "123456");
-//        boolean value = roomService.isOpen(1);
-//        Assertions.assertEquals(true, value);
-//    }
-//
-//    @Test
-//    public void isRoomOpenTest() {
-//        Room room = new Room(1, "room", true, 1, "123456", "123456");
-//        long value = roomService.isRoomOpen("123456");
-//        Assertions.assertEquals(value, 0);
-//    }
-//
-//    @Test
-//    public void closeRoomTest(){
-//        Room room = new Room(1, "room", true, 1, "123456", "123456");
-//        when(roomRepository.save(any())).thenReturn(room);
-//        when(roomRepository.findByJoincodeStudent("123456")).thenReturn(room);
-//        roomRepository.setRoomClosed("123456");
-//        Assertions.assertEquals(false, room.isOpen());
-//    }
+    @Test
+    public void joinRoomStudentTest() throws Exception {
+        User user = new User();
+        user.setToken("test");
+        when(userRepository.findByToken("test")).thenReturn(user);
+        Room room = new Room(1, "room", true, 1, "123456", "123456");
+        when(roomRepository.findByJoincodeStudent("123456")).thenReturn(room);
+        when(roomRepository.getOne(1L)).thenReturn(room);
+        when(roomRepository.save(room)).thenReturn(room);
+        long value = roomService.joinRoomStudent("123456", "test");
+        Assertions.assertEquals(1, value);
+    }
+
+
+    @Test
+    public void isOpenTest() {
+        Room room = new Room(1, "room", true, 1, "123456", "123456");
+        when(roomRepository.getOne(1L)).thenReturn(room);
+        when(roomRepository.save(room)).thenReturn(room);
+        boolean value = roomService.isOpen(1);
+        Assertions.assertEquals(true, value);
+    }
+
+    @Test
+    public void isRoomOpenTest() {
+        Room room = new Room(1, "room", true, 1, "123456", "123456");
+        when(roomRepository.findByJoincodeStudent("123456")).thenReturn(room);
+        when(roomRepository.save(room)).thenReturn(room);
+        long value = roomService.isRoomOpen("123456");
+        Assertions.assertEquals(value, 0);
+    }
+
+    @Test
+    public void closeRoomTest(){
+        Room room = new Room(1, "room", false, 0, "123456", "123456");
+        when(roomRepository.save(room)).thenReturn(room);
+        when(roomRepository.findByJoincodeStudent("123456")).thenReturn(room);
+        Assertions.assertEquals(false, room.isOpen());
+    }
 
 
 }
