@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Class handling RoomService
+ * Class handling RoomService.
  */
 @Service
 public class RoomService {

@@ -1,7 +1,7 @@
 package nl.tudelft.oopp.g72.models;
 
 /**
- * Class handling answering messages
+ * Class handling answering messages.
  */
 public class MessageAnswer {
     private long questionId;

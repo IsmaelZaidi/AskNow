@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Class handling users on the server side
+ * Class handling users on the server side.
  */
 @RestController
 @RequestMapping("api/v1")

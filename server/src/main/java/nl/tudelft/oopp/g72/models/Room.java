@@ -13,7 +13,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
- * Class handling Room object
+ * Class handling Room object.
  */
 @Entity(name = "Room")
 @Table(name = "Room")
