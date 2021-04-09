@@ -13,6 +13,8 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -30,6 +32,9 @@ import nl.tudelft.oopp.g72.entities.QuestionListCellStudent;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
+/**
+ * Holds the functionality of the student view template.
+ */
 public class StudentController {
 
     @FXML
@@ -60,6 +65,10 @@ public class StudentController {
     int sort = 0;
     int filter = 0;
 
+    /**
+     * Initializes the student code, lecture name and sets the default sorting. Also
+     * sets up the comment field.
+     */
     @FXML
     void initialize() {
         studentCode.setText(LocalVariables.joinStudent);
@@ -77,6 +86,7 @@ public class StudentController {
 
     /**
      * Method that will return the amount of participants in a room.
+     *
      * @return returns long of participants
      * @throws IOException exception
      * @throws InterruptedException exception
@@ -97,7 +107,8 @@ public class StudentController {
     }
 
     /**
-     * Executed when 'send' button is clicked. Prints text in message bar.
+     * Executed when 'send' button is clicked. The contents of the message bar are sent to
+     * the server and displayed in the comment field. Then the message bar is cleared again.
      */
     public void sendMessage() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
@@ -125,41 +136,25 @@ public class StudentController {
     }
 
     /**
-     * Executed when 'hurry up' button is clicked. Increments value by one.
+     * Executed when 'hurry up' button is clicked. Increments the value by one.
      */
     public void hurryUp() {
         hurryUpButton.setText(String.valueOf(Integer.parseInt(hurryUpButton.getText()) + 1));
     }
 
     /**
-     * Executed when 'slow down' button is clicked. Increments value by one.
+     * Executed when 'slow down' button is clicked. Increments the value by one.
      */
     public void slowDown() {
         slowDownButton.setText(String.valueOf(Integer.parseInt(slowDownButton.getText()) + 1));
     }
 
     /**
-     * Executed when 'upvote' button is clicked.
+     * Sorting buttons. When 'newest' is clicked it sorts based on how old the message is.
+     * When 'upvotes' is clicked it sorts based on the amount of upvotes.
+     *
+     * @param newLabel Holds the new label which we're going to sort by.
      */
-    public void upvote() {
-
-    }
-
-    /**
-     * Executed when 'remove' button is clicked.
-     */
-    public void remove() {
-
-    }
-
-    /**
-     * Executed when 'quit' button is clicked.
-     */
-    public void quit() throws IOException {
-        MainApp.window.setScene(new Scene(
-                FXMLLoader.load(getClass().getResource("/fxml/login.fxml"))));
-    }
-
     void sort(Label newLabel) {
         Label oldLabel;
         if (sort == 0) {
@@ -187,14 +182,31 @@ public class StudentController {
         });
     }
 
+    /**
+     * When 'newest' clicked it calls method sort with 'newest' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'newest'.
+     */
     public void sortNew(MouseEvent mouseEvent) {
         sort(newest);
     }
 
+    /**
+     * When 'upvoted' clicked it calls method sort with 'upvoted' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'upvoted'.
+     */
     public void sortUpvotes(MouseEvent mouseEvent) {
         sort(upvoted);
     }
 
+    /**
+     * Filtering buttons. When 'all' is clicked there's no filter. When 'answered' is
+     * clicked only answered questions are shown. And when 'unanswered' is clicked
+     * only unanswered questions are shown.
+     *
+     * @param newLabel Holds the new label which we're going to sort by.
+     */
     void filter(Label newLabel) {
         Label oldLabel;
         switch (filter) {
@@ -225,14 +237,29 @@ public class StudentController {
         }
     }
 
+    /**
+     * When 'all' clicked it calls method filter with 'all' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'all'.
+     */
     public void filterAll(MouseEvent mouseEvent) {
         filter(all);
     }
 
+    /**
+     * When 'answered' clicked it calls method filter with 'answered' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'answered'.
+     */
     public void filterAnswered(MouseEvent mouseEvent) {
         filter(answered);
     }
 
+    /**
+     * When 'unanswered' clicked it calls method filter with 'unanswered' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'unanswered'.
+     */
     public void filterUnanswered(MouseEvent mouseEvent) {
         filter(unanswered);
     }

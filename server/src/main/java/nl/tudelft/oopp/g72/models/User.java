@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/**
+ * Class handling User object.
+ */
 @Entity(name = "User")
 @Table(name = "user")
 public class  User {
@@ -62,12 +65,13 @@ public class  User {
     }
 
     /**
-     * Constructor.
-     * @param id long
-     * @param nick String
-     * @param token String
-     * @param room room
-     * @param moderator moderator
+     * User constructor.
+     *
+     * @param id user id
+     * @param nick user name
+     * @param token user token
+     * @param room room object
+     * @param moderator moderator status
      */
     public User(long id, String nick, String token, Room room, boolean moderator) {
         this.id = id;
@@ -77,46 +81,101 @@ public class  User {
         this.moderator = moderator;
     }
 
+    /**
+     * Getter to get user id.
+     *
+     * @return user id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * Setter to set user id.
+     *
+     * @param id new user id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * Getter to get user name.
+     *
+     * @return user name
+     */
     public String getNick() {
         return nick;
     }
 
+    /**
+     * Setter to set/change user name.
+     *
+     * @param nick new user name
+     */
     public void setNick(String nick) {
         this.nick = nick;
     }
 
+    /**
+     * Getter to get user token.
+     *
+     * @return user token
+     */
     public String getToken() {
         return token;
     }
 
+    /**
+     * Setter to set user token.
+     *
+     * @param token new token
+     */
     public void setToken(String token) {
         this.token = token;
     }
 
+    /**
+     * Getter to get room.
+     *
+     * @return room object
+     */
     public Room getRoom() {
         return room;
     }
 
+    /**
+     * Setter to set room.
+     *
+     * @param room new room object
+     */
     public void setRoom(Room room) {
         this.room = room;
     }
 
+    /**
+     * Setter to set/change moderator status.
+     *
+     * @param moderator true if moderator, false if not
+     */
     public void setModerator(boolean moderator) {
         this.moderator = moderator;
     }
 
+    /**
+     * Getter to get moderator status.
+     *
+     * @return true if moderator, false if not
+     */
     public boolean getModerator() {
         return moderator;
     }
 
+    /**
+     * Makes user object into string overview.
+     *
+     * @return text overview of user object
+     */
     @Override
     public String toString() {
         return "User{"
@@ -128,6 +187,12 @@ public class  User {
                 + '}';
     }
 
+    /**
+     * Checks if user is equal to any object.
+     *
+     * @param o object to compare with
+     * @return true if equal, false if not
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {

@@ -6,6 +6,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -15,18 +16,22 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
+/**
+ * Class holding functionality regarding QuestionListCellStudent.
+ */
 public class QuestionListCellStudent extends ListCell<Question> {
     private HBox content;
     private Label name;
     private Label upvotes;
     private Button addUpvote;
     private TextArea text;
-    private Button edit;
+    private Button answer;
     private Button remove;
     private AnchorPane anchorPane;
 
     /**
-     * Creates a question cell.
+     * Creates a question cell. It loads the question cell assistant template and adds it
+     * as a child to the comment field. It is also sent to the server and spread across users.
      */
     public QuestionListCellStudent() {
         super();
@@ -39,24 +44,28 @@ public class QuestionListCellStudent extends ListCell<Question> {
             addUpvote = (Button) vb.getChildren().get(3);
             addUpvote.setOnMouseClicked(e -> {
                 Question question = LocalVariables.sortedQuestions.get(getIndex());
-                for (int i = 0; i < LocalVariables.questions.size(); i++) {
-                    if (LocalVariables.questions.get(i).getId() == question.getId()) {
-                        question = LocalVariables.questions.get(i);
+                if (!LocalVariables.upvotedQuestions.contains(question.getId())) {
+                    LocalVariables.upvotedQuestions.add(question.getId());
+                    for (int i = 0; i < LocalVariables.questions.size(); i++) {
+                        if (LocalVariables.questions.get(i).getId() == question.getId()) {
+                            question = LocalVariables.questions.get(i);
 
-                        HttpClient client = HttpClient.newHttpClient();
-                        HttpRequest request = HttpRequest.newBuilder(
-                                URI.create("http://localhost:8080/api/v1/upvote/" + question.getId() + "/" + LocalVariables.token + "/" + LocalVariables.roomId))
-                                .build();
-                        try {
-                            client.send(request, HttpResponse.BodyHandlers.ofString());
-                        } catch (IOException | InterruptedException ioException) {
-                            ioException.printStackTrace();
+                            HttpClient client = HttpClient.newHttpClient();
+                            HttpRequest request = HttpRequest.newBuilder(
+                                    URI.create("http://localhost:8080/api/v1/upvote/" + question.getId() + "/" + LocalVariables.token + "/" + LocalVariables.roomId))
+                                    .build();
+                            try {
+                                client.send(request, HttpResponse.BodyHandlers.ofString());
+                            } catch (IOException | InterruptedException ioException) {
+                                ioException.printStackTrace();
+                            }
                         }
                     }
                 }
             });
             text = (TextArea) anchorPane.getChildren().get(0);
             remove = (Button) anchorPane.getChildren().get(1);
+            answer = (Button) anchorPane.getChildren().get(2);
             remove.setOnMouseClicked(e -> {
                 Question question = LocalVariables.sortedQuestions.get(getIndex());
                 if (question.getUser().getId() != LocalVariables.userId) {
@@ -82,11 +91,32 @@ public class QuestionListCellStudent extends ListCell<Question> {
                     }
                 }
             });
+            answer.setOnMouseClicked(e -> {
+                if (answer.getText().equals("Answered")) {
+                    String ans = LocalVariables
+                            .sortedQuestions.get(getIndex()).getAnswer();
+                    if (ans == null || ans.equals("")) {
+                        ans = "There is no written answer yet!";
+                    }
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Answer");
+                    alert.setHeaderText(null);
+                    alert.setContentText(ans);
+                    alert.showAndWait();
+                }
+            });
         } catch (Exception e) {
             content = new HBox();
         }
     }
 
+    /**
+     * Updates the question by filling all fields and adding buttons.
+     *
+     * @param item a question item
+     * @param empty boolean value stating whether empty or not
+     */
     @Override
     protected void updateItem(Question item, boolean empty) {
         super.updateItem(item, empty);
@@ -98,6 +128,11 @@ public class QuestionListCellStudent extends ListCell<Question> {
                 remove.setText("Remove");
             } else {
                 remove.setText("");
+            }
+            if (item.isAnswered()) {
+                answer.setText("Answered");
+            } else {
+                answer.setText("Unanswered");
             }
             setGraphic(content);
         } else {

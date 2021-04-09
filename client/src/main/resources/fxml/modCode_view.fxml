@@ -5,20 +5,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="157.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.tudelft.oopp.g72.controllers.ModViewController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="122.0" text="Moderator Code:">
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="122.0" text="Student code:">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="modCode" layoutX="14.0" layoutY="50.0" prefHeight="18.0" prefWidth="122.0">
+      <Label fx:id="studCode" layoutX="14.0" layoutY="36.0" prefHeight="18.0" prefWidth="122.0">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </Label>
+      <Button layoutX="136.0" layoutY="11.0" mnemonicParsing="false" onAction="#saveToClipStudent" text="Save to clipboard" />
+      <Label layoutX="14.0" layoutY="59.0" prefHeight="18.0" prefWidth="122.0" text="Moderator Code:">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="modCode" layoutX="14.0" layoutY="81.0" prefHeight="18.0" prefWidth="122.0">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Button layoutX="136.0" layoutY="56.0" mnemonicParsing="false" onAction="#saveToClipModerator" text="Save to clipboard" />
       <Button layoutX="14.0" layoutY="117.0" mnemonicParsing="false" onAction="#close" text="Close" />
-      <Button layoutX="82.0" layoutY="117.0" mnemonicParsing="false" onAction="#saveToClip" text="Save to clipboard" />
    </children>
 </AnchorPane>

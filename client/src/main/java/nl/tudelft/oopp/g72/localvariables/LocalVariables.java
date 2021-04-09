@@ -1,5 +1,6 @@
 package nl.tudelft.oopp.g72.localvariables;
 
+import java.util.HashSet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -8,6 +9,9 @@ import nl.tudelft.oopp.g72.WebSocketMadness;
 import nl.tudelft.oopp.g72.entities.Question;
 import org.springframework.messaging.simp.stomp.StompSession;
 
+/**
+ * Class holding the local variables.
+ */
 public class LocalVariables {
     public static String token;
     public static long userId;
@@ -27,4 +31,6 @@ public class LocalVariables {
 
     public static WebSocketMadness webSocketMadness;
     public static StompSession stompSession;
+
+    public static HashSet<Long> upvotedQuestions = new HashSet<>();
 }

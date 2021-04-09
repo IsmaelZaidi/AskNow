@@ -17,6 +17,9 @@ import javafx.scene.layout.VBox;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
 
+/**
+ * Class holding functionality regarding QuestionListCellAssistant.
+ */
 public class QuestionListCellAssistant extends ListCell<Question> {
     private HBox content;
     private Label name;
@@ -24,10 +27,12 @@ public class QuestionListCellAssistant extends ListCell<Question> {
     private TextArea text;
     private Button remove;
     private Button edit;
+    private Button answer;
     private AnchorPane anchorPane;
 
     /**
-     * Creates a question cell.
+     * Creates a question cell. It loads the question cell assistant template and adds it
+     * as a child to the comment field. It is also sent to the server and spread across users.
      */
     public QuestionListCellAssistant() {
         super();
@@ -39,6 +44,8 @@ public class QuestionListCellAssistant extends ListCell<Question> {
             upvotes = (Label) vb.getChildren().get(2);
             text = (TextArea) anchorPane.getChildren().get(0);
             edit = (Button) anchorPane.getChildren().get(1);
+            remove = (Button) anchorPane.getChildren().get(2);
+            answer = (Button) anchorPane.getChildren().get(3);
             edit.setOnMouseClicked(e -> {
                 Question question = LocalVariables.sortedQuestions.get(getIndex());
                 for (int i = 0; i < LocalVariables.questions.size(); i++) {
@@ -63,7 +70,6 @@ public class QuestionListCellAssistant extends ListCell<Question> {
                     }
                 }
             });
-            remove = (Button) anchorPane.getChildren().get(2);
             remove.setOnMouseClicked(e -> {
                 Question question = LocalVariables.sortedQuestions.get(getIndex());
                 for (int i = 0; i < LocalVariables.questions.size(); i++) {
@@ -86,11 +92,45 @@ public class QuestionListCellAssistant extends ListCell<Question> {
                     }
                 }
             });
+            answer.setOnMouseClicked(e -> {
+                Question question = LocalVariables.sortedQuestions.get(getIndex());
+                for (int i = 0; i < LocalVariables.questions.size(); i++) {
+                    if (LocalVariables.questions.get(i).getId() == question.getId()) {
+                        question = LocalVariables.questions.get(i);
+                        TextInputDialog td = new TextInputDialog(question.getAnswer());
+                        td.showAndWait();
+                        String text = td.getEditor().getText();
+                        question.setAnswer(text);
+                        LocalVariables.questions.set(i, question);
+
+                        HttpClient client = HttpClient.newHttpClient();
+                        HttpRequest request = HttpRequest.newBuilder(
+                                URI.create("http://localhost:8080/api/v1/answer/"
+                                        + question.getId()
+                                        + "/"
+                                        + LocalVariables.token + "/"
+                                        + LocalVariables.roomId))
+                                .POST(HttpRequest.BodyPublishers.ofString(text))
+                                .build();
+                        try {
+                            client.send(request, HttpResponse.BodyHandlers.ofString());
+                        } catch (IOException | InterruptedException ioException) {
+                            ioException.printStackTrace();
+                        }
+                    }
+                }
+            });
         } catch (Exception e) {
             content = new HBox();
         }
     }
 
+    /**
+     * Updates the question by filling all fields and adding buttons.
+     *
+     * @param item a question item
+     * @param empty boolean value stating whether empty or not
+     */
     @Override
     protected void updateItem(Question item, boolean empty) {
         super.updateItem(item, empty);
@@ -100,6 +140,7 @@ public class QuestionListCellAssistant extends ListCell<Question> {
             text.setText(item.getText());
             edit.setText("Edit");
             remove.setText("Remove");
+            answer.setText("Answer");
             setGraphic(content);
         } else {
             setGraphic(null);

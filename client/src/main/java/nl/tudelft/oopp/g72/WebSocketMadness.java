@@ -38,6 +38,9 @@ import org.springframework.web.socket.sockjs.client.Transport;
 import org.springframework.web.socket.sockjs.client.WebSocketTransport;
 import org.springframework.web.socket.sockjs.frame.Jackson2SockJsMessageCodec;
 
+/**
+ * Class handling the websockets.
+ */
 public class WebSocketMadness {
 
     private static final WebSocketHttpHeaders headers = new WebSocketHttpHeaders();
@@ -111,10 +114,12 @@ public class WebSocketMadness {
                     MessageAnswer m;
                     m = mapper.readValue(new String((byte[]) o), MessageAnswer.class);
                     Platform.runLater(() -> {
-                        for (Question q : LocalVariables.questions) {
-                            if (q.getId() == m.getQuestionId()) {
+                        for (int i = 0; i < LocalVariables.questions.size(); i++) {
+                            if (LocalVariables.questions.get(i).getId() == m.getQuestionId()) {
+                                Question q = LocalVariables.questions.get(i);
                                 q.setAnswered(true);
                                 q.setAnswer(m.getAnswer());
+                                LocalVariables.questions.set(i, q);
                             }
                         }
                     });
@@ -196,7 +201,17 @@ public class WebSocketMadness {
         });
     }
 
+    /**
+     * Handler class.
+     */
     private static class MyHandler extends StompSessionHandlerAdapter {
+        /**
+         * Executes after connection is done. Prints 'connected' to notify connection was
+         * successful.
+         *
+         * @param stompSession stompSession
+         * @param stompHeaders stompHeaders
+         */
         public void afterConnected(StompSession stompSession, StompHeaders stompHeaders) {
             System.out.println("Connected");
         }

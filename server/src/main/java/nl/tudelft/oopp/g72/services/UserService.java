@@ -9,10 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+/**
+ * Class handling UserService.
+ */
 @Service
 public class UserService {
     private final UserRepository userRepository;
 
+    /**
+     * UserService constructor.
+     *
+     * @param userRepository userRepository
+     */
     @Autowired
     public UserService(@Qualifier("UserRepository") UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -20,6 +28,7 @@ public class UserService {
 
     /**
      * Adds user and returns token.
+     *
      * @param nick the nickname of the user
      * @return the token associated with the user
      */
@@ -35,17 +44,17 @@ public class UserService {
 
     /**
      * Finds and returns the user with the specified token.
+     *
      * @param token the user's token
      * @return a User entity with the specified token
      */
-
-
     public User findByToken(String token) {
         return userRepository.findByToken(token);
     }
 
     /**
      * Lists the users in a room.
+     *
      * @param roomId the room's id
      * @return a List of Users that are in the room
      */
@@ -55,6 +64,7 @@ public class UserService {
 
     /**
      * Removes a user from a joined room.
+     *
      * @param token user's token
      * @throws Exception e
      */
@@ -68,10 +78,11 @@ public class UserService {
     }
 
     /**
-     * Edit later.
-     * @param token a
-     * @return a
-     * @throws Exception a
+     * Getter to get user id from user token.
+     *
+     * @param token user token
+     * @return user id
+     * @throws Exception if token does not match a user
      */
     public long getId(String token) throws Exception {
         User user = userRepository.findByToken(token);

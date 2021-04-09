@@ -18,12 +18,21 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Class handling questions on the server side.
+ */
 @RestController
 @RequestMapping("api/v1")
 public class QuestionController {
     private final QuestionService questionService;
     private RoomService roomService;
 
+    /**
+     * QuestionController constructor.
+     *
+     * @param questionService questionService
+     * @param roomService roomService
+     */
     @Autowired
     public QuestionController(QuestionService questionService, RoomService roomService) {
         this.questionService = questionService;
@@ -33,42 +42,59 @@ public class QuestionController {
     @Autowired
     private SimpMessagingTemplate webSocket;
 
+    /**
+     * Method for asking questions. Checks for status of the room, if
+     * closed or token or room ID is wrong, user is notified.
+     *
+     * @param token token of the user
+     * @param roomId id of room
+     * @param message message content
+     */
     @PostMapping("/ask")
     void ask(@RequestHeader("Token") String token,
                  @RequestHeader("RoomId") long roomId,
                  @RequestBody String message) {
-        Question question = questionService.addQuestion(token, roomId, message);
         boolean value = roomService.isOpen(roomId);
-        if (question == null) {
-            throw new IllegalArgumentException("Token or Room ID is wrong");
-        }
         if (value) {
+            Question question = questionService.addQuestion(token, roomId, message);
+            if (question == null) {
+                throw new IllegalArgumentException("Token or Room ID is wrong");
+            }
             webSocket.convertAndSend("/room" + roomId + "question", question);
+        } else {
+            throw new IllegalArgumentException("Room is closed");
         }
     }
 
     /**
      * Method for upvoting question.
-     * @param questionID Id of a question
-     * @param userToken Token of the user
-     * @param roomId Id of a room
-     * @throws Exception If method fails
+     *
+     * @param questionID id of question
+     * @param userToken token of user
+     * @param roomId id of room
+     * @throws Exception if method fails
      */
     @GetMapping(value = "/upvote/{questionID}/{userToken}/{roomId}")
     public void upvoteQuestion(@PathVariable long questionID, @PathVariable String userToken,
         @PathVariable long roomId)
         throws Exception {
-        Question question = questionService.upvoteQuestion(questionID,userToken);
-        MessageUpvote up = new MessageUpvote(questionID,question.getUpvotes());
-        webSocket.convertAndSend("/room" + roomId + "upvote", up);
+        boolean value = roomService.isOpen(roomId);
+        if (value) {
+            Question question = questionService.upvoteQuestion(questionID, userToken);
+            MessageUpvote up = new MessageUpvote(questionID, question.getUpvotes());
+            webSocket.convertAndSend("/room" + roomId + "upvote", up);
+        } else {
+            throw new IllegalArgumentException("Room is closed");
+        }
     }
 
     /**
      * Method for answering a question.
-     * @param questionID Id of a question
-     * @param userToken Token of an user
-     * @param roomId Id of a room
-     * @throws Exception If the method fails
+     *
+     * @param questionID id of question
+     * @param userToken token of user
+     * @param roomId id of room
+     * @throws Exception if the method fails
      */
     @GetMapping(value = "/answer/{questionID}/{userToken}/{roomId}")
     public void answerQuestion(@PathVariable long questionID, @PathVariable String userToken,
@@ -87,6 +113,13 @@ public class QuestionController {
         webSocket.convertAndSend("/room" + roomId + "answer", ans);
     }
 
+    /**
+     * Method to delete questions.
+     *
+     * @param token token of user
+     * @param id id of question
+     * @param roomId id of room
+     */
     @DeleteMapping("/question/{id}/{roomId}")
     void delete(@RequestHeader("Token") String token, @PathVariable long id,
         @PathVariable long roomId) {
@@ -109,6 +142,14 @@ public class QuestionController {
         return questions;
     }
 
+    /**
+     * Method for editing questions.
+     *
+     * @param token token of user
+     * @param id id of question
+     * @param newText text to replace original text by
+     * @throws Exception if method fails
+     */
     @PostMapping("/edit/{token}/{id}")
     void edit(@PathVariable String token, @PathVariable long id,
               @RequestBody String newText) throws Exception {

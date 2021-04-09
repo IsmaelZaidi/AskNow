@@ -6,6 +6,8 @@ build/
 # Ignore Gradle GUI config
 gradle-app.setting
 
+### Database files
+server/data/
 
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
@@ -13,7 +15,9 @@ gradle-app.setting
 *.iml
 
 ## Directory-based project format:
-.idea/
+!.idea
+.idea/*
+!.idea/runConfigurations
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:

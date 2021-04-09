@@ -5,63 +5,60 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.tudelft.oopp.g72.controllers.AssistantController">
-   <top>
-      <Pane prefHeight="64.0" prefWidth="512.0" style="-fx-background-color: deepskyblue;" BorderPane.alignment="CENTER">
+<AnchorPane prefHeight="700.0" prefWidth="933.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.tudelft.oopp.g72.controllers.AssistantController">
+   <children>
+      <AnchorPane prefHeight="50.0" style="-fx-background-color: #00A6D6;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button layoutX="956.0" layoutY="16.0" mnemonicParsing="false" onAction="#quit" style="-fx-background-color: red;" text="Quit" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3dae49" height="32.0" layoutX="870.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="56.0" />
-            <Label fx:id="studentCount" layoutX="894.0" layoutY="22.0" prefHeight="18.0" prefWidth="0.0" text="0" textFill="WHITE" />
-            <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" onAction="#teacherView" style="-fx-background-color: orange;" text="Teacher's view" />
-            <Label fx:id="lectureName" layoutX="200.0" layoutY="16.0" prefHeight="36.0" prefWidth="208.0" />
-
-            <Button layoutX="732.0" layoutY="16.0" mnemonicParsing="false" onAction="#teacherView" style="-fx-background-color: orange;" text="Teacher's view" />
-            <Label fx:id="studentCode" layoutX="519.0" layoutY="22.0" text="123XYZ">
+            <Label fx:id="lectureName" prefWidth="150.0" text="Lecture" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label text="Your code:" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="10.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-
-            <Button layoutX="590.0" layoutY="16.0" mnemonicParsing="false" onAction="#moderatorCode" prefHeight="32.0" prefWidth="116.0" text="Moderator code" />
-            <Label fx:id="studentCode1" layoutX="436.0" layoutY="22.0" text="Your code:">
+            <Label fx:id="studentCode" text="WWWWWW" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="10.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-
-         </children>
-      </Pane>
-   </top>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <TextFlow layoutX="30.899999618530273" layoutY="40.900001525878906" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="145.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="750.0" />
-            <Button layoutX="795.0" layoutY="410.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="60.0" prefWidth="70.0" text="Send" />
-            <TextField fx:id="messageBar" layoutX="155.0" layoutY="410.0" onKeyPressed="#enterPressed" prefHeight="60.0" prefWidth="600.0" promptText="Enter your comment here..." />
-            <ListView fx:id="listView" layoutX="145.0" layoutY="31.0" prefHeight="344.0" prefWidth="750.0" />
-            <Label layoutX="155.0" layoutY="5.0" text="Order questions:" />
-            <Label layoutX="262.0" layoutY="5.0" text="new" fx:id="newest" onMouseClicked="#sortNew">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="297.0" layoutY="5.0" text="upvoted" fx:id="upvoted" onMouseClicked="#sortUpvotes"/>
-            <Label layoutX="531.0" layoutY="6.0" text="Filter:" />
-            <Label layoutX="577.0" layoutY="6.0" text="all" fx:id="all" onMouseClicked="#filterAll">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="604.0" layoutY="6.0" text="answered" fx:id="answered" onMouseClicked="#filterAnswered"/>
-            <Label layoutX="675.0" layoutY="5.0" text="unanswered" fx:id="unanswered" onMouseClicked="#filterUnanswered"/>
+            <Button mnemonicParsing="false" onAction="#moderatorCode" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: #003BD6;" text="Join codes" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="10.0" />
+            <Button mnemonicParsing="false" onAction="#teacherView" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: orange;" text="Teacher's view" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="10.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00d69b" height="32.0" stroke="BLACK" strokeType="INSIDE" width="56.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="10.0" />
+            <Label fx:id="studentCount" prefHeight="18.0" prefWidth="0.0" text="0" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="10.0" />
+            <Button mnemonicParsing="false" onAction="#export" style="-fx-background-color: #c3312f;" text="Export" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
-   </center>
-</BorderPane>
+      <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <AnchorPane prefHeight="80.0" style="-fx-border-color: #000; -fx-border-radius: 5;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
+               <children>
+                  <TextField fx:id="messageBar" onKeyPressed="#enterPressed" prefHeight="60.0" prefWidth="600.0" promptText="Enter your comment here..." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
+                  <Button mnemonicParsing="false" onAction="#sendMessage" prefHeight="60.0" prefWidth="70.0" text="Send" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+               </children>
+            </AnchorPane>
+            <ListView fx:id="listView" layoutX="145.0" layoutY="31.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="30.0" />
+            <Label layoutX="70.0" layoutY="7.0" text="Order questions:" />
+            <Label fx:id="newest" layoutX="175.0" layoutY="7.0" onMouseClicked="#sortNew" text="new">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="upvoted" layoutX="210.0" layoutY="7.0" onMouseClicked="#sortUpvotes" text="upvoted" />
+            <Label layoutX="300.0" layoutY="7.0" text="Filter:" />
+            <Label fx:id="all" layoutX="340.0" layoutY="7.0" onMouseClicked="#filterAll" text="all">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="answered" layoutX="360.0" layoutY="7.0" onMouseClicked="#filterAnswered" text="answered" />
+            <Label fx:id="unanswered" layoutX="425.0" layoutY="7.0" onMouseClicked="#filterUnanswered" text="unanswered" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
