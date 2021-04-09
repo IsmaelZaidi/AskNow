@@ -1,14 +1,7 @@
-Client: ![Client coverage](https://gitlab.ewi.tudelft.nl/cse1105/2019-2020/organisation/repository-template/badges/master/coverage.svg?job=client-test)
-Server: ![Server coverage](https://gitlab.ewi.tudelft.nl/cse1105/2019-2020/organisation/repository-template/badges/master/coverage.svg?job=server-test)
+# AskNow
+![](client/src/main/resources/AskNow.png)
 
-
-# Starting template
-
-This README will need to contain a description of your project, how to run it, how to set up the development environment, and who worked on it.
-This information can be added throughout the course, except for the names of the group members.
-Add your own name (do not add the names for others!) to the section below.
-
-## Description of project
+Fast and fuss-free Q&A software designed for university lectures.
 
 ## Group members
 
@@ -20,14 +13,10 @@ Add your own name (do not add the names for others!) to the section below.
 | ![](https://eu.ui-avatars.com/api/?name=CC&length=4&size=50&color=DDD&background=777&font-size=0.325) | Cristian Cutitei | c.cutitei@student.tudelft.nl |
 |![](https://eu.ui-avatars.com/api/?name=MLB&length=4&size=50&color=DDD&background=777&font-size=0.325)| Maroje Luka Borsic |M.L.Borsic@student.tudelft.nl|
 |![](https://eu.ui-avatars.com/api/?name=AR&length=4&size=50&color=DDD&background=777&font-size=0.325)|Aben Rayev|A.Rayev@student.tudelft.nl|
-<!-- Instructions (remove once assignment has been completed -->
-<!-- - Add (only!) your own name to the table above (use Markdown formatting) -->
-<!-- - Mention your *student* email address -->
-<!-- - Preferably add a recognisable photo, otherwise add your GitLab photo -->
-<!-- - (please make sure the photos have the same size) --> 
 
 ## How to run it
+Clone the project into IntelliJ and let it fetch the required libraries.
+There should be two run configurations: ServerApplication and Client.
+Run the server first and keep it in background, then open as many instances of the client as you want.
 
-## How to contribute to it
-
-## Copyright / License (opt.)
+If you are updating from a previous version, keep in mind that the database might need to be reset (delete data/awsm.mv.db).
