@@ -120,8 +120,6 @@ public class StudentController {
         messageBar.clear();
     }
 
-
-    //JAVADOC DONE TILL HERE.
     /**
      * Executed every time a key is pressed. Checks if the key is 'enter',
      * if so it consumes the enter and calls the 'sendMessage' method.
@@ -135,19 +133,25 @@ public class StudentController {
     }
 
     /**
-     * Executed when 'hurry up' button is clicked. Increments value by one.
+     * Executed when 'hurry up' button is clicked. Increments the value by one.
      */
     public void hurryUp() {
         hurryUpButton.setText(String.valueOf(Integer.parseInt(hurryUpButton.getText()) + 1));
     }
 
     /**
-     * Executed when 'slow down' button is clicked. Increments value by one.
+     * Executed when 'slow down' button is clicked. Increments the value by one.
      */
     public void slowDown() {
         slowDownButton.setText(String.valueOf(Integer.parseInt(slowDownButton.getText()) + 1));
     }
 
+    /**
+     * Sorting buttons. When 'newest' is clicked it sorts based on how old the message is. When 'upvotes' is clicked it
+     * sorts based on the amount of upvotes.
+     *
+     * @param newLabel Holds the new label which we're going to sort by.
+     */
     void sort(Label newLabel) {
         Label oldLabel;
         if (sort == 0) {
@@ -175,14 +179,30 @@ public class StudentController {
         });
     }
 
+    /**
+     * When 'newest' clicked it calls method sort with 'newest' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'newest'.
+     */
     public void sortNew(MouseEvent mouseEvent) {
         sort(newest);
     }
 
+    /**
+     * When 'upvoted' clicked it calls method sort with 'upvoted' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'upvoted'.
+     */
     public void sortUpvotes(MouseEvent mouseEvent) {
         sort(upvoted);
     }
 
+    /**
+     * Filtering buttons. When 'all' is clicked there's no filter. When 'answered' is clicked only answered questions
+     * are shown. And when 'unanswered' is clicked only unanswered questions are shown.
+     *
+     * @param newLabel Holds the new label which we're going to sort by.
+     */
     void filter(Label newLabel) {
         Label oldLabel;
         switch (filter) {
@@ -213,14 +233,29 @@ public class StudentController {
         }
     }
 
+    /**
+     * When 'all' clicked it calls method filter with 'all' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'all'.
+     */
     public void filterAll(MouseEvent mouseEvent) {
         filter(all);
     }
 
+    /**
+     * When 'answered' clicked it calls method filter with 'answered' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'answered'.
+     */
     public void filterAnswered(MouseEvent mouseEvent) {
         filter(answered);
     }
 
+    /**
+     * When 'unanswered' clicked it calls method filter with 'unanswered' as input.
+     *
+     * @param mouseEvent Mouseclick on text 'unanswered'.
+     */
     public void filterUnanswered(MouseEvent mouseEvent) {
         filter(unanswered);
     }
