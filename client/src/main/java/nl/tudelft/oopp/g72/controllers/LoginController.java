@@ -1,24 +1,7 @@
 package nl.tudelft.oopp.g72.controllers;
 
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.joinModerator;
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.joinStudent;
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.lectureName;
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.open;
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.roomId;
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.scheduledTime;
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.stompSession;
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.webSocketMadness;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -29,6 +12,17 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
+
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.*;
 
 public class LoginController {
 
@@ -195,8 +189,8 @@ public class LoginController {
         if (lectureName != null) {
             webSocketMadness.subscribe(stompSession);
             Scene scene = new Scene(
-                    FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml")))
-            scene.getStylesheets().add("path/stylesheet.css");
+                    FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml")));
+            scene.getStylesheets().add("/css/stylesheet.css");
             MainApp.window.setScene(new Scene(
                     FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
         }
