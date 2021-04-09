@@ -17,6 +17,9 @@ import javafx.scene.layout.VBox;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
 
+/**
+ * Class holding functionality regarding QuestionListCellAssistant.
+ */
 public class QuestionListCellAssistant extends ListCell<Question> {
     private HBox content;
     private Label name;
@@ -27,7 +30,8 @@ public class QuestionListCellAssistant extends ListCell<Question> {
     private AnchorPane anchorPane;
 
     /**
-     * Creates a question cell.
+     * Creates a question cell. It loads the question cell assistant template and adds it as a child to the comment
+     * field. It is also sent to the server and spread across users.
      */
     public QuestionListCellAssistant() {
         super();
@@ -91,6 +95,12 @@ public class QuestionListCellAssistant extends ListCell<Question> {
         }
     }
 
+    /**
+     * Updates the question by filling all fields and adding buttons.
+     *
+     * @param item a question item
+     * @param empty boolean value stating whether empty or not
+     */
     @Override
     protected void updateItem(Question item, boolean empty) {
         super.updateItem(item, empty);
