@@ -38,9 +38,11 @@ We gave the evaluators the following questionnaire **add questionnaire**. All th
 ![](Help users recognize diagnose and recover from errors.png "Help users recognize, diagnose, and recover from errors") ![](Help and documentation.png "Help and documentation")
 
 **feedback results**
+
 The feedback on issues that the evaluators found will be shown here. First we identity all the issues they found and then we will put them in a severity matrix.
 These are the issues that they found : 
-more colours, writing to small, question box to big, students can’t be banned, non-intuitive filters, only upvote / downvote once, non-intuitive edit, no help page, lecture name not working, student count doesn’t work. We categorized all these issues the following
+more colours, writing to small, question box to big, students can’t be banned, non-intuitive filters, only upvote / downvote once, non-intuitive edit, no help page, lecture name not working, student count doesn’t work. We categorized all these issues the following: for every issue we first decided how frequent will this issue occur (the higher frequency the higher the number would be). After this we scaled the severity (the severer the issue the higher the number).
+On the scale a 5,5 would mean that the issue is very frequent and very critical this would be a high severity question. The questions in the bottom left are low severity and the bottom right and top left are medium severity. Based on the severity we knew how fast we should fix the issue. Now follows the table we created to indicate these issues on their frequency / severitu.
 
 ![](severity_matrix.png "severity matrix")
 
@@ -57,6 +59,24 @@ Furthermore there is also room for improvement in the error prevention category.
 
 ![](question.png "question")
 
+This is how the final design looks like:
+
+**The student view**
+
+![](student.png "question")
+
+**The Teacher view**
+
+![](teacher.png "question")
+
+**The Assistant view**
+
+![](assistant.png "question")
+
+**The login view**
+
+![](login.png "question")
+
 ### Responsible computer science
 
 In what way would our design process and final product change if we also had to design our product for one additional value of a &#39;non-obvious&#39; stakeholder
@@ -72,21 +92,19 @@ In what way would our design process and final product change if we also had to 
 
 #### Choice of the non-obvious stakeholder
 
-We chose to go with the non-obvious stakeholder government. The reason for this is because we were interested to see what ethnic values are related to the government and this project in special.
-
-**Elaborate more on this**
+We chose to go with the non-obvious stakeholder government. The reason for this is that we were interested to see what ethic values are related to the government and this project in special. For the government, digital information management is something of great value. It creates the ability for the government to access, organize, create or share large quantities of data. This data can vary greatly based on importance, and can be as important as holding ones’ personal information. Many people with malicious intent can have different approaches to reach such volatile information whether it is remote intrusion, data mining or through malicious software. This is why government security is of such great importance and is the reason we choose it as our choice of the non-obvious stakeholder.
 
 #### Three ethically relevant issues
 
-The three ethical values that we chose are security, mutual benefit and reliability. We believe these are important to the stakeholder especially in the context of our product. A report from comparitech by Sam Cook (2020) stated that in the last 15 years more than 24 million US school records have been leaked. Keeping sensitive information in mind and how to protect it is a very important ethical value, namely security. A breach can be very bad for the government this is why this is a value that is very relevant for the project. Governments spend a lot of capital money on higher education. A part of this money goes to paying teachers, but also a big part of the money goes to the innovations and applications. It would be very beneficial for the government to know if the application will actually be beneficial otherwise it could be seen as lost money and that is something to avoid. Therefore, the value mutual benefit is also of great importance. How reliable is the application? Will it always work? Does it work when a lot of concurrent students are using the applications? All these questions relate to the reliability of the application. This is a very important value for the government. Because everything that directly influences the University indirectly influences the government.
+The three ethical values that we chose are security, mutual benefit and reliability. We believe these are important to the stakeholder especially in the context of our product. A report from comparitech by Sam Cook (2020) stated that in the last 15 years more than 24 million US school records have been leaked. Keeping sensitive information in mind and how to protect it is a very important ethical value, namely security. A breach can be very bad for the government, resulting in this value being very relevant for our project. Governments spend a lot of capital money on higher education. A part of this money goes to paying teachers, but also a big part of the money goes to the innovations and applications. It would be very beneficial for the government to know if the application will actually be beneficial otherwise, it could be seen as lost money and that is something to avoid. Therefore, the value mutual benefit is also of great importance. How reliable is the application? Will it always work? Does it work when many concurrent students are using the applications? All these questions relate to the reliability of the application. This is a very important value for the government. Because everything that directly influences the University indirectly influences the government.
 
 #### Security
 
-Security is one of the basic needs of humanity. In relation to our application this means that unauthorized people can&#39;t attain information on students, lectures and moderators. Furthermore, there should also be no option for users to harm other users. According to van den Hoven (2008) Personal data is defined in the law as data that can be linked with a natural person. Considering this application will be for university students and they will connect with a username there is a possibility leaked information can be linked to a person. For the government security is a very important value, because a leak could result in unforeseen damages (van den Hoven, Weckert).
+In our context, we focus mainly on data security and it holds an immense importance to us. It refers to protecting our data from unauthorized access  that could lead to the data being tampered with or even corrupted. In relation to our application this means that unauthorized people can&#39;t attain information on students, lectures and moderators. Furthermore, there should also be no option for users to harm other users. According to van den Hoven (2008) Personal data is defined in the law as data that can be linked with a natural person. Considering this application will be for university students and they will connect with a username there is a possibility leaked information can be linked to a person. For the government security is a very important value, because a leak could result in unforeseen damages (van den Hoven, Weckert).
 
 #### What to learn
 
-To gain a better insight on the topic security keeping in mind the stakeholder, we will conduct a heuristic evaluation with experts on the field of this topic. Next to this we would contact multiple cybersecurity specialist with expertise in the field application building and software management. (these are hypothetical steps that we would do to make sure that the value security will be integrated into our project feel free to extend this!!!)
+To gain a better insight on the topic security keeping in mind the stakeholder, we will conduct a heuristic evaluation with experts on the field of this topic. Knowing the importance of security for our stakeholder, we would go even further and contact multiple cybersecurity specialist with expertise in the field application building and software management. We would also do an extensive research into the field of cybersecurity ourselves to get familiar with the topic by reading literature, learning about different types of cyberattacks etc. To end it off, we would try to get feedback on our program by testing if a trusted person or we ourselves could attempt to breach our programs' newly implemented security and attempt to find any exploit or approach to succeed in doing this. This would be a good form of test since the feedback would direct and specific for our program.
 
 #### Value hierarchy
 
@@ -94,7 +112,7 @@ To gain a better insight on the topic security keeping in mind the stakeholder, 
 
 #### Design changes
 
-On one hand we have the advocation of security from the stakeholder government, while on the other hand the client wants a not too complicated application. One of the requirements of the client was that there would be no authentication process this contradicts the recommendation of having a login and password for security reasons. We can try to solve this conflict by creating a application that will be secure without the need for passwords.
+On one hand, we have the importance of security from the stakeholder government, while on the other hand the client wants a not too complicated application. One of the requirements of the client was that there would be no authentication process this contradicts the recommendation of having a login and password for security reasons. We can try to solve this conflict by creating an application that will be secure without the need for passwords.
 
 #### References
 
@@ -103,5 +121,4 @@ Nielsen, J. (1994). 10 Usability Heuristics for User Interface Design. [https://
 Cook, S. (2020). US schools leaked 24.5 million records in 1,327 data breaches since 2005. [https://www.comparitech.com/blog/vpn-privacy/us-schools-data-breaches/](https://www.comparitech.com/blog/vpn-privacy/us-schools-data-breaches/)
 
 van den Hoven J. &amp; Weckert J. (2008). Information technology, privacy, and the protection of personal data. _Information technology and moral philosophy_, Cambridge: Cambridge University Press, pp. 301–322.
-
 
