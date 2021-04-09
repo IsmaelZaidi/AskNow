@@ -57,4 +57,15 @@ public class UserServiceTest {
 
         assertEquals(p, r);
     }
+
+    @Test
+    void getIdTest() throws Exception {
+        User user = new User();
+        user.setToken("bar");
+        user.setId(1);
+        when(userRepository.findByToken("bar")).thenReturn(user);
+        long value = userService.getId("bar");
+        assertEquals(1, value);
+    }
+
 }
