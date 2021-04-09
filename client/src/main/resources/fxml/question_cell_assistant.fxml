@@ -26,6 +26,7 @@
             <TextArea editable="false" layoutY="14.0" prefHeight="214.0" prefWidth="561.0" />
             <Button layoutX="385.0" layoutY="2.0" mnemonicParsing="false" text="Edit" />
             <Button layoutX="422.0" layoutY="2.0" mnemonicParsing="false" text="Remove" />
+            <Button layoutX="480.0" layoutY="2.0" mnemonicParsing="false" text="Answer" />
          </children>
       </AnchorPane>
    </children>
