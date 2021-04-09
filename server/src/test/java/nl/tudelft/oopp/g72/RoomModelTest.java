@@ -83,7 +83,8 @@ public class RoomModelTest {
     @Test
     public void toStringTest() {
         String result = room.toString();
-        Assertions.assertEquals("Room{id=1, name='room', open=true, scheduledTime='1', joincodeStudent='123456', joincodeModerator='678901'}", result);
+        Assertions.assertEquals("Room{id=1, name='room', open=true, scheduledTime='1', " +
+                "joincodeStudent='123456', joincodeModerator='678901'}", result);
     }
 
     @Test

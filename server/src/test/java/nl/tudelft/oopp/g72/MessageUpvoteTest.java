@@ -11,8 +11,8 @@ public class MessageUpvoteTest {
 
     @Test
     public void constructorTest() {
-       MessageUpvote message2 = new MessageUpvote(2,20);
-       Assertions.assertNotNull(message2);
+        MessageUpvote message2 = new MessageUpvote(2,20);
+        Assertions.assertNotNull(message2);
     }
 
     @Test

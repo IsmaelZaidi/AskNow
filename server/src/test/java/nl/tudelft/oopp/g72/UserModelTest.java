@@ -73,7 +73,8 @@ public class UserModelTest {
     @Test
     public void toStringTest() {
         String result = iss.toString();
-        Assertions.assertEquals("User{id=2, nick='bar', token='token', room=null, moderator=true}", result);
+        Assertions.assertEquals("User{id=2, nick='bar', token='token', " +
+                "room=null, moderator=true}", result);
     }
 
     @Test
