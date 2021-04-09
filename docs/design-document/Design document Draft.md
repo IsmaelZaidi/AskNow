@@ -16,7 +16,7 @@ Human-Computer Interaction, also known as the abbreviation &#39;HCI&#39;, is exa
 
 ##### Experts
 
-The experts for this research consist of peers of the study Computer Science and Engineering attending the Delft University of Technology. For this evaluation we will be working with 6 evaluators in total. These are not novice people and their expertise is expected to be on the same level as a first-year computer science student. This means that they can give valuable insights and relevant feedback.
+The experts for this research consist of peers of the study Computer Science and Engineering attending the Delft University of Technology. For this evaluation we will be working with 6 evaluators in total. These are not novice people and their expertise is expected to be on the same level as a first-year computer science student. This means that they can give valuable insights, relevant feedback and further improvements where needed.
 ##### Procedure
 
 For the procedure we will provide all the evaluators with a working application. The way the evaluations will be held will be as following. The evaluator gets in a discord call with one of the project team members. Here the team member will explain the steps that the evaluator will take. Once explained all the freedom will be with the evaluator on how to interact with the program. The evaluator will go from creating a room to joining a room and asking / deleting questions. Furthermore they will also look and all the views and use all the functionality. In the end, they will perform the final task which is closing a lecture. During the evaluation they will be asked to categorize their findings in the ten heuristics questionnaire that we provide. The ten usability heuristics are the same as those defined by Jakob Nielsen (1994). The questionnaire contains the ten usability heuristics and for each heuristic there is a scale of agreement. The evaluator will indicate how well the project adheres to that heuristic. At the end of the questionnaire the evaluator has the opportunity to give additional feedback.
@@ -29,6 +29,7 @@ The evaluators will have filled in a questionnaire with the issues they found, a
 We gave the evaluators the following questionnaire **add questionnaire**. All the evaluators filled this questionnaire and gave additional feedback. The results of the questionnaire will be displayed as a bar graph and the feed back will be put inside a frequency / severity table.
 
 **questionnaire results**
+
 ![](Visibility of system status.png "Visibility of system status") ![](Match between system and real world.png "Match between system and the real world") <br/>
 ![](User control and freedom.png "User control and freedom") ![](Consistency and standards.png "title-2") <br/>
 ![]( Error prevention.png "Error prevention") ![]( Recognition rather than recall.png "Recognition rather than recall") <br/>
@@ -37,12 +38,15 @@ We gave the evaluators the following questionnaire **add questionnaire**. All th
 
 **feedback results**
 The feedback on issues that the evaluators found will be shown here. First we identity all the issues they found and then we will put them in a severity matrix.
-More colours, writing to small, question box to big, students can’t be banned, non-intuitive filters, only upvote / downvote once, non-intuitive edit, no help page, lecture name not working, student count doesn’t work. We categorized all these issues the following
+These are the issues that they found : 
+more colours, writing to small, question box to big, students can’t be banned, non-intuitive filters, only upvote / downvote once, non-intuitive edit, no help page, lecture name not working, student count doesn’t work. We categorized all these issues the following
 
+![](severity_matrix.png "severity matrix")
 
 #### Conclusion
 
-Inside the conclusion we plan on showing our design before the evaluation and after the evaluation. This will give a good idea on how we improved our results from the improvement points we got.
+From these results we derived certain improvement points. We made the question box resizeable. Next to that we also made sure that the lecture name and the student count were working. These issues were in the medium/ high severity ranking and we made sure to tackle them first. 
+We also got working with the design of colours and styling. As you can see in the following pictures we made quite an improvements with regards to the styling. 
 
 ### Responsible computer science
 
