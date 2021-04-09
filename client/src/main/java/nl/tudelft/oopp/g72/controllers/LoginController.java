@@ -174,7 +174,7 @@ public class LoginController {
                 String text = response.body();
                 int idx = text.indexOf(";");
                 joinStudent = text.substring(0, idx);
-                lectureName = text.substring(idx+1);
+                lectureName = text.substring(idx + 1);
 
                 webSocketMadness.subscribe(stompSession);
 
