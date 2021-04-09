@@ -19,7 +19,6 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" text="+1" />
          </children>
       </VBox>
       <AnchorPane prefHeight="214.0" prefWidth="561.0">

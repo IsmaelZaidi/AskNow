@@ -1,5 +1,6 @@
 package nl.tudelft.oopp.g72.localvariables;
 
+import java.util.HashSet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -30,4 +31,6 @@ public class LocalVariables {
 
     public static WebSocketMadness webSocketMadness;
     public static StompSession stompSession;
+
+    public static HashSet<Long> upvotedQuestions = new HashSet<>();
 }

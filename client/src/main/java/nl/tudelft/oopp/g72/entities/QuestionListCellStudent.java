@@ -44,18 +44,21 @@ public class QuestionListCellStudent extends ListCell<Question> {
             addUpvote = (Button) vb.getChildren().get(3);
             addUpvote.setOnMouseClicked(e -> {
                 Question question = LocalVariables.sortedQuestions.get(getIndex());
-                for (int i = 0; i < LocalVariables.questions.size(); i++) {
-                    if (LocalVariables.questions.get(i).getId() == question.getId()) {
-                        question = LocalVariables.questions.get(i);
+                if (!LocalVariables.upvotedQuestions.contains(question.getId())) {
+                    LocalVariables.upvotedQuestions.add(question.getId());
+                    for (int i = 0; i < LocalVariables.questions.size(); i++) {
+                        if (LocalVariables.questions.get(i).getId() == question.getId()) {
+                            question = LocalVariables.questions.get(i);
 
-                        HttpClient client = HttpClient.newHttpClient();
-                        HttpRequest request = HttpRequest.newBuilder(
-                                URI.create("http://localhost:8080/api/v1/upvote/" + question.getId() + "/" + LocalVariables.token + "/" + LocalVariables.roomId))
-                                .build();
-                        try {
-                            client.send(request, HttpResponse.BodyHandlers.ofString());
-                        } catch (IOException | InterruptedException ioException) {
-                            ioException.printStackTrace();
+                            HttpClient client = HttpClient.newHttpClient();
+                            HttpRequest request = HttpRequest.newBuilder(
+                                    URI.create("http://localhost:8080/api/v1/upvote/" + question.getId() + "/" + LocalVariables.token + "/" + LocalVariables.roomId))
+                                    .build();
+                            try {
+                                client.send(request, HttpResponse.BodyHandlers.ofString());
+                            } catch (IOException | InterruptedException ioException) {
+                                ioException.printStackTrace();
+                            }
                         }
                     }
                 }
