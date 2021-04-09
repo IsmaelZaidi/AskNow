@@ -191,8 +191,7 @@ public class LoginController {
             Scene scene = new Scene(
                     FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml")));
             scene.getStylesheets().add("/css/stylesheet.css");
-            MainApp.window.setScene(new Scene(
-                    FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
+            MainApp.window.setScene(scene);
         }
     }
 }

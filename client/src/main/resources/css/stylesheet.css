@@ -1,0 +1,13 @@
+.label {
+    -fx-font-family: 'FontAwesome';
+}
+
+#join-button:hover{
+    -fx-background-color: lightblue;
+    -fx-border-image-width: 1px;
+}
+
+#teacher-view:hover{
+    -fx-background-color:  #fed8b1;
+    -fx-border-image-width: 1px;
+}
