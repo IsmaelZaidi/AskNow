@@ -29,7 +29,6 @@ import nl.tudelft.oopp.g72.entities.QuestionListCellTeacher;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
-
 /**
  * Holds the functionality of the teacher template.
  */
@@ -86,6 +85,7 @@ public class TeacherController implements Initializable {
     public void modCode() throws IOException {
         System.out.println(LocalVariables.joinModerator);
         Stage dia = new Stage();
+
         dia.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/modCode_view.fxml"))));
 
         dia.initModality(Modality.APPLICATION_MODAL);

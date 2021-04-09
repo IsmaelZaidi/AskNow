@@ -105,11 +105,11 @@ public class QuestionListCellAssistant extends ListCell<Question> {
 
                         HttpClient client = HttpClient.newHttpClient();
                         HttpRequest request = HttpRequest.newBuilder(
-                                URI.create("http://localhost:8080/api/v1/answer/" +
-                                        question.getId() +
-                                        "/" +
-                                        LocalVariables.token + "/" +
-                                        LocalVariables.roomId))
+                                URI.create("http://localhost:8080/api/v1/answer/"
+                                        + question.getId()
+                                        + "/"
+                                        + LocalVariables.token + "/"
+                                        + LocalVariables.roomId))
                                 .POST(HttpRequest.BodyPublishers.ofString(text))
                                 .build();
                         try {

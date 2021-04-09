@@ -6,7 +6,11 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -89,7 +93,8 @@ public class QuestionListCellStudent extends ListCell<Question> {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Answer");
                     alert.setHeaderText(null);
-                    alert.setContentText(LocalVariables.sortedQuestions.get(getIndex()).getAnswer());
+                    alert.setContentText(LocalVariables
+                            .sortedQuestions.get(getIndex()).getAnswer());
                     alert.showAndWait();
                 }
             });

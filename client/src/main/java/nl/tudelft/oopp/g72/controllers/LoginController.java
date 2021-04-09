@@ -3,7 +3,6 @@ package nl.tudelft.oopp.g72.controllers;
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.joinModerator;
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.joinStudent;
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.lectureName;
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.open;
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.roomId;
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.scheduledTime;
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.stompSession;
@@ -220,9 +219,10 @@ public class LoginController {
 
         if (lectureName != null) {
             webSocketMadness.subscribe(stompSession);
-
-            MainApp.window.setScene(new Scene(
-                    FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
+            Scene scene = new Scene(
+                    FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml")));
+            scene.getStylesheets().add("/css/stylesheet.css");
+            MainApp.window.setScene(scene);
         }
     }
 }
