@@ -40,15 +40,17 @@ public class MainApp extends Application {
 
     @Override
     public void stop() {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder(
-                URI.create("http://localhost:8080/api/v1/participants/leave"))
-                .header("Token", LocalVariables.token)
-                .build();
-        try {
-            client.send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
+        if (LocalVariables.token != null) {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder(
+                    URI.create("http://localhost:8080/api/v1/participants/leave"))
+                    .header("Token", LocalVariables.token)
+                    .build();
+            try {
+                client.send(request, HttpResponse.BodyHandlers.ofString());
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
