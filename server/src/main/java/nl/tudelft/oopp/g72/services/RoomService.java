@@ -11,12 +11,21 @@ import nl.tudelft.oopp.g72.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Class handling RoomService
+ */
 @Service
 public class RoomService {
 
     private final RoomRepository roomRepository;
     private final UserRepository userRepository;
 
+    /**
+     * RoomService constructor.
+     *
+     * @param roomRepository roomRepository
+     * @param userRepository userRepository
+     */
     @Autowired
     public RoomService(RoomRepository roomRepository, UserRepository userRepository) {
         this.roomRepository = roomRepository;
@@ -24,7 +33,8 @@ public class RoomService {
     }
 
     /**
-     * Returns a participant entry code.
+     * Getter to get participant/student entry code.
+     *
      * @result String entry code
      */
     public String getParticipantEntryCode() {
@@ -42,7 +52,8 @@ public class RoomService {
     }
 
     /**
-     * Returns a moderator entry code.
+     * Getter to get moderator entry code.
+     *
      * @result String entry code
      */
     public String getModeratorEntryCode() {
@@ -65,9 +76,10 @@ public class RoomService {
 
     /**
      * Joins room as student.
-     * @param code String
-     * @param token String
-     * @return joined Room ID
+     *
+     * @param code room code
+     * @param token user token
+     * @return joined Room id
      * @throws Exception for bad requests
      */
     public long joinRoomStudent(String code, String token) throws Exception {
@@ -90,9 +102,10 @@ public class RoomService {
 
     /**
      * Joins room as moderator.
-     * @param code String
-     * @param token String
-     * @return joined Room ID
+     *
+     * @param code room code
+     * @param token user token
+     * @return joined Room id
      * @throws Exception for bad requests
      */
     public Object joinRoomModerator(String code, String token) throws Exception {
@@ -113,9 +126,10 @@ public class RoomService {
 
     /**
      * Creates a room.
-     * @param token token
-     * @param title title
-     * @param scheduledTime scheduledTime
+     *
+     * @param token user token
+     * @param title room title
+     * @param scheduledTime scheduled time to open room
      * @return
      */
     public Room createRoom(String token, String title, long scheduledTime) {
@@ -139,6 +153,7 @@ public class RoomService {
 
     /**
      * Checks if the room is open for students, updating the status if needed.
+     *
      * @param code student join code
      * @return -1 if the room is closed, 0 if it is open and the open time if it is scheduled
      */
@@ -161,7 +176,8 @@ public class RoomService {
 
     /**
      * Checks if room is open, updating if needed.
-     * @param id the room's id
+     *
+     * @param id room id
      * @return true if the room is open, false otherwise
      */
     public boolean isOpen(long id) {
@@ -174,6 +190,11 @@ public class RoomService {
         return room.isOpen();
     }
 
+    /**
+     * Change status of room to closed.
+     *
+     * @param code room code
+     */
     public void closeRoom(String code) {
         roomRepository.setRoomClosed(code);
     }
