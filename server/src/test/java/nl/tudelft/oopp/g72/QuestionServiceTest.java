@@ -82,4 +82,67 @@ public class QuestionServiceTest {
 
         assertEquals(questions, questionService.retrieveQuestions("GoodToken", 1));
     }
+
+    @Test
+    void upvoteQuestionTest() throws Exception {
+        User user = new User();
+        user.setToken("hello");
+        Room room = new Room();
+        user.setRoom(room);
+        when(userRepository.findByToken("hello")).thenReturn(user);
+        questionService.addQuestion("hello", 1, "question");
+        Question question = new Question(1, user, room, "question", 1, 1, "answer",  true);
+        when(questionRepository.findById(1L)).thenReturn(Optional.of(question));
+        questionService.upvoteQuestion(1, "hello");
+        assertEquals(2,question.getUpvotes());
+    }
+
+    @Test
+    void setAsAnsweredTest() throws Exception {
+        User user = new User();
+        user.setToken("hello");
+        user.setModerator(true);
+        Room room = new Room();
+        user.setRoom(room);
+        when(userRepository.findByToken("hello")).thenReturn(user);
+        questionService.addQuestion("hello", 1, "question");
+        Question question = new Question(1, user, room, "question", 1, 1, "answer",  true);
+        when(questionRepository.findById(1L)).thenReturn(Optional.of(question));
+        questionService.setAsAnswered(1, "hello");
+        assertEquals(true,question.isAnswered());
+    }
+
+    @Test
+    void answerQuestionTest() throws Exception {
+        User user = new User();
+        user.setToken("hello");
+        user.setModerator(true);
+        Room room = new Room();
+        user.setRoom(room);
+        when(userRepository.findByToken("hello")).thenReturn(user);
+        questionService.addQuestion("hello", 1, "question");
+        Question question = new Question(1, user, room, "question", 1, 1, "answer",  true);
+        when(questionRepository.findById(1L)).thenReturn(Optional.of(question));
+        questionService.answerQuestion("hello", 1,"the answer");
+        assertEquals("the answer",question.getText());
+
+    }
+
+    @Test
+    void editQuestionTest() throws Exception {
+        User user = new User();
+        user.setToken("hello");
+        user.setModerator(true);
+        Room room = new Room();
+        user.setRoom(room);
+        when(userRepository.findByToken("hello")).thenReturn(user);
+        questionService.addQuestion("hello", 1, "question");
+        Question question = new Question(1, user, room, "question", 1, 1, "answer",  true);
+        when(questionRepository.findById(1L)).thenReturn(Optional.of(question));
+        questionService.editQuestion("hello", 1,"changed");
+        assertEquals("changed",question.getText());
+
+    }
+
+
 }
