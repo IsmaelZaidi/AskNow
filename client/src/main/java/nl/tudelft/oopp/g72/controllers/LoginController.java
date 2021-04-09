@@ -166,6 +166,16 @@ public class LoginController {
             } else if (open == 0) {
                 roomId = Long.valueOf(response.body());
 
+                HttpRequest request3 = HttpRequest.newBuilder(
+                        URI.create("http://localhost:8080/api/v1/info"))
+                        .header("RoomId", String.valueOf(roomId))
+                        .build();
+                response = client.send(request3, HttpResponse.BodyHandlers.ofString());
+                String text = response.body();
+                int idx = text.indexOf(";");
+                joinStudent = text.substring(0, idx);
+                lectureName = text.substring(idx + 1);
+
                 webSocketMadness.subscribe(stompSession);
 
                 MainApp.window.setScene(new Scene(
