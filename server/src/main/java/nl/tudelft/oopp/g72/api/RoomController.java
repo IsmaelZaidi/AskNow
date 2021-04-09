@@ -77,4 +77,14 @@ public class RoomController {
         roomService.closeRoom(code);
     }
 
+    /**
+     * Gets the student join code and lecture name from a room id.
+     * @param roomId the room's id
+     * @return "x;y", where x is the join code and y is the lecture name
+     */
+    @GetMapping(value = "api/v1/info")
+    public String info(@RequestHeader("RoomId") long roomId) {
+        return roomService.info(roomId);
+    }
+
 }

@@ -11,6 +11,8 @@ import nl.tudelft.oopp.g72.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
+
 /**
  * Class handling RoomService.
  */
@@ -197,5 +199,21 @@ public class RoomService {
      */
     public void closeRoom(String code) {
         roomRepository.setRoomClosed(code);
+    }
+
+    /**
+     * Gets the student join code and lecture name from a room id.
+     * @param roomId the room's id
+     * @return "x;y", where x is the join code and y is the lecture name
+     */
+    public String info(long roomId) {
+        Room room = roomRepository.getOne(roomId);
+        String ret;
+        try {
+            ret = room.getJoincodeStudent() + ";" + room.getName();
+        } catch (EntityNotFoundException e) {
+            throw new IllegalArgumentException("Bad room id");
+        }
+        return ret;
     }
 }
