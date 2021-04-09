@@ -1,18 +1,25 @@
 package nl.tudelft.oopp.g72.controllers;
 
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.filteredQuestions;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.joinModerator;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.joinStudent;
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.roomId;
 import static nl.tudelft.oopp.g72.localvariables.LocalVariables.sortedQuestions;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +31,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
@@ -222,5 +230,59 @@ public class AssistantController implements Initializable {
 
     public void filterUnanswered(MouseEvent mouseEvent) {
         filter(unanswered);
+    }
+
+    /**
+     * Exports the list of questions as a text file.
+     * @param actionEvent event
+     */
+    public void export(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+
+        FileChooser.ExtensionFilter extFilter = new FileChooser
+                .ExtensionFilter("Text files", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        File file = fileChooser.showSaveDialog(MainApp.window);
+
+        if (file != null) {
+            try {
+                List<Question> questions = LocalVariables.questions;
+                questions.sort((o1, o2) -> -Integer.compare(o1.getUpvotes(), o2.getUpvotes()));
+
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append(LocalVariables.lectureName);
+                stringBuilder.append(" - Join codes:\n Moderator: ");
+                stringBuilder.append(joinModerator);
+                stringBuilder.append("\n Student: ");
+                stringBuilder.append(joinStudent);
+                stringBuilder.append("\n\n");
+                for (Question q: questions) {
+                    stringBuilder.append(new SimpleDateFormat("HH:mm").format(q.getTimestamp()));
+                    stringBuilder.append(" ");
+                    stringBuilder.append(q.getUpvotes());
+                    stringBuilder.append(" upvotes\n");
+                    stringBuilder.append(q.getUser().getNick());
+                    stringBuilder.append("\n");
+                    stringBuilder.append(q.getText());
+                    if (q.isAnswered()) {
+                        stringBuilder.append("\nAnswered\n");
+                        if (q.getAnswer().equals("")) {
+                            stringBuilder.append("No text answer given\n");
+                        }
+                    } else {
+                        stringBuilder.append("\nUnanswered\n");
+                    }
+                    stringBuilder.append("\n\n");
+                }
+
+                PrintWriter writer;
+                writer = new PrintWriter(file);
+                writer.println(stringBuilder);
+                writer.close();
+            } catch (IOException ex) {
+                System.out.println("couldn't save file");
+            }
+        }
     }
 }
