@@ -35,7 +35,7 @@ We gave the evaluators the following questionnaire **add questionnaire**. All th
 ![](User%20control%20and%20freedom.png "User control and freedom")![](Consistency%20and%20standards.png "title-2")
 ![]( Error%20prevention.png "Error prevention")![]( Recognition%20rather%20than%20recall.png "Recognition rather than recall")
 ![](Flexibility%20and%20efficiency%20of%20use.png "Flexibility and efficiency of use")![]( Aesthethic%20and%20minimalist%20design.png "Aesthetic and minimalist design")
-![](Help%20users%20recognize%20diagnose%20and%20recover%20from%20errors.png "Help users recognize, diagnose, and recover from errors")![](Help%20and documentation.png "Help and documentation")
+![](Help%20users%20recognize%20diagnose%20and%20recover%20from%20errors.png "Help users recognize, diagnose, and recover from errors")![](Help%20and%20documentation.png "Help and documentation")
 
 **feedback results**
 
