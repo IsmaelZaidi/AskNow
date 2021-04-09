@@ -82,3 +82,18 @@ Nielsen, J. (1994). 10 Usability Heuristics for User Interface Design. [https://
 Cook, S. (2020). US schools leaked 24.5 million records in 1,327 data breaches since 2005. [https://www.comparitech.com/blog/vpn-privacy/us-schools-data-breaches/](https://www.comparitech.com/blog/vpn-privacy/us-schools-data-breaches/)
 
 van den Hoven J. &amp; Weckert J. (2008). Information technology, privacy, and the protection of personal data. _Information technology and moral philosophy_, Cambridge: Cambridge University Press, pp. 301–322.
+
+
+
+feedback HCI part:
+for the HCI section, the introductory definition about HCI is not needed (remove it, if we need filler we can expand on the objective).
+the last sentence of the introduction is a bit conflicting, we should write in more definitive terms so we don't have to rewrite them for the final report
+the experts and methods are okay, but we can add "their expertise is roughly on the same level as yours" "these are not novice people they're actually experts" (add why they matter, why we should listen to them)
+else is fine
+
+feedback RespCS:
+reasonable balance between direct and indirect stakeholders
+slight typo with "ethnic" values instead of "ethic"
+it is important to make the distinction of why do we touch up on the value of security for the government specifically - we need to make it clear why we care about the governmnent specifi. and not the other since it is a common value to all the stakeholders
+"security is one of the basic needs of humanity" restated to match the rest of the text (philisophical -> technical)
+capitalization inconsistencies in the value hierarchy
