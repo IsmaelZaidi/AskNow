@@ -9,7 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ServerApplication {
     /**
-     * The main class. Here the run method in SpringApplication gets run and the server gets started.
+     * The main class. Here the run method in SpringApplication gets run and the server gets
+     * started.
      *
      * @param args the args get passed on to the run method.
      */
