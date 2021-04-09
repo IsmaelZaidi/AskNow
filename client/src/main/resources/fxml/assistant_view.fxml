@@ -31,6 +31,7 @@
             <Button mnemonicParsing="false" onAction="#teacherView" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: orange;" text="Teacher's view" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="10.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00d69b" height="32.0" stroke="BLACK" strokeType="INSIDE" width="56.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="10.0" />
             <Label fx:id="studentCount" prefHeight="18.0" prefWidth="0.0" text="0" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="10.0" />
+            <Button mnemonicParsing="false" onAction="#export" style="-fx-background-color: #c3312f;" text="Export" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
       <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
