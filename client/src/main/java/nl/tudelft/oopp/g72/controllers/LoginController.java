@@ -194,7 +194,9 @@ public class LoginController {
 
         if (lectureName != null) {
             webSocketMadness.subscribe(stompSession);
-
+            Scene scene = new Scene(
+                    FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml")))
+            scene.getStylesheets().add("path/stylesheet.css");
             MainApp.window.setScene(new Scene(
                     FXMLLoader.load(getClass().getResource("/fxml/assistant_view.fxml"))));
         }
