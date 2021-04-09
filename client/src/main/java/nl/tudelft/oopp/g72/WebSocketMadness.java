@@ -114,10 +114,12 @@ public class WebSocketMadness {
                     MessageAnswer m;
                     m = mapper.readValue(new String((byte[]) o), MessageAnswer.class);
                     Platform.runLater(() -> {
-                        for (Question q : LocalVariables.questions) {
-                            if (q.getId() == m.getQuestionId()) {
+                        for (int i = 0; i < LocalVariables.questions.size(); i++) {
+                            if (LocalVariables.questions.get(i).getId() == m.getQuestionId()) {
+                                Question q = LocalVariables.questions.get(i);
                                 q.setAnswered(true);
                                 q.setAnswer(m.getAnswer());
+                                LocalVariables.questions.set(i, q);
                             }
                         }
                     });

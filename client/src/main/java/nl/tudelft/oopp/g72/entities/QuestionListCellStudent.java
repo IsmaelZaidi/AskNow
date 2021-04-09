@@ -90,11 +90,16 @@ public class QuestionListCellStudent extends ListCell<Question> {
             });
             answer.setOnMouseClicked(e -> {
                 if (answer.getText().equals("Answered")) {
+                    String ans = LocalVariables
+                            .sortedQuestions.get(getIndex()).getAnswer();
+                    if (ans == null || ans.equals("")) {
+                        ans = "There is no written answer yet!";
+                    }
+
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Answer");
                     alert.setHeaderText(null);
-                    alert.setContentText(LocalVariables
-                            .sortedQuestions.get(getIndex()).getAnswer());
+                    alert.setContentText(ans);
                     alert.showAndWait();
                 }
             });
