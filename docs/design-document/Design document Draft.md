@@ -29,16 +29,11 @@ The evaluators will have filled in a questionnaire with the issues they found, a
 We gave the evaluators the following questionnaire **add questionnaire**. All the evaluators filled this questionnaire and gave additional feedback. The results of the questionnaire will be displayed as a bar graph and the feed back will be put inside a frequency / severity table.
 
 **questionnaire results**
-<<<<<<< HEAD
 
-![](Visibility of system status.png "Visibility of system status") ![](Match between system and real world.png "Match between system and the real world") <br/>
-![](User control and freedom.png "User control and freedom") ![](Consistency and standards.png "title-2") <br/>
-![]( Error prevention.png "Error prevention") ![]( Recognition rather than recall.png "Recognition rather than recall") <br/>
-=======
+
 ![](Visibility of system status.png "Visibility of system status") ![](Match between system and real world.png "Match between system and the real world") 
 ![](User control and freedom.png "User control and freedom") ![](Consistency and standards.png "title-2") 
-![]( Error prevention.png "Error prevention") ![]( Recognition rather than recall.png "Recognition rather than recall") 
->>>>>>> ef96c6ee6a788092d12d35aa8ccfa737aa1a5c62
+![]( Error prevention.png "Error prevention") ![]( Recognition rather than recall.png "Recognition rather than recall")
 ![](Flexibility and efficiency of use.png "Flexibility and efficiency of use") ![]( Aesthethic and minimalist design.png "Aesthetic and minimalist design")
 ![](Help users recognize diagnose and recover from errors.png "Help users recognize, diagnose, and recover from errors") ![](Help and documentation.png "Help and documentation")
 
@@ -52,7 +47,8 @@ more colours, writing to small, question box to big, students can’t be banned,
 #### Conclusion
 
 From these results we derived certain improvement points. We made the question box resizeable. Next to that we also made sure that the lecture name and the student count were working. These issues were in the medium/ high severity ranking and we made sure to tackle them first. 
-We also got working with the design of colours and styling. As you can see in the following pictures we made quite an improvements with regards to the styling. 
+We also got working with the design of colours and styling. We also created an aditional functionality to further improve user freedom. We implemented a method which lets you export all the questions. These are the things where we got the chance to improve them. For further changes we could include a help document and extra documentation. 
+Furthermore there is also room for improvement in the error prevention category. Here we could be more consise and cover more possible errors that can happen.
 
 ### Responsible computer science
 
