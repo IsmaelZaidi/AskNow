@@ -16,21 +16,29 @@ Human-Computer Interaction, also known as the abbreviation &#39;HCI&#39;, is exa
 
 ##### Experts
 
-The experts for this research consist of peers of the study Computer Science and Engineering attending the Delft University of Technology. For this evaluation we will be working with 6 evaluators in total. The level of their expertise is expected to be on the same level as a first-year computer science student. This means that they themselves already at least have sufficient knowledge.
-
+The experts for this research consist of peers of the study Computer Science and Engineering attending the Delft University of Technology. For this evaluation we will be working with 6 evaluators in total. These are not novice people and their expertise is expected to be on the same level as a first-year computer science student. This means that they can give valuable insights and relevant feedback.
 ##### Procedure
 
-For the procedure we will provide all the evaluators with a working prototype. In addition to the working prototype we will also include a text file containing a step-by-step guide on what they need to do. First the evaluators will start by running the Java client file. Once running, they will interact with the application as if they were a user. In the text file we provide we go over steps that they need to perform. They will start by joining a lobby and asking and deleting questions. Along with this they will also try to upvote questions. Once they finished these tasks, they will start the moderator tasks which requires joining a lobby as a moderator. Here they will mark questions as answered, delete questions and answer questions. Furthermore, they will also have a look at the simplified view (the presenter view). In the end, they will perform the final task which is closing a lecture. During these steps they will write their issues and comments down. They will be asked to categorize their findings in the ten heuristics that we provide. The ten usability heuristics are the same as those defined by Jakob Nielsen (1994).
-
-Once they finish their evaluation and went over all the steps they will be asked to when needed elaborate on additional (non-critical) issues of our application which don&#39;t fit with the 10 heuristics provided.
+For the procedure we will provide all the evaluators with a working application. The way the evaluations will be held will be as following. The evaluator gets in a discord call with one of the project team members. Here the team member will explain the steps that the evaluator will take. Once explained all the freedom will be with the evaluator on how to interact with the program. The evaluator will go from creating a room to joining a room and asking / deleting questions. Furthermore they will also look and all the views and use all the functionality. In the end, they will perform the final task which is closing a lecture. During the evaluation they will be asked to categorize their findings in the ten heuristics questionnaire that we provide. The ten usability heuristics are the same as those defined by Jakob Nielsen (1994). The questionnaire contains the ten usability heuristics and for each heuristic there is a scale of agreement. The evaluator will indicate how well the project adheres to that heuristic. At the end of the questionnaire the evaluator has the opportunity to give additional feedback.
 
 #### Measures
 
-The evaluators write down the issues they find and also additional comments. Once we have collected all the evaluations, the issues will be put inside a table together with the frequency. Additionally, we will also provide a severity of the issue ourselves. Meaning we can categorize the issues not only for their frequency but also for their severity. This gives a good indication on how critical an issue is. On top of that it&#39;s also a good indicator on what we need to work on first and improve. In a nutshell all the issues will be put inside a table together with their frequency and severity.
-
+The evaluators will have filled in a questionnaire with the issues they found, additional feedback and also how well we follow the heuristic values. Next once we have collected all the evaluations, the issues will be put inside a table together with the frequency in which the issue would occur. Additionally, we will also provide a severity of the issue ourselves. Meaning we can categorize the issues not only for their frequency but also for their severity. This gives a good indication on how critical an issue is. In addition we will also provide a bar graph which visually shows how well the heuristic values are implemented. In a nutshell all the issues will be put inside a table together with their frequency and severity and the heuristic values will be shown as a bar graph.
 #### Results
 
-Here we will provide the results
+We gave the evaluators the following questionnaire **add questionnaire**. All the evaluators filled this questionnaire and gave additional feedback. The results of the questionnaire will be displayed as a bar graph and the feed back will be put inside a frequency / severity table.
+
+**questionnaire results**
+![](Visibility of system status.png "Visibility of system status") ![](Match between system and real world.png "Match between system and the real world") <br/>
+![](User control and freedom.png "User control and freedom") ![](Consistency and standards.png "title-2") <br/>
+![]( Error prevention.png "Error prevention") ![]( Recognition rather than recall.png "Recognition rather than recall") <br/>
+![](Flexibility and efficiency of use.png "Flexibility and efficiency of use") ![]( Aesthethic and minimalist design.png "Aesthetic and minimalist design")
+![](Help users recognize diagnose and recover from errors.png "Help users recognize, diagnose, and recover from errors") ![](Help and documentation.png "Help and documentation")
+
+**feedback results**
+The feedback on issues that the evaluators found will be shown here. First we identity all the issues they found and then we will put them in a severity matrix.
+More colours, writing to small, question box to big, students can’t be banned, non-intuitive filters, only upvote / downvote once, non-intuitive edit, no help page, lecture name not working, student count doesn’t work. We categorized all these issues the following
+
 
 #### Conclusion
 
@@ -82,3 +90,11 @@ Nielsen, J. (1994). 10 Usability Heuristics for User Interface Design. [https://
 Cook, S. (2020). US schools leaked 24.5 million records in 1,327 data breaches since 2005. [https://www.comparitech.com/blog/vpn-privacy/us-schools-data-breaches/](https://www.comparitech.com/blog/vpn-privacy/us-schools-data-breaches/)
 
 van den Hoven J. &amp; Weckert J. (2008). Information technology, privacy, and the protection of personal data. _Information technology and moral philosophy_, Cambridge: Cambridge University Press, pp. 301–322.
+
+
+![](Visibility of system status.png "Visibility of system status") ![](Match between system and real world.png "Match between system and the real world") <br/>
+![](User control and freedom.png "User control and freedom") ![](Consistency and standards.png "title-2") <br/>
+![]( Error prevention.png "Error prevention") ![]( Recognition rather than recall.png "Recognition rather than recall") <br/>
+![](Flexibility and efficiency of use.png "Flexibility and efficiency of use") ![]( Aesthethic and minimalist design.png "Aesthetic and minimalist design") <br/>
+![](Help users recognize diagnose and recover from errors.png "Help users recognize, diagnose, and recover from errors") ![](Help and documentation.png "Help and documentation") <br/>
+
