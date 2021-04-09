@@ -2,17 +2,17 @@ package nl.tudelft.oopp.g72;
 
 import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import nl.tudelft.oopp.g72.models.Room;
 import nl.tudelft.oopp.g72.models.User;
 import nl.tudelft.oopp.g72.repositories.RoomRepository;
 import nl.tudelft.oopp.g72.repositories.UserRepository;
 import nl.tudelft.oopp.g72.services.RoomService;
 import nl.tudelft.oopp.g72.services.UserService;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 @SpringBootTest
 public class RoomServiceTest {
