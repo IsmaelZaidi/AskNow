@@ -1,4 +1,4 @@
-# Design document draft
+# Design document 
 
 ## Group 72
 
@@ -10,7 +10,7 @@ The following paper will consist of two parts, the first one being Human-Compute
 
 #### Introduction
 
-Human-Computer Interaction, also known as the abbreviation &#39;HCI&#39;, is exactly what you expect it to be. It is a discipline in information science which researches the interaction between users (human) and machine (computer). This is usually done through an interface. The objective of this evaluation is to gain knowledge on the pitfalls and hindrances of our application, as well as the things that are going well. All this information will be taken into account and processed, so that we can improve and change the application where needed. The current state of our project is the database is designed and implemented and we also have working endpoints. As far as for the frontend we have finalized prototype views and are currently busy with creating the real views. The evaluators will get a working prototype including the instructions.
+Human-Computer Interaction, also known as the abbreviation &#39;HCI&#39;, is exactly what you expect it to be. It is a discipline in information science which researches the interaction between users (human) and machine (computer). This is usually done through an interface. The objective of this evaluation is to gain knowledge on the pitfalls and hindrances of our application, as well as the things that are going well. This evaluation allows us to evaluate and improve our project. We won't be the only ones doing this since we have the help of 6 experts. The experts will also evaluate our project and give feedback. All this information will be taken into account and processed, so that we can improve and change the application where needed. The current state of our project is the database is designed and implemented and we also have all our endpoints working. The client side has also been finiliazed and all the views are working with the desired interactivity.
 
 #### Methods
 
@@ -19,14 +19,14 @@ Human-Computer Interaction, also known as the abbreviation &#39;HCI&#39;, is exa
 The experts for this research consist of peers of the study Computer Science and Engineering attending the Delft University of Technology. For this evaluation we will be working with 6 evaluators in total. These are not novice people and their expertise is expected to be on the same level as a first-year computer science student. This means that they can give valuable insights, relevant feedback and further improvements where needed.
 ##### Procedure
 
-For the procedure we will provide all the evaluators with a working application. The way the evaluations will be held will be as following. The evaluator gets in a discord call with one of the project team members. Here the team member will explain the steps that the evaluator will take. Once explained all the freedom will be with the evaluator on how to interact with the program. The evaluator will go from creating a room to joining a room and asking / deleting questions. Furthermore they will also look and all the views and use all the functionality. In the end, they will perform the final task which is closing a lecture. During the evaluation they will be asked to categorize their findings in the ten heuristics questionnaire that we provide. The ten usability heuristics are the same as those defined by Jakob Nielsen (1994). The questionnaire contains the ten usability heuristics and for each heuristic there is a scale of agreement. The evaluator will indicate how well the project adheres to that heuristic. At the end of the questionnaire the evaluator has the opportunity to give additional feedback.
+For the procedure we will provide all the evaluators with a working application. The way the evaluations will be held will be as following. The evaluator gets in a discord call with one of the project team members. Here the team member will explain the steps that the evaluator will take. Once explained all the freedom will be with the evaluator on how to interact with the program. The evaluator will go from creating a room to joining a room and asking / deleting questions. Furthermore they will also look and all the views and use all the functionality. In the end, they will perform the final task which is closing a lecture. During the evaluation they will be asked to categorize their findings (issues) in the ten heuristics questionnaire that we provide. The ten usability heuristics are the same as those defined by Jakob Nielsen (1994). The questionnaire contains the ten usability heuristics and for each heuristic there is a scale of agreement. The evaluator will indicate how well the project adheres to that heuristic. At the end of the questionnaire the evaluator has the opportunity to give additional feedback.
 
 #### Measures
 
-The evaluators will have filled in a questionnaire with the issues they found, additional feedback and also how well we follow the heuristic values. Next once we have collected all the evaluations, the issues will be put inside a table together with the frequency in which the issue would occur. Additionally, we will also provide a severity of the issue ourselves. Meaning we can categorize the issues not only for their frequency but also for their severity. This gives a good indication on how critical an issue is. In addition we will also provide a bar graph which visually shows how well the heuristic values are implemented. In a nutshell all the issues will be put inside a table together with their frequency and severity and the heuristic values will be shown as a bar graph.
+The evaluators will have filled in a questionnaire with the issues they found, additional feedback and also how well we follow the heuristic values. So for every evaluator we have a pdf file containing their scaling of agreement for the heuristic values and also their feedback in text format. Next once we have collected all the evaluations, the issues that they found will be put inside a table together with the frequency in which these issues would occur. Additionally, we will also provide a severity of the issue ourselves. Meaning we can categorize the issues not only for their frequency but also for their severity. This gives a good indication on how critical an issue is. In addition we will also provide a bar graph which visually shows how well the heuristic values are implemented. In a nutshell all the issues will be put inside a table together with their frequency and severity and the heuristic values will be shown as a bar graph.
 #### Results
 
-We gave the evaluators the following questionnaire **add questionnaire**. All the evaluators filled this questionnaire and gave additional feedback. The results of the questionnaire will be displayed as a bar graph and the feed back will be put inside a frequency / severity table.
+We gave the evaluators the following questionnaire **add questionnaire**. All the evaluators filled this questionnaire and gave additional feedback. The results of the questionnaire will be displayed as a bar graph and the feedback will be put inside a frequency / severity table.
 
 **questionnaire results**
 
@@ -47,8 +47,15 @@ more colours, writing to small, question box to big, students can’t be banned,
 #### Conclusion
 
 From these results we derived certain improvement points. We made the question box resizeable. Next to that we also made sure that the lecture name and the student count were working. These issues were in the medium/ high severity ranking and we made sure to tackle them first. 
-We also got working with the design of colours and styling. We also created an aditional functionality to further improve user freedom. We implemented a method which lets you export all the questions. These are the things where we got the chance to improve them. For further changes we could include a help document and extra documentation. 
-Furthermore there is also room for improvement in the error prevention category. Here we could be more consise and cover more possible errors that can happen.
+We also got working with the design of colours and styling. 
+
+![](color.png "question")
+This is the changed view with colours
+
+We also created an aditional functionality to further improve user freedom. We implemented a method which lets you export all the questions. These are the things where we got the chance to improve them. For further changes we could include a help document and extra documentation. 
+Furthermore there is also room for improvement in the error prevention category. Here we could be more consise and cover more possible errors that can happen. The button for the help document would look something like this:
+
+![](question.png "question")
 
 ### Responsible computer science
 
@@ -98,25 +105,3 @@ Cook, S. (2020). US schools leaked 24.5 million records in 1,327 data breaches s
 van den Hoven J. &amp; Weckert J. (2008). Information technology, privacy, and the protection of personal data. _Information technology and moral philosophy_, Cambridge: Cambridge University Press, pp. 301–322.
 
 
-<<<<<<< HEAD
-![](Visibility of system status.png "Visibility of system status") ![](Match between system and real world.png "Match between system and the real world") <br/>
-![](User control and freedom.png "User control and freedom") ![](Consistency and standards.png "title-2") <br/>
-![]( Error prevention.png "Error prevention") ![]( Recognition rather than recall.png "Recognition rather than recall") <br/>
-![](Flexibility and efficiency of use.png "Flexibility and efficiency of use") ![]( Aesthethic and minimalist design.png "Aesthetic and minimalist design") <br/>
-![](Help users recognize diagnose and recover from errors.png "Help users recognize, diagnose, and recover from errors") ![](Help and documentation.png "Help and documentation") <br/>
-
-=======
-
-feedback HCI part:
-for the HCI section, the introductory definition about HCI is not needed (remove it, if we need filler we can expand on the objective).
-the last sentence of the introduction is a bit conflicting, we should write in more definitive terms so we don't have to rewrite them for the final report
-the experts and methods are okay, but we can add "their expertise is roughly on the same level as yours" "these are not novice people they're actually experts" (add why they matter, why we should listen to them)
-else is fine
-
-feedback RespCS:
-reasonable balance between direct and indirect stakeholders
-slight typo with "ethnic" values instead of "ethic"
-it is important to make the distinction of why do we touch up on the value of security for the government specifically - we need to make it clear why we care about the governmnent specifi. and not the other since it is a common value to all the stakeholders
-"security is one of the basic needs of humanity" restated to match the rest of the text (philisophical -> technical)
-capitalization inconsistencies in the value hierarchy
->>>>>>> designDocument
