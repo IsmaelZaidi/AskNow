@@ -59,11 +59,12 @@ Furthermore there is also room for improvement in the error prevention category.
 
 ![](question.png "question")
 
-This is how the final design looks like:
+
+The following pictures show how the eventual product looks like. Here the changes we mentioned are already implemented 
 
 **The student view**
 
-![](student.png "question")
+![](color.png "question")
 
 **The Teacher view**
 
