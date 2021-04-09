@@ -1,8 +1,13 @@
 package nl.tudelft.oopp.g72.controllers;
 
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.filteredQuestions;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.joinModerator;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.joinStudent;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.roomId;
+import static nl.tudelft.oopp.g72.localvariables.LocalVariables.sortedQuestions;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,12 +17,8 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.text.SimpleDateFormat;
-import java.time.DateTimeException;
-import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,9 +39,6 @@ import nl.tudelft.oopp.g72.entities.Question;
 import nl.tudelft.oopp.g72.entities.QuestionListCellAssistant;
 import nl.tudelft.oopp.g72.entities.QuestionListSelectionModel;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import static nl.tudelft.oopp.g72.localvariables.LocalVariables.*;
 
 public class AssistantController implements Initializable {
 
@@ -241,7 +239,8 @@ public class AssistantController implements Initializable {
     public void export(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
 
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Text files", "*.txt");
+        FileChooser.ExtensionFilter extFilter = new FileChooser
+                .ExtensionFilter("Text files", "*.txt");
         fileChooser.getExtensionFilters().add(extFilter);
 
         File file = fileChooser.showSaveDialog(MainApp.window);
