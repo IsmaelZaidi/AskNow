@@ -47,8 +47,7 @@ public class LoginController {
      * Checks the contents of all fields when attempting to login. When there's no
      * username or when the server doesn't respond accordingly, the login gets blocked.
      *
-     * @return Returns boolean value allowing the user to login when true and not
-     * when false.
+     * @return Returns boolean value allowing the user to login when true and not when false.
      * @throws IOException IOException
      * @throws InterruptedException InterruptedException
      */
