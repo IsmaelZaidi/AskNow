@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/**
+ * Class handling Room object
+ */
 @Entity(name = "Room")
 @Table(name = "Room")
 public class Room {
@@ -67,13 +70,14 @@ public class Room {
     }
 
     /**
-     * Constructor.
-     * @param id long
-     * @param name String
-     * @param open boolean
-     * @param scheduledTime String
-     * @param joincodeStudent String
-     * @param joincodeModerator String
+     * Room constructor.
+     *
+     * @param id room id
+     * @param name room name
+     * @param open if open or not
+     * @param scheduledTime scheduled open time
+     * @param joincodeStudent student code
+     * @param joincodeModerator moderator code
      */
     public Room(long id, String name, boolean open, long scheduledTime,
                 String joincodeStudent, String joincodeModerator) {
@@ -85,54 +89,119 @@ public class Room {
         this.joincodeModerator = joincodeModerator;
     }
 
+    /**
+     * Getter to get id of room.
+     *
+     * @return room id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * Setter to set id of room.
+     *
+     * @param id new room id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * Getter to get room name.
+     *
+     * @return room name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Setter to set/change room name.
+     *
+     * @param name new room name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Check if room is open.
+     *
+     * @return true if open, false if not.
+     */
     public boolean isOpen() {
         return open;
     }
 
+    /**
+     * Setter to set room open or not.
+     *
+     * @param open true if open, false if not.
+     */
     public void setOpen(boolean open) {
         this.open = open;
     }
 
+    /**
+     * Getter to get scheduled time to open.
+     *
+     * @return scheduled time
+     */
     public long getScheduledTime() {
         return scheduledTime;
     }
 
+    /**
+     * Setter to set/change scheduled time to open.
+     *
+     * @param scheduledTime new schduled time
+     */
     public void setScheduledTime(long scheduledTime) {
         this.scheduledTime = scheduledTime;
     }
 
+    /**
+     * Getter to get student code.
+     *
+     * @return student code
+     */
     public String getJoincodeStudent() {
         return joincodeStudent;
     }
 
+    /**
+     * Setter to set student code.
+     *
+     * @param joincodeStudent new student code.
+     */
     public void setJoincodeStudent(String joincodeStudent) {
         this.joincodeStudent = joincodeStudent;
     }
 
+    /**
+     * Getter to get moderator code.
+     *
+     * @return moderator code
+     */
     public String getJoincodeModerator() {
         return joincodeModerator;
     }
 
+    /**
+     * Setter to set moderator code.
+     *
+     * @param joincodeModerator new moderator code
+     */
     public void setJoincodeModerator(String joincodeModerator) {
         this.joincodeModerator = joincodeModerator;
     }
 
+    /**
+     * Make room object into string overview.
+     *
+     * @return String with overview of room object.
+     */
     @Override
     public String toString() {
         return "Room{"
@@ -145,6 +214,12 @@ public class Room {
                 + '}';
     }
 
+    /**
+     * Check if room is equal to any object.
+     *
+     * @param o object to compare to
+     * @return true if equal, false if not
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
