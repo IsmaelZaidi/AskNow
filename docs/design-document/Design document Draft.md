@@ -31,11 +31,11 @@ We gave the evaluators the following questionnaire **add questionnaire**. All th
 **questionnaire results**
 
 
-![](Visibility of system status.png "Visibility of system status") ![](Match between system and real world.png "Match between system and the real world") 
-![](User control and freedom.png "User control and freedom") ![](Consistency and standards.png "title-2") 
-![]( Error prevention.png "Error prevention") ![]( Recognition rather than recall.png "Recognition rather than recall")
-![](Flexibility and efficiency of use.png "Flexibility and efficiency of use") ![]( Aesthethic and minimalist design.png "Aesthetic and minimalist design")
-![](Help users recognize diagnose and recover from errors.png "Help users recognize, diagnose, and recover from errors") ![](Help and documentation.png "Help and documentation")
+![](Visibility of system status.png "Visibility of system status")%20![](Match between system and real world.png "Match between system and the real world")
+![](User control and freedom.png "User control and freedom")%20![](Consistency and standards.png "title-2")
+![]( Error prevention.png "Error prevention")%20![]( Recognition rather than recall.png "Recognition rather than recall")
+![](Flexibility and efficiency of use.png "Flexibility and efficiency of use")%20![]( Aesthethic and minimalist design.png "Aesthetic and minimalist design")
+![](Help users recognize diagnose and recover from errors.png "Help users recognize, diagnose, and recover from errors")%20![](Help and documentation.png "Help and documentation")
 
 **feedback results**
 
