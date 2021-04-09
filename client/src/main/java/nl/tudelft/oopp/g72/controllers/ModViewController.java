@@ -15,6 +15,9 @@ import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 import org.apache.tomcat.jni.Local;
 
 
+/**
+ * Holds the functionality of the moderator code view template.
+ */
 public class ModViewController implements Initializable {
 
     @FXML
@@ -22,19 +25,31 @@ public class ModViewController implements Initializable {
     @FXML
     private Label modCode;
 
+    /**
+     * Initializes student and moderator code.
+     *
+     * @param location location
+     * @param arg1 arg1
+     */
     public void initialize(URL location, ResourceBundle arg1) {
         studCode.setText(LocalVariables.joinStudent);
         modCode.setText(LocalVariables.joinModerator);
     }
 
+    /**
+     * Closes stage.
+     *
+     * @param e event
+     */
     public void close(ActionEvent e) {
         Stage s = (Stage) ((Node) e.getSource()).getScene().getWindow();
         s.close();
     }
 
     /**
-     * Method to save the student code to clipboard.
-     * @param e Event
+     * Saves the student code to clipboard.
+     *
+     * @param e event
      */
     public void saveToClipStudent(ActionEvent e) {
         String studentCode = LocalVariables.joinStudent;
@@ -44,8 +59,9 @@ public class ModViewController implements Initializable {
     }
 
     /**
-     * Method to save the moderator code to clipboard.
-     * @param e Event
+     * Saves the moderator code to clipboard.
+     *
+     * @param e event
      */
     public void saveToClipModerator(ActionEvent e) {
         String moderatorCode = LocalVariables.joinModerator;

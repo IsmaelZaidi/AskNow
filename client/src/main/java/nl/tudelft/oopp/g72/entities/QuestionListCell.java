@@ -7,6 +7,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+/**
+ * Class holding functionality regarding QuestionListCell.
+ */
 public class QuestionListCell extends ListCell<Question> {
     private HBox content;
     private Label name;
@@ -14,7 +17,8 @@ public class QuestionListCell extends ListCell<Question> {
     private TextArea text;
 
     /**
-     * Creates a question cell.
+     * Creates a question cell. It loads the question cell template and adds it as a child
+     * to the comment field.
      */
     public QuestionListCell() {
         super();
@@ -29,6 +33,12 @@ public class QuestionListCell extends ListCell<Question> {
         }
     }
 
+    /**
+     * Method updating a question.
+     *
+     * @param item a question item
+     * @param empty boolean value stating whether empty or not
+     */
     @Override
     protected void updateItem(Question item, boolean empty) {
         super.updateItem(item, empty);

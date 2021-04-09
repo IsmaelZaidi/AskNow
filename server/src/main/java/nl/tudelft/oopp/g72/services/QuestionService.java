@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+/**
+ * Class handling QuestionService.
+ */
 @Service
 public class QuestionService {
     private final QuestionRepository questionRepository;
@@ -20,9 +23,10 @@ public class QuestionService {
 
     /**
      * Constructor for QuestionService.
-     * @param questionRepository Autowired question repository
-     * @param userRepository Autowired user repository
-     * @param roomRepository Autowired room repository.
+     *
+     * @param questionRepository autowired question repository
+     * @param userRepository autowired user repository
+     * @param roomRepository autowired room repository
      */
     @Autowired
     public QuestionService(@Qualifier("QuestionRepository") QuestionRepository questionRepository,
@@ -35,10 +39,11 @@ public class QuestionService {
 
     /**
      * Method for adding a Question to the database.
-     * @param userToken String token of the one who asked the question
+     *
+     * @param userToken string token of the one who asked the question
      * @param roomId integer id of the room
-     * @param message String containing the question
-     * @return a Question entity that corresponds to the one inserted in the database
+     * @param message string containing the question
+     * @return a question entity that corresponds to the one inserted in the database
      */
     public Question addQuestion(String userToken, long roomId, String message) {
         Question question = new Question();
@@ -71,9 +76,10 @@ public class QuestionService {
 
     /**
      * Upvoting a question.
-     * @param questionID question
+     *
+     * @param questionID question id
      * @param token user token
-     * @throws Exception throws excetion
+     * @throws Exception throws exception
      */
     public Question upvoteQuestion(long questionID, String token) throws Exception {
         User user = userRepository.findByToken(token);
@@ -98,10 +104,11 @@ public class QuestionService {
 
     /**
      * It sets boolean value.
-     * @param questionID question ID
+     *
+     * @param questionID question id
      * @param token user token
-     * @return Question object returned
-     * @throws Exception ma ta
+     * @return question object returned
+     * @throws Exception if method fails
      */
     public Question setAsAnswered(long questionID, String token) throws Exception {
         User user = userRepository.findByToken(token);
@@ -124,11 +131,12 @@ public class QuestionService {
 
     /**
      * Answer question.
+     *
      * @param token user token
-     * @param questionID question ID
+     * @param questionID question id
      * @param message message
-     * @return Returns Question object.
-     * @throws Exception Throws exception
+     * @return returns question object.
+     * @throws Exception if method fails
      */
     public Question answerQuestion(String token, long questionID, String message)
         throws Exception {
@@ -150,13 +158,14 @@ public class QuestionService {
         question.setText(message);
         return questionRepository.save(question);
     }
-    
+
     /**
-    *  Deletes a question asked by the user.
-    * @param token user's token
-    * @param questionId id of the question
-    * @return true if the deletion succeeded, false otherwise
-    */
+     * Deletes a question asked by the user.
+     *
+     * @param token user token
+     * @param questionId question id
+     * @return true if the deletion succeeded, false otherwise
+     */
     public boolean deleteQuestion(String token, long questionId) {
         User user = userRepository.findByToken(token);
         if (user == null) {
@@ -181,9 +190,10 @@ public class QuestionService {
 
     /**
      * Retrieves a List of Questions asked in a user's room after a certain time.
-     * @param userToken the User's token
-     * @param time the last question asked
-     * @return a List of Questions sent after time
+     *
+     * @param userToken user token
+     * @param time time of last question
+     * @return list of questions sent after that time
      */
     public List<Question> retrieveQuestions(String userToken, long time) {
         User user = userRepository.findByToken(userToken);
@@ -196,12 +206,13 @@ public class QuestionService {
     }
 
     /**
-     * change later.
-     * @param token q
-     * @param id a
-     * @param messsage a
-     * @return a
-     * @throws Exception a
+     * Edits question asked earlier.
+     *
+     * @param token user token
+     * @param id question id
+     * @param messsage new question content
+     * @return the new question
+     * @throws Exception if method fails
      */
     public Question editQuestion(String token, long id, String messsage) throws Exception {
         User user = userRepository.findByToken(token);

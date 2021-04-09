@@ -15,6 +15,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
+/**
+ * Class holding functionality regarding QuestionListCellStudent.
+ */
 public class QuestionListCellStudent extends ListCell<Question> {
     private HBox content;
     private Label name;
@@ -26,7 +29,8 @@ public class QuestionListCellStudent extends ListCell<Question> {
     private AnchorPane anchorPane;
 
     /**
-     * Creates a question cell.
+     * Creates a question cell. It loads the question cell assistant template and adds it
+     * as a child to the comment field. It is also sent to the server and spread across users.
      */
     public QuestionListCellStudent() {
         super();
@@ -87,6 +91,12 @@ public class QuestionListCellStudent extends ListCell<Question> {
         }
     }
 
+    /**
+     * Updates the question by filling all fields and adding buttons.
+     *
+     * @param item a question item
+     * @param empty boolean value stating whether empty or not
+     */
     @Override
     protected void updateItem(Question item, boolean empty) {
         super.updateItem(item, empty);

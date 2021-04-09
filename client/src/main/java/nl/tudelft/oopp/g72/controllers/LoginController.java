@@ -30,6 +30,9 @@ import javafx.stage.Stage;
 import nl.tudelft.oopp.g72.MainApp;
 import nl.tudelft.oopp.g72.localvariables.LocalVariables;
 
+/**
+ * Holds the functionality of the login template.
+ */
 public class LoginController {
 
     @FXML
@@ -40,6 +43,14 @@ public class LoginController {
     private Label studentCode;
 
 
+    /**
+     * Checks the contents of all fields when attempting to login. When there's no
+     * username or when the server doesn't respond accordingly, the login gets blocked.
+     *
+     * @return Returns boolean value allowing the user to login when true and not when false.
+     * @throws IOException IOException
+     * @throws InterruptedException InterruptedException
+     */
     private boolean login() throws IOException, InterruptedException {
         if (displayName.getText().equals("")) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "You haven't filled in a display name!");
@@ -76,10 +87,13 @@ public class LoginController {
     }
 
     /**
-     * Executed when the 'join room' button is clicked.
+     * Executed when the 'join room' button is clicked. Checks whether a join code
+     * has been filled. If not, it does nothing. If there is it checks whether there's
+     * a room matching the code. If there is the room is joined. If not the user is
+     * informed about this. When the lecture exists the status of the lecture is loaded.
+     * This can be open, closed or scheduled.
      */
     public void joinRoom() throws IOException, InterruptedException {
-        // Will be executed when 'join' button is clicked.
         if (LocalVariables.token == null) {
             boolean loggedin = login();
             if (!loggedin) {
@@ -176,7 +190,9 @@ public class LoginController {
 
 
     /**
-     * Executed when the 'create room' button is clicked.
+     * Executed when the 'create room' button is clicked. Opens the room creator template
+     * and lets the user create a room. Once the room has been created the room is entered
+     * in assistant view.
      */
     public void createRoom() throws IOException, InterruptedException {
         if (LocalVariables.token == null) {
