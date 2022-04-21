@@ -5,7 +5,7 @@ Fast and fuss-free Q&A software designed for university lectures.
 
 ## Group members
 
-| 📸 | Name | Email |
+| 📸 | Name | 
 |---|---|---|
 | ![](https://eu.ui-avatars.com/api/?name=IZ&length=4&size=50&color=DDD&background=777&font-size=0.325) | Ismaël Zaidi | 
 | ![](https://eu.ui-avatars.com/api/?name=CS&length=4&size=50&color=DDD&background=777&font-size=0.325) | Ciprian Stanciu |  
